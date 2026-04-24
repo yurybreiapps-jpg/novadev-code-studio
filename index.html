@@ -347,233 +347,120 @@
       line-height: 1.35;
     }
 
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: -6% -10% 6% -10%;
-      background:
-        radial-gradient(circle at 76% 46%, rgba(255,255,255,0.56) 0 12%, rgba(255,255,255,0.16) 18%, transparent 38%),
-        radial-gradient(circle at 66% 48%, rgba(36, 222, 255, 0.28), transparent 24%),
-        radial-gradient(circle at 84% 48%, rgba(255, 70, 219, 0.28), transparent 26%),
-        linear-gradient(90deg, rgba(255,255,255,0.10), rgba(255,255,255,0));
-      filter: blur(18px);
-      pointer-events: none;
-      z-index: 0;
-      animation: slowPulse 12s ease-in-out infinite;
-    }
-
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      left: 40%;
-      right: -10%;
-      bottom: -10%;
-      height: 50%;
-      background:
-        radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.54) 0 10%, rgba(255,255,255,0.08) 22%, transparent 62%),
-        linear-gradient(90deg,
-          rgba(255,255,255,0) 0%,
-          rgba(42,229,255,0.26) 18%,
-          rgba(86,104,255,0.26) 52%,
-          rgba(255,70,220,0.26) 84%,
-          rgba(255,255,255,0) 100%);
-      filter: blur(20px);
-      opacity: 1;
-      z-index: 0;
-      pointer-events: none;
-      animation: slowSway 14s ease-in-out infinite;
-    }
-
     .hero-art {
       position: relative;
       z-index: 2;
       display: grid;
       place-items: center;
       min-height: 520px;
-      overflow: visible;
     }
 
     .hero-art::before {
       content: "";
       position: absolute;
-      inset: 3% -10% 0%;
+      inset: 8% 6%;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.98) 0 10%, rgba(255,255,255,0.18) 22%, rgba(255,255,255,0.04) 34%, transparent 56%),
-        radial-gradient(circle at 34% 48%, rgba(15, 228, 255, 0.36), transparent 44%),
-        radial-gradient(circle at 68% 44%, rgba(255, 50, 219, 0.34), transparent 44%),
-        radial-gradient(circle at 50% 66%, rgba(92, 102, 255, 0.28), transparent 48%);
-      filter: blur(10px);
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.98) 0 12%, rgba(255,255,255,0.18) 24%, transparent 52%),
+        radial-gradient(circle at 50% 50%, rgba(46, 180, 255, 0.24), transparent 58%),
+        radial-gradient(circle at 50% 50%, rgba(255, 72, 205, 0.20), transparent 62%);
+      filter: blur(8px);
       z-index: 0;
-      animation: slowPulse 10.5s ease-in-out infinite;
-    }
-
-    .hero-art::after {
-      content: "";
-      position: absolute;
-      inset: 30% -25% -10%;
-      background:
-        radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.76) 0 12%, rgba(255,255,255,0.12) 24%, transparent 58%),
-        linear-gradient(90deg,
-          rgba(255,255,255,0) 0%,
-          rgba(42,232,255,0.34) 18%,
-          rgba(96,106,255,0.32) 50%,
-          rgba(255,60,220,0.34) 82%,
-          rgba(255,255,255,0) 100%);
-      filter: blur(18px);
-      opacity: 0.98;
-      z-index: 0;
-      animation: slowSway 13s ease-in-out infinite;
     }
 
     .logo-glow {
       position: absolute;
-      width: min(700px, 108%);
+      width: min(620px, 100%);
       aspect-ratio: 1 / 1;
       border-radius: 50%;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.98) 0 14%, rgba(255,255,255,0.14) 27%, transparent 60%),
-        radial-gradient(circle at 28% 34%, rgba(28, 224, 255, 0.54), transparent 40%),
-        radial-gradient(circle at 74% 38%, rgba(255, 57, 221, 0.48), transparent 42%),
-        radial-gradient(circle at 50% 74%, rgba(102, 102, 255, 0.34), transparent 40%);
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0 14%, rgba(255,255,255,0.10) 30%, transparent 62%),
+        radial-gradient(circle at 28% 34%, rgba(70, 222, 255, 0.36), transparent 46%),
+        radial-gradient(circle at 74% 38%, rgba(255, 74, 224, 0.28), transparent 48%);
       filter: blur(16px);
       z-index: 0;
-      animation: slowPulse 9.5s ease-in-out infinite;
     }
 
     .hero-logo {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       width: min(520px, 100%);
       animation: floaty 6.5s ease-in-out infinite;
-      filter: drop-shadow(0 34px 64px rgba(31, 78, 212, 0.34));
+      filter: drop-shadow(0 30px 56px rgba(59, 101, 212, 0.28));
     }
 
     .streak {
       position: absolute;
       z-index: 1;
       border-radius: 999px;
-      opacity: 1;
+      opacity: 0.98;
       transform-origin: center;
-      filter: blur(0.1px) saturate(1.26) contrast(1.08);
-      box-shadow:
-        0 0 14px rgba(255,255,255,0.36),
-        0 0 30px rgba(106, 156, 255, 0.30),
-        0 0 70px rgba(80, 118, 255, 0.18);
-      animation: driftLine 12s ease-in-out infinite;
-    }
-
-    .streak::before {
-      content: "";
-      position: absolute;
-      inset: 22% 4%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.92) 50%, rgba(255,255,255,0));
-      mix-blend-mode: screen;
-      opacity: 0.9;
+      filter: blur(0.6px);
+      box-shadow: 0 0 26px rgba(106, 156, 255, 0.32);
     }
 
     .streak::after {
       content: "";
       position: absolute;
-      inset: -18px;
+      inset: -10px;
       border-radius: inherit;
-      filter: blur(18px);
-      opacity: 0.94;
+      filter: blur(14px);
+      opacity: 0.78;
       background: inherit;
       z-index: -1;
     }
 
     .streak-1 {
-      --line-rotate: -14deg;
-      width: 960px;
-      height: 26px;
-      left: -200px;
-      top: 56%;
+      width: 640px;
+      height: 12px;
+      left: -10px;
+      top: 52%;
       transform: rotate(-14deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.34) 8%, rgba(12,238,255,1) 24%, rgba(32,108,255,1) 54%, rgba(135,58,255,0.96) 78%, rgba(255,255,255,0));
-      animation-delay: -1s;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(57,223,255,0.98) 18%, rgba(86,123,255,0.98) 58%, rgba(255,255,255,0));
     }
 
     .streak-2 {
-      --line-rotate: 16deg;
-      width: 1020px;
-      height: 28px;
-      right: -210px;
-      top: 48%;
+      width: 720px;
+      height: 14px;
+      right: -80px;
+      top: 46%;
       transform: rotate(16deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.26) 8%, rgba(255,54,220,1) 24%, rgba(102,66,255,0.98) 58%, rgba(30,219,255,0.86) 84%, rgba(255,255,255,0));
-      animation-delay: -3.4s;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,111,231,0.96) 18%, rgba(107,98,255,0.94) 54%, rgba(255,255,255,0));
     }
 
     .streak-3 {
-      --line-rotate: 8deg;
-      width: 820px;
-      height: 18px;
-      left: -20px;
-      top: 63%;
+      width: 620px;
+      height: 10px;
+      left: 40px;
+      top: 60%;
       transform: rotate(8deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.84) 10%, rgba(110,230,255,1) 34%, rgba(160,82,255,0.94) 74%, rgba(255,255,255,0));
-      animation-delay: -5.6s;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.72) 12%, rgba(118,221,255,0.90) 35%, rgba(162,102,255,0.88) 72%, rgba(255,255,255,0));
     }
 
     .streak-4 {
-      --line-rotate: -10deg;
-      width: 900px;
-      height: 18px;
-      right: -100px;
-      top: 61%;
+      width: 680px;
+      height: 10px;
+      right: -50px;
+      top: 58%;
       transform: rotate(-10deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.72) 10%, rgba(255,58,222,1) 42%, rgba(72,170,255,0.92) 80%, rgba(255,255,255,0));
-      animation-delay: -7.4s;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.68) 10%, rgba(255,99,228,0.92) 42%, rgba(89,163,255,0.88) 76%, rgba(255,255,255,0));
     }
 
     .streak-5 {
-      --line-rotate: -26deg;
-      width: 710px;
-      height: 14px;
-      left: 24px;
+      width: 500px;
+      height: 7px;
+      left: 90px;
       top: 42%;
       transform: rotate(-26deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.60) 14%, rgba(20,226,255,0.98) 44%, rgba(255,255,255,0));
-      animation-delay: -2.2s;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(92,217,255,0.76), rgba(255,255,255,0));
     }
 
     .streak-6 {
-      --line-rotate: 28deg;
-      width: 760px;
-      height: 14px;
-      right: -10px;
+      width: 540px;
+      height: 7px;
+      right: 50px;
       top: 40%;
       transform: rotate(28deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.58) 14%, rgba(255,48,220,0.98) 42%, rgba(255,255,255,0));
-      animation-delay: -6.1s;
-    }
-
-    .streak-7 {
-      --line-rotate: 5deg;
-      width: 1140px;
-      height: 42px;
-      left: -290px;
-      top: 69%;
-      transform: rotate(5deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.18) 8%, rgba(20,234,255,0.88) 22%, rgba(92,102,255,0.84) 48%, rgba(255,74,222,0.82) 80%, rgba(255,255,255,0));
-      filter: blur(0.4px) saturate(1.22);
-      opacity: 0.98;
-      animation-delay: -4.7s;
-    }
-
-    .streak-8 {
-      --line-rotate: -7deg;
-      width: 1020px;
-      height: 34px;
-      right: -250px;
-      top: 70%;
-      transform: rotate(-7deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.16) 8%, rgba(255,76,224,0.84) 26%, rgba(102,84,255,0.78) 56%, rgba(24,218,255,0.78) 82%, rgba(255,255,255,0));
-      filter: blur(0.4px) saturate(1.2);
-      opacity: 0.98;
-      animation-delay: -8.8s;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,82,222,0.76), rgba(255,255,255,0));
     }
 
     .spark {
@@ -593,7 +480,6 @@
     .spark.s2 { top: 18%; right: 19%; animation-delay: 0.8s; }
     .spark.s3 { top: 68%; left: 10%; animation-delay: 1.6s; }
     .spark.s4 { top: 72%; right: 14%; animation-delay: 2.2s; }
-
 
     .section {
       padding: 18px 0 0;
@@ -675,18 +561,13 @@
       position: relative;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
+      background: linear-gradient(135deg, rgba(233, 243, 255, 0.95), rgba(247, 239, 255, 0.95));
     }
 
     .project-media img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
-      background: #000;
+      object-fit: cover;
     }
 
     .project-body {
@@ -1125,21 +1006,6 @@
       50% { opacity: 1; transform: scale(1.2); }
     }
 
-    @keyframes driftLine {
-      0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--line-rotate, 0deg)) scaleX(1); }
-      50% { transform: translate3d(18px, -6px, 0) rotate(var(--line-rotate, 0deg)) scaleX(1.03); }
-    }
-
-    @keyframes slowPulse {
-      0%, 100% { transform: scale(1); opacity: 0.94; }
-      50% { transform: scale(1.05); opacity: 1; }
-    }
-
-    @keyframes slowSway {
-      0%, 100% { transform: translateX(0) translateY(0) scaleX(1); }
-      50% { transform: translateX(14px) translateY(-5px) scaleX(1.03); }
-    }
-
     @media (max-width: 1080px) {
       .hero-panel,
       .about-grid,
@@ -1260,7 +1126,7 @@
         width: min(360px, 92%);
       }
 
-      .streak-1, .streak-2, .streak-3, .streak-4, .streak-5, .streak-6, .streak-7, .streak-8 {
+      .streak-1, .streak-2, .streak-3, .streak-4, .streak-5, .streak-6 {
         opacity: 0.78;
       }
 
@@ -1291,402 +1157,400 @@
   </style>
 </head>
 <body>
-<div class="site-shell">
-  <div class="topbar-wrap">
-    <div class="container">
-      <header class="topbar" id="topbar">
-        <a class="brand" href="#home" aria-label="NovaDev Code Studio home">
-          <img src="assets/novadev-logo.png" alt="NovaDev Code Studio logo">
-          <span class="brand-copy">
+  <div class="site-shell">
+    <div class="topbar-wrap">
+      <div class="container">
+        <header class="topbar" id="topbar">
+          <a class="brand" href="#home" aria-label="NovaDev Code Studio home">
+            <img src="assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+            <span class="brand-copy">
               <span class="brand-title">Nova<span>Dev</span></span>
               <span class="brand-subtitle">Code Studio</span>
             </span>
-        </a>
-
-        <nav class="nav" aria-label="Primary navigation">
-          <a class="active" href="#home">Home</a>
-          <a href="#projects">Projects</a>
-          <!-- <a href="#about">About</a> -->
-          <!-- <a href="#contact">Contact</a> -->
-        </nav>
-
-        <div class="topbar-actions">
-          <a class="button button-contact" href="mailto:yurybrei.apps@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="3"></rect>
-              <path d="M4 7l8 6 8-6"></path>
-            </svg>
-            Contact
           </a>
 
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="topbar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 7h16"></path>
-              <path d="M4 12h16"></path>
-              <path d="M4 17h16"></path>
-            </svg>
-          </button>
-        </div>
-      </header>
-    </div>
-  </div>
+          <nav class="nav" aria-label="Primary navigation">
+            <a class="active" href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <!-- <a href="#about">About</a> -->
+            <!-- <a href="#contact">Contact</a> -->
+          </nav>
 
-  <main>
-    <span class="anchor-offset" id="home"></span>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-panel">
-          <div class="hero-copy">
-            <div class="eyebrow">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.5 7.5A5.5 5.5 0 1 0 12 13a5.49 5.49 0 0 0 5.5-5.5Zm-9 0A3.5 3.5 0 1 1 12 11a3.5 3.5 0 0 1-3.5-3.5ZM7 14.5A4.5 4.5 0 0 0 2.5 19v.5A2.5 2.5 0 0 0 5 22h3v-2H5a.5.5 0 0 1-.5-.5V19A2.5 2.5 0 0 1 7 16.5h2v-2H7Zm10 0h-2v2h2a2.5 2.5 0 0 1 2.5 2.5v.5a.5.5 0 0 1-.5.5h-3v2h3a2.5 2.5 0 0 0 2.5-2.5V19a4.5 4.5 0 0 0-4.5-4.5ZM9 18h6v2H9v-2Z"></path>
+          <div class="topbar-actions">
+            <a class="button button-contact" href="mailto:yurybrei.apps@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                <path d="M4 7l8 6 8-6"></path>
               </svg>
-              Android app development
-            </div>
+              Contact
+            </a>
 
-            <h1>NovaDev <span>Code Studio</span></h1>
-            <p>Crafting polished Android experiences with creativity, clarity, and care.</p>
-
-            <div class="hero-actions">
-              <a class="button button-primary" href="#projects">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12.9 2.5a1 1 0 0 1 .88.53l2.27 4.3 4.76.8a1 1 0 0 1 .56 1.68l-3.4 3.55.68 4.87a1 1 0 0 1-1.45 1.01L12 16.96l-4.2 2.28a1 1 0 0 1-1.45-1l.68-4.88-3.4-3.55a1 1 0 0 1 .56-1.68l4.76-.8 2.27-4.3a1 1 0 0 1 .88-.53ZM12 20.5a1 1 0 0 1 .73.32l2.18 2.33a1 1 0 0 1-1.46 1.36L12 23l-1.45 1.51a1 1 0 1 1-1.46-1.36l2.18-2.33A1 1 0 0 1 12 20.5Z"></path>
-                </svg>
-                View Projects
-              </a>
-
-              <a class="button button-secondary" href="#contact">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="3"></rect>
-                  <path d="M4 7l8 6 8-6"></path>
-                </svg>
-                Contact
-              </a>
-            </div>
-
-            <div class="hero-card">
-              <div class="hero-card-grid">
-                <div class="hero-stat">
-                  <strong>2 live concepts</strong>
-                  <span>MatchScore Pro and Eternal Light are already featured.</span>
-                </div>
-                <div class="hero-stat">
-                  <strong>Android first</strong>
-                  <span>Focused on useful mobile apps with clean visual polish.</span>
-                </div>
-                <div class="hero-stat">
-                  <strong>Ready to grow</strong>
-                  <span>The studio brand is set up for future products and launches.</span>
-                </div>
-              </div>
-            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="topbar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 7h16"></path>
+                <path d="M4 12h16"></path>
+                <path d="M4 17h16"></path>
+              </svg>
+            </button>
           </div>
-
-          <div class="hero-art" aria-hidden="true">
-            <div class="logo-glow"></div>
-            <div class="streak streak-1"></div>
-            <div class="streak streak-2"></div>
-            <div class="streak streak-3"></div>
-            <div class="streak streak-4"></div>
-            <div class="streak streak-5"></div>
-            <div class="streak streak-6"></div>
-            <div class="streak streak-7"></div>
-            <div class="streak streak-8"></div>
-            <div class="spark s1"></div>
-            <div class="spark s2"></div>
-            <div class="spark s3"></div>
-            <div class="spark s4"></div>
-            <img class="hero-logo" src="assets/novadev-logo.png" alt="NovaDev hero logo">
-          </div>
-        </div>
+        </header>
       </div>
-    </section>
+    </div>
 
-    <span class="anchor-offset" id="projects"></span>
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Android Projects</h2>
-        </div>
+    <main>
+      <span class="anchor-offset" id="home"></span>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <div class="eyebrow">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.5 7.5A5.5 5.5 0 1 0 12 13a5.49 5.49 0 0 0 5.5-5.5Zm-9 0A3.5 3.5 0 1 1 12 11a3.5 3.5 0 0 1-3.5-3.5ZM7 14.5A4.5 4.5 0 0 0 2.5 19v.5A2.5 2.5 0 0 0 5 22h3v-2H5a.5.5 0 0 1-.5-.5V19A2.5 2.5 0 0 1 7 16.5h2v-2H7Zm10 0h-2v2h2a2.5 2.5 0 0 1 2.5 2.5v.5a.5.5 0 0 1-.5.5h-3v2h3a2.5 2.5 0 0 0 2.5-2.5V19a4.5 4.5 0 0 0-4.5-4.5ZM9 18h6v2H9v-2Z"></path>
+                </svg>
+                Android app development
+              </div>
 
-        <div class="projects-grid">
-          <a class="project-link-card" href="https://play.google.com/store/apps/details?id=space.manus.matchscore.t20260326123000" target="_blank" rel="noreferrer" aria-label="Open MatchScore Pro on Google Play">
-            <article class="project-card">
-              <div class="project-media">
-                <img src="assets/matchscore-pro-banner.png" alt="MatchScore Pro banner">
-              </div>
-              <div class="project-body">
-                <div class="project-topline">
-                  <span class="tag">Sports</span>
-                  <span class="tag">Scoring</span>
-                  <span class="tag">Android</span>
-                </div>
-                <h3>MatchScore Pro</h3>
-                <p>Professional scorekeeping for tennis, pickleball, and ping-pong with a bright, modern presentation.</p>
-                <div class="project-actions">
-                  <span class="text-link">View on Google Play</span>
-                  <span class="arrow-pill" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M13 5l7 7-7 7"></path>
-                      </svg>
-                    </span>
-                </div>
-              </div>
-            </article>
-          </a>
+              <h1>NovaDev <span>Code Studio</span></h1>
+              <p>Crafting polished Android experiences with creativity, clarity, and care.</p>
 
-          <a class="project-link-card" href="https://play.google.com/store/apps/details?id=com.eternallight.christianprayer" target="_blank" rel="noreferrer" aria-label="Open Eternal Light on Google Play">
-            <article class="project-card">
-              <div class="project-media">
-                <img src="assets/eternal-light-banner.png" alt="Eternal Light banner">
-              </div>
-              <div class="project-body">
-                <div class="project-topline">
-                  <span class="tag">Faith</span>
-                  <span class="tag">Guided prayer</span>
-                  <span class="tag">Android</span>
-                </div>
-                <h3>Eternal Light</h3>
-                <p>Guided Christian prayers for every moment with a calm presentation and meaningful visual identity. Currently in Google Play closed testing.</p>
-                <div class="project-actions">
-                  <span class="text-link">Closed testing link</span>
-                  <span class="arrow-pill" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M13 5l7 7-7 7"></path>
-                      </svg>
-                    </span>
-                </div>
-              </div>
-            </article>
-          </a>
-
-          <article class="project-card">
-            <div class="project-media">
-              <div class="placeholder-visual">
-                <div class="device">
-                  <svg class="device-rocket" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M15.4 2.6c-2.7.1-5.1 1.1-6.8 2.8-1.6 1.6-2.6 3.8-2.8 6.3L3.3 14a1 1 0 0 0-.2 1.1c.2.4.6.7 1.1.7l3.3-.2 1.9 1.9-.2 3.3a1 1 0 0 0 .7 1.1 1 1 0 0 0 1.1-.2l2.2-2.4c2.5-.2 4.7-1.2 6.3-2.8 1.7-1.7 2.7-4.1 2.8-6.8l.1-5.1a1 1 0 0 0-1-1l-5.1.1Zm2.6 5.1a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Z"></path>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#projects">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12.9 2.5a1 1 0 0 1 .88.53l2.27 4.3 4.76.8a1 1 0 0 1 .56 1.68l-3.4 3.55.68 4.87a1 1 0 0 1-1.45 1.01L12 16.96l-4.2 2.28a1 1 0 0 1-1.45-1l.68-4.88-3.4-3.55a1 1 0 0 1 .56-1.68l4.76-.8 2.27-4.3a1 1 0 0 1 .88-.53ZM12 20.5a1 1 0 0 1 .73.32l2.18 2.33a1 1 0 0 1-1.46 1.36L12 23l-1.45 1.51a1 1 0 1 1-1.46-1.36l2.18-2.33A1 1 0 0 1 12 20.5Z"></path>
                   </svg>
+                  View Projects
+                </a>
+
+                <a class="button button-secondary" href="#contact">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                    <path d="M4 7l8 6 8-6"></path>
+                  </svg>
+                  Contact
+                </a>
+              </div>
+
+              <div class="hero-card">
+                <div class="hero-card-grid">
+                  <div class="hero-stat">
+                    <strong>2 live concepts</strong>
+                    <span>MatchScore Pro and Eternal Light are already featured.</span>
+                  </div>
+                  <div class="hero-stat">
+                    <strong>Android first</strong>
+                    <span>Focused on useful mobile apps with clean visual polish.</span>
+                  </div>
+                  <div class="hero-stat">
+                    <strong>Ready to grow</strong>
+                    <span>The studio brand is set up for future products and launches.</span>
+                  </div>
                 </div>
-                <div class="pedestal"></div>
               </div>
             </div>
-            <div class="project-body">
-              <div class="project-topline">
-                <span class="tag">Studio</span>
-                <span class="tag">In progress</span>
-                <span class="tag">Future</span>
+
+            <div class="hero-art" aria-hidden="true">
+              <div class="logo-glow"></div>
+              <div class="streak streak-1"></div>
+              <div class="streak streak-2"></div>
+              <div class="streak streak-3"></div>
+              <div class="streak streak-4"></div>
+              <div class="streak streak-5"></div>
+              <div class="streak streak-6"></div>
+              <div class="spark s1"></div>
+              <div class="spark s2"></div>
+              <div class="spark s3"></div>
+              <div class="spark s4"></div>
+              <img class="hero-logo" src="assets/novadev-logo-transparent.png" alt="NovaDev hero logo">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <span class="anchor-offset" id="projects"></span>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Android Projects</h2>
+          </div>
+
+          <div class="projects-grid">
+            <a class="project-link-card" href="https://play.google.com/store/apps/details?id=space.manus.matchscore.t20260326123000" target="_blank" rel="noreferrer" aria-label="Open MatchScore Pro on Google Play">
+              <article class="project-card">
+                <div class="project-media">
+                  <img src="assets/matchscore-pro-banner.png" alt="MatchScore Pro banner">
+                </div>
+                <div class="project-body">
+                  <div class="project-topline">
+                    <span class="tag">Sports</span>
+                    <span class="tag">Scoring</span>
+                    <span class="tag">Android</span>
+                  </div>
+                  <h3>MatchScore Pro</h3>
+                  <p>Professional scorekeeping for tennis, pickleball, and ping-pong with a bright, modern presentation.</p>
+                  <div class="project-actions">
+                    <span class="text-link">View on Google Play</span>
+                    <span class="arrow-pill" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </a>
+
+            <a class="project-link-card" href="https://play.google.com/store/apps/details?id=com.eternallight.christianprayer" target="_blank" rel="noreferrer" aria-label="Open Eternal Light on Google Play">
+              <article class="project-card">
+                <div class="project-media">
+                  <img src="assets/eternal-light-banner.png" alt="Eternal Light banner">
+                </div>
+                <div class="project-body">
+                  <div class="project-topline">
+                    <span class="tag">Faith</span>
+                    <span class="tag">Guided prayer</span>
+                    <span class="tag">Android</span>
+                  </div>
+                  <h3>Eternal Light</h3>
+                  <p>Guided Christian prayers for every moment with a calm presentation and meaningful visual identity. Currently in Google Play closed testing.</p>
+                  <div class="project-actions">
+                    <span class="text-link">Closed testing link</span>
+                    <span class="arrow-pill" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </a>
+
+            <article class="project-card">
+              <div class="project-media">
+                <div class="placeholder-visual">
+                  <div class="device">
+                    <svg class="device-rocket" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M15.4 2.6c-2.7.1-5.1 1.1-6.8 2.8-1.6 1.6-2.6 3.8-2.8 6.3L3.3 14a1 1 0 0 0-.2 1.1c.2.4.6.7 1.1.7l3.3-.2 1.9 1.9-.2 3.3a1 1 0 0 0 .7 1.1 1 1 0 0 0 1.1-.2l2.2-2.4c2.5-.2 4.7-1.2 6.3-2.8 1.7-1.7 2.7-4.1 2.8-6.8l.1-5.1a1 1 0 0 0-1-1l-5.1.1Zm2.6 5.1a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Z"></path>
+                    </svg>
+                  </div>
+                  <div class="pedestal"></div>
+                </div>
               </div>
-              <h3>More Projects Coming Soon</h3>
-              <p>NovaDev Code Studio is ready for new Android ideas, future launches, and a growing project portfolio.</p>
-              <div class="project-actions">
-                <a class="text-link" href="#about">Explore roadmap</a>
-                <span class="arrow-pill" aria-hidden="true">
+              <div class="project-body">
+                <div class="project-topline">
+                  <span class="tag">Studio</span>
+                  <span class="tag">In progress</span>
+                  <span class="tag">Future</span>
+                </div>
+                <h3>More Projects Coming Soon</h3>
+                <p>NovaDev Code Studio is ready for new Android ideas, future launches, and a growing project portfolio.</p>
+                <div class="project-actions">
+                  <a class="text-link" href="#about">Explore roadmap</a>
+                  <span class="arrow-pill" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M5 12h14"></path>
                       <path d="M13 5l7 7-7 7"></path>
                     </svg>
                   </span>
+                </div>
               </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="studio-highlights">
-          <article class="highlight">
-            <div class="icon-circle blue">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M7.5 2A1.5 1.5 0 0 0 6 3.5V5H4.5a1.5 1.5 0 0 0 0 3H6v2H4.5a1.5 1.5 0 0 0 0 3H6v2H4.5a1.5 1.5 0 0 0 0 3H6v1.5A1.5 1.5 0 0 0 7.5 21h1.3l.7 1.2a1 1 0 0 0 1.7 0L12 21h.8l.8 1.2a1 1 0 0 0 1.7 0l.7-1.2h1.5A1.5 1.5 0 0 0 19 19.5V18h1.5a1.5 1.5 0 0 0 0-3H19v-2h1.5a1.5 1.5 0 0 0 0-3H19V8h1.5a1.5 1.5 0 0 0 0-3H19V3.5A1.5 1.5 0 0 0 17.5 2h-10ZM9 7h6v10H9V7Z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3>Android Development</h3>
-              <p>Native Android apps built with modern tools, clear architecture, and practical performance in mind.</p>
-            </div>
-          </article>
-
-          <article class="highlight">
-            <div class="icon-circle violet">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 21s-7.1-4.4-9.5-8C.7 10.1 1.8 6.4 5.1 5a5.5 5.5 0 0 1 6.9 2A5.5 5.5 0 0 1 18.9 5c3.3 1.4 4.4 5.1 2.6 8-2.4 3.6-9.5 8-9.5 8Z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3>Beautiful UX</h3>
-              <p>Bright, elegant interfaces that feel approachable, polished, and enjoyable to use every day.</p>
-            </div>
-          </article>
-
-          <article class="highlight">
-            <div class="icon-circle magenta">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M14.1 2.4c-2.6.1-5 1.1-6.7 2.8-1.6 1.6-2.6 3.8-2.8 6.2L2.3 13.8a1 1 0 0 0 .9 1.7l3.4-.2 2 2-.2 3.4a1 1 0 0 0 1.7.9l2.4-2.3c2.4-.2 4.6-1.2 6.2-2.8 1.7-1.7 2.7-4.1 2.8-6.7L21.7 3a1 1 0 0 0-1-1l-6.6.2ZM17.6 8a1.8 1.8 0 1 1 0-3.6A1.8 1.8 0 0 1 17.6 8Z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3>Future-Ready Ideas</h3>
-              <p>Studio branding and site structure built to expand smoothly as new products and links are added.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <span class="anchor-offset" id="about"></span>
-    <section class="section">
-      <div class="container">
-        <div class="about-grid">
-          <article class="glass-card">
-            <h2>A bright home for current and future Android apps.</h2>
-            <p>NovaDev Code Studio is positioned as a polished independent app studio focused on clean presentation, practical ideas, and memorable branding.</p>
-
-            <div class="value-list">
-              <div class="value-item">
-                <strong></strong>
-              </div>
-              <div class="value-item">
-                <strong></strong>
-              </div>
-              <div class="value-item">
-                <strong></strong>
-              </div>
-            </div>
-          </article>
-
-          <aside class="glass-card">
-            <h3></h3>
-            <p></p>
-            <div class="value-list">
-              <div class="value-item">
-                <strong></strong>
-
-              </div>
-              <div class="value-item">
-                <strong></strong>
-
-              </div>
-              <div class="value-item">
-                <strong></strong>
-
-              </div>
-            </div>
-          </aside>
-        </div>
-
-        <div class="roadmap-grid">
-          <article class="roadmap-card">
-            <h3>Project showcase</h3>
-            <p></p>
-          </article>
-          <article class="roadmap-card">
-            <h3>Brand consistency</h3>
-            <p></p>
-          </article>
-          <article class="roadmap-card">
-            <h3>Easy to maintain</h3>
-            <p></p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <span class="anchor-offset" id="contact"></span>
-    <section class="section">
-      <div class="container">
-        <div class="contact-panel">
-          <div>
-            <h2>Let’s talk about your next Android project.</h2>
-            <p>Reach out to NovaDev Code Studio with questions, proposals, feedback, or ideas for future Android app builds. Whether you want to discuss a new concept, improvements to an existing product, or a potential collaboration, I’d be glad to hear from you.</p>
-            <div class="note">Contact: yurybrei.apps@gmail.com</div>
+            </article>
           </div>
 
-          <div class="contact-actions">
-            <a class="button button-primary" href="mailto:yurybrei.apps@gmail.com">
+          <div class="studio-highlights">
+            <article class="highlight">
+              <div class="icon-circle blue">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M7.5 2A1.5 1.5 0 0 0 6 3.5V5H4.5a1.5 1.5 0 0 0 0 3H6v2H4.5a1.5 1.5 0 0 0 0 3H6v2H4.5a1.5 1.5 0 0 0 0 3H6v1.5A1.5 1.5 0 0 0 7.5 21h1.3l.7 1.2a1 1 0 0 0 1.7 0L12 21h.8l.8 1.2a1 1 0 0 0 1.7 0l.7-1.2h1.5A1.5 1.5 0 0 0 19 19.5V18h1.5a1.5 1.5 0 0 0 0-3H19v-2h1.5a1.5 1.5 0 0 0 0-3H19V8h1.5a1.5 1.5 0 0 0 0-3H19V3.5A1.5 1.5 0 0 0 17.5 2h-10ZM9 7h6v10H9V7Z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3>Android Development</h3>
+                <p>Native Android apps built with modern tools, clear architecture, and practical performance in mind.</p>
+              </div>
+            </article>
+
+            <article class="highlight">
+              <div class="icon-circle violet">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 21s-7.1-4.4-9.5-8C.7 10.1 1.8 6.4 5.1 5a5.5 5.5 0 0 1 6.9 2A5.5 5.5 0 0 1 18.9 5c3.3 1.4 4.4 5.1 2.6 8-2.4 3.6-9.5 8-9.5 8Z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3>Beautiful UX</h3>
+                <p>Bright, elegant interfaces that feel approachable, polished, and enjoyable to use every day.</p>
+              </div>
+            </article>
+
+            <article class="highlight">
+              <div class="icon-circle magenta">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M14.1 2.4c-2.6.1-5 1.1-6.7 2.8-1.6 1.6-2.6 3.8-2.8 6.2L2.3 13.8a1 1 0 0 0 .9 1.7l3.4-.2 2 2-.2 3.4a1 1 0 0 0 1.7.9l2.4-2.3c2.4-.2 4.6-1.2 6.2-2.8 1.7-1.7 2.7-4.1 2.8-6.7L21.7 3a1 1 0 0 0-1-1l-6.6.2ZM17.6 8a1.8 1.8 0 1 1 0-3.6A1.8 1.8 0 0 1 17.6 8Z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3>Future-Ready Ideas</h3>
+                <p>Studio branding and site structure built to expand smoothly as new products and links are added.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <span class="anchor-offset" id="about"></span>
+      <section class="section">
+        <div class="container">
+          <div class="about-grid">
+            <article class="glass-card">
+              <h2>A bright home for current and future Android apps.</h2>
+              <p>NovaDev Code Studio is positioned as a polished independent app studio focused on clean presentation, practical ideas, and memorable branding.</p>
+
+              <div class="value-list">
+                <div class="value-item">
+                  <strong></strong>                  
+                </div>
+                <div class="value-item">
+                  <strong></strong>                  
+                </div>
+                <div class="value-item">
+                  <strong></strong>                  
+                </div>
+              </div>
+            </article>
+
+            <aside class="glass-card">
+              <h3></h3>
+              <p></p>
+              <div class="value-list">
+                <div class="value-item">
+                  <strong></strong>
+                  
+                </div>
+                <div class="value-item">
+                  <strong></strong>
+                  
+                </div>
+                <div class="value-item">
+                  <strong></strong>
+                  
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="roadmap-grid">
+            <article class="roadmap-card">
+              <h3>Project showcase</h3>
+              <p></p>
+            </article>
+            <article class="roadmap-card">
+              <h3>Brand consistency</h3>
+              <p></p>
+            </article>
+            <article class="roadmap-card">
+              <h3>Easy to maintain</h3>
+              <p></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <span class="anchor-offset" id="contact"></span>
+      <section class="section">
+        <div class="container">
+          <div class="contact-panel">
+            <div>
+              <h2>Let’s talk about your next Android project.</h2>
+              <p>Reach out to NovaDev Code Studio with questions, proposals, feedback, or ideas for future Android app builds. Whether you want to discuss a new concept, improvements to an existing product, or a potential collaboration, I’d be glad to hear from you.</p>
+              <div class="note">Contact: yurybrei.apps@gmail.com</div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="button button-primary" href="mailto:yurybrei.apps@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                  <path d="M4 7l8 6 8-6"></path>
+                </svg>
+                Email the studio
+              </a>
+
+              <a class="button button-secondary" href="https://github.com/yurybreiapps-jpg" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.8-.2.8-.6v-2.3c-3.4.8-4.2-1.5-4.2-1.5-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.4-5.5-6.1 0-1.3.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1.1-.4 3.5 1.3A12 12 0 0 1 12 6.6a12 12 0 0 1 3.2.4c2.4-1.7 3.5-1.3 3.5-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2.1 1.3 3.4 0 4.7-2.8 5.8-5.5 6.1.4.4.9 1.1.9 2.2v3.2c0 .4.2.7.8.6A12 12 0 0 0 12 .5Z"></path>
+                </svg>
+                GitHub profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-shell">
+          <a class="brand" href="#home" aria-label="Back to top">
+            <img src="assets/novadev-logo.png" alt="NovaDev footer logo">
+            <span class="brand-copy">
+              <span class="brand-title">Nova<span>Dev</span></span>
+              <span class="brand-subtitle">Code Studio</span>
+            </span>
+          </a>
+
+          <small>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</small>
+
+          <div class="social" aria-label="Social links">
+            <a href="https://github.com/yurybreiapps-jpg" target="_blank" rel="noreferrer">
+              <span class="hidden-label">GitHub</span>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.8-.2.8-.6v-2.3c-3.4.8-4.2-1.5-4.2-1.5-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.4-5.5-6.1 0-1.3.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1.1-.4 3.5 1.3A12 12 0 0 1 12 6.6a12 12 0 0 1 3.2.4c2.4-1.7 3.5-1.3 3.5-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2.1 1.3 3.4 0 4.7-2.8 5.8-5.5 6.1.4.4.9 1.1.9 2.2v3.2c0 .4.2.7.8.6A12 12 0 0 0 12 .5Z"></path>
+              </svg>
+            </a>
+
+            <a href="mailto:yurybrei.apps@gmail.com">
+              <span class="hidden-label">Email</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="14" rx="3"></rect>
                 <path d="M4 7l8 6 8-6"></path>
               </svg>
-              Email the studio
             </a>
 
-            <a class="button button-secondary" href="https://github.com/yurybreiapps-jpg" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.8-.2.8-.6v-2.3c-3.4.8-4.2-1.5-4.2-1.5-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.4-5.5-6.1 0-1.3.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1.1-.4 3.5 1.3A12 12 0 0 1 12 6.6a12 12 0 0 1 3.2.4c2.4-1.7 3.5-1.3 3.5-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2.1 1.3 3.4 0 4.7-2.8 5.8-5.5 6.1.4.4.9 1.1.9 2.2v3.2c0 .4.2.7.8.6A12 12 0 0 0 12 .5Z"></path>
+            <a href="#projects">
+              <span class="hidden-label">Projects</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+                <path d="M8 8h8"></path>
+                <path d="M8 12h8"></path>
+                <path d="M8 16h5"></path>
               </svg>
-              GitHub profile
             </a>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </footer>
+  </div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-shell">
-        <a class="brand" href="#home" aria-label="Back to top">
-          <img src="assets/novadev-logo.png" alt="NovaDev footer logo">
-          <span class="brand-copy">
-              <span class="brand-title">Nova<span>Dev</span></span>
-              <span class="brand-subtitle">Code Studio</span>
-            </span>
-        </a>
+  <script>
+    const topbar = document.getElementById("topbar");
+    const mobileToggle = document.getElementById("mobileToggle");
+    const currentYear = document.getElementById("currentYear");
 
-        <small>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</small>
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
+    }
 
-        <div class="social" aria-label="Social links">
-          <a href="https://github.com/yurybreiapps-jpg" target="_blank" rel="noreferrer">
-            <span class="hidden-label">GitHub</span>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.8-.2.8-.6v-2.3c-3.4.8-4.2-1.5-4.2-1.5-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.4-5.5-6.1 0-1.3.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1.1-.4 3.5 1.3A12 12 0 0 1 12 6.6a12 12 0 0 1 3.2.4c2.4-1.7 3.5-1.3 3.5-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2.1 1.3 3.4 0 4.7-2.8 5.8-5.5 6.1.4.4.9 1.1.9 2.2v3.2c0 .4.2.7.8.6A12 12 0 0 0 12 .5Z"></path>
-            </svg>
-          </a>
-
-          <a href="mailto:yurybrei.apps@gmail.com">
-            <span class="hidden-label">Email</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="3"></rect>
-              <path d="M4 7l8 6 8-6"></path>
-            </svg>
-          </a>
-
-          <a href="#projects">
-            <span class="hidden-label">Projects</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="16" rx="3"></rect>
-              <path d="M8 8h8"></path>
-              <path d="M8 12h8"></path>
-              <path d="M8 16h5"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<script>
-  const topbar = document.getElementById("topbar");
-  const mobileToggle = document.getElementById("mobileToggle");
-  const currentYear = document.getElementById("currentYear");
-
-  if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-  }
-
-  mobileToggle.addEventListener("click", () => {
-    const isOpen = topbar.classList.toggle("open");
-    mobileToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  document.querySelectorAll('.nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      topbar.classList.remove('open');
-      mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = topbar.classList.toggle("open");
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
     });
-  });
-</script>
+
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        topbar.classList.remove('open');
+        mobileToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
 </body>
 </html>
