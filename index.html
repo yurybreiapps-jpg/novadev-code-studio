@@ -289,7 +289,7 @@
 
     .eyebrow-text {
       display: block;
-      max-width: 156px;
+      max-width: 210px;
       font-weight: 800;
       font-size: 1.3rem;
       line-height: 1.15;
@@ -693,6 +693,52 @@
       background: radial-gradient(circle, rgba(255, 86, 222, 0.22), rgba(255,86,222,0));
       right: -40px;
       bottom: -70px;
+    }
+
+    .zen-placeholder {
+      background:
+        radial-gradient(circle at 28% 24%, rgba(255,255,255,0.96), transparent 24%),
+        radial-gradient(circle at 75% 70%, rgba(94, 219, 184, 0.28), transparent 28%),
+        linear-gradient(135deg, rgba(232, 250, 246, 0.98), rgba(245, 241, 255, 0.98));
+    }
+
+    .zen-tile-board {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 54px);
+      gap: 10px;
+      padding: 16px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: 0 22px 42px rgba(65, 112, 173, 0.16);
+      transform: rotate(-3deg);
+    }
+
+    .zen-tile {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(226, 241, 255, 0.98));
+      border: 1px solid rgba(68, 122, 238, 0.12);
+      box-shadow: inset 0 -8px 14px rgba(38, 119, 191, 0.08), 0 10px 18px rgba(50, 92, 180, 0.08);
+      display: grid;
+      place-items: center;
+      color: #1aa889;
+      font-size: 1.45rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .zen-tile:nth-child(2),
+    .zen-tile:nth-child(6) {
+      color: var(--violet);
+    }
+
+    .zen-tile:nth-child(4),
+    .zen-tile:nth-child(8) {
+      color: var(--blue);
     }
 
     .device {
@@ -1227,7 +1273,7 @@
             <div class="hero-copy">
               <div class="eyebrow">
                 <img class="eyebrow-icon" src="assets/android-mascot-transparent.png" alt="" aria-hidden="true">
-                <span class="eyebrow-text">Android app<br>development</span>
+                <span class="eyebrow-text">Android and <br>Wear OS <br>Development</span>
 					  
 									   
               </div>
@@ -1255,8 +1301,8 @@
               <div class="hero-card">
                 <div class="hero-card-grid">
                   <div class="hero-stat">
-                    <strong>2 live concepts</strong>
-                    <span>MatchScore Pro and Eternal Light are already featured.</span>
+                    <strong>4 featured projects</strong>
+                    <span>Sports, faith, and relaxing game concepts are now in the studio showcase.</span>
                   </div>
                   <div class="hero-stat">
                     <strong>Android first</strong>
@@ -1373,6 +1419,42 @@
               </div>
             </article>
             </a>
+
+            <article class="project-card" aria-label="ZEN Tile Relax Wear OS game preview">
+              <div class="project-media">
+                <div class="placeholder-visual zen-placeholder" role="img" aria-label="Temporary Zen Tile Relax preview artwork">
+                  <div class="zen-tile-board" aria-hidden="true">
+                    <span class="zen-tile">Z</span>
+                    <span class="zen-tile">E</span>
+                    <span class="zen-tile">N</span>
+                    <span class="zen-tile">T</span>
+                    <span class="zen-tile">I</span>
+                    <span class="zen-tile">L</span>
+                    <span class="zen-tile">E</span>
+                    <span class="zen-tile">S</span>
+                    <span class="zen-tile">+</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-topline">
+                  <span class="tag">Puzzle</span>
+                  <span class="tag">Relax</span>
+                  <span class="tag">Wear OS</span>
+                </div>
+                <h3>ZEN Tile Relax</h3>
+                <p>A calm tile-matching puzzle game designed for relaxing play, clean visuals, and satisfying daily brain breaks.</p>
+                <div class="project-actions">
+                  <span class="text-link">Preview artwork coming soon</span>
+                  <span class="arrow-pill" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M13 5l7 7-7 7"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </article>
           </div>
 
           <div class="studio-highlights">
