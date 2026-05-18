@@ -695,52 +695,6 @@
       bottom: -70px;
     }
 
-    .zen-placeholder {
-      background:
-        radial-gradient(circle at 28% 24%, rgba(255,255,255,0.96), transparent 24%),
-        radial-gradient(circle at 75% 70%, rgba(94, 219, 184, 0.28), transparent 28%),
-        linear-gradient(135deg, rgba(232, 250, 246, 0.98), rgba(245, 241, 255, 0.98));
-    }
-
-    .zen-tile-board {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(3, 54px);
-      gap: 10px;
-      padding: 16px;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.64);
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      box-shadow: 0 22px 42px rgba(65, 112, 173, 0.16);
-      transform: rotate(-3deg);
-    }
-
-    .zen-tile {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(226, 241, 255, 0.98));
-      border: 1px solid rgba(68, 122, 238, 0.12);
-      box-shadow: inset 0 -8px 14px rgba(38, 119, 191, 0.08), 0 10px 18px rgba(50, 92, 180, 0.08);
-      display: grid;
-      place-items: center;
-      color: #1aa889;
-      font-size: 1.45rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .zen-tile:nth-child(2),
-    .zen-tile:nth-child(6) {
-      color: var(--violet);
-    }
-
-    .zen-tile:nth-child(4),
-    .zen-tile:nth-child(8) {
-      color: var(--blue);
-    }
-
     .device {
       position: relative;
       width: 112px;
@@ -1301,8 +1255,8 @@
               <div class="hero-card">
                 <div class="hero-card-grid">
                   <div class="hero-stat">
-                    <strong>4 featured projects</strong>
-                    <span>Sports, faith, and relaxing game concepts are now in the studio showcase.</span>
+                    <strong>4 project areas</strong>
+                    <span>Android, Wear OS, iOS, and watchOS now have dedicated project folders.</span>
                   </div>
                   <div class="hero-stat">
                     <strong>Android first</strong>
@@ -1338,25 +1292,24 @@
       <section class="section">
         <div class="container">
           <div class="section-header">
-            <h2>Android Projects</h2>
+            <h2>Projects</h2>
           </div>
 
           <div class="projects-grid">
-            <a class="project-link-card" href="https://play.google.com/store/apps/details?id=space.manus.matchscore.t20260326123000" target="_blank" rel="noreferrer" aria-label="Open MatchScore Pro on Google Play">
+            <a class="project-link-card" href="Projects/Android/" aria-label="Open Android projects">
               <article class="project-card">
                 <div class="project-media">
                   <img src="assets/matchscore-pro-banner.png" alt="MatchScore Pro banner">
                 </div>
                 <div class="project-body">
                   <div class="project-topline">
-                    <span class="tag">Sports</span>
-                    <span class="tag">Scoring</span>
                     <span class="tag">Android</span>
+                    <span class="tag">2 projects</span>
                   </div>
-                  <h3>MatchScore Pro</h3>
-                  <p>Professional scorekeeping for tennis, pickleball, and ping-pong with a bright, modern presentation.</p>
+                  <h3>Android</h3>
+                  <p>Mobile app projects for Android phones and tablets, including current published apps and future launches.</p>
                   <div class="project-actions">
-                    <span class="text-link">View on Google Play</span>
+                    <span class="text-link">View Android projects</span>
                     <span class="arrow-pill" aria-hidden="true">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14"></path>
@@ -1368,83 +1321,94 @@
               </article>
             </a>
 
-            <a class="project-link-card" href="https://play.google.com/store/apps/details?id=com.novadevcodestudio.matchscoreprowatch" target="_blank" rel="noreferrer" aria-label="Tennis Pickleball Ping-Pong Scorer - a lightweight Wear OS tennis scoring companion designed for quick point tracking, undo support, voice announcements, multi-color interface and other features.">
+            <a class="project-link-card" href="Projects/WearOS/" aria-label="Open Wear OS projects">
               <article class="project-card">
                 <div class="project-media">
-                  <img src="assets/WatchOSScorer_1024x500.jpg" alt="Tennis Pickleball Ping-Pong Scorer Wear OS banner">
+                  <img src="assets/zen-tile-flow-banner.png" alt="ZEN Tile Flow Wear OS game banner">
                 </div>
                 <div class="project-body">
                   <div class="project-topline">
-                    <span class="tag">Sports</span>
-                    <span class="tag">Scoring</span>
                     <span class="tag">Wear OS</span>
+                    <span class="tag">2 projects</span>
                   </div>
-                  <h3>Tennis Pickleball Ping-Pong Scorer</h3>
-                  <p>Fast, simple scoring for tennis, pickleball, and ping-pong on Wear OS watches.</p>
+                  <h3>Wear OS</h3>
+                  <p>Watch-first apps and games designed for fast glanceable interactions on Wear OS devices.</p>
                   <div class="project-actions">
-                    <span class="text-link">Google Play listing coming soon</span>
+                    <span class="text-link">View Wear OS projects</span>
                     <span class="arrow-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="M13 5l7 7-7 7"></path>
-                    </svg>
-                  </span>
-                  </div>
-                </div>
-              </article>
-            </a>
-
-            <a class="project-link-card" href="https://play.google.com/store/apps/details?id=com.eternallight.christianprayer" target="_blank" rel="noreferrer" aria-label="Open Eternal Light on Google Play">
-              <article class="project-card">
-              <div class="project-media">
-                <img src="assets/eternal-light-banner.png" alt="Eternal Light banner">
-              </div>
-              <div class="project-body">
-                <div class="project-topline">
-                  <span class="tag">Faith</span>
-                  <span class="tag">Guided prayer</span>
-                  <span class="tag">Android</span>
-                  <span class="tag">Christianity</span>
-                </div>
-                <h3>Eternal Light</h3>
-                <p>Guided Christian prayers for every moment with a calm presentation and meaningful visual identity.</p>
-                <div class="project-actions">
-                  <span class="text-link">View on Google Play</span>
-                  <span class="arrow-pill" aria-hidden="true">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14"></path>
                         <path d="M13 5l7 7-7 7"></path>
                       </svg>
                     </span>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
             </a>
 
-            <article class="project-card" aria-label="ZEN Tile Relax Wear OS game preview">
-              <div class="project-media">
-                <img src="assets/zen-tile-flow-banner.png" alt="ZEN Tile Flow Wear OS game banner">
-              </div>
-              <div class="project-body">
-                <div class="project-topline">
-                  <span class="tag">Puzzle</span>
-                  <span class="tag">Relax</span>
-                  <span class="tag">Wear OS</span>
-                  <span class="tag">Game</span>
+            <a class="project-link-card" href="Projects/iOS/" aria-label="Open iOS projects">
+              <article class="project-card">
+                <div class="project-media">
+                  <div class="placeholder-visual" aria-hidden="true">
+                    <div class="device">
+                      <svg class="device-rocket" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.1 2.4c-2.6.1-5 1.1-6.7 2.8-1.6 1.6-2.6 3.8-2.8 6.2L2.3 13.8a1 1 0 0 0 .9 1.7l3.4-.2 2 2-.2 3.4a1 1 0 0 0 1.7.9l2.4-2.3c2.4-.2 4.6-1.2 6.2-2.8 1.7-1.7 2.7-4.1 2.8-6.7L21.7 3a1 1 0 0 0-1-1l-6.6.2ZM17.6 8a1.8 1.8 0 1 1 0-3.6A1.8 1.8 0 0 1 17.6 8Z"></path>
+                      </svg>
+                    </div>
+                    <div class="pedestal"></div>
+                  </div>
                 </div>
-                <h3>ZEN Tile Relax</h3>
-                <p>A calm tile-matching puzzle game designed for relaxing play, clean visuals, and satisfying daily brain breaks.</p>
-                <div class="project-actions">
-                  <span class="text-link">Google Play listing coming soon</span>
-                  <span class="arrow-pill" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="M13 5l7 7-7 7"></path>
-                    </svg>
-                  </span>
+                <div class="project-body">
+                  <div class="project-topline">
+                    <span class="tag">iOS</span>
+                    <span class="tag">Future</span>
+                  </div>
+                  <h3>iOS</h3>
+                  <p>A dedicated home for upcoming iPhone and iPad projects as the studio portfolio grows.</p>
+                  <div class="project-actions">
+                    <span class="text-link">View iOS projects</span>
+                    <span class="arrow-pill" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </a>
+
+            <a class="project-link-card" href="Projects/WatchOS/" aria-label="Open watchOS projects">
+              <article class="project-card">
+                <div class="project-media">
+                  <div class="placeholder-visual" aria-hidden="true">
+                    <div class="device">
+                      <svg class="device-rocket" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21s-7.1-4.4-9.5-8C.7 10.1 1.8 6.4 5.1 5a5.5 5.5 0 0 1 6.9 2A5.5 5.5 0 0 1 18.9 5c3.3 1.4 4.4 5.1 2.6 8-2.4 3.6-9.5 8-9.5 8Z"></path>
+                      </svg>
+                    </div>
+                    <div class="pedestal"></div>
+                  </div>
+                </div>
+                <div class="project-body">
+                  <div class="project-topline">
+                    <span class="tag">watchOS</span>
+                    <span class="tag">Future</span>
+                  </div>
+                  <h3>watchOS</h3>
+                  <p>A separate space for future Apple Watch projects and experiments.</p>
+                  <div class="project-actions">
+                    <span class="text-link">View watchOS projects</span>
+                    <span class="arrow-pill" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </a>
           </div>
 
           <div class="studio-highlights">

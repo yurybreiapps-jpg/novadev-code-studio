@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wear OS Projects | NovaDev Code Studio</title>
+  <meta name="description" content="Wear OS app and game projects from NovaDev Code Studio.">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="stylesheet" href="../project-page.css">
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="../../index.html" aria-label="NovaDev Code Studio home">
+        <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span>
+          <span class="brand-title">Nova<span>Dev</span></span>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Project categories">
+        <a href="../Android/">Android</a>
+        <a class="active" href="../WearOS/">Wear OS</a>
+        <a href="../iOS/">iOS</a>
+        <a href="../WatchOS/">watchOS</a>
+      </nav>
+    </header>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Projects / Wear OS</div>
+        <h1>Wear OS Projects</h1>
+        <p>Watch-first tools and games designed for compact screens, fast controls, and glanceable interactions.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="projects-grid">
+        <a class="project-link-card" href="https://play.google.com/store/apps/details?id=com.novadevcodestudio.matchscoreprowatch" target="_blank" rel="noreferrer" aria-label="Open Tennis Pickleball Ping-Pong Scorer on Google Play">
+          <article class="project-card">
+            <div class="project-media">
+              <img src="../../assets/WatchOSScorer_1024x500.jpg" alt="Tennis Pickleball Ping-Pong Scorer Wear OS banner">
+            </div>
+            <div class="project-body">
+              <div class="project-topline">
+                <span class="tag">Sports</span>
+                <span class="tag">Scoring</span>
+                <span class="tag">Wear OS</span>
+              </div>
+              <h2>Tennis Pickleball Ping-Pong Scorer</h2>
+              <p>Fast, simple scoring for tennis, pickleball, and ping-pong on Wear OS watches.</p>
+              <div class="project-actions">
+                <span class="text-link">Google Play listing coming soon</span>
+                <span class="arrow-pill" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M13 5l7 7-7 7"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <article class="project-card" aria-label="ZEN Tile Relax Wear OS game preview">
+          <div class="project-media">
+            <img src="../../assets/zen-tile-flow-banner.png" alt="ZEN Tile Flow Wear OS game banner">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span class="tag">Puzzle</span>
+              <span class="tag">Relax</span>
+              <span class="tag">Wear OS</span>
+              <span class="tag">Game</span>
+            </div>
+            <h2>ZEN Tile Relax</h2>
+            <p>A calm tile-matching puzzle game designed for relaxing play, clean visuals, and satisfying daily brain breaks.</p>
+            <div class="project-actions">
+              <span class="text-link">Google Play listing coming soon</span>
+              <span class="arrow-pill" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M13 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

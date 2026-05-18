@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iOS Projects | NovaDev Code Studio</title>
+  <meta name="description" content="Future iOS projects from NovaDev Code Studio.">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="stylesheet" href="../project-page.css">
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="../../index.html" aria-label="NovaDev Code Studio home">
+        <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span>
+          <span class="brand-title">Nova<span>Dev</span></span>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Project categories">
+        <a href="../Android/">Android</a>
+        <a href="../WearOS/">Wear OS</a>
+        <a class="active" href="../iOS/">iOS</a>
+        <a href="../WatchOS/">watchOS</a>
+      </nav>
+    </header>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Projects / iOS</div>
+        <h1>iOS Projects</h1>
+        <p>A dedicated folder for upcoming iPhone and iPad projects.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="empty-panel">
+        <h2>Coming Soon</h2>
+        <p>Future iOS projects can be added to this page without growing the homepage.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
