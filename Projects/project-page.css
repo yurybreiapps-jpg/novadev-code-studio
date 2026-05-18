@@ -102,6 +102,50 @@ img {
   text-transform: uppercase;
 }
 
+.topbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.home-icon-link {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1.5px solid rgba(71, 120, 241, 0.24);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 10px 20px rgba(55, 84, 166, 0.08);
+  color: var(--heading);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.home-icon-link:hover,
+.home-icon-link:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(40, 123, 255, 0.09);
+  box-shadow: 0 16px 30px rgba(50, 92, 180, 0.12);
+  outline: none;
+}
+
+.home-icon-link svg {
+  width: 21px;
+  height: 21px;
+}
+
+.hidden-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -318,6 +362,11 @@ h1 {
     align-items: flex-start;
     border-radius: 28px;
     flex-direction: column;
+  }
+
+  .topbar-links {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .brand-title {
