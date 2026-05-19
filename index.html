@@ -143,23 +143,36 @@
       margin-right: 10px;
     }
 
-    .nav a {
+    .nav > a,
+    .nav-trigger {
       position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       padding: 10px 14px;
       border-radius: 999px;
+      border: 0;
+      background: transparent;
       color: var(--heading);
+      cursor: pointer;
+      font: inherit;
       font-weight: 700;
       font-size: 0.98rem;
     }
 
-    .nav a:hover,
-    .nav a:focus-visible {
+    .nav > a:hover,
+    .nav > a:focus-visible,
+    .nav-trigger:hover,
+    .nav-trigger:focus-visible {
       background: rgba(40, 123, 255, 0.08);
       outline: none;
     }
 
-    .nav a.active::after,
-    .nav a:hover::after {
+    .nav > a.active::after,
+    .nav > a:hover::after,
+    .nav-trigger.active::after,
+    .nav-trigger:hover::after,
+    .nav-item.open .nav-trigger::after {
       content: "";
       position: absolute;
       left: 18px;
@@ -168,6 +181,68 @@
       height: 3px;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--blue), var(--magenta));
+    }
+
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-caret {
+      width: 14px;
+      height: 14px;
+      transition: transform 180ms ease;
+    }
+
+    .nav-item.open .nav-caret {
+      transform: rotate(180deg);
+    }
+
+    .project-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      z-index: 80;
+      display: grid;
+      min-width: 190px;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid rgba(169, 199, 255, 0.7);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 18px 42px rgba(44, 84, 170, 0.18);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, 8px);
+      transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+      visibility: hidden;
+    }
+
+    .nav-item.open .project-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+      visibility: visible;
+    }
+
+    .project-menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 13px;
+      border-radius: 16px;
+      color: var(--heading);
+      font-size: 0.94rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .project-menu a:hover,
+    .project-menu a:focus-visible {
+      background: rgba(40, 123, 255, 0.10);
+      color: var(--blue);
+      outline: none;
     }
 
     .topbar-actions {
@@ -1100,8 +1175,36 @@
         flex-wrap: wrap;
       }
 
-      .topbar.open .nav a {
+      .topbar.open .nav > a,
+      .topbar.open .nav-trigger {
         padding: 12px 14px;
+      }
+
+      .topbar.open .nav-item {
+        display: block;
+        width: 100%;
+      }
+
+      .topbar.open .nav-trigger {
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .topbar.open .project-menu {
+        position: static;
+        display: none;
+        min-width: 0;
+        margin: 4px 0 0 10px;
+        padding: 8px;
+        box-shadow: none;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        visibility: visible;
+      }
+
+      .topbar.open .nav-item.open .project-menu {
+        display: grid;
       }
 
       .topbar.open .topbar-actions {
@@ -1193,7 +1296,20 @@
 
           <nav class="nav" aria-label="Primary navigation">
             <a class="active" href="#home">Home</a>
-            <a href="#projects">Projects</a>
+            <div class="nav-item" id="projectsNavItem">
+              <button class="nav-trigger" id="projectsMenuButton" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="projectsMenu">
+                Projects
+                <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="project-menu" id="projectsMenu" role="menu" aria-labelledby="projectsMenuButton">
+                <a href="Projects/Android/" role="menuitem">Android</a>
+                <a href="Projects/WearOS/" role="menuitem">Wear OS</a>
+                <a href="Projects/iOS/" role="menuitem">iOS</a>
+                <a href="Projects/WatchOS/" role="menuitem">watchOS</a>
+              </div>
+            </div>
             <!-- <a href="#about">About</a> -->
             <!-- <a href="#contact">Contact</a> -->
           </nav>
@@ -1588,20 +1704,51 @@
     const topbar = document.getElementById("topbar");
     const mobileToggle = document.getElementById("mobileToggle");
     const currentYear = document.getElementById("currentYear");
+    const projectsNavItem = document.getElementById("projectsNavItem");
+    const projectsMenuButton = document.getElementById("projectsMenuButton");
 
     if (currentYear) {
       currentYear.textContent = new Date().getFullYear();
     }
+
+    const closeProjectsMenu = () => {
+      projectsNavItem.classList.remove("open");
+      projectsMenuButton.setAttribute("aria-expanded", "false");
+    };
+
+    const closeMobileMenu = () => {
+      topbar.classList.remove("open");
+      mobileToggle.setAttribute("aria-expanded", "false");
+    };
 
     mobileToggle.addEventListener("click", () => {
       const isOpen = topbar.classList.toggle("open");
       mobileToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
+    projectsMenuButton.addEventListener("click", event => {
+      event.stopPropagation();
+      const isOpen = projectsNavItem.classList.toggle("open");
+      projectsMenuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", event => {
+      if (!projectsNavItem.contains(event.target)) {
+        closeProjectsMenu();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeProjectsMenu();
+        closeMobileMenu();
+      }
+    });
+
     document.querySelectorAll('.nav a').forEach(link => {
       link.addEventListener('click', () => {
-        topbar.classList.remove('open');
-        mobileToggle.setAttribute("aria-expanded", "false");
+        closeProjectsMenu();
+        closeMobileMenu();
       });
     });
   </script>
