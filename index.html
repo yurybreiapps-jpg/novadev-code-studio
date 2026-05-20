@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NovaDev Code Studio</title>
-  <meta name="description" content="NovaDev Code Studio builds polished Android apps with bright design, practical ideas, and clean user experiences.">
+  <meta name="description" content="NovaDev Code Studio builds polished Android, iOS, Wear OS, and watchOS apps with bright design, practical ideas, and clean user experiences.">
   <meta name="theme-color" content="#eaf2ff">
   <meta name="google-site-verification" content="VBu-UKK0RZGyCHuKFU8rmHP3LNxza6_YFnAPyPFBUao" />
   <meta property="og:title" content="NovaDev Code Studio">
-  <meta property="og:description" content="Crafting polished Android experiences with creativity, clarity, and care.">
+  <meta property="og:description" content="Crafting polished Android, iOS, Wear OS, and watchOS experiences with creativity, clarity, and care.">
   <meta property="og:image" content="assets/novadev-hero-preview.png">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -341,7 +341,7 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
       padding: 14px 22px 14px 16px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.72);
@@ -352,21 +352,36 @@
       min-height: 100px;
     }
 
+    .eyebrow-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
     .eyebrow-icon {
-      width: 92px;
-      height: 92px;
+      width: 82px;
+      height: 82px;
       object-fit: contain;
       display: block;
-      flex: 0 0 92px;
+      flex: 0 0 82px;
       filter: drop-shadow(0 4px 10px rgba(31, 125, 31, 0.18));
       margin: -2px 0;
     }
 
+    .eyebrow-ios-logo {
+      width: 62px;
+      height: 62px;
+      flex: 0 0 62px;
+      border-radius: 20px;
+      filter: drop-shadow(0 8px 16px rgba(36, 91, 180, 0.18));
+    }
+
     .eyebrow-text {
       display: block;
-      max-width: 210px;
+      max-width: 260px;
       font-weight: 800;
-      font-size: 1.3rem;
+      font-size: 1.22rem;
       line-height: 1.15;
       letter-spacing: -0.01em;
       color: #2488f0;
@@ -1235,6 +1250,35 @@
         font-size: 1.05rem;
       }
 
+      .eyebrow {
+        gap: 12px;
+        max-width: 100%;
+        min-height: 0;
+        padding: 12px 16px 12px 12px;
+      }
+
+      .eyebrow-icons {
+        gap: 5px;
+      }
+
+      .eyebrow-icon {
+        width: 60px;
+        height: 60px;
+        flex-basis: 60px;
+      }
+
+      .eyebrow-ios-logo {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        border-radius: 16px;
+      }
+
+      .eyebrow-text {
+        max-width: 190px;
+        font-size: 1rem;
+      }
+
       .hero-card-grid {
         grid-template-columns: 1fr;
       }
@@ -1342,14 +1386,26 @@
           <div class="hero-panel">
             <div class="hero-copy">
               <div class="eyebrow">
-                <img class="eyebrow-icon" src="assets/android-mascot-transparent.png" alt="" aria-hidden="true">
-                <span class="eyebrow-text">Android and <br>Wear OS <br>Development</span>
-					  
-									   
+                <span class="eyebrow-icons" aria-hidden="true">
+                  <img class="eyebrow-icon" src="assets/android-mascot-transparent.png" alt="">
+                  <svg class="eyebrow-ios-logo" viewBox="0 0 72 72" role="img" aria-label="iOS logo">
+                    <defs>
+                      <linearGradient id="iosLogoGradient" x1="10" y1="8" x2="62" y2="66" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#56ccff"></stop>
+                        <stop offset="0.48" stop-color="#2f8bff"></stop>
+                        <stop offset="1" stop-color="#8b5cff"></stop>
+                      </linearGradient>
+                    </defs>
+                    <rect x="5" y="5" width="62" height="62" rx="18" fill="url(#iosLogoGradient)"></rect>
+                    <circle cx="53" cy="18" r="8" fill="#fff" fill-opacity="0.28"></circle>
+                    <text x="36" y="45" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="850" fill="#fff">iOS</text>
+                  </svg>
+                </span>
+                <span class="eyebrow-text">Android, iOS,<br>Wear OS & watchOS<br>Development</span>
               </div>
 
               <h1>NovaDev <span>Code Studio</span></h1>
-              <p>Crafting polished Android experiences with creativity, clarity, and care.</p>
+              <p>Crafting polished Android, iOS, Wear OS, and watchOS experiences with creativity, clarity, and care.</p>
 
               <div class="hero-actions">
                 <a class="button button-primary" href="#projects">
@@ -1535,8 +1591,8 @@
                 </svg>
               </div>
               <div>
-                <h3>Android Development</h3>
-                <p>Native Android apps built with modern tools, clear architecture, and practical performance in mind.</p>
+                <h3>Android, iOS, Wear OS, and watchOS Development</h3>
+                <p>Native mobile and watch apps built with modern tools, clear architecture, and practical performance in mind.</p>
               </div>
             </article>
 
@@ -1572,7 +1628,7 @@
         <div class="container">
           <div class="about-grid">
             <article class="glass-card">
-              <h2>A bright home for current and future Android apps.</h2>
+              <h2>A bright home for current and future mobile and watch apps.</h2>
               <p>NovaDev Code Studio is positioned as a polished independent app studio focused on clean presentation, practical ideas, and memorable branding.</p>
 
               <div class="value-list">
@@ -1630,8 +1686,8 @@
         <div class="container">
           <div class="contact-panel">
             <div>
-              <h2>Let’s talk about your next Android project.</h2>
-              <p>Reach out to NovaDev Code Studio with questions, proposals, feedback, or ideas for future Android app builds. Whether you want to discuss a new concept, improvements to an existing product, or a potential collaboration, I’d be glad to hear from you.</p>
+              <h2>Let’s talk about your next app project.</h2>
+              <p>Reach out to NovaDev Code Studio with questions, proposals, feedback, or ideas for future Android, iOS, Wear OS, or watchOS builds. Whether you want to discuss a new concept, improvements to an existing product, or a potential collaboration, I’d be glad to hear from you.</p>
               <div class="note">Contact: yurybrei.apps@gmail.com</div>
             </div>
 
