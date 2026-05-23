@@ -396,6 +396,10 @@
       color: #2488f0;
     }
 
+    .trademark-marker {
+      color: #000;
+    }
+
     .hero h1 {
       margin: 18px 0 14px;
       font-size: clamp(3rem, 7vw, 5.9rem);
@@ -1069,6 +1073,14 @@
       display: block;
     }
 
+    .footer-legal {
+      margin: 8px 0 0;
+      color: #7a87a5;
+      font-size: 0.76rem;
+      line-height: 1.45;
+      text-align: center;
+    }
+
     .social {
       display: flex;
       align-items: center;
@@ -1417,7 +1429,7 @@
                   </svg>
                   <img class="eyebrow-wear-logo" src="assets/wear-os-icon.svg" alt="">
                 </span>
-                <span class="eyebrow-text">Android, iOS,<br>Wear OS & watchOS<br>Development</span>
+                <span class="eyebrow-text">Android, iOS,<br>Wear OS & watchOS<br>Development<span class="trademark-marker">*</span></span>
               </div>
 
               <h1>NovaDev <span>Code Studio</span></h1>
@@ -1739,7 +1751,13 @@
             </span>
           </a>
 
-          <small>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</small>
+          <div>
+            <small>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</small>
+            <p class="footer-legal">
+              Android is a trademark of Google LLC.<br>
+              Apple Watch, watchOS, and iOS are trademarks of Apple Inc.
+            </p>
+          </div>
 
           <div class="social" aria-label="Social links">
             <a href="https://github.com/yurybreiapps-jpg" target="_blank" rel="noreferrer">
