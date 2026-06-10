@@ -192,89 +192,41 @@
       color: var(--green);
     }
 
-    .phone-card {
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
+    .tutorial-preview {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      margin: 0;
+    }
+
+    .tutorial-phone-frame {
+      width: min(100%, 390px);
+      padding: 12px;
       border: 1px solid rgba(255, 255, 255, 0.72);
-      border-radius: 36px;
+      border-radius: 42px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.56)),
-        radial-gradient(circle at 74% 10%, rgba(223, 255, 34, 0.58), transparent 34%),
-        radial-gradient(circle at 12% 20%, rgba(64, 209, 255, 0.35), transparent 34%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.62)),
+        radial-gradient(circle at 80% 10%, rgba(223, 255, 34, 0.42), transparent 32%),
+        radial-gradient(circle at 8% 20%, rgba(64, 209, 255, 0.32), transparent 34%);
       box-shadow: var(--shadow);
     }
 
-    .court {
-      position: absolute;
-      inset: 34px;
-      overflow: hidden;
-      border-radius: 28px;
-      background:
-        linear-gradient(90deg, transparent 49%, rgba(255, 255, 255, 0.72) 49% 51%, transparent 51%),
-        linear-gradient(0deg, transparent 48%, rgba(255, 255, 255, 0.72) 48% 51%, transparent 51%),
-        linear-gradient(135deg, #51d39b, #2879ff);
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.72);
+    .tutorial-phone-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 31px;
+      box-shadow: 0 18px 48px rgba(14, 46, 37, 0.20);
     }
 
-    .player {
-      position: absolute;
-      left: 44%;
-      top: 39%;
-      width: 88px;
-      height: 152px;
-      transform: rotate(-18deg);
-    }
-
-    .joint,
-    .ball {
-      position: absolute;
-      border-radius: 50%;
-      background: #f01818;
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.88), 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .joint { width: 11px; height: 11px; }
-    .ball { width: 21px; height: 21px; background: var(--lime); right: 18%; top: 34%; }
-
-    .skeleton-line {
-      position: absolute;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.90);
-      transform-origin: left center;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
-    }
-
-    .label-pill {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 28px;
-      display: grid;
-      gap: 10px;
-      padding: 18px;
-      border-radius: 24px;
-      background: rgba(11, 25, 22, 0.78);
-      color: white;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .score {
-      display: flex;
-      align-items: end;
-      gap: 12px;
-      font-weight: 950;
-    }
-
-    .score strong { font-size: 4rem; line-height: 0.9; }
-
-    .score span {
-      color: var(--lime);
-      font-size: 1rem;
-      padding-bottom: 8px;
-      text-transform: uppercase;
+    .tutorial-preview figcaption {
+      max-width: 380px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
     }
 
     section {
@@ -392,10 +344,6 @@
       .grid {
         grid-template-columns: 1fr;
       }
-
-      .phone-card {
-        min-height: 440px;
-      }
     }
 
     @media (max-width: 640px) {
@@ -411,10 +359,6 @@
 
       .hero {
         padding-top: 44px;
-      }
-
-      .phone-card {
-        min-height: 390px;
       }
     }
   </style>
@@ -449,30 +393,12 @@
           </div>
         </div>
 
-        <div class="phone-card" aria-label="Stylized AI tennis analysis preview">
-          <div class="court">
-            <span class="ball"></span>
-            <div class="player">
-              <span class="joint" style="left:42px; top:6px"></span>
-              <span class="joint" style="left:28px; top:40px"></span>
-              <span class="joint" style="left:58px; top:42px"></span>
-              <span class="joint" style="left:22px; top:78px"></span>
-              <span class="joint" style="left:62px; top:80px"></span>
-              <span class="joint" style="left:34px; top:118px"></span>
-              <span class="joint" style="left:72px; top:130px"></span>
-              <span class="skeleton-line" style="left:43px; top:15px; width:40px; transform: rotate(106deg)"></span>
-              <span class="skeleton-line" style="left:34px; top:46px; width:35px; transform: rotate(4deg)"></span>
-              <span class="skeleton-line" style="left:30px; top:50px; width:34px; transform: rotate(105deg)"></span>
-              <span class="skeleton-line" style="left:58px; top:50px; width:38px; transform: rotate(82deg)"></span>
-              <span class="skeleton-line" style="left:25px; top:86px; width:45px; transform: rotate(74deg)"></span>
-              <span class="skeleton-line" style="left:63px; top:88px; width:52px; transform: rotate(78deg)"></span>
-            </div>
+        <figure class="tutorial-preview" aria-label="A-Tennis First Swing Guide in-app preview">
+          <div class="tutorial-phone-frame">
+            <img src="assets/first-swing-guide-how-to-use.jpg" alt="A-Tennis How to Use screen showing side view, behind view, and first swing checklist">
           </div>
-          <div class="label-pill">
-            <div class="score"><strong>65</strong><span>Rising Intermediate</span></div>
-            <div>AI pose map, swing phase cues, and one clear fix for your next practice.</div>
-          </div>
-        </div>
+          <figcaption>Real in-app guide for recording side and behind camera angles before the first analysis.</figcaption>
+        </figure>
       </div>
     </section>
 
