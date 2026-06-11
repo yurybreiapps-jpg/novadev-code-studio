@@ -256,6 +256,8 @@ h1 {
 
 .project-media .scorer-banner {
   object-fit: cover;
+  transform: scale(1.1);
+  transform-origin: center;
 }
 
 .project-body {
