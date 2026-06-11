@@ -774,80 +774,46 @@
       color: var(--blue);
     }
 
-    .ios-platform-visual {
+    .ios-coach-art {
       position: relative;
-      display: grid;
       width: 100%;
       height: 100%;
-      place-items: center;
       overflow: hidden;
+      isolation: isolate;
       background:
-        radial-gradient(circle at 25% 24%, rgba(255,255,255,0.96), transparent 18%),
-        radial-gradient(circle at 82% 18%, rgba(255, 74, 218, 0.30), transparent 30%),
-        radial-gradient(circle at 16% 84%, rgba(81, 255, 152, 0.30), transparent 34%),
-        linear-gradient(135deg, #eaf6ff 0%, #dff7ef 34%, #eff0ff 62%, #ffe8f8 100%);
+        radial-gradient(circle at 16% 18%, rgba(255,255,255,0.92), transparent 24%),
+        radial-gradient(circle at 82% 22%, rgba(255, 74, 218, 0.28), transparent 34%),
+        radial-gradient(circle at 12% 86%, rgba(78, 255, 159, 0.30), transparent 36%),
+        linear-gradient(135deg, #e8f6ff 0%, #e7fff2 36%, #f1f1ff 64%, #ffe7f7 100%);
     }
 
-    .ios-platform-visual::before {
+    .ios-coach-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.08) contrast(1.03);
+      mix-blend-mode: multiply;
+      opacity: 0.96;
+    }
+
+    .ios-coach-art::before {
       content: "";
       position: absolute;
-      right: 12%;
-      top: 9%;
-      width: 31%;
-      height: 80%;
-      border: 2px solid rgba(255,255,255,0.74);
-      border-radius: 34px;
+      inset: 0;
       background:
-        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.72), transparent 20%),
-        linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.07));
-      box-shadow: 0 24px 44px rgba(56, 95, 190, 0.16);
+        linear-gradient(120deg, rgba(255,255,255,0.24), rgba(255,255,255,0) 42%),
+        radial-gradient(circle at 22% 22%, rgba(255,255,255,0.42), transparent 28%);
+      pointer-events: none;
     }
 
-    .ios-platform-visual::after {
+    .ios-coach-art::after {
       content: "";
       position: absolute;
-      left: 15%;
-      bottom: 16%;
-      width: 62%;
-      height: 20px;
-      border-radius: 999px;
-      background: rgba(61, 105, 190, 0.12);
-      filter: blur(12px);
-    }
-
-    .ios-app-badge {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      width: min(174px, 42%);
-      aspect-ratio: 1;
-      place-items: center;
-      border: 8px solid rgba(255,255,255,0.62);
-      border-radius: 34%;
-      background:
-        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.72), transparent 22%),
-        conic-gradient(from 215deg, #2f8bff, #8a5cff, #ff48d7, #ff9357, #b8ff43, #35dca3, #38dcff, #2f8bff);
-      box-shadow:
-        0 22px 46px rgba(55, 95, 190, 0.23),
-        inset 0 1px 0 rgba(255,255,255,0.55);
-    }
-
-    .ios-app-badge::before {
-      content: "";
-      position: absolute;
-      inset: 18%;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.30);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.36);
-    }
-
-    .ios-tennis-symbol {
-      position: relative;
-      z-index: 1;
-      width: 68%;
-      height: 68%;
-      color: #101827;
-      filter: drop-shadow(0 5px 10px rgba(255,255,255,0.34));
+      inset: 18px;
+      border: 1px solid rgba(255,255,255,0.60);
+      border-radius: 28px;
+      pointer-events: none;
     }
 
     .placeholder-visual {
@@ -1614,17 +1580,8 @@
             <a class="project-link-card" href="Projects/iOS/" aria-label="Open iOS projects">
               <article class="project-card">
                 <div class="project-media">
-                  <div class="ios-platform-visual" aria-hidden="true">
-                    <div class="ios-app-badge">
-                      <svg class="ios-tennis-symbol" viewBox="0 0 96 96" fill="none" aria-hidden="true">
-                        <circle cx="27" cy="23" r="9" stroke="currentColor" stroke-width="8"></circle>
-                        <path d="M33 30l12 14 18-27" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <circle cx="53" cy="34" r="7" fill="currentColor"></circle>
-                        <path d="M44 45l-8 18 13 8" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M46 47l14 14-5 20" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
-                        <path d="M41 54l-16-8 1-12" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>
-                    </div>
+                  <div class="ios-coach-art">
+                    <img src="assets/a-tennis-ai-coach-ios-showcase.jpg" alt="A-Tennis AI Coach app preview with AI pose map analysis">
                   </div>
                 </div>
                 <div class="project-body">
