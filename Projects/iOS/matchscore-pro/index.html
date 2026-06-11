@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Racquet Sports Match Scorekeeper | NovaDev Code Studio</title>
+  <meta name="description" content="Racquet Sports Match Scorekeeper is a native iPhone and iPad app for fast tennis, pickleball, and ping-pong scoring.">
+  <link rel="icon" type="image/png" href="../../../assets/favicon.png">
+  <link rel="stylesheet" href="../../project-page.css">
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="../../../index.html" aria-label="NovaDev Code Studio home">
+        <img src="../../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span>
+          <span class="brand-title">Nova<span>Dev</span></span>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <div class="topbar-links">
+        <a class="home-icon-link" href="../../../" aria-label="Return to homepage" title="Home">
+          <span class="hidden-label">Home</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 11.5 12 4l9 7.5"></path>
+            <path d="M5 10.5V20h14v-9.5"></path>
+            <path d="M9 20v-6h6v6"></path>
+          </svg>
+        </a>
+        <nav class="nav" aria-label="Project categories">
+          <a class="active" href="../">iOS</a>
+          <a href="../../WatchOS/">watchOS</a>
+          <a href="../../Android/">Android</a>
+          <a href="../../WearOS/">Wear OS</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">iOS / Scorekeeper</div>
+        <h1>Racquet Sports Match Scorekeeper</h1>
+        <p>Fast scoring for tennis, pickleball, and ping-pong with smart presets, live point tracking, serving guidance, history, stats, and spectator display.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-media">
+            <img src="../../../assets/apps/matchscorepro/images/3.png" alt="Racquet Sports Match Scorekeeper live tennis scoring screen">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span class="tag">Live scoring</span>
+              <span class="tag">Tennis</span>
+            </div>
+            <h2>Score every point fast</h2>
+            <p>Track points, sets, serving side, advantage, undo and redo while keeping the match flow clear on court.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <img src="../../../assets/apps/matchscorepro/images/2.png" alt="Racquet Sports Match Scorekeeper doubles preset screen">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span class="tag">Presets</span>
+              <span class="tag">Singles & doubles</span>
+            </div>
+            <h2>Choose smart scoring presets</h2>
+            <p>Start common match formats quickly for singles and doubles across tennis, pickleball, and ping-pong.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
