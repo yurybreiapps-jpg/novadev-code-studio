@@ -776,10 +776,13 @@
 
     .ios-coach-art {
       position: relative;
+      display: flex;
+      align-items: center;
       width: 100%;
       height: 100%;
       overflow: hidden;
       isolation: isolate;
+      padding: 30px 36px;
       background:
         radial-gradient(circle at 16% 18%, rgba(255,255,255,0.92), transparent 24%),
         radial-gradient(circle at 82% 22%, rgba(255, 74, 218, 0.28), transparent 34%),
@@ -788,13 +791,15 @@
     }
 
     .ios-coach-art img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(1.08) contrast(1.03);
-      mix-blend-mode: multiply;
-      opacity: 0.96;
+      position: absolute;
+      right: 12px;
+      top: 53%;
+      z-index: 1;
+      width: min(390px, 66%);
+      height: auto;
+      object-fit: contain;
+      filter: saturate(1.08) contrast(1.04) drop-shadow(0 28px 42px rgba(28, 70, 150, 0.26));
+      transform: translateY(-50%);
     }
 
     .ios-coach-art::before {
@@ -814,6 +819,54 @@
       border: 1px solid rgba(255,255,255,0.60);
       border-radius: 28px;
       pointer-events: none;
+    }
+
+    .ios-coach-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 238px;
+      padding: 14px 16px 16px;
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.62);
+      box-shadow: 0 18px 34px rgba(72, 112, 205, 0.14);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--heading);
+    }
+
+    .ios-coach-copy span {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.70);
+      box-shadow: 0 10px 24px rgba(72, 112, 205, 0.12);
+      color: #1688f5;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ios-coach-copy strong {
+      display: block;
+      color: #071d70;
+      font-size: clamp(1.42rem, 2.55vw, 2.05rem);
+      font-weight: 950;
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .ios-coach-copy em {
+      display: block;
+      margin-top: 12px;
+      color: #236fe3;
+      font-size: 0.9rem;
+      font-style: normal;
+      font-weight: 850;
+      line-height: 1.25;
     }
 
     .placeholder-visual {
@@ -1372,6 +1425,37 @@
         grid-template-columns: 1fr;
       }
 
+      .ios-coach-art {
+        padding: 18px;
+      }
+
+      .ios-coach-art img {
+        right: -4px;
+        width: min(235px, 66%);
+      }
+
+      .ios-coach-copy {
+        max-width: 58%;
+        padding: 10px 11px 12px;
+        border-radius: 18px;
+      }
+
+      .ios-coach-copy span {
+        margin-bottom: 8px;
+        padding: 6px 9px;
+        font-size: 0.62rem;
+      }
+
+      .ios-coach-copy strong {
+        font-size: 1.18rem;
+        letter-spacing: -0.04em;
+      }
+
+      .ios-coach-copy em {
+        margin-top: 8px;
+        font-size: 0.78rem;
+      }
+
       .hero-card-grid {
         grid-template-columns: 1fr;
       }
@@ -1581,7 +1665,12 @@
               <article class="project-card">
                 <div class="project-media">
                   <div class="ios-coach-art">
-                    <img src="assets/a-tennis-ai-coach-ios-showcase.jpg" alt="A-Tennis AI Coach app preview with AI pose map analysis">
+                    <div class="ios-coach-copy">
+                      <span>AI Tennis Coach</span>
+                      <strong>See your swing. Fix your form.</strong>
+                      <em>Pose-aware feedback for every practice.</em>
+                    </div>
+                    <img src="assets/a-tennis-ai-coach-icon.png" alt="A-Tennis AI Coach app icon showing tennis swing analysis">
                   </div>
                 </div>
                 <div class="project-body">
@@ -1590,7 +1679,7 @@
                     <span class="tag">A-Tennis AI</span>
                   </div>
                   <h3>iOS</h3>
-                  <p>iPhone and iPad apps led by A-Tennis AI Coach, with future Apple-first launches grouped here.</p>
+                  <p>AI-powered tennis coaching for iPhone and iPad: upload a swing video, get pose-aware feedback, and train with a clearer plan.</p>
                   <div class="project-actions">
                     <span class="text-link">View iOS projects</span>
                     <span class="arrow-pill" aria-hidden="true">
