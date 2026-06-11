@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NovaDev Code Studio</title>
-  <meta name="description" content="NovaDev Code Studio builds polished Android, iOS, Wear OS, and watchOS apps with bright design, practical ideas, and clean user experiences.">
+  <meta name="description" content="NovaDev Code Studio builds polished iOS, watchOS, Android, and Wear OS apps with bright design, practical ideas, and clean user experiences.">
   <meta name="theme-color" content="#eaf2ff">
   <meta name="google-site-verification" content="VBu-UKK0RZGyCHuKFU8rmHP3LNxza6_YFnAPyPFBUao" />
   <meta property="og:title" content="NovaDev Code Studio">
-  <meta property="og:description" content="Crafting polished Android, iOS, Wear OS, and watchOS experiences with creativity, clarity, and care.">
+  <meta property="og:description" content="Crafting polished iOS, watchOS, Android, and Wear OS experiences with creativity, clarity, and care.">
   <meta property="og:image" content="assets/novadev-hero-preview.png">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -205,13 +205,13 @@
       left: 50%;
       z-index: 80;
       display: grid;
-      min-width: 190px;
-      gap: 6px;
-      padding: 10px;
+      min-width: 310px;
+      gap: 14px;
+      padding: 26px 28px;
       border: 1px solid rgba(169, 199, 255, 0.7);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 18px 42px rgba(44, 84, 170, 0.18);
+      border-radius: 38px;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 24px 58px rgba(44, 84, 170, 0.18);
       opacity: 0;
       pointer-events: none;
       transform: translate(-50%, 8px);
@@ -229,12 +229,14 @@
     .project-menu a {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 11px 13px;
-      border-radius: 16px;
+      justify-content: center;
+      min-height: 50px;
+      padding: 11px 16px;
+      border-radius: 18px;
       color: var(--heading);
-      font-size: 0.94rem;
-      font-weight: 800;
+      font-size: 1.34rem;
+      font-weight: 900;
+      text-align: center;
       white-space: nowrap;
     }
 
@@ -355,34 +357,41 @@
     .eyebrow-icons {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       flex: 0 0 auto;
     }
 
     .eyebrow-icon {
-      width: 82px;
-      height: 82px;
+      width: 68px;
+      height: 68px;
       object-fit: contain;
       display: block;
-      flex: 0 0 82px;
+      flex: 0 0 68px;
       filter: drop-shadow(0 4px 10px rgba(31, 125, 31, 0.18));
       margin: -2px 0;
     }
 
     .eyebrow-ios-logo {
-      width: 62px;
-      height: 62px;
-      flex: 0 0 62px;
+      width: 66px;
+      height: 66px;
+      flex: 0 0 66px;
       border-radius: 20px;
       filter: drop-shadow(0 8px 16px rgba(36, 91, 180, 0.18));
     }
 
+    .eyebrow-watch-logo {
+      width: 54px;
+      height: 68px;
+      flex: 0 0 54px;
+      filter: drop-shadow(0 8px 16px rgba(36, 91, 180, 0.18));
+    }
+
     .eyebrow-wear-logo {
-      width: 74px;
-      height: 58px;
+      width: 64px;
+      height: 50px;
       object-fit: contain;
       display: block;
-      flex: 0 0 74px;
+      flex: 0 0 64px;
       filter: drop-shadow(0 8px 16px rgba(36, 91, 180, 0.14));
     }
 
@@ -639,7 +648,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
       margin-top: 14px;
     }
@@ -763,6 +772,82 @@
       border: 1px solid rgba(70, 114, 230, 0.14);
       box-shadow: 0 10px 20px rgba(51, 92, 180, 0.08);
       color: var(--blue);
+    }
+
+    .ios-platform-visual {
+      position: relative;
+      display: grid;
+      width: 100%;
+      height: 100%;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 24%, rgba(255,255,255,0.96), transparent 18%),
+        radial-gradient(circle at 82% 18%, rgba(255, 74, 218, 0.30), transparent 30%),
+        radial-gradient(circle at 16% 84%, rgba(81, 255, 152, 0.30), transparent 34%),
+        linear-gradient(135deg, #eaf6ff 0%, #dff7ef 34%, #eff0ff 62%, #ffe8f8 100%);
+    }
+
+    .ios-platform-visual::before {
+      content: "";
+      position: absolute;
+      right: 12%;
+      top: 9%;
+      width: 31%;
+      height: 80%;
+      border: 2px solid rgba(255,255,255,0.74);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.72), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.07));
+      box-shadow: 0 24px 44px rgba(56, 95, 190, 0.16);
+    }
+
+    .ios-platform-visual::after {
+      content: "";
+      position: absolute;
+      left: 15%;
+      bottom: 16%;
+      width: 62%;
+      height: 20px;
+      border-radius: 999px;
+      background: rgba(61, 105, 190, 0.12);
+      filter: blur(12px);
+    }
+
+    .ios-app-badge {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      width: min(174px, 42%);
+      aspect-ratio: 1;
+      place-items: center;
+      border: 8px solid rgba(255,255,255,0.62);
+      border-radius: 34%;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.72), transparent 22%),
+        conic-gradient(from 215deg, #2f8bff, #8a5cff, #ff48d7, #ff9357, #b8ff43, #35dca3, #38dcff, #2f8bff);
+      box-shadow:
+        0 22px 46px rgba(55, 95, 190, 0.23),
+        inset 0 1px 0 rgba(255,255,255,0.55);
+    }
+
+    .ios-app-badge::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.30);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.36);
+    }
+
+    .ios-tennis-symbol {
+      position: relative;
+      z-index: 1;
+      width: 68%;
+      height: 68%;
+      color: #101827;
+      filter: drop-shadow(0 5px 10px rgba(255,255,255,0.34));
     }
 
     .placeholder-visual {
@@ -1158,7 +1243,6 @@
         min-height: 430px;
       }
 
-      .projects-grid,
       .studio-highlights,
       .roadmap-grid {
         grid-template-columns: 1fr;
@@ -1275,7 +1359,9 @@
       }
 
       .eyebrow {
-        gap: 12px;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
         max-width: 100%;
         min-height: 0;
         padding: 12px 16px 12px 12px;
@@ -1298,6 +1384,12 @@
         border-radius: 13px;
       }
 
+      .eyebrow-watch-logo {
+        width: 34px;
+        height: 42px;
+        flex-basis: 34px;
+      }
+
       .eyebrow-wear-logo {
         width: 48px;
         height: 38px;
@@ -1305,8 +1397,13 @@
       }
 
       .eyebrow-text {
-        max-width: 155px;
+        max-width: 230px;
         font-size: 0.94rem;
+        text-align: center;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
 
       .hero-card-grid {
@@ -1378,10 +1475,10 @@
                 </svg>
               </button>
               <div class="project-menu" id="projectsMenu" role="menu" aria-labelledby="projectsMenuButton">
-                <a href="Projects/Android/" role="menuitem">Android</a>
-                <a href="Projects/WearOS/" role="menuitem">Wear OS</a>
                 <a href="Projects/iOS/" role="menuitem">iOS</a>
                 <a href="Projects/WatchOS/" role="menuitem">watchOS</a>
+                <a href="Projects/Android/" role="menuitem">Android</a>
+                <a href="Projects/WearOS/" role="menuitem">Wear OS</a>
               </div>
             </div>
             <!-- <a href="#about">About</a> -->
@@ -1417,7 +1514,6 @@
             <div class="hero-copy">
               <div class="eyebrow">
                 <span class="eyebrow-icons" aria-hidden="true">
-                  <img class="eyebrow-icon" src="assets/android-mascot-transparent.png" alt="">
                   <svg class="eyebrow-ios-logo" viewBox="0 0 72 72" role="img" aria-label="iOS logo">
                     <defs>
                       <linearGradient id="iosLogoGradient" x1="10" y1="8" x2="62" y2="66" gradientUnits="userSpaceOnUse">
@@ -1430,13 +1526,29 @@
                     <circle cx="53" cy="18" r="8" fill="#fff" fill-opacity="0.28"></circle>
                     <text x="36" y="45" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="850" fill="#fff">iOS</text>
                   </svg>
+                  <svg class="eyebrow-watch-logo" viewBox="0 0 64 78" role="img" aria-label="watchOS logo">
+                    <defs>
+                      <linearGradient id="watchLogoGradient" x1="16" y1="8" x2="54" y2="70" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#7ce7ff"></stop>
+                        <stop offset="0.52" stop-color="#2f8bff"></stop>
+                        <stop offset="1" stop-color="#ff46da"></stop>
+                      </linearGradient>
+                    </defs>
+                    <path d="M23 5h18l4 11H19l4-11Z" fill="#d9ecff"></path>
+                    <path d="M19 62h26l-4 11H23l-4-11Z" fill="#d9ecff"></path>
+                    <rect x="11" y="14" width="42" height="50" rx="16" fill="url(#watchLogoGradient)"></rect>
+                    <rect x="18" y="21" width="28" height="36" rx="12" fill="#fff" fill-opacity="0.22"></rect>
+                    <circle cx="32" cy="39" r="9" fill="#fff" fill-opacity="0.9"></circle>
+                    <path d="M32 33v7l5 3" fill="none" stroke="#2f8bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <img class="eyebrow-icon" src="assets/android-mascot-transparent.png" alt="">
                   <img class="eyebrow-wear-logo" src="assets/wear-os-icon.svg" alt="">
                 </span>
-                <span class="eyebrow-text">Android, iOS,<br>Wear OS & watchOS<br>Development <span class="trademark-marker">*</span></span>
+                <span class="eyebrow-text">iOS, watchOS,<br>Android & Wear OS<br>Development <span class="trademark-marker">*</span></span>
               </div>
 
               <h1>NovaDev <span>Code Studio</span></h1>
-              <p>Crafting polished Android, iOS, Wear OS, and watchOS experiences with creativity, clarity, and care.</p>
+              <p>Crafting polished iOS, watchOS, Android, and Wear OS experiences with creativity, clarity, and care.</p>
 
               <div class="hero-actions">
                 <a class="button button-primary" href="#projects">
@@ -1459,11 +1571,11 @@
                 <div class="hero-card-grid">
                   <div class="hero-stat">
                     <strong>4 project areas</strong>
-                    <span>Android, Wear OS, iOS, and watchOS now have dedicated project folders.</span>
+                    <span>iOS, watchOS, Android, and Wear OS now have dedicated project folders.</span>
                   </div>
                   <div class="hero-stat">
                     <strong>Multi-platform</strong>
-                    <span>Professional mobile and wearable solutions across leading platforms.</span>
+                    <span>Apple platforms lead the showcase, with Android and Wear OS support close behind.</span>
                   </div>
                   <div class="hero-stat">
                     <strong>Ready to grow</strong>
@@ -1499,6 +1611,74 @@
           </div>
 
           <div class="projects-grid">
+            <a class="project-link-card" href="Projects/iOS/" aria-label="Open iOS projects">
+              <article class="project-card">
+                <div class="project-media">
+                  <div class="ios-platform-visual" aria-hidden="true">
+                    <div class="ios-app-badge">
+                      <svg class="ios-tennis-symbol" viewBox="0 0 96 96" fill="none" aria-hidden="true">
+                        <circle cx="27" cy="23" r="9" stroke="currentColor" stroke-width="8"></circle>
+                        <path d="M33 30l12 14 18-27" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <circle cx="53" cy="34" r="7" fill="currentColor"></circle>
+                        <path d="M44 45l-8 18 13 8" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M46 47l14 14-5 20" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M41 54l-16-8 1-12" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-body">
+                  <div class="project-topline">
+                    <span class="tag">iOS</span>
+                    <span class="tag">A-Tennis AI</span>
+                  </div>
+                  <h3>iOS</h3>
+                  <p>iPhone and iPad apps led by A-Tennis AI Coach, with future Apple-first launches grouped here.</p>
+                  <div class="project-actions">
+                    <span class="text-link">View iOS projects</span>
+                    <span class="arrow-pill" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </a>
+
+            <a class="project-link-card" href="Projects/WatchOS/" aria-label="Open watchOS projects">
+              <article class="project-card">
+                <div class="project-media">
+                  <div class="placeholder-visual" aria-hidden="true">
+                    <div class="device">
+                      <svg class="device-rocket" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21s-7.1-4.4-9.5-8C.7 10.1 1.8 6.4 5.1 5a5.5 5.5 0 0 1 6.9 2A5.5 5.5 0 0 1 18.9 5c3.3 1.4 4.4 5.1 2.6 8-2.4 3.6-9.5 8-9.5 8Z"></path>
+                      </svg>
+                    </div>
+                    <div class="pedestal"></div>
+                  </div>
+                </div>
+                <div class="project-body">
+                  <div class="project-topline">
+                    <span class="tag">watchOS</span>
+                    <span class="tag">Apple Watch</span>
+                  </div>
+                  <h3>watchOS</h3>
+                  <p>Apple Watch projects and experiments will live here as the wearable Apple portfolio grows.</p>
+                  <div class="project-actions">
+                    <span class="text-link">View watchOS projects</span>
+                    <span class="arrow-pill" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </a>
+
             <a class="project-link-card" href="Projects/Android/" aria-label="Open Android projects">
               <article class="project-card">
                 <div class="project-media">
@@ -1548,70 +1728,6 @@
                 </div>
               </article>
             </a>
-
-            <a class="project-link-card" href="Projects/iOS/" aria-label="Open iOS projects">
-              <article class="project-card">
-                <div class="project-media">
-                  <div class="placeholder-visual" aria-hidden="true">
-                    <div class="device">
-                      <svg class="device-rocket" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M14.1 2.4c-2.6.1-5 1.1-6.7 2.8-1.6 1.6-2.6 3.8-2.8 6.2L2.3 13.8a1 1 0 0 0 .9 1.7l3.4-.2 2 2-.2 3.4a1 1 0 0 0 1.7.9l2.4-2.3c2.4-.2 4.6-1.2 6.2-2.8 1.7-1.7 2.7-4.1 2.8-6.7L21.7 3a1 1 0 0 0-1-1l-6.6.2ZM17.6 8a1.8 1.8 0 1 1 0-3.6A1.8 1.8 0 0 1 17.6 8Z"></path>
-                      </svg>
-                    </div>
-                    <div class="pedestal"></div>
-                  </div>
-                </div>
-                <div class="project-body">
-                  <div class="project-topline">
-                    <span class="tag">iOS</span>
-                    <span class="tag">Future</span>
-                  </div>
-                  <h3>iOS</h3>
-                  <p>A dedicated home for upcoming iPhone and iPad projects as the studio portfolio grows.</p>
-                  <div class="project-actions">
-                    <span class="text-link">View iOS projects</span>
-                    <span class="arrow-pill" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M13 5l7 7-7 7"></path>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </article>
-            </a>
-
-            <a class="project-link-card" href="Projects/WatchOS/" aria-label="Open watchOS projects">
-              <article class="project-card">
-                <div class="project-media">
-                  <div class="placeholder-visual" aria-hidden="true">
-                    <div class="device">
-                      <svg class="device-rocket" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 21s-7.1-4.4-9.5-8C.7 10.1 1.8 6.4 5.1 5a5.5 5.5 0 0 1 6.9 2A5.5 5.5 0 0 1 18.9 5c3.3 1.4 4.4 5.1 2.6 8-2.4 3.6-9.5 8-9.5 8Z"></path>
-                      </svg>
-                    </div>
-                    <div class="pedestal"></div>
-                  </div>
-                </div>
-                <div class="project-body">
-                  <div class="project-topline">
-                    <span class="tag">watchOS</span>
-                    <span class="tag">Future</span>
-                  </div>
-                  <h3>watchOS</h3>
-                  <p>A separate space for future Apple Watch projects and experiments.</p>
-                  <div class="project-actions">
-                    <span class="text-link">View watchOS projects</span>
-                    <span class="arrow-pill" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M13 5l7 7-7 7"></path>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </article>
-            </a>
           </div>
 
           <div class="studio-highlights">
@@ -1622,7 +1738,7 @@
                 </svg>
               </div>
               <div>
-                <h3>Android, iOS, Wear OS, and watchOS Development</h3>
+                <h3>iOS, watchOS, Android, and Wear OS Development</h3>
                 <p>Native mobile and watch apps built with modern tools, clear architecture, and practical performance in mind.</p>
               </div>
             </article>
@@ -1718,7 +1834,7 @@
           <div class="contact-panel">
             <div>
               <h2>Let’s talk about your next app project.</h2>
-              <p>Reach out to NovaDev Code Studio with questions, proposals, feedback, or ideas for future Android, iOS, Wear OS, or watchOS builds. Whether you want to discuss a new concept, improvements to an existing product, or a potential collaboration, I’d be glad to hear from you.</p>
+              <p>Reach out to NovaDev Code Studio with questions, proposals, feedback, or ideas for future iOS, watchOS, Android, or Wear OS builds. Whether you want to discuss a new concept, improvements to an existing product, or a potential collaboration, I’d be glad to hear from you.</p>
               <div class="note">Contact: support@novadevcodestudio.com</div>
             </div>
 
@@ -1757,8 +1873,8 @@
           <div>
             <small>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</small>
             <p class="footer-legal">
-              * Android is a trademark of Google LLC.<br>
-              * Apple Watch, watchOS, and iOS are trademarks of Apple Inc.
+              * Apple Watch, watchOS, and iOS are trademarks of Apple Inc.<br>
+              * Android is a trademark of Google LLC.
             </p>
           </div>
 
