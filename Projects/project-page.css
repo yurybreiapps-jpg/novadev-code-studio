@@ -398,6 +398,85 @@ h1 {
   padding-top: 4px;
 }
 
+.platform-availability-card .project-actions {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.platform-link-group {
+  display: grid;
+  width: 100%;
+  gap: 10px;
+}
+
+.platform-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 60px;
+  padding: 10px 13px 10px 10px;
+  border: 1px solid rgba(42, 125, 255, 0.16);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 255, 0.94));
+  color: var(--heading);
+  font-weight: 900;
+  letter-spacing: 0;
+  box-shadow: 0 10px 22px rgba(47, 88, 176, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.platform-link:hover,
+.platform-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(42, 125, 255, 0.32);
+  box-shadow: 0 16px 30px rgba(47, 88, 176, 0.13);
+  outline: none;
+}
+
+.platform-link-content {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+}
+
+.platform-store-link-badge {
+  flex: 0 0 132px;
+  width: 132px;
+  min-width: 132px;
+  filter: drop-shadow(0 7px 13px rgba(10, 22, 52, 0.16));
+}
+
+.platform-store-link-badge img {
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.platform-link-copy {
+  min-width: 0;
+  line-height: 1.08;
+}
+
+.platform-link small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-soft);
+  font-size: 0.76rem;
+  font-weight: 780;
+  letter-spacing: 0;
+}
+
+.platform-link svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--blue);
+}
+
 .text-link {
   color: var(--heading);
   font-weight: 800;
@@ -445,10 +524,6 @@ h1 {
   height: auto;
   border-radius: 10px;
   filter: drop-shadow(0 10px 18px rgba(28, 50, 91, 0.12));
-}
-
-.project-actions .app-store-badge {
-  width: 156px;
 }
 
 .hero-actions .store-badge {
@@ -508,12 +583,27 @@ h1 {
     width: 158px;
   }
 
-  .project-actions .app-store-badge {
-    width: 146px;
-  }
-
   .hero-actions .store-badge {
     width: 198px;
+  }
+
+  .platform-link {
+    gap: 10px;
+    padding-right: 11px;
+  }
+
+  .platform-link-content {
+    gap: 10px;
+  }
+
+  .platform-store-link-badge {
+    flex-basis: 116px;
+    width: 116px;
+    min-width: 116px;
+  }
+
+  .platform-store-link-badge img {
+    height: 40px;
   }
 
   .brand-title {
