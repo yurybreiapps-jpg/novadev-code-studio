@@ -661,7 +661,9 @@
       outline: none;
     }
 
-    .report-preview-link img {
+    .report-preview-link img,
+    .report-preview-link video {
+      display: block;
       width: 100%;
       height: auto;
     }
@@ -969,11 +971,21 @@
             <h2>See what a detailed AI analysis looks like.</h2>
             <p class="section-copy">Download a real 6-page Elite Coach sample report generated from a tennis clip. It shows the kind of structured feedback, scoring, improvement focus, and practice guidance A-Tennis can produce.</p>
             <div class="report-actions">
-              <a class="report-download" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis.pdf?v=20260614" download="sample-elite-coach-ai-analysis.pdf">Download sample Elite Coach AI analysis</a>
+              <a class="report-download" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis.pdf?v=20260614-2" download="sample-elite-coach-ai-analysis.pdf">Download sample Elite Coach AI analysis</a>
             </div>
           </div>
-          <a class="report-preview-link" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis.pdf?v=20260614" download="sample-elite-coach-ai-analysis.pdf" aria-label="Download sample Elite Coach AI analysis PDF">
-            <img src="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.jpg?v=20260614" alt="First page preview of a sample A-Tennis Elite Coach AI analysis report">
+          <a class="report-preview-link" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis.pdf?v=20260614-2" download="sample-elite-coach-ai-analysis.pdf" aria-label="Download sample Elite Coach AI analysis PDF">
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.jpg?v=20260614-2"
+              aria-label="Animated preview scrolling through a sample A-Tennis Elite Coach AI analysis report">
+              <source src="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.mp4?v=20260614-2" type="video/mp4">
+              <img src="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.jpg?v=20260614-2" alt="Preview of a sample A-Tennis Elite Coach AI analysis report">
+            </video>
           </a>
         </article>
       </div>
