@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A-Tennis AI Coach | NovaDev Code Studio</title>
+  <meta name="description" content="A-Tennis AI Coach for iPhone and iPad helps tennis players upload a short clip and get AI-powered swing feedback, one clear fix, and a practice drill.">
+  <meta name="theme-color" content="#071425">
+  <meta property="og:title" content="A-Tennis AI Coach">
+  <meta property="og:description" content="Upload a short tennis clip and get AI-powered swing feedback for your next practice.">
+  <meta property="og:image" content="../assets/apps/a-tennis/a-tennis-ai-coach-promo-3x2.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <style>
+    :root {
+      --ink: #071425;
+      --ink-2: #102544;
+      --text: #213451;
+      --muted: #65738a;
+      --line: rgba(21, 50, 92, 0.14);
+      --blue: #1687ff;
+      --green: #34c779;
+      --lime: #d7ff35;
+      --cyan: #4dd8ff;
+      --white: #ffffff;
+      --paper: #f6fbff;
+      --surface: rgba(255, 255, 255, 0.9);
+      --shadow: 0 24px 64px rgba(8, 24, 48, 0.14);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(55, 199, 121, 0.1) 0 1px, transparent 1px 58px),
+        linear-gradient(180deg, #f8fcff 0%, #edf6ff 54%, #f8fffb 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 92% 8%, rgba(77, 216, 255, 0.18), transparent 34%),
+        radial-gradient(circle at 12% 18%, rgba(215, 255, 53, 0.14), transparent 30%),
+        linear-gradient(135deg, #06111f 0%, #0a2139 52%, #071425 100%);
+      padding-bottom: 34px;
+    }
+
+    .hero-bg {
+      display: none;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -18%;
+      bottom: -34%;
+      width: 720px;
+      height: 720px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(52, 199, 121, 0.24), transparent 58%),
+        radial-gradient(circle, rgba(77, 216, 255, 0.16), transparent 68%);
+      filter: blur(10px);
+      z-index: 0;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      gap: 12px;
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .brand img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.24));
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 1.38rem;
+      line-height: 1;
+    }
+
+    .brand-title span {
+      color: var(--cyan);
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.96rem;
+      font-weight: 800;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: rgba(255, 255, 255, 0.18);
+      outline: none;
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+      gap: 26px;
+      align-items: center;
+      padding: 22px 0 0;
+    }
+
+    .hero-copy {
+      max-width: 540px;
+      padding: 12px 0;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 40px;
+      padding: 9px 14px;
+      border: 1px solid rgba(215, 255, 53, 0.34);
+      border-radius: 999px;
+      background: rgba(8, 23, 42, 0.52);
+      color: #efffc8;
+      font-size: 0.86rem;
+      font-weight: 900;
+      box-shadow:
+        0 0 0 0 rgba(215, 255, 53, 0.18),
+        0 12px 28px rgba(7, 20, 37, 0.18);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      animation: statusGlow 2.9s ease-in-out infinite;
+    }
+
+    .status-pill::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 5px rgba(215, 255, 53, 0.16);
+      animation: statusDotPulse 2.9s ease-in-out infinite;
+    }
+
+    @keyframes statusGlow {
+      0%,
+      100% {
+        border-color: rgba(215, 255, 53, 0.34);
+        color: #efffc8;
+        box-shadow:
+          0 0 0 0 rgba(215, 255, 53, 0.14),
+          0 12px 28px rgba(7, 20, 37, 0.18);
+      }
+
+      50% {
+        border-color: rgba(215, 255, 53, 0.72);
+        color: #ffffff;
+        box-shadow:
+          0 0 0 8px rgba(215, 255, 53, 0.08),
+          0 0 28px rgba(215, 255, 53, 0.26),
+          0 12px 28px rgba(7, 20, 37, 0.18);
+      }
+    }
+
+    @keyframes statusDotPulse {
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow:
+          0 0 0 5px rgba(215, 255, 53, 0.16),
+          0 0 0 rgba(215, 255, 53, 0);
+      }
+
+      50% {
+        transform: scale(1.18);
+        box-shadow:
+          0 0 0 7px rgba(215, 255, 53, 0.2),
+          0 0 18px rgba(215, 255, 53, 0.48);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .status-pill,
+      .status-pill::before {
+        animation: none;
+      }
+    }
+
+    h1 {
+      margin: 20px 0 18px;
+      color: var(--white);
+      font-size: 4.4rem;
+      letter-spacing: 0;
+      line-height: 0.98;
+      text-shadow: 0 16px 36px rgba(0, 0, 0, 0.26);
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.26rem;
+      line-height: 1.56;
+      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-visual {
+      margin: 0;
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      filter: none;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .store-link {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 12px;
+      transition: transform 180ms ease, filter 180ms ease;
+    }
+
+    .store-link:hover,
+    .store-link:focus-visible {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.22));
+      outline: none;
+    }
+
+    .store-link img {
+      width: 214px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      font-weight: 900;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .quick-facts {
+      position: relative;
+      z-index: 4;
+      margin-top: -24px;
+      padding: 24px 0 18px;
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .fact {
+      min-height: 96px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 44px rgba(14, 38, 74, 0.12);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      line-height: 1.48;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(52, 199, 121, 0.12);
+      color: #147a48;
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 8px 0 6px;
+      color: var(--ink);
+      font-size: 2.8rem;
+      letter-spacing: 0;
+      line-height: 1.06;
+    }
+
+    .section-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    .preview-frame {
+      overflow: hidden;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 22px;
+      background: #06121f;
+      box-shadow: var(--shadow);
+    }
+
+    .preview-frame img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .steps-grid,
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    #how-it-works {
+      padding-top: 30px;
+      padding-bottom: 16px;
+    }
+
+    #how-it-works + section {
+      padding-top: 14px;
+      padding-bottom: 24px;
+    }
+
+    #sample-report {
+      padding-top: 18px;
+      padding-bottom: 24px;
+    }
+
+    #first-guide,
+    #practice,
+    #ai-privacy {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+
+    .guide-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 370px);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .guide-steps {
+      counter-reset: guide-step;
+      display: grid;
+      gap: 9px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .guide-steps li {
+      counter-increment: guide-step;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 10px 12px;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--muted);
+      line-height: 1.52;
+      box-shadow: 0 12px 28px rgba(13, 45, 78, 0.06);
+    }
+
+    .guide-steps li::before {
+      content: counter(guide-step);
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--lime);
+      font-weight: 950;
+    }
+
+    .guide-steps strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+    }
+
+    .phone-preview {
+      justify-self: center;
+      width: min(100%, 360px);
+      padding: 10px;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(215, 255, 53, 0.32), transparent 34%),
+        radial-gradient(circle at 8% 18%, rgba(77, 216, 255, 0.28), transparent 36%),
+        rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .phone-preview img {
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 18px 42px rgba(8, 24, 48, 0.18);
+    }
+
+    .info-card {
+      padding: 16px;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: 0 16px 38px rgba(13, 45, 78, 0.08);
+    }
+
+    .info-card .number {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 10px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--lime);
+      font-weight: 950;
+    }
+
+    .info-card h3 {
+      margin: 0 0 7px;
+      color: var(--ink);
+      font-size: 1.28rem;
+      letter-spacing: 0;
+      line-height: 1.22;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .benefit-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefit-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.48;
+    }
+
+    .benefit-list li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 10px;
+      height: 10px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(52, 199, 121, 0.12);
+    }
+
+    #ai-privacy .benefits-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .notice {
+      margin: 14px 0 0;
+      padding: 14px 16px;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--muted);
+      line-height: 1.62;
+      box-shadow: 0 14px 34px rgba(13, 45, 78, 0.07);
+    }
+
+    .sample-report-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+      gap: 22px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 18px 44px rgba(13, 45, 78, 0.09);
+    }
+
+    .report-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .report-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 17px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(7, 20, 37, 0.18);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .report-download:hover,
+    .report-download:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 38px rgba(7, 20, 37, 0.22);
+      outline: none;
+    }
+
+    .report-preview-link {
+      display: block;
+      overflow: hidden;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 18px 40px rgba(8, 24, 48, 0.12);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .report-preview-link:hover,
+    .report-preview-link:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 50px rgba(8, 24, 48, 0.16);
+      outline: none;
+    }
+
+    .report-preview-link img {
+      width: 100%;
+      height: auto;
+    }
+
+    .other-apps {
+      background: rgba(255, 255, 255, 0.66);
+      border-top: 1px solid rgba(15, 45, 83, 0.1);
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .app-link {
+      display: flex;
+      min-height: 108px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+      border: 1px solid rgba(15, 45, 83, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 30px rgba(13, 45, 78, 0.07);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .app-link:hover,
+    .app-link:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 42px rgba(13, 45, 78, 0.12);
+      outline: none;
+    }
+
+    .app-link strong {
+      color: var(--ink);
+      font-size: 1.1rem;
+    }
+
+    .app-link span {
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .footer {
+      padding: 30px 0 42px;
+      color: #64738a;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+      font-weight: 800;
+    }
+
+    .footer-links a {
+      color: var(--ink-2);
+    }
+
+    @media (max-width: 980px) {
+      h1 {
+        font-size: 3.7rem;
+      }
+
+      h2 {
+        font-size: 2.35rem;
+      }
+
+      .fact-grid,
+      .steps-grid,
+      .benefits-grid,
+      .apps-grid,
+      .guide-showcase,
+      .sample-report-card {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #ai-privacy .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .guide-showcase {
+        align-items: start;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding-bottom: 22px;
+      }
+
+      .hero::before {
+        right: -60%;
+        bottom: -22%;
+        width: 520px;
+        height: 520px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 12px;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 18px;
+        background: rgba(3, 10, 24, 0.58);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero-layout {
+        gap: 16px;
+        padding-top: 14px;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .lead {
+        font-size: 1.08rem;
+      }
+
+      .store-link img {
+        width: 194px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .quick-facts {
+        margin-top: -8px;
+        padding-top: 10px;
+        padding-bottom: 12px;
+      }
+
+      .fact-grid,
+      .steps-grid,
+      .benefits-grid,
+      .apps-grid,
+      .guide-showcase,
+      .sample-report-card {
+        grid-template-columns: 1fr;
+      }
+
+      #ai-privacy .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 28px 0;
+      }
+
+      #how-it-works {
+        padding-top: 24px;
+        padding-bottom: 14px;
+      }
+
+      #how-it-works + section {
+        padding-top: 12px;
+        padding-bottom: 22px;
+      }
+
+      #sample-report {
+        padding-top: 16px;
+        padding-bottom: 22px;
+      }
+
+      #first-guide,
+      #practice,
+      #ai-privacy {
+        padding-top: 22px;
+        padding-bottom: 22px;
+      }
+
+      .preview-frame {
+        border-radius: 16px;
+      }
+
+      .preview-frame img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .phone-preview {
+        width: min(100%, 320px);
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="../" aria-label="NovaDev Code Studio home">
+          <img src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+          <span>
+            <span class="brand-title">Nova<span>Dev</span></span>
+            <span class="brand-subtitle">Code Studio</span>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Page navigation">
+          <a href="#how-it-works">How it works</a>
+          <a href="#first-guide">First guide</a>
+          <a href="#practice">Practice</a>
+          <a href="../#projects">Other apps</a>
+        </nav>
+      </div>
+
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <span class="status-pill">Available on the App Store</span>
+          <h1>A-Tennis AI Coach</h1>
+          <p class="lead">Do you play tennis? Try the iPhone and iPad app that turns a short swing video into detailed, professional AI-powered feedback, one clear fix, and a practical drill for your next practice.</p>
+          <div class="hero-actions">
+            <a class="store-link" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer" aria-label="Download A-Tennis AI Coach on the App Store">
+              <img src="../assets/store/app-store-badge.png" alt="Download on the App Store">
+            </a>
+            <a class="button" href="#how-it-works">See what it does</a>
+          </div>
+        </div>
+        <figure class="hero-visual" aria-label="A-Tennis AI Coach app preview">
+          <img src="../assets/apps/a-tennis/a-tennis-ai-coach-promo-3x2.jpg" alt="A-Tennis AI Coach preview with tennis swing analysis and app screens">
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="quick-facts" aria-label="A-Tennis highlights">
+      <div class="container fact-grid">
+        <div class="fact">
+          <strong>Start with 3 free detailed AI analyses</strong>
+          <span>Try an in-depth, professional-style swing review and see how useful the feedback feels for your training.</span>
+        </div>
+        <div class="fact">
+          <strong>Built for real practice clips</strong>
+          <span>Upload forehand, backhand, serve, volley, or rally footage from your phone or iPad.</span>
+        </div>
+        <div class="fact">
+          <strong>Simple feedback you can use</strong>
+          <span>Get a focused improvement point instead of a long report you never take back to the court.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">AI tennis analysis</span>
+          <h2>Improve your swing from one short clip.</h2>
+          <p class="section-copy">A-Tennis AI Coach helps recreational and competitive players review tennis technique, timing, contact point, movement, balance, and practice priorities between lessons, practices, and matches.</p>
+        </div>
+        <div class="preview-frame">
+          <img src="../assets/apps/a-tennis/a-tennis-ai-coach-promo-3x2.jpg" alt="A-Tennis AI Coach promotional visual with app analysis screens">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container steps-grid">
+        <article class="info-card">
+          <span class="number">1</span>
+          <h3>Record or upload</h3>
+          <p>Capture a short tennis clip or import one from your library. Trim it to the useful swing sequence before analysis.</p>
+        </article>
+        <article class="info-card">
+          <span class="number">2</span>
+          <h3>Review AI feedback</h3>
+          <p>Choose the stroke type, run analysis, and review visual checkpoints, scores, strengths, and improvement opportunities.</p>
+        </article>
+        <article class="info-card">
+          <span class="number">3</span>
+          <h3>Practice one fix</h3>
+          <p>Take one clear correction and one drill into your next session, then compare progress with a future clip.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sample-report">
+      <div class="container">
+        <article class="sample-report-card">
+          <div>
+            <span class="eyebrow">Sample Elite Coach Report</span>
+            <h2>See what a detailed AI analysis looks like.</h2>
+            <p class="section-copy">Download a real 6-page Elite Coach sample report generated from a tennis clip. It shows the kind of structured feedback, scoring, improvement focus, and practice guidance A-Tennis can produce.</p>
+            <div class="report-actions">
+              <a class="report-download" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis.pdf" download>Download sample Elite Coach AI analysis</a>
+            </div>
+          </div>
+          <a class="report-preview-link" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis.pdf" download aria-label="Download sample Elite Coach AI analysis PDF">
+            <img src="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.jpg" alt="First page preview of a sample A-Tennis Elite Coach AI analysis report">
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="first-guide">
+      <div class="container guide-showcase">
+        <div>
+          <span class="eyebrow">First Swing Guide</span>
+          <h2>Record a cleaner clip before the first analysis.</h2>
+          <p class="section-copy">Clean video gives the AI better evidence and makes progress easier to compare later. Use this quick checklist before your first upload.</p>
+          <ol class="guide-steps">
+            <li><span><strong>Record from the side.</strong> Side view is best for contact point, racket path, preparation, balance, and follow-through.</span></li>
+            <li><span><strong>Keep the full player visible.</strong> Shoes, shoulders, racket, ball contact, and finish should stay inside the frame.</span></li>
+            <li><span><strong>Trim the best segment.</strong> Select the clearest part of the clip before running analysis.</span></li>
+            <li><span><strong>Choose the stroke or Auto Detect.</strong> Pick forehand, backhand, serve, volley, or use Auto Detect for mixed clips.</span></li>
+            <li><span><strong>Practice one Fix of the Day.</strong> Focus on one correction, then upload another clip from the same angle later.</span></li>
+          </ol>
+        </div>
+        <figure class="phone-preview" aria-label="A-Tennis First Swing Guide preview">
+          <img src="../assets/apps/a-tennis/first-swing-guide-how-to-use.jpg" alt="A-Tennis in-app First Swing Guide with side view, behind view, and recording checklist">
+        </figure>
+      </div>
+    </section>
+
+    <section id="practice">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">For the court</span>
+          <h2>Useful for lessons, league play, and solo practice.</h2>
+          <p class="section-copy">The app is designed to support coaching, not replace it. Use it when you want a second look at your swing and a more focused plan for what to work on next.</p>
+        </div>
+        <div class="benefits-grid">
+          <article class="info-card">
+            <h3>Stroke coverage</h3>
+            <ul class="benefit-list">
+              <li>Forehand, backhand, serve, volley, overhead, return, rally, and footwork review.</li>
+              <li>Auto Detect helps when a clip includes mixed tennis action.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Player progress</h3>
+            <ul class="benefit-list">
+              <li>Save reports, track trends, and organize feedback by player profile.</li>
+              <li>Keep your best practice notes close before the next court session.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Clear boundaries</h3>
+            <ul class="benefit-list">
+              <li>AI feedback is coaching guidance, not medical advice or a certified rating.</li>
+              <li>Better video angle and lighting usually produce more useful results.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-privacy">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">AI, privacy, and credits</span>
+          <h2>Clear details before you upload.</h2>
+          <p class="section-copy">A-Tennis is built around short analysis clips, local history, optional Pro access, and transparent AI guidance boundaries.</p>
+        </div>
+        <div class="benefits-grid">
+          <article class="info-card">
+            <h3>AI engine</h3>
+            <p>Elite Coach Pro analysis uses the premium Gemini Pro model to review selected video frames, stroke context, timing, player level, and technique details.</p>
+          </article>
+          <article class="info-card">
+            <h3>What is sent</h3>
+            <p>For AI analysis, the app sends selected key frames from your chosen clip range, clip timing, technique, player level, and analysis mode to the A-Tennis backend for AI review.</p>
+          </article>
+          <article class="info-card">
+            <h3>What stays local</h3>
+            <p>The original imported video, local trimmed clip, player profiles, saved history, and generated reports stay on your device unless you share or export them.</p>
+          </article>
+          <article class="info-card">
+            <h3>Credits</h3>
+            <ul class="benefit-list">
+              <li>Free accounts include limited AI credits.</li>
+              <li>A-Tennis Pro includes 100 monthly credits.</li>
+              <li>Quick Coach, Deep Review, and Elite Coach use different credit amounts.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="notice">AI feedback is coaching guidance only. It may be inaccurate or incomplete, especially with poor camera angle, low light, partial body visibility, or unclear contact. It is not medical advice, injury advice, a certified rating, or a guaranteed performance result.</p>
+      </div>
+    </section>
+
+    <section class="other-apps" id="other-apps">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">NovaDev Code Studio</span>
+          <h2>Check other applications for Apple, Android, and wearable devices.</h2>
+          <p class="section-copy">Explore more apps from NovaDev Code Studio, including racquet sport scoring tools and watch-friendly companion experiences.</p>
+        </div>
+        <div class="apps-grid">
+          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
+            <strong>iPhone and iPad</strong>
+            <span>View projects</span>
+          </a>
+          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
+            <strong>Apple Watch</strong>
+            <span>View projects</span>
+          </a>
+          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
+            <strong>Android</strong>
+            <span>View projects</span>
+          </a>
+          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
+            <strong>Wear OS</strong>
+            <span>View projects</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://yurybreiapps-jpg.github.io/public/Apps/Apple/iOS/a-tennis-ai-coach/privacy/">Privacy Policy</a>
+        <a href="mailto:support@novadevcodestudio.com">Support</a>
+        <a href="../">NovaDev Code Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
