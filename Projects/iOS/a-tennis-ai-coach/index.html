@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>A-Tennis AI Coach | NovaDev Code Studio</title>
   <meta name="description" content="A-Tennis AI Coach helps tennis players record short clips, get AI swing feedback, review timestamps, and follow a simple training plan.">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#eafbf4">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/Projects/iOS/a-tennis-ai-coach/">
   <meta property="og:title" content="A-Tennis AI Coach">
   <meta property="og:description" content="AI tennis swing analysis, visual checkpoints, credits, privacy details, and first clip recording guide.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/Projects/iOS/a-tennis-ai-coach/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/Projects/iOS/assets/a-tennis-ai-coach-card-3x2.jpg">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A-Tennis AI Coach">
+  <meta name="twitter:description" content="AI tennis swing analysis, visual checkpoints, credits, privacy details, and first clip recording guide.">
+  <meta name="twitter:image" content="https://www.novadevcodestudio.com/Projects/iOS/assets/a-tennis-ai-coach-card-3x2.jpg">
   <link rel="icon" type="image/png" href="../../../assets/favicon.png">
   <style>
     :root {
@@ -168,6 +177,27 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 26px;
+    }
+
+    .store-badge-link {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 10px;
+      transition: transform 180ms ease, filter 180ms ease;
+    }
+
+    .store-badge-link:hover,
+    .store-badge-link:focus-visible {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 12px 18px rgba(24, 50, 98, 0.16));
+      outline: none;
+    }
+
+    .store-badge-link img {
+      width: 174px;
+      height: auto;
+      border-radius: 10px;
+      filter: drop-shadow(0 10px 18px rgba(28, 50, 91, 0.12));
     }
 
     .button {
@@ -384,10 +414,13 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">iPhone and iPad tennis coach</span>
+          <span class="eyebrow">Available on the App Store</span>
           <h1>A-Tennis AI Coach</h1>
           <p class="lead">Record a short tennis clip, choose a technique, and get AI-guided swing feedback with scores, visual checkpoints, timestamps, and a practical Fix of the Day.</p>
           <div class="hero-actions">
+            <a class="store-badge-link" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer" aria-label="Download A-Tennis AI Coach on the App Store">
+              <img src="../../../assets/store/app-store-badge.png" alt="Download on the App Store">
+            </a>
             <a class="button primary" href="#guide">Start with the First Swing Guide</a>
             <a class="button secondary" href="#privacy">Review AI and privacy details</a>
           </div>
