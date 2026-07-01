@@ -30,6 +30,8 @@
     }
     .wrap{max-width:520px;margin:0 auto}
     header{text-align:center;margin-bottom:26px}
+    .brand-home{display:inline-block;text-decoration:none;color:inherit;transition:transform .12s ease}
+    .brand-home:active{transform:scale(.97)}
     .logo{width:78px;height:78px;border-radius:22px;object-fit:cover;
       box-shadow:0 8px 24px rgba(20,50,110,.18);margin-bottom:14px}
     header h1{font-size:1.42rem;font-weight:800;letter-spacing:-.02em}
@@ -58,8 +60,10 @@
 <body>
   <div class="wrap">
     <header>
-      <img class="logo" src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
-      <h1>Nova<span>Dev</span> Code Studio</h1>
+      <a class="brand-home" href="../index.html" aria-label="NovaDev Code Studio home">
+        <img class="logo" src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <h1>Nova<span>Dev</span> Code Studio</h1>
+      </a>
       <p>Get our apps 👇</p>
     </header>
 
