@@ -1547,6 +1547,84 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .creators-copy {
+      max-width: 720px;
+      margin: -6px auto 26px;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .creator-carousel {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      padding: 6px 4px 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .creator-card {
+      flex: 0 0 auto;
+      width: min(320px, 78vw);
+      margin: 0;
+      scroll-snap-align: center;
+    }
+
+    .creator-phone {
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 38px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.64)),
+        radial-gradient(circle at 82% 8%, rgba(56, 220, 255, 0.35), transparent 34%),
+        radial-gradient(circle at 10% 22%, rgba(117, 81, 255, 0.25), transparent 36%);
+      box-shadow: var(--shadow);
+    }
+
+    .creator-phone video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 29px;
+      background: #0c1425;
+      object-fit: cover;
+      box-shadow: 0 16px 40px rgba(24, 44, 96, 0.22);
+    }
+
+    .creator-meta {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .creator-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--heading);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .creator-handle:hover,
+    .creator-handle:focus-visible {
+      border-color: var(--line-strong);
+      outline: none;
+    }
+
+    .creator-meta p {
+      margin: 10px 0 0;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
@@ -1848,6 +1926,31 @@
                 <p>Studio branding and site structure built to expand smoothly as new products and links are added.</p>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <span class="anchor-offset" id="creators"></span>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Creators on Court</h2>
+          </div>
+          <p class="creators-copy">Real players and coaches putting AI Tennis Swing Coach through real on-court tests — shared here with their permission.</p>
+
+          <div class="creator-carousel">
+            <figure class="creator-card">
+              <div class="creator-phone">
+                <video controls playsinline preload="none"
+                  poster="Projects/iOS/a-tennis-ai-coach/assets/creators/ksenia-review-poster.jpg"
+                  src="Projects/iOS/a-tennis-ai-coach/assets/creators/ksenia-review.mp4"
+                  aria-label="Ksenia Kos tests AI Tennis Swing Coach on court"></video>
+              </div>
+              <figcaption class="creator-meta">
+                <a class="creator-handle" href="https://www.tiktok.com/@ksenia.kos.tennis/video/7663849037392645408" target="_blank" rel="noreferrer">@ksenia.kos.tennis</a>
+                <p>Tennis coach Ksenia Kos filmed her serve, ran the AI analysis live, and watched it flag the exact toss issues she already knew about.</p>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
