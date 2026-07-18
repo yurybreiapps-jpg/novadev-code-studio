@@ -6,7 +6,7 @@
   <title>AI Tennis Swing Coach | NovaDev Code Studio</title>
   <meta name="description" content="AI Tennis Swing Coach for iPhone and iPad tracks your racket with a custom on-device AI, scores every swing, flags faults like late contact, and coaches you out loud — with one clear fix and a drill for your next practice.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#071425">
+  <meta name="theme-color" content="#f7f9ff">
   <link rel="canonical" href="https://www.novadevcodestudio.com/a-tennis/">
   <meta property="og:title" content="AI Tennis Swing Coach">
   <meta property="og:description" content="A custom on-device AI tracks your racket, scores every swing, flags faults, and coaches you out loud — with one clear fix and a drill for your next practice.">
@@ -58,1155 +58,1035 @@
     }
   }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #071425;
-      --ink-2: #102544;
-      --text: #213451;
-      --muted: #65738a;
-      --line: rgba(21, 50, 92, 0.14);
-      --blue: #1687ff;
-      --green: #34c779;
-      --lime: #d7ff35;
-      --cyan: #4dd8ff;
-      --white: #ffffff;
-      --paper: #f6fbff;
-      --surface: rgba(255, 255, 255, 0.9);
-      --shadow: 0 24px 64px rgba(8, 24, 48, 0.14);
+      --ink: #10182b;
+      --muted: #5b6880;
+      --heading: #0b1440;
+      --accent-1: #1674ff;
+      --accent-2: #7551ff;
+      --accent-3: #ff46da;
+      --lime: #dfff22;
+      --line: rgba(31, 59, 133, 0.14);
+      --surface: rgba(255, 255, 255, 0.86);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16);
       --max: 1180px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        linear-gradient(135deg, rgba(55, 199, 121, 0.1) 0 1px, transparent 1px 58px),
-        linear-gradient(180deg, #f8fcff 0%, #edf6ff 54%, #f8fffb 100%);
-      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: #f7f9ff;
+      overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(calc(100% - 32px), var(--max));
+      width: min(calc(100% - 36px), var(--max));
       margin: 0 auto;
     }
 
-    .hero {
+    /* ---------- liquid chrome backdrops ---------- */
+    .liquid {
       position: relative;
-      overflow: hidden;
-      color: var(--white);
-      background:
-        radial-gradient(circle at 92% 8%, rgba(77, 216, 255, 0.18), transparent 34%),
-        radial-gradient(circle at 12% 18%, rgba(215, 255, 53, 0.14), transparent 30%),
-        linear-gradient(135deg, #06111f 0%, #0a2139 52%, #071425 100%);
-      padding-bottom: 34px;
+      isolation: isolate;
     }
 
-    .hero-bg {
-      display: none;
-    }
-
-    .hero::before {
+    .liquid::before {
       content: "";
       position: absolute;
-      right: -18%;
-      bottom: -34%;
-      width: 720px;
-      height: 720px;
-      border-radius: 50%;
+      inset: 0;
+      z-index: -1;
       background:
-        radial-gradient(circle, rgba(52, 199, 121, 0.24), transparent 58%),
-        radial-gradient(circle, rgba(77, 216, 255, 0.16), transparent 68%);
-      filter: blur(10px);
-      z-index: 0;
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        radial-gradient(40% 36% at 84% 78%, rgba(150, 226, 255, 0.28), transparent 58%),
+        radial-gradient(36% 30% at 14% 88%, rgba(255, 173, 235, 0.20), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+      filter: saturate(1.05);
+    }
+
+    .liquid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.5;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='900'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.006 0.009' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/><feComposite operator='in' in2='SourceGraphic'/></filter><rect width='900' height='900' filter='url(%23f)' opacity='0.35'/></svg>");
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    /* ---------- nav ---------- */
+    .nav-wrap {
+      position: sticky;
+      top: 14px;
+      z-index: 60;
+      padding: 0 18px;
     }
 
     .topbar {
-      position: relative;
-      z-index: 3;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 18px 0;
+      gap: 14px;
+      width: min(100%, 1150px);
+      margin: 14px auto 0;
+      padding: 13px 14px 13px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
     }
 
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      min-width: 0;
-      gap: 12px;
-      color: var(--white);
-      font-weight: 900;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
-    .brand img {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.24));
-    }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
 
-    .brand-title {
-      display: block;
-      font-size: 1.38rem;
-      line-height: 1;
-    }
+    .brand-text { display: grid; line-height: 1; }
+
+    .brand-title { color: #091d75; font-size: 1.12rem; letter-spacing: -0.04em; font-weight: 900; }
 
     .brand-title span {
-      color: var(--cyan);
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .brand-subtitle {
-      display: block;
-      margin-top: 5px;
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      line-height: 1;
+      margin-top: 4px;
+      color: #6c7ba0;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.30em;
       text-transform: uppercase;
+    }
+
+    .brand-sep { color: #9aa6c6; font-weight: 800; }
+
+    .brand-app {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--heading);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .nav-app-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 22%;
+      box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25);
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       justify-content: flex-end;
-      gap: 10px;
+      gap: 2px;
     }
 
     .nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 10px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 9px 10px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 0.96rem;
-      font-weight: 800;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      color: #33415e;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .nav a:hover,
-    .nav a:focus-visible {
-      background: rgba(255, 255, 255, 0.18);
-      outline: none;
-    }
+    .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
 
-    .hero-layout {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
-      gap: 26px;
+    .nav .store-pill {
+      display: inline-flex;
       align-items: center;
-      padding: 22px 0 0;
+      gap: 7px;
+      margin-left: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #0c1020;
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
-    .hero-copy {
-      max-width: 540px;
-      padding: 12px 0;
+    .nav .store-pill:hover,
+    .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+
+    .proof-pill {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 46px;
+      padding: 0 18px;
     }
 
-    .status-pill {
+    .proof-pill a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 10px 30px rgba(28, 52, 120, 0.10);
+      color: #33415e;
+      font-size: 0.88rem;
+      font-weight: 600;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .proof-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #17c964; }
+
+    /* ---------- shared type ---------- */
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      min-height: 40px;
-      padding: 9px 14px;
-      border: 1px solid rgba(215, 255, 53, 0.34);
-      border-radius: 999px;
-      background: rgba(8, 23, 42, 0.52);
-      color: #efffc8;
-      font-size: 0.86rem;
-      font-weight: 900;
-      box-shadow:
-        0 0 0 0 rgba(215, 255, 53, 0.18),
-        0 12px 28px rgba(7, 20, 37, 0.18);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      animation: statusGlow 2.9s ease-in-out infinite;
+      color: #56618a;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
     }
 
-    .status-pill::before {
+    .eyebrow::before {
       content: "";
-      width: 9px;
-      height: 9px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--lime);
-      box-shadow: 0 0 0 5px rgba(215, 255, 53, 0.16);
-      animation: statusDotPulse 2.9s ease-in-out infinite;
+      background: var(--accent-2);
     }
 
-    @keyframes statusGlow {
-      0%,
-      100% {
-        border-color: rgba(215, 255, 53, 0.34);
-        color: #efffc8;
-        box-shadow:
-          0 0 0 0 rgba(215, 255, 53, 0.14),
-          0 12px 28px rgba(7, 20, 37, 0.18);
-      }
-
-      50% {
-        border-color: rgba(215, 255, 53, 0.72);
-        color: #ffffff;
-        box-shadow:
-          0 0 0 8px rgba(215, 255, 53, 0.08),
-          0 0 28px rgba(215, 255, 53, 0.26),
-          0 12px 28px rgba(7, 20, 37, 0.18);
-      }
+    .app-icon {
+      display: block;
+      border-radius: 22%;
+      box-shadow: 0 18px 44px rgba(10, 22, 70, 0.30);
     }
 
-    @keyframes statusDotPulse {
-      0%,
-      100% {
-        transform: scale(1);
-        box-shadow:
-          0 0 0 5px rgba(215, 255, 53, 0.16),
-          0 0 0 rgba(215, 255, 53, 0);
-      }
-
-      50% {
-        transform: scale(1.18);
-        box-shadow:
-          0 0 0 7px rgba(215, 255, 53, 0.2),
-          0 0 18px rgba(215, 255, 53, 0.48);
-      }
+    .hero-icon {
+      width: 86px;
+      height: 86px;
+      margin-bottom: 22px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .status-pill,
-      .status-pill::before {
-        animation: none;
-      }
+    .cta-icon {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 24px;
     }
 
-    h1 {
-      margin: 20px 0 18px;
-      color: var(--white);
-      font-size: 4.4rem;
-      letter-spacing: 0;
-      line-height: 0.98;
-      text-shadow: 0 16px 36px rgba(0, 0, 0, 0.26);
+    .display {
+      margin: 16px 0 18px;
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.04;
+      color: var(--heading);
     }
+
+    .display em {
+      font-style: italic;
+      background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h1.display { font-size: clamp(2.9rem, 7vw, 5.4rem); max-width: 720px; }
+    h2.display { font-size: clamp(2.2rem, 5vw, 3.7rem); }
 
     .lead {
-      max-width: 620px;
+      max-width: 640px;
       margin: 0;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 1.26rem;
-      line-height: 1.56;
-      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      color: var(--muted);
+      font-size: 1.16rem;
+      line-height: 1.65;
     }
 
-    .hero-visual {
-      margin: 0;
-      overflow: visible;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-    }
+    .centered { text-align: center; }
+    .centered .display { margin-left: auto; margin-right: auto; }
+    .centered .lead { margin-left: auto; margin-right: auto; }
 
-    .hero-visual img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-      filter: none;
+    section { padding: 84px 0; }
+
+    /* ---------- hero ---------- */
+    .hero { padding: 30px 0 60px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 36px;
+      align-items: center;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 12px;
-      margin-top: 22px;
+      gap: 14px;
+      margin-top: 30px;
     }
 
-    .store-link {
+    .store-badge-link {
       display: inline-flex;
-      align-items: center;
-      border-radius: 12px;
+      border-radius: 10px;
       transition: transform 180ms ease, filter 180ms ease;
     }
 
-    .store-link:hover,
-    .store-link:focus-visible {
+    .store-badge-link:hover,
+    .store-badge-link:focus-visible {
       transform: translateY(-2px);
-      filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.22));
+      filter: drop-shadow(0 14px 22px rgba(20, 40, 100, 0.20));
       outline: none;
     }
 
-    .store-link img {
-      width: 214px;
-      height: auto;
-      border-radius: 10px;
+    .store-badge-link img { width: 176px; height: auto; border-radius: 10px; }
+
+    .button-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--heading);
+      font-weight: 700;
     }
 
-    .button {
+    .button-soft:hover,
+    .button-soft:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
+
+    .trust-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .trust-chips span {
       display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.66);
+      color: #3a4666;
+      font-size: 0.86rem;
+      font-weight: 600;
+      box-shadow: 0 8px 22px rgba(28, 52, 120, 0.07);
+    }
+
+    .trust-chips svg { width: 15px; height: 15px; color: #17a05c; flex: none; }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      justify-items: center;
+    }
+
+    .phone-cluster {
+      position: relative;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
-      padding: 13px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      color: var(--white);
-      font-weight: 900;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      transition: transform 180ms ease, background 180ms ease;
+      width: 100%;
+      min-height: 380px;
     }
 
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.2);
-      outline: none;
+    .phone-cluster img {
+      height: auto;
+      filter: drop-shadow(0 30px 50px rgba(24, 46, 110, 0.28));
     }
 
-    .quick-facts {
+    .pc-center {
       position: relative;
-      z-index: 4;
-      margin-top: -24px;
-      padding: 24px 0 18px;
+      z-index: 2;
+      width: 38%;
+      animation: floaty 7s ease-in-out infinite;
     }
 
-    .fact-grid {
+    .pc-side {
+      position: absolute;
+      z-index: 1;
+      width: 43%;
+      top: 58%;
+      transform: translateY(-50%);
+      animation: floatySide 9s ease-in-out infinite;
+    }
+
+    @keyframes floatySide {
+      0%, 100% { transform: translateY(-50%); }
+      50% { transform: translateY(calc(-50% - 9px)); }
+    }
+
+    .pc-left { left: 0; }
+    .pc-right { right: 0; animation-delay: 1.4s; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .stat-chip {
+      position: absolute;
+      z-index: 3;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .fact {
-      min-height: 96px;
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.74);
-      border-radius: 16px;
+      gap: 2px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
       background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 18px 44px rgba(14, 38, 74, 0.12);
+      box-shadow: 0 18px 44px rgba(24, 46, 110, 0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .fact strong {
+    .stat-chip .k { color: #66719a; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+    .stat-chip .v { color: var(--heading); font-size: 1.05rem; font-weight: 800; }
+    .stat-chip .v small { color: #17a05c; font-size: 0.78rem; font-weight: 700; }
+
+    .stat-chip.tl { top: -2%; left: -2%; animation: floaty2 8s ease-in-out infinite; }
+    .stat-chip.br { bottom: -2%; right: -2%; animation: floaty2 9s ease-in-out 1.2s infinite; }
+
+    @keyframes floaty2 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* ---------- creators ---------- */
+    .creator-carousel {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 26px 4px 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .creator-card {
+      flex: 0 0 auto;
+      width: min(330px, 80vw);
+      margin: 0;
+      scroll-snap-align: center;
+    }
+
+    .creator-phone {
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 40px;
+      background: linear-gradient(180deg, #ffffff, #eef2ff);
+      box-shadow: var(--shadow);
+    }
+
+    .creator-phone video {
       display: block;
-      color: var(--ink);
-      font-size: 1.18rem;
-      line-height: 1.2;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 30px;
+      background: #0c1020;
+      object-fit: cover;
     }
 
-    .fact span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      line-height: 1.48;
-    }
+    .creator-meta { margin-top: 16px; text-align: center; }
 
-    section {
-      padding: 34px 0;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 16px;
-    }
-
-    .eyebrow {
+    .creator-handle {
       display: inline-flex;
       align-items: center;
-      min-height: 36px;
-      padding: 7px 12px;
+      gap: 7px;
+      padding: 8px 15px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(52, 199, 121, 0.12);
-      color: #147a48;
-      font-size: 0.82rem;
-      font-weight: 900;
-      text-transform: uppercase;
+      background: #fff;
+      color: var(--heading);
+      font-size: 0.93rem;
+      font-weight: 700;
     }
 
-    h2 {
-      margin: 8px 0 6px;
-      color: var(--ink);
-      font-size: 2.8rem;
-      letter-spacing: 0;
-      line-height: 1.06;
-    }
+    .creator-handle:hover,
+    .creator-handle:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
 
-    .section-copy {
-      margin: 0;
+    .creator-meta p {
+      max-width: 330px;
+      margin: 10px auto 0;
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 0.94rem;
       line-height: 1.55;
     }
 
-    .preview-frame {
-      overflow: hidden;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 22px;
-      background: #06121f;
-      box-shadow: var(--shadow);
+    /* ---------- dark band ---------- */
+    .dark {
+      position: relative;
+      isolation: isolate;
+      color: #dfe6ff;
     }
 
-    .preview-frame img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      object-position: center top;
+    .dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(50% 44% at 88% 8%, rgba(117, 81, 255, 0.34), transparent 60%),
+        radial-gradient(44% 40% at 8% 86%, rgba(22, 116, 255, 0.26), transparent 58%),
+        radial-gradient(30% 26% at 30% 10%, rgba(255, 70, 218, 0.14), transparent 55%),
+        linear-gradient(180deg, #070b18 0%, #0b1226 55%, #070b18 100%);
     }
 
-    .shot-gallery {
+    .dark .eyebrow { color: #93a0d6; }
+    .dark .display { color: #f2f5ff; }
+    .dark .lead { color: #a9b4dd; }
+
+    .dark-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 44px;
+    }
+
+    .dark-card {
+      padding: 26px;
+      border: 1px solid rgba(148, 168, 255, 0.16);
+      border-radius: 24px;
+      background: rgba(16, 24, 52, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .dark-card h3 { margin: 14px 0 8px; color: #eef1ff; font-size: 1.18rem; letter-spacing: -0.02em; }
+    .dark-card p { margin: 0; color: #a9b4dd; line-height: 1.6; font-size: 0.98rem; }
+
+    .icon-dot {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: #fff;
+    }
+
+    .icon-dot svg { width: 21px; height: 21px; }
+    .icon-dot.a { background: linear-gradient(135deg, #1674ff, #38dcff); }
+    .icon-dot.b { background: linear-gradient(135deg, #7551ff, #ff46da); }
+    .icon-dot.c { background: linear-gradient(135deg, #17a05c, #8fe444); }
+    .icon-dot.d { background: linear-gradient(135deg, #ff9d2e, #ff5d5d); }
+    .icon-dot.e { background: linear-gradient(135deg, #ff46da, #ff8ab8); }
+    .icon-dot.f { background: linear-gradient(135deg, #38dcff, #7551ff); }
+
+    .arc-gallery {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      max-width: 760px;
-      margin: 24px auto 0;
+      max-width: 860px;
+      margin: 44px auto 0;
     }
 
-    .shot {
-      overflow: hidden;
-      border: 1px solid rgba(15, 45, 83, 0.12);
+    .arc-gallery figure {
+      margin: 0;
+      padding: 8px;
+      border: 1px solid rgba(148, 168, 255, 0.2);
       border-radius: 22px;
-      box-shadow: var(--shadow);
+      background: rgba(16, 24, 52, 0.6);
     }
 
-    .shot img {
-      width: 100%;
-      height: auto;
-    }
-
-    @media (max-width: 720px) {
-      .shot-gallery {
-        grid-template-columns: 1fr;
-        max-width: 340px;
-        gap: 14px;
-      }
-    }
-
-    .steps-grid,
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    #how-it-works {
-      padding-top: 30px;
-      padding-bottom: 16px;
-    }
-
-    #how-it-works + section {
-      padding-top: 14px;
-      padding-bottom: 24px;
-    }
-
-    #sample-report {
-      padding-top: 18px;
-      padding-bottom: 24px;
-    }
-
-    #first-guide,
-    #practice,
-    #ai-privacy {
-      padding-top: 24px;
-      padding-bottom: 24px;
-    }
-
-    .guide-showcase {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 370px);
-      gap: 22px;
-      align-items: center;
-    }
-
-    .guide-steps {
-      counter-reset: guide-step;
-      display: grid;
-      gap: 9px;
-      margin: 14px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .guide-steps li {
-      counter-increment: guide-step;
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 10px 12px;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--muted);
-      line-height: 1.52;
-      box-shadow: 0 12px 28px rgba(13, 45, 78, 0.06);
-    }
-
-    .guide-steps li::before {
-      content: counter(guide-step);
-      display: grid;
-      width: 40px;
-      height: 40px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--ink);
-      color: var(--lime);
-      font-weight: 950;
-    }
-
-    .guide-steps strong {
+    .arc-gallery img {
       display: block;
-      margin-bottom: 3px;
-      color: var(--ink);
-    }
-
-    .phone-preview {
-      justify-self: center;
-      width: min(100%, 360px);
-      padding: 10px;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 32px;
-      background:
-        radial-gradient(circle at 82% 10%, rgba(215, 255, 53, 0.32), transparent 34%),
-        radial-gradient(circle at 8% 18%, rgba(77, 216, 255, 0.28), transparent 36%),
-        rgba(255, 255, 255, 0.9);
-      box-shadow: var(--shadow);
-    }
-
-    .phone-preview img {
       width: 100%;
       height: auto;
-      border-radius: 24px;
-      box-shadow: 0 18px 42px rgba(8, 24, 48, 0.18);
+      border-radius: 15px;
     }
 
-    .info-card {
-      padding: 16px;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 16px;
-      background: var(--surface);
-      box-shadow: 0 16px 38px rgba(13, 45, 78, 0.08);
-    }
-
-    .info-card .number {
+    /* ---------- sample report ---------- */
+    .report-grid {
       display: grid;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 10px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--ink);
-      color: var(--lime);
-      font-weight: 950;
-    }
-
-    .info-card h3 {
-      margin: 0 0 7px;
-      color: var(--ink);
-      font-size: 1.28rem;
-      letter-spacing: 0;
-      line-height: 1.22;
-    }
-
-    .info-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .benefit-list {
-      display: grid;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .benefit-list li {
-      display: flex;
-      gap: 10px;
-      color: var(--muted);
-      line-height: 1.48;
-    }
-
-    .benefit-list li::before {
-      content: "";
-      flex: 0 0 auto;
-      width: 10px;
-      height: 10px;
-      margin-top: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(52, 199, 121, 0.12);
-    }
-
-    #ai-privacy .benefits-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .notice {
-      margin: 14px 0 0;
-      padding: 14px 16px;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--muted);
-      line-height: 1.62;
-      box-shadow: 0 14px 34px rgba(13, 45, 78, 0.07);
-    }
-
-    .sample-report-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-      gap: 22px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 44px;
       align-items: center;
-      padding: 22px;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 18px 44px rgba(13, 45, 78, 0.09);
-    }
-
-    .report-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
     }
 
     .report-download {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 17px;
+      min-height: 50px;
+      padding: 13px 22px;
       border-radius: 999px;
-      background: var(--ink);
-      color: var(--white);
-      font-weight: 900;
-      box-shadow: 0 14px 28px rgba(7, 20, 37, 0.18);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      background: #0c1020;
+      color: #fff;
+      font-weight: 700;
+      transition: background 160ms ease, transform 160ms ease;
     }
 
     .report-download:hover,
-    .report-download:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 38px rgba(7, 20, 37, 0.22);
-      outline: none;
-    }
+    .report-download:focus-visible { background: #1c2440; transform: translateY(-2px); outline: none; }
 
-    .report-preview-link {
+    .report-video {
       display: block;
-      overflow: hidden;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 18px;
-      background: var(--white);
-      box-shadow: 0 18px 40px rgba(8, 24, 48, 0.12);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      background: linear-gradient(180deg, #ffffff, #eef2ff);
+      box-shadow: var(--shadow);
     }
 
-    .report-preview-link:hover,
-    .report-preview-link:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 50px rgba(8, 24, 48, 0.16);
-      outline: none;
-    }
-
-    .report-preview-link img,
-    .report-preview-link video {
+    .report-video video,
+    .report-video img {
       display: block;
       width: 100%;
       height: auto;
+      border-radius: 19px;
     }
 
-    .other-apps {
-      background: rgba(255, 255, 255, 0.66);
-      border-top: 1px solid rgba(15, 45, 83, 0.1);
+    .wide-shot {
+      max-width: 980px;
+      margin: 44px auto 0;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      background: linear-gradient(180deg, #ffffff, #eef2ff);
+      box-shadow: var(--shadow);
     }
 
-    .apps-grid {
+    .wide-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 19px;
+    }
+
+    /* ---------- steps ---------- */
+    .steps-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 44px;
     }
 
-    .app-link {
-      display: flex;
-      min-height: 108px;
-      flex-direction: column;
-      justify-content: space-between;
+    .step-card {
+      position: relative;
+      padding: 30px 26px 26px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 26px;
+      background: var(--surface);
+      box-shadow: 0 20px 54px rgba(24, 46, 110, 0.10);
+      overflow: hidden;
+    }
+
+    .step-card .num {
+      display: block;
+      font-family: var(--serif);
+      font-size: 4.6rem;
+      line-height: 1;
+      background: linear-gradient(180deg, rgba(117, 81, 255, 0.34), rgba(117, 81, 255, 0.06));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .step-card h3 { margin: 12px 0 8px; color: var(--heading); font-size: 1.22rem; letter-spacing: -0.02em; }
+    .step-card p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 0.98rem; }
+
+    .guide-list {
+      counter-reset: step;
+      display: grid;
+      gap: 12px;
+      margin: 40px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .guide-list li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
       padding: 18px;
-      border: 1px solid rgba(15, 45, 83, 0.12);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 0 12px 30px rgba(13, 45, 78, 0.07);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
+      line-height: 1.6;
+      box-shadow: 0 10px 30px rgba(24, 46, 110, 0.06);
     }
 
-    .app-link:hover,
-    .app-link:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 42px rgba(13, 45, 78, 0.12);
-      outline: none;
-    }
-
-    .app-link strong {
-      color: var(--ink);
-      font-size: 1.1rem;
-    }
-
-    .app-link span {
-      color: var(--blue);
-      font-weight: 900;
-    }
-
-    .footer {
-      padding: 30px 0 42px;
-      color: #64738a;
-      font-size: 0.95rem;
-      text-align: center;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 12px;
+    .guide-list li::before {
+      content: counter(step);
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff;
       font-weight: 800;
     }
 
-    .footer-links a {
-      color: var(--ink-2);
+    .guide-list strong { display: block; margin-bottom: 3px; color: var(--heading); font-size: 1.02rem; }
+
+    /* ---------- features ---------- */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 44px;
     }
 
-    @media (max-width: 980px) {
-      h1 {
-        font-size: 3.7rem;
-      }
-
-      h2 {
-        font-size: 2.35rem;
-      }
-
-      .fact-grid,
-      .steps-grid,
-      .benefits-grid,
-      .apps-grid,
-      .guide-showcase,
-      .sample-report-card {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      #ai-privacy .benefits-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .guide-showcase {
-        align-items: start;
-      }
-
-      .hero-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        max-width: 680px;
-      }
+    .feature-card {
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08);
     }
 
-    @media (max-width: 720px) {
-      .hero {
-        padding-bottom: 22px;
-      }
+    .feature-card h3 { margin: 14px 0 8px; color: var(--heading); font-size: 1.16rem; letter-spacing: -0.02em; }
+    .feature-card p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 0.97rem; }
+    .feature-card ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.6; font-size: 0.97rem; }
 
-      .hero::before {
-        right: -60%;
-        bottom: -22%;
-        width: 520px;
-        height: 520px;
-      }
+    .notice {
+      margin-top: 26px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.97rem;
+    }
 
-      .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-        margin-top: 12px;
-        padding: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 18px;
-        background: rgba(3, 10, 24, 0.58);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-      }
+    /* ---------- CTA ---------- */
+    .cta { padding: 100px 0 110px; }
 
-      .nav {
-        justify-content: flex-start;
-      }
+    .cta .store-badge-link img { width: 190px; }
 
-      .hero-layout {
-        gap: 16px;
-        padding-top: 14px;
-      }
+    .cta-sub { margin: 22px 0 0; color: var(--muted); font-size: 0.95rem; }
 
-      h1 {
-        font-size: 3rem;
-      }
+    /* ---------- footer ---------- */
+    .footer {
+      padding: 34px 0 46px;
+      border-top: 1px solid rgba(31, 59, 133, 0.10);
+      color: #66719a;
+      font-size: 0.93rem;
+    }
 
-      .lead {
-        font-size: 1.08rem;
-      }
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
 
-      .store-link img {
-        width: 194px;
-      }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { font-weight: 600; color: #4a5578; }
+    .footer-links a:hover, .footer-links a:focus-visible { color: var(--heading); outline: none; }
 
-      .button {
-        width: 100%;
-      }
+    /* ---------- responsive ---------- */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .hero-visual { margin-top: 8px; }
+      .dark-grid, .steps-grid, .feature-grid { grid-template-columns: 1fr 1fr; }
+      .stat-chip.tl { left: 0; }
+      .stat-chip.br { right: 0; }
+      .report-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
 
-      .quick-facts {
-        margin-top: -8px;
-        padding-top: 10px;
-        padding-bottom: 12px;
-      }
-
-      .fact-grid,
-      .steps-grid,
-      .benefits-grid,
-      .apps-grid,
-      .guide-showcase,
-      .sample-report-card {
-        grid-template-columns: 1fr;
-      }
-
-      #ai-privacy .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 28px 0;
-      }
-
-      #how-it-works {
-        padding-top: 24px;
-        padding-bottom: 14px;
-      }
-
-      #how-it-works + section {
-        padding-top: 12px;
-        padding-bottom: 22px;
-      }
-
-      #sample-report {
-        padding-top: 16px;
-        padding-bottom: 22px;
-      }
-
-      #first-guide,
-      #practice,
-      #ai-privacy {
-        padding-top: 22px;
-        padding-bottom: 22px;
-      }
-
-      .preview-frame {
-        border-radius: 16px;
-      }
-
-      .preview-frame img {
-        aspect-ratio: 4 / 3;
-      }
-
-      .phone-preview {
-        width: min(100%, 320px);
-      }
-
+    @media (max-width: 640px) {
+      section { padding: 62px 0; }
+      .topbar { border-radius: 24px; }
+      .nav { justify-content: flex-start; }
+      .dark-grid, .steps-grid, .feature-grid, .arc-gallery { grid-template-columns: 1fr; }
+      .stat-chip.tl { left: 0; }
+      .stat-chip.br { right: 0; }
+      .pc-left { left: 0; }
+      .pc-right { right: 0; }
+      .hero { padding-top: 46px; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="topbar">
+  <div class="nav-wrap">
+    <header class="topbar">
+      <span class="brand-group">
         <a class="brand" href="../" aria-label="NovaDev Code Studio home">
           <img src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
-          <span>
+          <span class="brand-text">
             <span class="brand-title">Nova<span>Dev</span></span>
             <span class="brand-subtitle">Code Studio</span>
           </span>
         </a>
-        <nav class="nav" aria-label="Page navigation">
-          <a href="#visual-coach">Visual Coach</a>
-          <a href="#ai-engine">AI engine</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#sample-report">Sample analysis</a>
-          <a href="#first-guide">First guide</a>
-          <a href="#practice">Practice</a>
-          <a href="../#projects">Other apps</a>
-        </nav>
-      </div>
-
-      <div class="hero-layout">
-        <div class="hero-copy">
-          <span class="status-pill">Available on the App Store</span>
-          <h1>AI Tennis Swing Coach</h1>
-          <p class="lead">Do you play tennis? Try the iPhone and iPad app that turns a short swing video into detailed, professional AI-powered feedback, one clear fix, and a practical drill for your next practice.</p>
-          <div class="hero-actions">
-            <a class="store-link" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer" aria-label="Download AI Tennis Swing Coach on the App Store">
-              <img src="../assets/store/app-store-badge.png" alt="Download on the App Store">
-            </a>
-            <a class="button" href="#how-it-works">See what it does</a>
-          </div>
-        </div>
-        <figure class="hero-visual" aria-label="AI Tennis Swing Coach app preview">
-          <img src="../assets/apps/a-tennis/a-tennis-ai-coach-promo-3x2.jpg" alt="AI Tennis Swing Coach preview with tennis swing analysis and app screens">
-        </figure>
-      </div>
-    </div>
-  </header>
+        <span class="brand-sep" aria-hidden="true">·</span>
+        <span class="brand-app">
+          <img class="nav-app-icon" src="../assets/apps/a-tennis/app-icon.webp" alt="">
+          AI Tennis Swing Coach
+        </span>
+      </span>
+      <nav class="nav" aria-label="Page links">
+        <a href="#creators">Creators</a>
+        <a href="#features">Features</a>
+        <a href="#sample-report">Sample report</a>
+        <a href="#guide">How to Use</a>
+        <a href="#privacy">Privacy</a>
+        <a class="store-pill" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer">
+          <svg width="14" height="16" viewBox="0 0 14 17" fill="currentColor" aria-hidden="true"><path d="M11.6 9.1c0-2 1.6-3 1.7-3.1-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7C3.5 4.4 2.2 5.1 1.5 6.3 0 8.7.9 12.2 2.3 14.1c.7 1 1.5 2 2.5 2 1 0 1.4-.6 2.6-.6 1.2 0 1.6.6 2.6.6 1.1 0 1.8-1 2.5-1.9.8-1.1 1.1-2.2 1.1-2.3 0 0-2-1-2-2.8ZM9.6 3.1c.5-.7.9-1.6.8-2.6-.8 0-1.8.6-2.3 1.2-.5.6-1 1.6-.8 2.5.9.1 1.8-.4 2.3-1.1Z"/></svg>
+          App Store
+        </a>
+      </nav>
+    </header>
+  </div>
 
   <main>
-    <section class="quick-facts" aria-label="AI Tennis Swing Coach highlights">
-      <div class="container fact-grid">
-        <div class="fact">
-          <strong>Start with 3 free detailed AI analyses</strong>
-          <span>Try an in-depth, professional-style swing review and see how useful the feedback feels for your training.</span>
+    <section class="hero liquid">
+      <div class="proof-pill">
+        <a href="#creators"><span class="dot" aria-hidden="true"></span> Tested on court by real coaches — watch below</a>
+      </div>
+      <div class="container hero-grid">
+        <div>
+          <img class="app-icon hero-icon" src="../assets/apps/a-tennis/app-icon.webp" alt="AI Tennis Swing Coach app icon">
+          <span class="eyebrow">AI-powered tennis coaching. Built for iPhone &amp; iPad.</span>
+          <h1 class="display">Your personal <em>AI coach</em> for every swing</h1>
+          <p class="lead">Record a short clip, choose a technique, and get AI-guided swing feedback with scores, visual checkpoints, timestamps, and a practical Fix of the Day.</p>
+          <div class="hero-actions">
+            <a class="store-badge-link" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer" aria-label="Download AI Tennis Swing Coach on the App Store">
+              <img src="../assets/store/app-store-badge.png" alt="Download on the App Store">
+            </a>
+            <a class="button-soft" href="#creators">Watch a pro coach test it</a>
+          </div>
+          <div class="trust-chips">
+            <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"/></svg> Visual Coach — 100% free</span>
+            <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"/></svg> No sign-up needed</span>
+            <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"/></svg> Live on the App Store</span>
+          </div>
         </div>
-        <div class="fact">
-          <strong>Built for real practice clips</strong>
-          <span>Upload forehand, backhand, serve, volley, or rally footage from your phone or iPad.</span>
-        </div>
-        <div class="fact">
-          <strong>Simple feedback you can use</strong>
-          <span>Get a focused improvement point instead of a long report you never take back to the court.</span>
+
+        <div class="hero-visual">
+          <div class="phone-cluster" aria-label="AI Tennis Swing Coach app screens">
+            <img class="pc-side pc-left" src="../assets/apps/a-tennis/hero/phone-analysis-left.webp" alt="AI Tennis Swing Coach analysis screen with swing score 52, NTRP-style estimate, and AI coaching summary" loading="eager">
+            <img class="pc-center" src="../assets/apps/a-tennis/hero/phone-progress-portrait.webp" alt="AI Tennis Swing Coach progress screen with score milestones and score progress chart" loading="eager">
+            <img class="pc-side pc-right" src="../assets/apps/a-tennis/hero/phone-guide-left.webp" alt="AI Tennis Swing Coach How to Use screen with side view and behind view recording guide" loading="eager">
+          </div>
+          <div class="stat-chip tl" aria-hidden="true">
+            <span class="k">Serve score</span>
+            <span class="v">82 <small>Expert Competitive</small></span>
+          </div>
+          <div class="stat-chip br" aria-hidden="true">
+            <span class="k">Contact checkpoint</span>
+            <span class="v">0:10.40 <small>Optimal height</small></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Now live: Visual Coach -->
-    <section id="visual-coach" aria-label="Visual Coach — now live">
-      <div class="container">
-        <div class="section-head">
-          <span style="display:inline-block;background:var(--lime);color:#0a2139;font-weight:900;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:12px;">✨ New — now live</span>
-          <h2>Visual Coach — see your swing in real time.</h2>
-          <p class="section-copy">The big update is here. AI Tennis Swing Coach now tracks your body as you play — live on the court, or from a clip you upload — and turns it into clear, personal coaching: what to fix, why, and the drill to fix it. Two coaches in one app.</p>
-        </div>
-      </div>
-      <div class="container steps-grid">
-        <article class="info-card">
-          <h3>🎾 Visual Coach Live</h3>
-          <p>Point your iPhone at the court for real-time coaching as you swing — a live skeleton tracks your form, joint angles and racket speed update at camera speed, and the coach speaks instant cues. On-device and private; nothing leaves your phone.</p>
-        </article>
-        <article class="info-card">
-          <h3>🎬 Visual Coach Replay</h3>
-          <p>Record or upload a clip for a full breakdown — frame-by-frame skeleton overlay, a score for every swing, swing-phase checkpoints, and slow-mo you can loop on any contact point. Export the analyzed clip with voice to share — free.</p>
-        </article>
-        <article class="info-card">
-          <h3>🤖 AI coaching, made personal</h3>
-          <p>Coaching written for your swing and tuned to your level, hand, and goals — not generic tips. One clear focus and a practical drill for your next session.</p>
-        </article>
-      </div>
-    </section>
+    <section id="creators">
+      <div class="container centered">
+        <span class="eyebrow">Creators on court</span>
+        <h2 class="display">Tested by <em>real coaches.</em></h2>
+        <p class="lead">Real players and coaches putting the app through real practice sessions — shared here with their permission. More creator reviews are on the way.</p>
 
-    <!-- v2.0: custom-trained on-device AI engine -->
-    <section id="ai-engine" aria-label="Our own AI engine">
-      <div class="container">
-        <div class="section-head">
-          <span style="display:inline-block;background:var(--lime);color:#0a2139;font-weight:900;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:12px;">⚡ v2.0 — our own AI engine</span>
-          <h2>We trained our own AI to watch your racket.</h2>
-          <p class="section-copy">The new engine runs on-device — a custom model trained on real tennis footage that tracks your racket through every swing, scores it, and coaches you out loud, instantly on your iPhone.</p>
-        </div>
-      </div>
-      <div class="container steps-grid">
-        <article class="info-card">
-          <h3>🎯 Racket tracking</h3>
-          <p>Our custom-trained detector locks onto your racket and follows it frame by frame — you watch the tracking box ride your swing, so the feedback is tied to what your racket actually did.</p>
-        </article>
-        <article class="info-card">
-          <h3>📊 Swing scores &amp; instant faults</h3>
-          <p>Every swing gets a 0–100 score, and the exact fault is flagged on screen the moment it happens — “late contact,” “slow swing,” “low follow-through” — so you know what to fix, not just that something was off.</p>
-        </article>
-        <article class="info-card">
-          <h3>🗣️ Six coaching voices</h3>
-          <p>The coach speaks your fix out loud in a real voice — choose from six coaching personalities, from calm and encouraging to direct and energetic. Leave the audio in when you share your clip.</p>
-        </article>
-      </div>
-      <div class="container">
-        <div class="shot-gallery">
-          <figure class="shot">
-            <img src="../assets/apps/a-tennis/a-tennis-ai-arc-followthrough.jpg" alt="AI Tennis Swing Coach showing AI-generated swing-path arcs and a Full Follow-Through cue over a player's forehand">
-          </figure>
-          <figure class="shot">
-            <img src="../assets/apps/a-tennis/a-tennis-ai-arc-racketslot.jpg" alt="AI Tennis Swing Coach showing AI-generated swing-path arcs with Ideal Racket Slot and Lower Racket Head cues over a player's swing">
+        <div class="creator-carousel">
+          <figure class="creator-card">
+            <div class="creator-phone">
+              <video controls playsinline preload="none"
+                poster="../Projects/iOS/a-tennis-ai-coach/assets/creators/ksenia-review-poster.jpg"
+                src="../Projects/iOS/a-tennis-ai-coach/assets/creators/ksenia-review.mp4"
+                aria-label="Ksenia Kos tests AI Tennis Swing Coach on court"></video>
+            </div>
+            <figcaption class="creator-meta">
+              <a class="creator-handle" href="https://www.tiktok.com/@ksenia.kos.tennis/video/7663849037392645408" target="_blank" rel="noreferrer">@ksenia.kos.tennis</a>
+              <p>Tennis coach Ksenia Kos filmed her serve, ran the AI analysis live, and watched it flag the exact toss issues she already knew about.</p>
+            </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section id="how-it-works">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">AI tennis analysis</span>
-          <h2>Improve your swing from one short clip.</h2>
-          <p class="section-copy">AI Tennis Swing Coach helps recreational and competitive players review tennis technique, timing, contact point, movement, balance, and practice priorities between lessons, practices, and matches.</p>
-        </div>
-        <div class="preview-frame">
-          <img src="../assets/apps/a-tennis/a-tennis-screens-trio-16x9.jpg" alt="AI Tennis Swing Coach app screens: Visual Coach, progress, and AI analysis">
-        </div>
-      </div>
-    </section>
+    <section class="dark">
+      <div class="container centered">
+        <span class="eyebrow">v2.0 — our own AI engine</span>
+        <h2 class="display">We trained our own AI to <em>watch your racket.</em></h2>
+        <p class="lead">The new engine runs on-device — a custom model trained on real tennis footage that tracks your racket through every swing, scores it, and coaches you out loud, instantly on your iPhone.</p>
 
-    <section>
-      <div class="container steps-grid">
-        <article class="info-card">
-          <span class="number">1</span>
-          <h3>Record or upload</h3>
-          <p>Capture a short tennis clip or import one from your library. Trim it to the useful swing sequence before analysis.</p>
-        </article>
-        <article class="info-card">
-          <span class="number">2</span>
-          <h3>Review AI feedback</h3>
-          <p>Choose the stroke type, run analysis, and review visual checkpoints, scores, strengths, and improvement opportunities.</p>
-        </article>
-        <article class="info-card">
-          <span class="number">3</span>
-          <h3>Practice one fix</h3>
-          <p>Take one clear correction and one drill into your next session, then compare progress with a future clip.</p>
-        </article>
+        <div class="dark-grid">
+          <article class="dark-card">
+            <span class="icon-dot a"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a1 1 0 0 1 1 1v1.06A8 8 0 0 1 19.94 11H21a1 1 0 1 1 0 2h-1.06A8 8 0 0 1 13 19.94V21a1 1 0 1 1-2 0v-1.06A8 8 0 0 1 4.06 13H3a1 1 0 1 1 0-2h1.06A8 8 0 0 1 11 4.06V3a1 1 0 0 1 1-1Zm0 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></span>
+            <h3>Racket tracking</h3>
+            <p>Our custom-trained detector locks onto your racket and follows it frame by frame — you watch the tracking box ride your swing, so the feedback is tied to what your racket actually did.</p>
+          </article>
+          <article class="dark-card">
+            <span class="icon-dot b"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4a1 1 0 0 1 1 1v12h12a1 1 0 1 1 0 2H7a2 2 0 0 1-2-2V5a1 1 0 0 1 2-1Zm4.3 9.1 2.6-3.3a1 1 0 0 1 1.5-.1l2 2 2.8-4.2a1 1 0 1 1 1.6 1.2l-3.4 5.2a1 1 0 0 1-1.6.1l-2-2-2 2.5a1 1 0 0 1-1.5-1.4Z"/></svg></span>
+            <h3>Swing scores &amp; instant faults</h3>
+            <p>Every swing gets a 0–100 score, and the exact fault is called out the moment it happens in your swing — "contact too late," "swing too slow," "finish too short" — so you know what to fix, not just that something was off.</p>
+          </article>
+          <article class="dark-card">
+            <span class="icon-dot c"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 5 6.5 8.5H3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h3.5L11 19a1 1 0 0 0 1.6-.8V5.8A1 1 0 0 0 11 5Zm5.5 2.6a1 1 0 0 1 1.4.1 6.5 6.5 0 0 1 0 8.6 1 1 0 1 1-1.5-1.3 4.5 4.5 0 0 0 0-6 1 1 0 0 1 .1-1.4Zm2.9-2.8a1 1 0 0 1 1.4.1 10.5 10.5 0 0 1 0 14.2 1 1 0 0 1-1.5-1.4 8.5 8.5 0 0 0 0-11.5 1 1 0 0 1 .1-1.4Z"/></svg></span>
+            <h3>Six coaching voices</h3>
+            <p>The coach speaks your fix out loud in a real voice — choose from six coaching personalities, from calm and encouraging to direct and energetic. Leave the audio in when you share your clip.</p>
+          </article>
+        </div>
+
+        <div class="arc-gallery">
+          <figure><img src="../assets/apps/a-tennis/a-tennis-ai-arc-followthrough.jpg" alt="AI Tennis Swing Coach showing AI-generated swing-path arcs and a Full Follow-Through cue over a player's forehand" loading="lazy"></figure>
+          <figure><img src="../assets/apps/a-tennis/a-tennis-ai-arc-racketslot.jpg" alt="AI Tennis Swing Coach showing AI-generated swing-path arcs with Ideal Racket Slot and Lower Racket Head cues over a player's swing" loading="lazy"></figure>
+        </div>
       </div>
     </section>
 
     <section id="sample-report">
       <div class="container">
-        <article class="sample-report-card">
+        <div class="report-grid">
           <div>
-            <span class="eyebrow">Sample Elite Coach Report</span>
-            <h2>See what a detailed AI analysis looks like.</h2>
-            <p class="section-copy">Download a real 15-page Elite Coach sample report generated from a tennis clip. It shows the kind of structured feedback, scoring, improvement focus, visual checkpoints, and practice guidance AI Tennis Swing Coach can produce.</p>
-            <div class="report-actions">
-              <a class="report-download" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-20260615.pdf?v=20260615-1" download="sample-elite-coach-ai-analysis.pdf">Download sample Elite Coach AI analysis</a>
+            <span class="eyebrow">Sample Elite Coach report</span>
+            <h2 class="display">See what a <em>deep AI analysis</em> looks like.</h2>
+            <p class="lead">Download a real 15-page Elite Coach sample report generated from a tennis clip. It shows the kind of structured feedback, scoring, improvement focus, visual checkpoints, and practice guidance the app can produce.</p>
+            <div class="hero-actions">
+              <a class="report-download" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-20260615.pdf?v=20260615-1" download="sample-elite-coach-ai-analysis.pdf">Download the sample report (PDF)</a>
             </div>
           </div>
-          <a class="report-preview-link" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-20260615.pdf?v=20260615-1" download="sample-elite-coach-ai-analysis.pdf" aria-label="Download sample Elite Coach AI analysis PDF">
-            <video
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
+          <a class="report-video" href="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-20260615.pdf?v=20260615-1" download="sample-elite-coach-ai-analysis.pdf" aria-label="Download sample Elite Coach AI analysis PDF">
+            <video autoplay muted loop playsinline preload="metadata"
               poster="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.jpg?v=20260614-2"
               aria-label="Animated preview scrolling through a sample Elite Coach AI analysis report">
               <source src="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.mp4?v=20260614-2" type="video/mp4">
               <img src="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.jpg?v=20260614-2" alt="Preview of a sample Elite Coach AI analysis report">
             </video>
           </a>
-        </article>
-      </div>
-    </section>
-
-    <section id="first-guide">
-      <div class="container guide-showcase">
-        <div>
-          <span class="eyebrow">First Swing Guide</span>
-          <h2>Record a cleaner clip before the first analysis.</h2>
-          <p class="section-copy">Clean video gives the AI better evidence and makes progress easier to compare later. Use this quick checklist before your first upload.</p>
-          <ol class="guide-steps">
-            <li><span><strong>Record from the side.</strong> Side view is best for contact point, racket path, preparation, balance, and follow-through.</span></li>
-            <li><span><strong>Keep the full player visible.</strong> Shoes, shoulders, racket, ball contact, and finish should stay inside the frame.</span></li>
-            <li><span><strong>Trim the best segment.</strong> Select the clearest part of the clip before running analysis.</span></li>
-            <li><span><strong>Choose the stroke or Auto Detect.</strong> Pick forehand, backhand, serve, volley, or use Auto Detect for mixed clips.</span></li>
-            <li><span><strong>Practice one Fix of the Day.</strong> Focus on one correction, then upload another clip from the same angle later.</span></li>
-          </ol>
-        </div>
-        <figure class="phone-preview" aria-label="First Swing Guide preview">
-          <img src="../assets/apps/a-tennis/first-swing-guide-how-to-use.jpg" alt="AI Tennis Swing Coach in-app First Swing Guide with side view, behind view, and recording checklist">
-        </figure>
-      </div>
-    </section>
-
-    <section id="practice">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">For the court</span>
-          <h2>Useful for lessons, league play, and solo practice.</h2>
-          <p class="section-copy">The app is designed to support coaching, not replace it. Use it when you want a second look at your swing and a more focused plan for what to work on next.</p>
-        </div>
-        <div class="benefits-grid">
-          <article class="info-card">
-            <h3>Stroke coverage</h3>
-            <ul class="benefit-list">
-              <li>Forehand, backhand, serve, volley, overhead, return, rally, and footwork review.</li>
-              <li>Auto Detect helps when a clip includes mixed tennis action.</li>
-            </ul>
-          </article>
-          <article class="info-card">
-            <h3>Player progress</h3>
-            <ul class="benefit-list">
-              <li>Save reports, track trends, and organize feedback by player profile.</li>
-              <li>Keep your best practice notes close before the next court session.</li>
-            </ul>
-          </article>
-          <article class="info-card">
-            <h3>Clear boundaries</h3>
-            <ul class="benefit-list">
-              <li>AI feedback is coaching guidance, not medical advice or a certified rating.</li>
-              <li>Better video angle and lighting usually produce more useful results.</li>
-            </ul>
-          </article>
         </div>
       </div>
     </section>
 
-    <section id="ai-privacy">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">AI, privacy, and credits</span>
-          <h2>Clear details before you upload.</h2>
-          <p class="section-copy">AI Tennis Swing Coach is built around short analysis clips, local history, optional Pro access, and transparent AI guidance boundaries.</p>
-        </div>
-        <div class="benefits-grid">
-          <article class="info-card">
-            <h3>Deep AI analysis</h3>
-            <p>On-device racket tracking, swing scoring, and voice cues are instant and private. The Elite Coach deep written report then uses the premium Gemini Pro model to review selected video frames, stroke context, timing, player level, and technique details.</p>
+    <section id="guide" class="liquid">
+      <div class="container centered">
+        <span class="eyebrow">Get started</span>
+        <h2 class="display">Three steps to <em>better tennis.</em></h2>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="num">01</span>
+            <h3>Record a short clip</h3>
+            <p>Film from the side with the full player visible — shoes, shoulders, racket, contact, and finish inside the frame.</p>
           </article>
-          <article class="info-card">
+          <article class="step-card">
+            <span class="num">02</span>
+            <h3>Run the AI analysis</h3>
+            <p>Pick Forehand, Backhand, Serve, Volley — or Auto Detect for mixed clips — and get scores, checkpoints, and timestamps.</p>
+          </article>
+          <article class="step-card">
+            <span class="num">03</span>
+            <h3>Practice one fix</h3>
+            <p>Focus on a single Fix of the Day, then upload another clip from the same angle next week and watch the trend build.</p>
+          </article>
+        </div>
+
+        <ol class="guide-list" aria-label="First Swing Guide checklist">
+          <li><span><strong>Record from the side.</strong> Side view is best for contact point, racket path, preparation, balance, and follow-through. Behind the baseline is also useful for court position and recovery.</span></li>
+          <li><span><strong>Keep the full player visible.</strong> Shoes, shoulders, racket, ball contact, and finish should stay inside the frame.</span></li>
+          <li><span><strong>Trim the best segment.</strong> Select the clearest 20 to 90 seconds depending on your access level and analysis mode.</span></li>
+          <li><span><strong>Choose technique or Auto Detect.</strong> Pick Forehand, Backhand, Serve, Volley, or another technique when you know it. Use Auto Detect for mixed clips.</span></li>
+          <li><span><strong>Practice one Fix of the Day.</strong> Focus on one correction, then upload another clip from the same angle next week.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container centered">
+        <span class="eyebrow">Features</span>
+        <h2 class="display">Everything a swing needs, <em>in one app.</em></h2>
+
+        <div class="wide-shot">
+          <img src="../assets/apps/a-tennis/a-tennis-screens-trio-16x9.jpg" alt="AI Tennis Swing Coach app screens: Visual Coach, progress, and AI analysis" loading="lazy">
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="icon-dot a"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a2.5 2.5 0 0 1 2.5 2.5v.63a7 7 0 0 1 4.37 4.37h.63a2.5 2.5 0 0 1 0 5h-.63a7 7 0 0 1-4.37 4.37v.63a2.5 2.5 0 0 1-5 0v-.63a7 7 0 0 1-4.37-4.37H4.5a2.5 2.5 0 0 1 0-5h.63A7 7 0 0 1 9.5 6.13V5.5A2.5 2.5 0 0 1 12 3Zm0 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></span>
+            <h3>Visual Coach — live &amp; replay</h3>
+            <p>On-device AI skeleton and racket tracking, live on court or over recorded clips. 100% free, unlimited, no sign-up.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon-dot b"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm2.2 12.6 3-3.8 2.4 2.9 3.2-4.9 3 5.8H5.4l1.8-1.2Z" opacity="0"/><path d="M7 4a1 1 0 0 1 1 1v12h12a1 1 0 1 1 0 2H7a2 2 0 0 1-2-2V5a1 1 0 0 1 2-1Zm4.3 9.1 2.6-3.3a1 1 0 0 1 1.5-.1l2 2 2.8-4.2a1 1 0 1 1 1.6 1.2l-3.4 5.2a1 1 0 0 1-1.6.1l-2-2-2 2.5a1 1 0 0 1-1.5-1.4Z"/></svg></span>
+            <h3>Per-swing scores</h3>
+            <p>Every swing scored 0–100 against pro-style benchmarks, with per-checkpoint breakdowns and NTRP-style level estimates.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon-dot c"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.1 2.4c-2.6.1-5 1.1-6.7 2.8-1.6 1.6-2.6 3.8-2.8 6.2L2.3 13.8a1 1 0 0 0 .9 1.7l3.4-.2 2 2-.2 3.4a1 1 0 0 0 1.7.9l2.4-2.3c2.4-.2 4.6-1.2 6.2-2.8 1.7-1.7 2.7-4.1 2.8-6.7L21.7 3a1 1 0 0 0-1-1l-6.6.2ZM17.6 8a1.8 1.8 0 1 1 0-3.6A1.8 1.8 0 0 1 17.6 8Z"/></svg></span>
+            <h3>Deep AI coaching reports</h3>
+            <p>Quick Coach, Deep Review, and Elite Coach modes turn key frames into detailed reports with a practical Fix of the Day.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon-dot d"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5v2h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2H6a2 2 0 0 1-2-2V5Zm7 3.5a1 1 0 0 0-1.5.9v3.2a1 1 0 0 0 1.5.9l2.7-1.6a1 1 0 0 0 0-1.8L11 8.5Z"/></svg></span>
+            <h3>Swing trail &amp; clip export</h3>
+            <p>Share slow-motion swing clips with the racket path drawn in — or export clean before/after clips of your progress.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon-dot e"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8a7 7 0 0 1 14 0 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1Z"/></svg></span>
+            <h3>Player profiles &amp; hub</h3>
+            <p>Separate histories, personal bests, milestones, and training plans for every family member who uses the app.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon-dot f"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4.5 5v6c0 5 3.2 8.7 7.5 11 4.3-2.3 7.5-6 7.5-11V5L12 2Zm-1.2 13.6-3-3a1 1 0 0 1 1.4-1.4l2.3 2.3 4.3-4.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0Z"/></svg></span>
+            <h3>Private by design</h3>
+            <p>Videos, profiles, and reports stay on your device unless you share them. Only selected key frames go to the AI for analysis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="liquid">
+      <div class="container centered">
+        <span class="eyebrow">AI, privacy &amp; credits</span>
+        <h2 class="display">Honest about <em>how it works.</em></h2>
+
+        <div class="feature-grid">
+          <article class="feature-card">
             <h3>What is sent</h3>
-            <p>For AI analysis, the app sends selected key frames from your chosen clip range, clip timing, technique, player level, and analysis mode to the AI Tennis Swing Coach backend for AI review.</p>
+            <p>For AI analysis, the app sends selected key frames from your chosen clip range, clip timing, technique, player level, and analysis mode to the AI Tennis Swing Coach backend for Google Gemini AI analysis.</p>
           </article>
-          <article class="info-card">
+          <article class="feature-card">
             <h3>What stays local</h3>
-            <p>The original imported video, local trimmed clip, player profiles, saved history, and generated reports stay on your device unless you share or export them.</p>
+            <p>The original imported video, local trimmed clip, player profiles, saved history, and generated reports are stored on the device unless you share or export them.</p>
           </article>
-          <article class="info-card">
+          <article class="feature-card">
             <h3>Credits</h3>
-            <ul class="benefit-list">
-              <li>Free accounts include limited AI credits.</li>
+            <ul>
+              <li>Free accounts include 3 AI credits, tied to your Apple account.</li>
               <li>AI Tennis Swing Coach Pro includes 100 monthly credits.</li>
-              <li>Quick Coach, Deep Review, and Elite Coach use different credit amounts.</li>
+              <li>Quick Coach uses 1 credit, Deep Review uses 2, and Elite Coach uses 3.</li>
             </ul>
           </article>
         </div>
@@ -1214,47 +1094,56 @@
       </div>
     </section>
 
-    <section class="other-apps" id="other-apps">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">NovaDev Code Studio</span>
-          <h2>Check other applications for Apple, Android, and wearable devices.</h2>
-          <p class="section-copy">Explore more apps from NovaDev Code Studio, including racquet sport scoring tools and watch-friendly companion experiences.</p>
+    <section id="faq">
+      <div class="container centered">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display">Quick <em>answers.</em></h2>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>What clip angle is best?</h3>
+            <p>Start with side view. It gives the clearest look at contact point, racket drop, timing, and follow-through.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Can I analyze friends or family?</h3>
+            <p>Yes. Use player profiles to keep histories and training plans separate. Make sure people agree to be recorded.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Where can I get help?</h3>
+            <p>Email <a href="mailto:support@novadevcodestudio.com" style="font-weight:700; color: var(--accent-1);">support@novadevcodestudio.com</a> for account, billing, privacy, or analysis questions.</p>
+          </article>
         </div>
-        <div class="apps-grid">
-          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
-            <strong>iPhone and iPad</strong>
-            <span>View projects</span>
-          </a>
-          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
-            <strong>Apple Watch</strong>
-            <span>View projects</span>
-          </a>
-          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
-            <strong>Android</strong>
-            <span>View projects</span>
-          </a>
-          <a class="app-link" href="../#projects" aria-label="View all NovaDev Code Studio projects">
-            <strong>Wear OS</strong>
-            <span>View projects</span>
+      </div>
+    </section>
+
+    <section class="cta liquid">
+      <div class="container centered">
+        <img class="app-icon cta-icon" src="../assets/apps/a-tennis/app-icon.webp" alt="" aria-hidden="true" loading="lazy">
+        <span class="eyebrow">Get started</span>
+        <h2 class="display">Ready to <em>see your swing</em> like a pro?</h2>
+        <p class="lead">The Visual Coach is 100% free with no sign-up — and you start with 3 free AI credits for your first coaching reports.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer" aria-label="Download AI Tennis Swing Coach on the App Store">
+            <img src="../assets/store/app-store-badge.png" alt="Download on the App Store">
           </a>
         </div>
+        <p class="cta-sub">Free on the App Store for iPhone and iPad.</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</div>
-      <div class="footer-links">
+    <div class="container footer-row">
+      <span>Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</span>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="../">NovaDev Code Studio</a>
         <a href="https://yurybreiapps-jpg.github.io/public/Apps/Apple/iOS/a-tennis-ai-coach/privacy/">Privacy Policy</a>
         <a href="mailto:support@novadevcodestudio.com">Support</a>
         <a href="https://www.tiktok.com/@novadevcode" target="_blank" rel="noreferrer">TikTok</a>
         <a href="https://www.youtube.com/@NovaDevCodeStudio" target="_blank" rel="noreferrer">YouTube</a>
         <a href="https://www.instagram.com/novadevcode/" target="_blank" rel="noreferrer">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61591775212862" target="_blank" rel="noreferrer">Facebook</a>
-        <a href="../">NovaDev Code Studio</a>
-      </div>
+      </nav>
     </div>
   </footer>
 
