@@ -633,6 +633,24 @@
       border-radius: 15px;
     }
 
+    .arc-gallery.light {
+      max-width: 1080px;
+    }
+
+    .arc-gallery.light figure {
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      background: var(--surface);
+      box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08);
+    }
+
+    /* Equal-size pair: the two source screenshots have slightly different
+       aspect ratios, so render both in identical 1.6:1 frames with a
+       centered cover-crop. */
+    .arc-gallery.light img {
+      aspect-ratio: 1.6 / 1;
+      object-fit: cover;
+    }
+
     /* ---------- sample report ---------- */
     .report-grid {
       display: grid;
@@ -1103,10 +1121,6 @@
           </article>
         </div>
 
-        <div class="arc-gallery">
-          <figure><img src="../assets/apps/a-tennis/a-tennis-ai-arc-followthrough.jpg" alt="AI Tennis Swing Coach showing AI-generated swing-path arcs and a Full Follow-Through cue over a player's forehand" loading="lazy"></figure>
-          <figure><img src="../assets/apps/a-tennis/a-tennis-ai-arc-racketslot.jpg" alt="AI Tennis Swing Coach showing AI-generated swing-path arcs with Ideal Racket Slot and Lower Racket Head cues over a player's swing" loading="lazy"></figure>
-        </div>
       </div>
     </section>
 
@@ -1129,6 +1143,10 @@
               <img src="../assets/apps/a-tennis/sample-elite-coach-ai-analysis-preview.jpg?v=20260614-2" alt="Preview of a sample Elite Coach AI analysis report">
             </video>
           </a>
+        </div>
+        <div class="arc-gallery light">
+          <figure><img src="../assets/apps/a-tennis/a-tennis-ai-arc-followthrough.jpg?v=20260719" alt="Deep AI analysis overlay showing your swing path against the ideal arc with a Full Follow-Through cue over a player's forehand" loading="lazy"></figure>
+          <figure><img src="../assets/apps/a-tennis/a-tennis-ai-arc-racketslot.jpg?v=20260719" alt="Deep AI analysis overlay comparing the player's swing path to the Ideal Racket Slot with a Lower Racket Head cue" loading="lazy"></figure>
         </div>
       </div>
     </section>
