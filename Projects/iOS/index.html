@@ -6,177 +6,225 @@
   <title>iOS Projects | NovaDev Code Studio</title>
   <meta name="description" content="iPhone and iPad projects from NovaDev Code Studio, including AI Tennis Swing Coach and Tennis Score Tracker Match.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#eaf2ff">
+  <meta name="theme-color" content="#f7f9ff">
   <link rel="canonical" href="https://www.novadevcodestudio.com/Projects/iOS/">
   <meta property="og:title" content="iOS Projects | NovaDev Code Studio">
-  <meta property="og:description" content="iPhone and iPad apps from NovaDev Code Studio, including AI Tennis Swing Coach and Tennis Score Tracker Match.">
+  <meta property="og:description" content="iPhone and iPad projects from NovaDev Code Studio, including AI Tennis Swing Coach and Tennis Score Tracker Match.">
   <meta property="og:url" content="https://www.novadevcodestudio.com/Projects/iOS/">
-  <meta property="og:image" content="https://www.novadevcodestudio.com/Projects/iOS/assets/tennis-score-tracker-match-card-3x2.jpg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NovaDev Code Studio">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="iOS Projects | NovaDev Code Studio">
-  <meta name="twitter:description" content="iPhone and iPad apps from NovaDev Code Studio, including AI Tennis Swing Coach and Tennis Score Tracker Match.">
-  <meta name="twitter:image" content="https://www.novadevcodestudio.com/Projects/iOS/assets/tennis-score-tracker-match-card-3x2.jpg">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="../../assets/favicon.png">
-  <link rel="stylesheet" href="../project-page.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .ios-projects-grid .project-media {
-      aspect-ratio: 3 / 2;
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.86);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16); --max: 1180px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
     }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: #f7f9ff; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .liquid { position: relative; isolation: isolate; }
+    .liquid::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        radial-gradient(40% 36% at 84% 78%, rgba(150, 226, 255, 0.28), transparent 58%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+      filter: saturate(1.05);
+    }
+    .nav-wrap { position: sticky; top: 14px; z-index: 60; padding: 0 18px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: min(100%, 1040px); margin: 14px auto 0; padding: 13px 14px 13px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78); box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
+    .brand-text { display: grid; line-height: 1; }
+    .brand-title { color: #091d75; font-size: 1.12rem; letter-spacing: -0.04em; font-weight: 900; }
+    .brand-title span {
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .brand-subtitle { margin-top: 4px; color: #6c7ba0; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.30em; text-transform: uppercase; }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px; }
+    .nav a { padding: 9px 10px; border-radius: 999px; color: #33415e; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .nav a:hover, .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
+    .nav .store-pill { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 10px 16px; border-radius: 999px; background: #0c1020; color: #fff; font-size: 0.92rem; font-weight: 700; }
+    .nav .store-pill:hover, .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #56618a; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); }
+    .display { margin: 16px 0 18px; font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.06; color: var(--heading); }
+    .display em { font-style: italic; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1.display { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+    .lead { max-width: 680px; margin: 0 auto; color: var(--muted); font-size: 1.14rem; line-height: 1.65; }
+    .page-head { padding: 76px 0 30px; text-align: center; }
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding: 40px 0 90px; }
+    .product-card { display: flex; flex-direction: column; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 28px; background: var(--surface); box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08); overflow: hidden; }
+    .product-media { background: #0c1020; }
+    .product-media img { display: block; width: 100%; height: auto; }
+    .product-body { display: flex; flex-direction: column; flex: 1; gap: 12px; padding: 24px 26px 26px; }
+    .product-body h3 { margin: 0; color: var(--heading); font-size: 1.3rem; letter-spacing: -0.02em; }
+    .product-body p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 0.98rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.8); color: #3a4666; font-size: 0.8rem; font-weight: 700; }
+    .product-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: auto; padding-top: 6px; }
+    .product-badges img { height: 44px; width: auto; border-radius: 8px; }
+    .product-badges a { display: inline-flex; transition: transform 160ms ease; }
+    .product-badges a:hover, .product-badges a:focus-visible { transform: translateY(-2px); outline: none; }
+    .text-link { color: var(--accent-1); font-weight: 800; }
+    .text-link:hover, .text-link:focus-visible { text-decoration: underline; outline: none; }
+    .footer { padding: 34px 0 46px; border-top: 1px solid rgba(31, 59, 133, 0.10); color: #66719a; font-size: 0.93rem; }
+    .footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { font-weight: 600; color: #4a5578; }
+    .footer-links a:hover, .footer-links a:focus-visible { color: var(--heading); outline: none; }
+    @media (max-width: 880px) { .product-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .topbar { border-radius: 24px; } .nav { justify-content: flex-start; } .page-head { padding-top: 56px; } }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand img { width: 46px; height: 46px; object-fit: contain; }
+
+    .footer-legal { flex: 1; min-width: 260px; text-align: center; }
+    .footer-legal p { margin: 0 0 6px; }
+    .fineprint { font-size: 0.78rem; color: #8b96b8; }
+
+    .footer-textlinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .footer-textlinks a { color: #4a5578; }
+    .footer-textlinks a:hover, .footer-textlinks a:focus-visible { color: var(--heading); outline: none; }
+
+    .social-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+    .social-row a {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      background: #fff;
+      color: #33415e;
+      box-shadow: 0 8px 20px rgba(28, 52, 120, 0.10);
+      transition: transform 150ms ease, color 150ms ease;
+    }
+
+    .social-row a:hover,
+    .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
+
+    .social-row svg { width: 20px; height: 20px; fill: currentColor; }
+
+    @media (max-width: 880px) {
+      .footer-grid { flex-direction: column; text-align: center; }
+    }
+
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="nav-wrap">
     <header class="topbar">
-      <a class="brand" href="../../index.html" aria-label="NovaDev Code Studio home">
+      <a class="brand" href="../../" aria-label="NovaDev Code Studio home">
         <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
-        <span>
+        <span class="brand-text">
           <span class="brand-title">Nova<span>Dev</span></span>
           <span class="brand-subtitle">Code Studio</span>
         </span>
       </a>
-      <div class="topbar-links">
-        <a class="home-icon-link" href="../../" aria-label="Return to homepage" title="Home">
-          <span class="hidden-label">Home</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3 11.5 12 4l9 7.5"></path>
-            <path d="M5 10.5V20h14v-9.5"></path>
-            <path d="M9 20v-6h6v6"></path>
-          </svg>
-        </a>
-        <nav class="nav" aria-label="Project categories">
-          <a class="active" href="../iOS/">iOS</a>
-          <a href="../WatchOS/">watchOS</a>
-          <a href="../Android/">Android</a>
-          <a href="../WearOS/">Wear OS</a>
-        </nav>
-      </div>
+      <nav class="nav" aria-label="Page links">
+        <a href="../../#apps">All apps</a>
+        <a href="../WatchOS/">watchOS</a> <a href="../Android/">Android</a> <a href="../WearOS/">Wear OS</a>
+        <a class="store-pill" href="mailto:support@novadevcodestudio.com">Contact</a>
+      </nav>
     </header>
   </div>
 
   <main>
-    <section class="hero">
+    <section class="page-head liquid">
       <div class="container">
-        <div class="eyebrow">Projects / iOS</div>
-        <h1>iOS Projects</h1>
-        <p>Polished iPhone and iPad apps from NovaDev Code Studio.</p>
+        <span class="eyebrow">NovaDev Code Studio · iPhone & iPad</span>
+        <h1 class="display">iPhone &amp; iPad <em>projects.</em></h1>
+        <p class="lead">Polished iPhone and iPad apps from NovaDev Code Studio.</p>
       </div>
     </section>
 
-    <section class="container">
-      <div class="projects-grid ios-projects-grid">
-        <article class="project-card platform-availability-card">
-          <div class="project-media">
-            <img src="assets/a-tennis-ai-coach-card-pro-3x2.jpg" alt="AI Tennis Swing Coach app preview with tennis player and AI analysis styling">
-          </div>
-          <div class="project-body">
-            <div class="project-topline">
-              <span class="tag">iPhone</span>
-              <span class="tag">iPad</span>
-              <span class="tag">AI Tennis</span>
-              <span class="tag">App Store</span>
+    <section>
+      <div class="container">
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-media"><img src="assets/a-tennis-ai-coach-card-pro-3x2.jpg" alt="AI Tennis Swing Coach app preview with tennis player and AI analysis styling" loading="lazy"></div>
+            <div class="product-body">
+              <h3>AI Tennis Swing Coach</h3>
+              <p>AI tennis swing analysis with visual checkpoints, scores, training plans, player profiles, and practical recording guidance.</p>
+              <div class="tag-row"><span class="tag">iPhone</span><span class="tag">iPad</span><span class="tag">On-device AI</span></div>
+              <div class="product-badges"><a href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer"><img src="../../assets/store/app-store-badge.png" alt="Download on the App Store"></a><a class="text-link" href="../../a-tennis/">Explore the app →</a></div>
             </div>
-            <h2>AI Tennis Swing Coach</h2>
-            <p>AI tennis swing analysis with visual checkpoints, scores, training plans, player profiles, and practical recording guidance.</p>
-            <p class="availability-note live">Available now on the App Store for iPhone and iPad.</p>
-            <div class="project-actions">
-              <a class="store-badge-link" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer" aria-label="Download AI Tennis Swing Coach on the App Store">
-                <img class="store-badge app-store-badge" src="../../assets/store/app-store-badge.png" alt="Download on the App Store">
-              </a>
-              <div class="platform-link-group" aria-label="AI Tennis Swing Coach guide link">
-                <a class="platform-link" href="../../a-tennis/" aria-label="Open AI Tennis Swing Coach guide">
-                  <span class="platform-link-content">
-                    <span class="platform-link-copy">
-                      View guide
-                      <small>How it works, privacy, and recording tips</small>
-                    </span>
-                  </span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"></path>
-                    <path d="m13 6 6 6-6 6"></path>
-                  </svg>
-                </a>
-                <a class="platform-link" href="/a-tennis/" aria-label="Open the dedicated AI Tennis Swing Coach page">
-                  <span class="platform-link-content">
-                    <span class="platform-link-copy">
-                      Find out more
-                      <small>Features, Visual Coach, and a sample report on the dedicated page</small>
-                    </span>
-                  </span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"></path>
-                    <path d="m13 6 6 6-6 6"></path>
-                  </svg>
-                </a>
-              </div>
+          </article>
+          <article class="product-card">
+            <div class="product-media"><img src="assets/tennis-score-tracker-match-card-3x2.jpg" alt="Tennis Score Tracker Match app preview" loading="lazy"></div>
+            <div class="product-body">
+              <h3>Tennis Score Tracker Match</h3>
+              <p>Native iOS scoring for tennis, pickleball, and ping-pong with smart presets, live point tracking, serving indicators, undo and redo, history, stats, and spectator display.</p>
+              <div class="tag-row"><span class="tag">iPhone</span><span class="tag">iPad</span></div>
+              <div class="product-badges"><a href="https://apps.apple.com/us/app/tennis-scorekeeper-matches/id6763812774" target="_blank" rel="noreferrer"><img src="../../assets/store/app-store-badge.png" alt="Download on the App Store"></a><a href="https://play.google.com/store/apps/details?id=space.manus.matchscore.t20260326123000" target="_blank" rel="noreferrer"><img src="../../assets/store/google-play-badge.png" alt="Get it on Google Play"></a></div>
             </div>
-          </div>
-        </article>
-
-        <article class="project-card platform-availability-card">
-          <div class="project-media">
-            <img class="scorer-banner" src="assets/tennis-score-tracker-match-card-3x2.jpg" alt="Tennis Score Tracker Match app card with Apple styling">
-          </div>
-          <div class="project-body">
-            <div class="project-topline">
-              <span class="tag">iPhone</span>
-              <span class="tag">iPad</span>
-              <span class="tag">Android</span>
-              <span class="tag">Wear OS</span>
-            </div>
-            <h2>Tennis Score Tracker Match</h2>
-            <p>Native iOS scoring for tennis, pickleball, and ping-pong with smart presets, live point tracking, serving indicators, undo and redo, history, stats, and spectator display.</p>
-            <p class="availability-note live">Available now on the App Store, with Android and Wear OS versions also available on Google Play.</p>
-            <div class="project-actions">
-              <a class="store-badge-link" href="https://apps.apple.com/us/app/tennis-scorekeeper-matches/id6763812774" target="_blank" rel="noreferrer" aria-label="Open Tennis Score Tracker Match on the App Store">
-                <img class="store-badge app-store-badge" src="../../assets/store/app-store-badge.png" alt="Download on the App Store">
-              </a>
-              <div class="platform-link-group" aria-label="Google Play links for Tennis Score Tracker Match">
-                <a class="platform-link" href="https://play.google.com/store/apps/details?id=space.manus.matchscore.t20260326123000" target="_blank" rel="noreferrer" aria-label="Open Tennis Score Tracker Match Android on Google Play">
-                  <span class="platform-link-content">
-                    <span class="platform-store-link-badge" aria-hidden="true">
-                      <img src="../../assets/store/google-play-badge.png" alt="">
-                    </span>
-                    <span class="platform-link-copy">
-                      Android version
-                      <small>Get it on Google Play</small>
-                    </span>
-                  </span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"></path>
-                    <path d="m13 6 6 6-6 6"></path>
-                  </svg>
-                </a>
-                <a class="platform-link" href="https://play.google.com/store/apps/details?id=com.novadevcodestudio.matchscoreprowatch" target="_blank" rel="noreferrer" aria-label="Open Tennis Pickleball Ping-Pong Scorer Wear OS on Google Play">
-                  <span class="platform-link-content">
-                    <span class="platform-store-link-badge" aria-hidden="true">
-                      <img src="../../assets/store/google-play-badge.png" alt="">
-                    </span>
-                    <span class="platform-link-copy">
-                      Wear OS watch version
-                      <small>Get it on Google Play</small>
-                    </span>
-                  </span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14"></path>
-                    <path d="m13 6 6 6-6 6"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">Copyright <span id="currentYear"></span> NovaDev Code Studio. All rights reserved.</div>
+    <div class="container footer-grid">
+      <a class="footer-brand" href="../../" aria-label="NovaDev Code Studio home">
+        <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span class="brand-text">
+          <span class="brand-title">Nova<span>Dev</span></span>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <div class="footer-legal">
+        <p>Copyright <span id="currentYear"></span> NovaDev Code Studio &middot; novadevcodestudio.com. All rights reserved.</p>
+        <p class="fineprint">* Apple Watch, watchOS, and iOS are trademarks of Apple Inc. &middot; Android is a trademark of Google LLC.</p>
+        <nav class="footer-textlinks" aria-label="Footer links"><a href="../../a-tennis/">AI Tennis Swing Coach</a> <a href="mailto:support@novadevcodestudio.com">Support</a></nav>
+      </div>
+      <div class="social-row" aria-label="NovaDev Code Studio on social platforms">
+        <a href="https://www.tiktok.com/@novadevcode" target="_blank" rel="noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.9 2h2.7c.2 1.2.8 2.3 1.7 3.1.9.8 2 1.3 3.2 1.4v2.8c-1.8-.1-3.5-.7-4.9-1.7v7.1c0 3.6-2.9 6.5-6.5 6.5S2.6 18.3 2.6 14.7c0-3.5 2.8-6.4 6.3-6.5V11c-1.9.1-3.5 1.7-3.5 3.7 0 2.1 1.7 3.7 3.7 3.7s3.7-1.7 3.7-3.7L12.9 2Z"/></svg></a>
+        <a href="https://www.youtube.com/@NovaDevCodeStudio" target="_blank" rel="noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2c-.3-1-1-1.8-2-2C19.1 4.7 12 4.7 12 4.7s-7.1 0-9 .5c-1 .3-1.7 1-2 2C.5 9.1.5 12 .5 12s0 2.9.5 4.8c.3 1 1 1.8 2 2 1.9.5 9 .5 9 .5s7.1 0 9-.5c1-.3 1.7-1 2-2 .5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8ZM9.8 15.3V8.7l6 3.3-6 3.3Z"/></svg></a>
+        <a href="https://www.instagram.com/novadevcode/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.4.2-1.7.3-.4.2-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.6-.3 1.7-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.4.3 1.7.2.4.3.7.6 1 .3.3.6.5 1 .6.3.1.6.3 1.7.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.4-.2 1.7-.3.4-.2.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.6.3-1.7.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.4-.3-1.7-.2-.4-.3-.7-.6-1-.3-.3-.6-.5-1-.6-.3-.1-.6-.3-1.7-.3-1.3-.1-1.7-.1-4.8-.1Zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm4.6-3.5a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61591775212862" target="_blank" rel="noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://apps.apple.com/us/developer/yury-nickolaevich-brei/id1895503289" target="_blank" rel="noreferrer" aria-label="Apple developer page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 12.9c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.2.9-4.1 2.4-1.8 3-.4 7.5 1.3 9.9.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-3.9ZM14.2 5.2c.7-.8 1.1-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.5 2.9-1.3Z"/></svg></a>
+        <a href="https://github.com/novadevcodestudio" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.2.8-.5v-2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-3 0 0 .9-.3 3.1 1.2a10.7 10.7 0 0 1 5.6 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.6.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.3.8 1 .8 2v3c0 .3.2.6.8.5A11.2 11.2 0 0 0 12 .8Z"/></svg></a>
+        <a href="mailto:support@novadevcodestudio.com" aria-label="Email support"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.3L4.2 7h15.6L12 12.3Zm-8-3v7.7h16V9.3l-7.5 5a1 1 0 0 1-1 0L4 9.3Z"/></svg></a>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
 </body>
 </html>
