@@ -680,10 +680,15 @@
       .about-grid { grid-template-columns: 1fr 1fr; }
     }
 
+    @media (max-width: 760px) {
+      .nav-wrap { position: static; }
+      .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 28px; }
+      .nav { width: 100%; justify-content: center; }
+    }
+
     @media (max-width: 640px) {
       section { padding: 62px 0; }
       .topbar { border-radius: 24px; }
-      .nav { justify-content: flex-start; }
       .about-grid { grid-template-columns: 1fr; }
       .hero { padding-top: 56px; }
       .flagship-card { padding: 26px 20px; }

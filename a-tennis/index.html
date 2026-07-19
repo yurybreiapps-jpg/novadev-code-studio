@@ -900,10 +900,27 @@
       .report-grid { grid-template-columns: 1fr; gap: 40px; }
     }
 
+    /* Phones + narrow tablets: stack the pill nav — brand row, then links row,
+       both centered — so the app name never collides with wrapped links. */
+    @media (max-width: 900px) {
+      .nav-wrap { position: static; }
+      .brand-sep { display: none; }
+      .topbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 6px;
+        border-radius: 28px;
+        padding: 14px 14px 12px;
+      }
+      .brand-group { flex-wrap: wrap; justify-content: center; row-gap: 6px; }
+      .brand-app { white-space: normal; justify-content: center; text-align: center; }
+      .nav { width: 100%; justify-content: center; }
+      .nav .store-pill { margin-left: 4px; }
+    }
+
     @media (max-width: 640px) {
       section { padding: 62px 0; }
       .topbar { border-radius: 24px; }
-      .nav { justify-content: flex-start; }
       .dark-grid, .steps-grid, .feature-grid, .arc-gallery, .vc-grid, .view-gallery { grid-template-columns: 1fr; }
       .stat-chip.tl { left: 0; }
       .stat-chip.br { right: 0; }
