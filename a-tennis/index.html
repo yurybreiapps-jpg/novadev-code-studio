@@ -1100,14 +1100,14 @@
     <section class="dark">
       <div class="container centered">
         <span class="eyebrow">v2.0 — our own AI engine</span>
-        <h2 class="display">We trained our own AI to <em>watch your racket.</em></h2>
-        <p class="lead">The new engine runs on-device — a custom model trained on real tennis footage that tracks your racket through every swing, scores it, and coaches you out loud, instantly on your iPhone.</p>
+        <h2 class="display">We trained our own AI to <em>watch your racket — and the ball.</em></h2>
+        <p class="lead">Visual Coach is powered by our own Core&nbsp;ML engine — a custom object-detection model we trained on real tennis footage, running fully on-device alongside Apple's Vision body-pose skeleton. It tracks your racket and the ball through every swing, scores it, and coaches you out loud — real-time inference on your iPhone or iPad, no cloud required.</p>
 
         <div class="dark-grid">
           <article class="dark-card">
             <span class="icon-dot a"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a1 1 0 0 1 1 1v1.06A8 8 0 0 1 19.94 11H21a1 1 0 1 1 0 2h-1.06A8 8 0 0 1 13 19.94V21a1 1 0 1 1-2 0v-1.06A8 8 0 0 1 4.06 13H3a1 1 0 1 1 0-2h1.06A8 8 0 0 1 11 4.06V3a1 1 0 0 1 1-1Zm0 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></span>
-            <h3>Racket tracking</h3>
-            <p>Our custom-trained detector locks onto your racket and follows it frame by frame — you watch the tracking box ride your swing, so the feedback is tied to what your racket actually did.</p>
+            <h3>Racket &amp; ball tracking</h3>
+            <p>Our custom-trained Core&nbsp;ML detector locks onto your racket frame by frame — and traces the ball's flight as a live glowing trail. Both trails are adjustable right on court: toggle them, dial the intensity, and tune the detection confidence from Strict to Eager.</p>
           </article>
           <article class="dark-card">
             <span class="icon-dot b"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4a1 1 0 0 1 1 1v12h12a1 1 0 1 1 0 2H7a2 2 0 0 1-2-2V5a1 1 0 0 1 2-1Zm4.3 9.1 2.6-3.3a1 1 0 0 1 1.5-.1l2 2 2.8-4.2a1 1 0 1 1 1.6 1.2l-3.4 5.2a1 1 0 0 1-1.6.1l-2-2-2 2.5a1 1 0 0 1-1.5-1.4Z"/></svg></span>
@@ -1120,6 +1120,16 @@
             <p>The coach speaks your fix out loud in a real voice — choose from six coaching personalities, from calm and encouraging to direct and energetic. Leave the audio in when you share your clip.</p>
           </article>
         </div>
+
+        <!-- SLOT: Visual Coach iPad demo video (720p, framed) goes here.
+             When the file lands, add:
+             <div class="engine-demo">
+               <video autoplay muted loop playsinline preload="metadata"
+                 poster="../assets/apps/a-tennis/visual-coach-ipad-demo-poster.jpg"
+                 aria-label="Visual Coach live demo on iPad: skeleton, racket box, swing and ball trails">
+                 <source src="../assets/apps/a-tennis/visual-coach-ipad-demo.mp4" type="video/mp4">
+               </video>
+             </div> -->
 
       </div>
     </section>
