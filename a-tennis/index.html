@@ -904,6 +904,8 @@
        both centered — so the app name never collides with wrapped links. */
     @media (max-width: 900px) {
       .nav-wrap { position: static; }
+      .eyebrow { align-items: flex-start; }
+      .eyebrow::before { flex: none; margin-top: 6px; }
       .brand-sep { display: none; }
       .topbar {
         flex-wrap: wrap;
