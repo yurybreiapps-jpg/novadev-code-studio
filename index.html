@@ -346,6 +346,7 @@
 
     /* ---------- flagship ---------- */
     .flagship-card {
+      position: relative;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr);
       gap: 40px;
@@ -357,7 +358,23 @@
       background: var(--surface);
       box-shadow: var(--shadow);
       text-align: left;
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
+
+    .flagship-card:hover,
+    .flagship-card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 36px 90px rgba(24, 46, 110, 0.22);
+    }
+
+    .card-stretch {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: 34px;
+    }
+
+    .flagship-actions { position: relative; z-index: 2; }
 
     .flagship-copy .eyebrow { color: #7a6bcc; }
 
@@ -439,6 +456,7 @@
     .phone-cluster img {
       height: auto;
       filter: drop-shadow(0 26px 44px rgba(24, 46, 110, 0.26));
+      pointer-events: none;
     }
 
     .pc-center {
@@ -770,6 +788,7 @@
         <h2 class="display">One studio, <em>every court.</em></h2>
 
         <article class="flagship-card">
+          <a class="card-stretch" href="a-tennis/" aria-label="Explore AI Tennis Swing Coach"></a>
           <div class="flagship-copy">
             <span class="eyebrow">Flagship</span>
             <div class="flagship-icon-row">
