@@ -783,7 +783,9 @@
       position: relative;
     }
 
-    .glow-card::before {
+    /* Glow lives on ::after — ::before is taken by the checklist's number
+       badges (.guide-list li::before) and must not be overridden. */
+    .glow-card::after {
       content: "";
       position: absolute;
       inset: 0;
@@ -795,7 +797,7 @@
       pointer-events: none;
     }
 
-    .glow-card:hover::before { opacity: 1; }
+    .glow-card:hover::after { opacity: 1; }
 
     .glow-card:nth-child(3n+2) { --glow-color: rgba(168, 85, 247, 0.28); }
     .glow-card:nth-child(3n) { --glow-color: rgba(236, 72, 153, 0.26); }
