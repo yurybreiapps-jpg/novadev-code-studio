@@ -776,6 +776,33 @@
 
     .vc-demo-sound:hover { background: rgba(10, 14, 30, 0.82); }
 
+    /* Cursor-following glow on cards (Pep AI-style): a soft radial light
+       tracks the pointer inside the hovered card. Color cycles through the
+       site accents; brighter on the dark band. */
+    .glow-card {
+      position: relative;
+    }
+
+    .glow-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+        var(--glow-color, rgba(79, 124, 255, 0.16)), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .glow-card:hover::before { opacity: 1; }
+
+    .glow-card:nth-child(3n+2) { --glow-color: rgba(168, 85, 247, 0.15); }
+    .glow-card:nth-child(3n) { --glow-color: rgba(236, 72, 153, 0.13); }
+    section.dark .glow-card { --glow-color: rgba(148, 168, 255, 0.22); }
+    section.dark .glow-card:nth-child(3n+2) { --glow-color: rgba(196, 145, 255, 0.20); }
+    section.dark .glow-card:nth-child(3n) { --glow-color: rgba(255, 145, 200, 0.18); }
+
     .step-shot {
       display: block;
       height: 190px;
@@ -1456,6 +1483,19 @@
 
   <script>
     document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // Cursor-following card glow: update the gradient origin as the pointer
+    // moves inside any card.
+    document.querySelectorAll(
+      ".feature-card, .dark-card, .vc-card, .step-card, .arc-gallery figure"
+    ).forEach(function (el) {
+      el.classList.add("glow-card");
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        el.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
 
     (function () {
       var v = document.getElementById("vcDemoVideo");
