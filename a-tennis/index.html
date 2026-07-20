@@ -788,8 +788,8 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
-        var(--glow-color, rgba(79, 124, 255, 0.16)), transparent 65%);
+      background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%),
+        var(--glow-color, rgba(79, 124, 255, 0.30)), transparent 68%);
       opacity: 0;
       transition: opacity 0.35s ease;
       pointer-events: none;
@@ -797,11 +797,11 @@
 
     .glow-card:hover::before { opacity: 1; }
 
-    .glow-card:nth-child(3n+2) { --glow-color: rgba(168, 85, 247, 0.15); }
-    .glow-card:nth-child(3n) { --glow-color: rgba(236, 72, 153, 0.13); }
-    section.dark .glow-card { --glow-color: rgba(148, 168, 255, 0.22); }
-    section.dark .glow-card:nth-child(3n+2) { --glow-color: rgba(196, 145, 255, 0.20); }
-    section.dark .glow-card:nth-child(3n) { --glow-color: rgba(255, 145, 200, 0.18); }
+    .glow-card:nth-child(3n+2) { --glow-color: rgba(168, 85, 247, 0.28); }
+    .glow-card:nth-child(3n) { --glow-color: rgba(236, 72, 153, 0.26); }
+    section.dark .glow-card { --glow-color: rgba(148, 168, 255, 0.38); }
+    section.dark .glow-card:nth-child(3n+2) { --glow-color: rgba(196, 145, 255, 0.35); }
+    section.dark .glow-card:nth-child(3n) { --glow-color: rgba(255, 145, 200, 0.32); }
 
     .step-shot {
       display: block;
@@ -1487,7 +1487,7 @@
     // Cursor-following card glow: update the gradient origin as the pointer
     // moves inside any card.
     document.querySelectorAll(
-      ".feature-card, .dark-card, .vc-card, .step-card, .arc-gallery figure"
+      ".feature-card, .dark-card, .vc-card, .step-card, .arc-gallery figure, .guide-list li"
     ).forEach(function (el) {
       el.classList.add("glow-card");
       el.addEventListener("pointermove", function (e) {
