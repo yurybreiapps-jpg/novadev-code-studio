@@ -729,6 +729,39 @@
     .vc-card h3 { margin: 16px 0 10px; color: var(--heading); font-size: 1.3rem; letter-spacing: -0.02em; }
     .vc-card p { margin: 0; color: var(--muted); line-height: 1.65; font-size: 1rem; }
 
+    .vc-demo {
+      position: relative;
+      max-width: 1080px;
+      margin: 44px auto 0;
+    }
+
+    .vc-demo video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 26px;
+      background: #0b1020;
+      box-shadow: 0 24px 64px rgba(24, 46, 110, 0.16);
+    }
+
+    .vc-demo-sound {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      min-height: 44px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(10, 14, 30, 0.62);
+      color: #fff;
+      font: 600 0.92rem/1 "Inter", sans-serif;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .vc-demo-sound:hover { background: rgba(10, 14, 30, 0.82); }
+
     .step-shot {
       display: block;
       height: 190px;
@@ -1170,15 +1203,14 @@
           </article>
         </div>
 
-        <!-- SLOT: Visual Coach iPad demo video (720p, framed) goes here.
-             When the file lands, add:
-             <div class="vc-demo">
-               <video autoplay muted loop playsinline preload="metadata"
-                 poster="../assets/apps/a-tennis/visual-coach-ipad-demo-poster.jpg"
-                 aria-label="Visual Coach live demo on iPad: skeleton, racket box, swing and ball trails">
-                 <source src="../assets/apps/a-tennis/visual-coach-ipad-demo.mp4" type="video/mp4">
-               </video>
-             </div> -->
+        <div class="vc-demo">
+          <video id="vcDemoVideo" playsinline controls preload="metadata"
+            poster="../assets/apps/a-tennis/visual-coach-ipad-demo-poster.jpg"
+            aria-label="Visual Coach demo on iPad: skeleton overlay, racket tracking box, swing scores, fault cues, and spoken coaching">
+            <source src="../assets/apps/a-tennis/visual-coach-ipad-demo.mp4" type="video/mp4">
+          </video>
+          <button id="vcDemoSound" class="vc-demo-sound" type="button">🔊 Sound on</button>
+        </div>
 
     <section id="guide" class="liquid">
       <div class="container centered">
@@ -1409,6 +1441,54 @@
 
   <script>
     document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    (function () {
+      var v = document.getElementById("vcDemoVideo");
+      var btn = document.getElementById("vcDemoSound");
+      if (!v || !btn || !("IntersectionObserver" in window)) return;
+
+      var started = false;
+      var userPaused = false;
+      var autoPausing = false;
+
+      function updateBtn() {
+        btn.textContent = v.muted ? "🔇 Tap for sound" : "🔊 Sound on";
+      }
+
+      btn.addEventListener("click", function () {
+        v.muted = !v.muted;
+        if (v.paused && !v.ended) { userPaused = false; v.play().catch(function () {}); }
+        updateBtn();
+      });
+
+      v.addEventListener("volumechange", updateBtn);
+      v.addEventListener("pause", function () { if (!autoPausing) userPaused = true; });
+      v.addEventListener("play", function () { userPaused = false; });
+
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            if (!started) {
+              started = true;
+              // Try sound-on autoplay first; browsers that block it get muted
+              // playback with the "Tap for sound" pill instead.
+              v.muted = false;
+              v.play().catch(function () {
+                v.muted = true;
+                updateBtn();
+                v.play().catch(function () {});
+              });
+            } else if (v.paused && !v.ended && !userPaused) {
+              v.play().catch(function () {});
+            }
+          } else if (!v.paused) {
+            autoPausing = true;
+            v.pause();
+            autoPausing = false;
+          }
+        });
+      }, { threshold: 0.5 }).observe(v);
+    })();
   </script>
 </body>
 </html>
