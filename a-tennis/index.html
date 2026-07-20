@@ -729,18 +729,24 @@
     .vc-card h3 { margin: 16px 0 10px; color: var(--heading); font-size: 1.3rem; letter-spacing: -0.02em; }
     .vc-card p { margin: 0; color: var(--muted); line-height: 1.65; font-size: 1rem; }
 
+    /* Same soft white card language as the creators' phone cards. */
     .vc-demo {
       position: relative;
       max-width: 1080px;
       margin: 44px auto 0;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 40px;
+      background: linear-gradient(180deg, #ffffff, #eef2ff);
+      box-shadow: var(--shadow);
     }
 
-    /* The video is its own presentation (iPad on a white surface), so no
-       card chrome — it sits directly on the page background. */
     .vc-demo video {
       display: block;
       width: 100%;
       height: auto;
+      border-radius: 30px;
+      background: #0c1020;
     }
 
     .vc-demo-sound {
