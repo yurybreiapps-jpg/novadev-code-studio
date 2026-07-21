@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Complete Guide | AI Tennis Swing Coach</title>
+  <meta name="description" content="The complete guide to AI Tennis Swing Coach: how to film your practice, use the Visual Coach live and in replay, run deep AI swing analysis, and export PDF coaching reports.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/a-tennis/guide/">
+  <meta property="og:title" content="The Complete Guide — AI Tennis Swing Coach">
+  <meta property="og:description" content="Film your practice, get live AI coaching, run deep swing analysis, export PDF reports — step by step.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/a-tennis/guide/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/apps/a-tennis/a-tennis-ai-coach-promo-3x2.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6776502111">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16); --max: 880px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: #f7f9ff; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .liquid { position: relative; isolation: isolate; }
+    .liquid::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+    }
+    .nav-wrap { position: sticky; top: 14px; z-index: 60; padding: 0 18px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: min(100%, 880px); margin: 14px auto 0; padding: 12px 14px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78); box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; color: var(--heading); }
+    .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px; }
+    .nav a { padding: 9px 10px; border-radius: 999px; color: #33415e; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .nav a:hover, .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
+    .nav .store-pill { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 9px 15px; border-radius: 999px; background: #0c1020; color: #fff; font-size: 0.9rem; font-weight: 700; }
+    .nav .store-pill:hover, .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #56618a; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; margin-top: 6px; align-self: flex-start; }
+    .display { margin: 16px 0 18px; font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.08; color: var(--heading); }
+    .display em { font-style: italic; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1.display { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+    h2.display { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 0; }
+    .lead { margin: 0; color: var(--muted); font-size: 1.12rem; line-height: 1.65; }
+    .page-head { padding: 64px 0 34px; text-align: center; }
+    .head-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 26px; }
+    .button-dark { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 20px; border-radius: 999px; background: #0c1020; color: #fff; font-weight: 700; transition: background 160ms ease, transform 160ms ease; }
+    .button-dark:hover, .button-dark:focus-visible { background: #1c2440; transform: translateY(-2px); outline: none; }
+    .button-soft { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.8); color: var(--heading); font-weight: 700; }
+    .button-soft:hover, .button-soft:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
+    section { padding: 34px 0; }
+    .step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+    .step-num { font-family: var(--serif); font-size: 2.6rem; line-height: 1; background: linear-gradient(180deg, rgba(117, 81, 255, 0.55), rgba(117, 81, 255, 0.15)); -webkit-background-clip: text; background-clip: text; color: transparent; flex: none; }
+    .card { padding: 26px 28px; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 26px; background: var(--surface); box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08); }
+    .card p, .card li { color: var(--muted); line-height: 1.68; }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul, .card ol { margin: 0 0 12px; padding-left: 22px; }
+    .card strong { color: var(--heading); }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .tip { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(19, 138, 90, 0.2); border-radius: 16px; background: rgba(223, 255, 234, 0.5); color: #1d5c40; font-size: 0.95rem; line-height: 1.6; }
+    .tip strong { color: #124a32; }
+    .shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 6px; }
+    .shot-pair figure { margin: 0; }
+    .shot-pair img { display: block; width: 100%; height: auto; border-radius: 16px; }
+    .shot-pair figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.9rem; }
+    .shot-pair figcaption strong { color: var(--heading); }
+    .shot-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 6px; }
+    .shot-trio figure { margin: 0; }
+    .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-trio figcaption strong { color: var(--heading); }
+    .shot-solo { max-width: 280px; margin: 18px auto 6px; }
+    .shot-solo img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-solo figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
+    .shot-solo figcaption strong { color: var(--heading); }
+    .shot-pair img { border: 1px solid var(--line); }
+    .phone-row { display: flex; justify-content: center; gap: 6%; margin: 18px 0 6px; }
+    .phone-row img { width: 30%; height: auto; filter: drop-shadow(0 18px 30px rgba(24, 46, 110, 0.22)); }
+    .credits-table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 0.97rem; }
+    .credits-table th, .credits-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .credits-table th { color: var(--heading); font-weight: 700; }
+    .cta { padding: 60px 0 76px; text-align: center; }
+    .store-badge-link img { width: 176px; height: auto; border-radius: 10px; }
+    .footer { padding: 30px 0 42px; border-top: 1px solid rgba(31, 59, 133, 0.10); color: #66719a; font-size: 0.92rem; text-align: center; }
+    .footer a { font-weight: 600; color: #4a5578; }
+    .footer a:hover, .footer a:focus-visible { color: var(--heading); outline: none; }
+    @media (max-width: 700px) {
+      .nav-wrap { position: static; }
+      .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
+      .nav { width: 100%; justify-content: center; }
+      .shot-pair { grid-template-columns: 1fr; }
+      .shot-trio { grid-template-columns: 1fr; justify-items: center; }
+      .shot-trio figure { max-width: 280px; width: 100%; }
+      .shot-trio figcaption { text-align: center; }
+      .phone-row img { width: 31%; }
+    }
+    @media print {
+      .nav-wrap, .head-actions, .cta, .footer { display: none !important; }
+      .display em { background: none; -webkit-background-clip: initial; background-clip: initial; color: #6b4fd8; }
+      body { background: #fff; }
+      .liquid::before { display: none; }
+      section { padding: 14px 0; }
+      .card { box-shadow: none; border: 1px solid #d8ddee; }
+      figure, .tip, .credits-table, .step-head { break-inside: avoid; page-break-inside: avoid; }
+      .shot-pair, .shot-trio { break-inside: auto; page-break-inside: auto; }
+      .page-head { padding: 20px 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="AI Tennis Swing Coach">
+        <img src="../../assets/apps/a-tennis/app-icon.webp" alt="">
+        AI Tennis Swing Coach
+      </a>
+      <nav class="nav" aria-label="Page links">
+        <a href="#film">Film</a>
+        <a href="#visual-coach">Visual Coach</a>
+        <a href="#analysis">AI Analysis</a>
+        <a href="#export">Export</a>
+        <a href="#troubleshooting">Help</a>
+        <a class="store-pill" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer">App Store</a>
+      </nav>
+    </header>
+  </div>
+
+  <main>
+    <section class="page-head liquid">
+      <div class="container">
+        <span class="eyebrow">The complete guide</span>
+        <h1 class="display">From first clip to <em>coaching report.</em></h1>
+        <p class="lead">Everything in one place: how to film your practice, get live AI coaching with the Visual Coach, run a deep swing analysis, and export a PDF report — step by step.</p>
+        <div class="head-actions">
+          <a class="button-dark" href="../../assets/apps/a-tennis/ai-tennis-swing-coach-guide.pdf" download>Download this guide (PDF)</a>
+          <a class="button-soft" href="../">← App overview</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup">
+      <div class="container">
+        <div class="step-head"><span class="step-num">01</span><h2 class="display">Get the app <em>ready.</em></h2></div>
+        <div class="card">
+          <p><strong>Install the right app:</strong> <a href="https://apps.apple.com/us/app/ai-tennis-swing-coach/id6776502111" target="_blank" rel="noreferrer">AI Tennis Swing Coach</a> by NovaDev Code Studio — the dark blue icon with the tennis ball. (Other apps use similar names; use this exact link.)</p>
+          <p><strong>No sign-up needed to start</strong> — the Visual Coach works the moment the app opens, free and unlimited. The deep AI analysis needs a one-tap Sign in with Apple so your free credits stay attached to you.</p>
+          <p><strong>Have a Pro or promo code?</strong> Profile → Manage Pro → "Have a code?" — enter it once and Pro unlocks permanently on your Apple ID.</p>
+          <p><strong>Coaching more than one player?</strong> Profile → Player profiles keeps training plans, history, and progress separate for you, family, friends, or students.</p>
+          <figure class="shot-solo">
+            <img src="../../assets/apps/a-tennis/guide/guide-profile-players.webp" alt="Profile tab showing player profiles with separate training plans and an Add Player form" loading="lazy">
+            <figcaption><strong>Profile tab</strong> · Apple sign-in, AI credits, subscriptions — and player profiles so each person keeps their own training plan and history.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="film">
+      <div class="container">
+        <div class="step-head"><span class="step-num">02</span><h2 class="display">Film your <em>practice.</em></h2></div>
+        <div class="card">
+          <ul>
+            <li><strong>Side view is best</strong> — put your phone on a tripod or fence mount at the side of the court, or have a friend film you. Side view shows contact point, racket path, and follow-through most clearly. Behind the baseline also works for court position and recovery.</li>
+            <li><strong>Full body in frame</strong> — shoes, shoulders, racket, ball contact, and the finish should all stay visible. Don't zoom.</li>
+            <li><strong>30–60 seconds of swings is plenty.</strong> Film longer if you like — you'll trim to the best part in the app.</li>
+            <li><strong>Use 60fps if your camera offers it</strong> — fast serves and rallies keep twice the detail at contact. (Slow-motion modes aren't needed.)</li>
+            <li><strong>Good light helps the AI</strong> see timing, balance, and contact.</li>
+          </ul>
+          <div class="shot-pair">
+            <figure>
+              <img src="../../assets/apps/a-tennis/camera-side-guide.webp" alt="Camera on a tripod filming a player from the side, full body in frame" loading="lazy">
+              <figcaption><strong>Side view</strong> · full body profile</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/camera-behind-guide.webp" alt="Camera behind the baseline filming a player from behind" loading="lazy">
+              <figcaption><strong>Behind view</strong> · behind the baseline</figcaption>
+            </figure>
+          </div>
+          <div class="tip"><strong>Creator tip:</strong> film with your normal Camera app and import into AI Tennis Swing Coach — you keep clean raw footage for editing, and you can screen-record the app's analysis for the reveal moment.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visual-coach">
+      <div class="container">
+        <div class="step-head"><span class="step-num">03</span><h2 class="display">Visual Coach — <em>instant feedback.</em></h2></div>
+        <div class="card">
+          <p>Open the <strong>Visual Coach</strong> tab. It's 100% free, unlimited, fully on-device, and needs no account. Two ways to use it:</p>
+          <ul>
+            <li><strong>Live:</strong> point the phone at the court while you play. A live AI skeleton tracks your body and racket, every swing gets a 0–100 score, and the coach speaks instant cues out loud. Tap <strong>REC</strong> to record the session with the overlays baked in.</li>
+            <li><strong>Replay:</strong> load the video you filmed. You get the skeleton frame by frame, a score for every swing, red fault cues at the moment they happen, racket and ball trails, slow-motion, and frame-step buttons.</li>
+          </ul>
+          <p>The <strong>Trails</strong> button controls the racket swing trail and the ball comet; <strong>Loop</strong> replays one swing on repeat; the <strong>swing / frame</strong> buttons jump between detected swings and single frames.</p>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-vc-overview.webp" alt="Visual Coach tab with the Visual Coach Replay card and the Analyze a Recording button" loading="lazy">
+              <figcaption><strong>Visual Coach tab</strong> · two ways to train: analyze a recording with Replay, or start a Live session — both run 100% on-device.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-vc-live.webp" alt="Visual Coach Live mode tracking a player in real time with skeleton overlay, swing score, and joint angles" loading="lazy">
+              <figcaption><strong>Live mode</strong> · point the phone at the court: real-time tracking (~30 FPS) with joint angles at the bottom, a 0–100 score per swing, and spoken cues the moment you finish the stroke.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-vc-replay.webp" alt="Visual Coach Replay showing a scored forehand with cue text, playback controls, and frame-step buttons" loading="lazy">
+              <figcaption><strong>Replay mode</strong> · each swing scored against pro benchmarks (elbow, knee, racket speed, timing), with the Video / Coach / Trails / Loop chips and swing- and frame-step buttons below.</figcaption>
+            </figure>
+          </div>
+          <p>After a replay, a <strong>Practice Report</strong> sums up the session — keep it to History or discard it. You can also tune how the coach talks to you (detail level, encouraging vs. direct tone, and focus areas like technique, power, spin, or footwork) right on the Visual Coach tab, and open the <strong>AI Coaching</strong> summary for a written breakdown of what's working and your top priorities.</p>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-vc-report.webp" alt="Practice Report summarizing a replay session with overall score, per-swing chart, and averages" loading="lazy">
+              <figcaption><strong>Practice Report</strong> · the session at a glance: overall score, every swing charted, best &amp; toughest swing, forehand/backhand averages — keep it or discard it.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-vc-tune.webp" alt="AI Coaching settings with consistency, detail, tone, and focus controls on the Visual Coach tab" loading="lazy">
+              <figcaption><strong>Tune your coach</strong> · choose quick tips or deep dives, an encouraging or direct tone, and focus areas like technique, power, spin, or footwork.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-vc-summary.webp" alt="AI Coaching session summary listing what's working and top priorities with specific timestamps" loading="lazy">
+              <figcaption><strong>AI Coaching summary</strong> · a written session breakdown: what's working, top priorities, and specific timestamps to review.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="analysis">
+      <div class="container">
+        <div class="step-head"><span class="step-num">04</span><h2 class="display">Deep AI <em>analysis.</em></h2></div>
+        <div class="card">
+          <ol>
+            <li>Open the <strong>Analyze</strong> tab and import your video (or record right there).</li>
+            <li><strong>Trim</strong> to the cleanest 20–90 seconds — the best swings, not the whole session.</li>
+            <li>Pick the stroke — <strong>Forehand, Backhand, Serve, Volley</strong>, and more — or use <strong>Auto Detect</strong> for mixed play.</li>
+            <li>Choose the analysis depth and run it.</li>
+          </ol>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-depth.webp" alt="Analyze tab coach setup showing AI credits and the Quick Coach, Deep Review, and Elite Coach analysis types" loading="lazy">
+              <figcaption><strong>Coach setup</strong> · pick Quick Coach, Deep Review, or Elite Coach — your player and remaining AI credits show right above.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-stroke.webp" alt="Technique picker with Auto Detect, Forehand, Backhand, Serve, Volley, and player level selection" loading="lazy">
+              <figcaption><strong>Technique &amp; level</strong> · pick the stroke or let Auto Detect find it, then set your player level so the coach tunes checkpoints and drills to you.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-source.webp" alt="Video source options — Take Video, Photos, or Files — with the selected clip previewed below" loading="lazy">
+              <figcaption><strong>Video source</strong> · record right there, or import from Photos or Files — your clip previews below once selected.</figcaption>
+            </figure>
+          </div>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-trim.webp" alt="Trim screen with the upload range slider and fine-tune controls for start and end" loading="lazy">
+              <figcaption><strong>Trim</strong> · drag the green range to the best swings and fine-tune start/end down to the frame before uploading.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-running.webp" alt="Running AI Analysis progress dialog at 25 percent" loading="lazy">
+              <figcaption><strong>Run it</strong> · the analysis takes well under a minute — progress shows right on screen.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-result.webp" alt="Analysis result card with a score of 69, preview cues with timestamps, and the Fix of the Day" loading="lazy">
+              <figcaption><strong>Instant result</strong> · your score, preview cues with timestamps, and one practical Fix of the Day — saved to History automatically.</figcaption>
+            </figure>
+          </div>
+          <table class="credits-table">
+            <tr><th>Mode</th><th>Credits</th><th>What you get</th></tr>
+            <tr><td><strong>Quick Coach</strong></td><td>1</td><td>Fast read with one clear fix</td></tr>
+            <tr><td><strong>Deep Review</strong></td><td>2</td><td>Fuller breakdown across your swing phases</td></tr>
+            <tr><td><strong>Elite Coach</strong></td><td>3</td><td>The deepest report — detailed checkpoints, level estimate, training plan</td></tr>
+          </table>
+          <p>Free accounts include <strong>3 AI credits</strong>; <strong>Pro includes 100 credits monthly</strong> plus longer clips. Every report includes 0–100 scores, an NTRP-style level estimate, visual checkpoints with timestamps, key frames from your actual swing, and one practical <strong>Fix of the Day</strong>.</p>
+          <p><strong>Inside the report</strong> — here's a real Elite Coach analysis of a professional forehand, the same one behind the sample PDF above. Open the analysis and scroll through everything the coach found:</p>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-sequence.webp" alt="Swing Sequence with key frames from the actual swing labeled Ready, Unit Turn, and Racket Drop" loading="lazy">
+              <figcaption><strong>Swing Sequence</strong> · key frames pulled from your actual swing — Ready, Unit Turn, Racket Drop…</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-sequence2.webp" alt="Swing Sequence continued with Contact, Follow-through, and Recovery frames" loading="lazy">
+              <figcaption><strong>…through the finish</strong> · Contact, Follow-through, and Recovery — every frame timestamped to the hundredth of a second.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-checkpoints.webp" alt="Visual Checkpoints explaining the overlay colors with an annotated frame from the swing" loading="lazy">
+              <figcaption><strong>Visual Checkpoints</strong> · annotated frames with a color legend: white = your swing, yellow = the target, green = the correction to try.</figcaption>
+            </figure>
+          </div>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-mechanics.webp" alt="Mechanics Details scoring Preparation 96 and Timing 95 against Elite targets with explanations" loading="lazy">
+              <figcaption><strong>Mechanics Details</strong> · Preparation and Timing scored against your level's target, with what the AI saw at the exact timestamp and why it matters.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-mechanics2.webp" alt="Mechanics Details scoring Contact Point 97 and Kinetic Chain 98 with explanations" loading="lazy">
+              <figcaption><strong>Every mechanic gets its own read</strong> · here Contact Point 97 and Kinetic Chain 98, each with the why behind the number.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-mechanics3.webp" alt="Mechanics Details scoring Balance 94 and Follow-through 95 with refinement notes" loading="lazy">
+              <figcaption><strong>Balance &amp; Follow-through</strong> · even strengths get refinement notes, plus the estimated point impact of each fix.</figcaption>
+            </figure>
+          </div>
+          <div class="shot-pair">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-level.webp" alt="Level estimate showing a professional-caliber forehand rated 95 with an NTRP-style rating and confidence bar" loading="lazy">
+              <figcaption><strong>Level estimate</strong> · an NTRP-style rating with confidence — here a professional-caliber forehand rated 95 — plus a written summary of why.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-plan.webp" alt="This Week plan with a focus, a named drill with sets and reps, a live-ball practice rule, and a retest step" loading="lazy">
+              <figcaption><strong>This Week</strong> · the focus, a named drill with sets and reps, a live-ball practice rule, and a retest step to prove the fix.</figcaption>
+            </figure>
+          </div>
+          <div class="shot-pair">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-snapshot.webp" alt="Today's Snapshot with biggest win, biggest weakness, focus this week, and the fastest improvement opportunity with projected score" loading="lazy">
+              <figcaption><strong>Today's Snapshot</strong> · biggest win, biggest weakness, the focus for this week — and the Fastest Improvement Opportunity with the projected score if you land it.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-an-checkpoint-detail.webp" alt="Checkpoint detail for Contact with an annotated frame, the coach's explanation, and a Play checkpoint button" loading="lazy">
+              <figcaption><strong>Checkpoint detail</strong> · every checkpoint gets its annotated frame, the coach's read on it, and a Play checkpoint button to watch that exact moment.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="export">
+      <div class="container">
+        <div class="step-head"><span class="step-num">05</span><h2 class="display">Export &amp; <em>share.</em></h2></div>
+        <div class="card">
+          <ul>
+            <li><strong>PDF report:</strong> every analysis is saved in <strong>History</strong> — open one and tap the <strong>PDF</strong> button at the top to save or share the full coaching report. (See a <a href="../../assets/apps/a-tennis/sample-elite-coach-ai-analysis-20260721.pdf">real sample report</a>.)</li>
+            <li><strong>Share clips:</strong> export clean slow-motion swing clips, or split-screen before/after clips of your progress (Progress tab → Create Before / After clip).</li>
+            <li><strong>Track progress:</strong> the <strong>Progress</strong> tab keeps score trends, personal bests, and milestones per player — use the same camera angle each week for the cleanest comparison.</li>
+          </ul>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-ex-report.webp" alt="Open analysis header with share, PDF, and delete buttons above the video player" loading="lazy">
+              <figcaption><strong>Open analysis</strong> · the share, PDF, and delete buttons sit at the top of every report — one tap to export the full coaching report.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-ex-history.webp" alt="History tab listing saved analyses, each with share, PDF, and delete buttons" loading="lazy">
+              <figcaption><strong>History</strong> · every saved analysis with its score, main fix, and share / PDF / delete shortcuts right on the card.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-ex-progress.webp" alt="Progress tab with the next milestone and a score progress chart moving toward the goal" loading="lazy">
+              <figcaption><strong>Score Progress</strong> · your scores charted toward the next milestone — same camera angle each week gives the cleanest proof.</figcaption>
+            </figure>
+          </div>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-ex-trainingplan.webp" alt="Progress tab training plan with baseline rating, level progress, and the latest report card" loading="lazy">
+              <figcaption><strong>Training plan</strong> · baseline rating, level progress, and your latest report as a tappable training card.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-ex-stats.webp" alt="Progress stat tiles showing current rating, highest baseline, clips this week, and active streak" loading="lazy">
+              <figcaption><strong>Stat tiles</strong> · current rating, highest baseline, clips this week, and your active-weeks streak at a glance.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/apps/a-tennis/guide/guide-ex-beforeafter.webp" alt="Before and After comparison of two sessions per mechanic, with the Create Before/After clip button" loading="lazy">
+              <figcaption><strong>Before / After</strong> · first session vs. now, per mechanic — and Create Before / After clip exports a split-screen video of your progress.</figcaption>
+            </figure>
+          </div>
+          <figure class="shot-solo">
+            <img src="../../assets/apps/a-tennis/guide/guide-ex-focus.webp" alt="This Week card with the coach focus, top three things holding you back, and checked-off drills" loading="lazy">
+            <figcaption><strong>This Week</strong> · the coach focus, the top 3 things holding you back, and your drills checked off as you go.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting">
+      <div class="container">
+        <div class="step-head"><span class="step-num">06</span><h2 class="display">If something's <em>not working.</em></h2></div>
+        <div class="card">
+          <ul>
+            <li><strong>"It won't analyze my strokes"</strong> — check the four usual causes: the player isn't fully in frame · the video is zoomed in too far · the clip wasn't trimmed to actual swings · you're not signed in (the AI analysis needs the one-tap Sign in with Apple).</li>
+            <li><strong>No swing trail showing</strong> — tap <strong>Trails</strong> in Visual Coach and check the Swing toggle; the trail appears only on real strikes, and only when the player is large enough in frame to track reliably.</li>
+            <li><strong>Scores feel off on fast serves</strong> — film at 60fps and from the side; motion blur at 30fps hides the contact moment.</li>
+            <li><strong>Multiple people in frame</strong> — the AI follows the most prominent player; film solo drills for the cleanest results.</li>
+            <li>Still stuck? Email <a href="mailto:support@novadevcodestudio.com">support@novadevcodestudio.com</a> — we answer fast.</li>
+          </ul>
+          <p style="margin-top:14px; font-size:0.92rem;">AI feedback is coaching guidance only — it can be inaccurate or incomplete and is not medical advice, a certified rating, or a guaranteed result.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta liquid">
+      <div class="container">
+        <span class="eyebrow">Ready to play</span>
+        <h2 class="display">Your coach is <em>in your pocket.</em></h2>
+        <div class="head-actions">
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6776502111" target="_blank" rel="noreferrer" aria-label="Download AI Tennis Swing Coach on the App Store">
+            <img src="../../assets/store/app-store-badge.png" alt="Download on the App Store">
+          </a>
+          <a class="button-soft" href="../">Explore the app →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Copyright <span id="currentYear"></span> NovaDev Code Studio ·
+      <a href="../../">novadevcodestudio.com</a> ·
+      <a href="mailto:support@novadevcodestudio.com">Support</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+</body>
+</html>
