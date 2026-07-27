@@ -694,8 +694,16 @@
       .about-grid { grid-template-columns: 1fr; }
       .hero { padding-top: 56px; }
       .flagship-card { padding: 26px 20px; }
+      .creator-carousel {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        gap: 34px;
+      }
+      .creator-card { width: min(330px, 86vw); }
     }
-  
+
     .footer-grid {
       display: flex;
       flex-wrap: wrap;

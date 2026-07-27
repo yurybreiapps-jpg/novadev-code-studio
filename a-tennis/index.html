@@ -1027,8 +1027,16 @@
       .pc-left { left: 0; }
       .pc-right { right: 0; }
       .hero { padding-top: 46px; }
+      .creator-carousel {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        gap: 34px;
+      }
+      .creator-card { width: min(330px, 86vw); }
     }
-  
+
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
