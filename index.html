@@ -553,23 +553,94 @@
     .product-badges a:hover,
     .product-badges a:focus-visible { transform: translateY(-2px); outline: none; }
 
-    /* ---------- creators ---------- */
+    /* ---------- creators (coverflow carousel) ---------- */
+    .creator-carousel-wrap {
+      position: relative;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+
     .creator-carousel {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 26px 4px 16px;
+      gap: 22px;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
+      scroll-snap-type: x proximity;
       -webkit-overflow-scrolling: touch;
+      padding: 30px 0 22px;
+      scrollbar-width: none;
+    }
+    .creator-carousel::-webkit-scrollbar { display: none; }
+
+    .creator-carousel::before,
+    .creator-carousel::after {
+      content: "";
+      flex: 0 0 max(0px, calc((100% - min(320px, 78vw)) / 2));
     }
 
     .creator-card {
-      flex: 0 0 auto;
-      width: min(330px, 80vw);
+      flex: 0 0 min(320px, 78vw);
+      width: min(320px, 78vw);
       margin: 0;
       scroll-snap-align: center;
+      transition: transform .35s ease, opacity .35s ease;
+      transform: scale(0.88);
+      opacity: 0.5;
     }
+    .creator-card.is-active { transform: scale(1); opacity: 1; }
+
+    .carousel-nav {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--heading);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 4;
+      box-shadow: var(--shadow);
+      transition: opacity .25s ease, background .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .carousel-nav:hover,
+    .carousel-nav:focus-visible { background: #f4f6ff; outline: none; }
+    .carousel-nav.prev { left: -4px; }
+    .carousel-nav.next { right: -4px; }
+    .carousel-nav[disabled] { opacity: 0; pointer-events: none; }
+    @media (max-width: 520px) {
+      .carousel-nav { width: 40px; height: 40px; font-size: 1.3rem; }
+      .carousel-nav.prev { left: -2px; }
+      .carousel-nav.next { right: -2px; }
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      margin-top: 18px;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: none;
+      border-radius: 999px;
+      background: var(--line);
+      cursor: pointer;
+      transition: width .28s ease, background .28s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .carousel-dot:hover { background: #b9c3e6; }
+    .carousel-dot.is-active { width: 26px; background: #1f3b85; }
 
     .creator-phone {
       padding: 10px;
@@ -694,14 +765,6 @@
       .about-grid { grid-template-columns: 1fr; }
       .hero { padding-top: 56px; }
       .flagship-card { padding: 26px 20px; }
-      .creator-carousel {
-        flex-direction: column;
-        align-items: center;
-        overflow-x: visible;
-        scroll-snap-type: none;
-        gap: 34px;
-      }
-      .creator-card { width: min(330px, 86vw); }
     }
 
     .footer-grid {
@@ -920,7 +983,9 @@
         <h2 class="display">Tested by <em>real coaches.</em></h2>
         <p class="lead">Real players and coaches putting AI Tennis Swing Coach through real practice sessions — shared here with their permission. More creator reviews are on the way.</p>
 
-        <div class="creator-carousel">
+        <div class="creator-carousel-wrap">
+          <button type="button" class="carousel-nav prev" aria-label="Previous creator">‹</button>
+          <div class="creator-carousel" id="creatorCarousel">
           <figure class="creator-card">
             <div class="creator-phone">
               <video controls playsinline preload="none"
@@ -957,6 +1022,8 @@
               <p>Kim of Rallies &amp; Rackets took the app on court, then walked through her AI analysis — the "Fix of the Day" and coaching notes that showed her exactly what to work on next.</p>
             </figcaption>
           </figure>
+          </div>
+          <button type="button" class="carousel-nav next" aria-label="Next creator">›</button>
         </div>
       </div>
     </section>
@@ -1030,6 +1097,88 @@
 
   <script>
     document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // ---------- Creators coverflow carousel (works for any number of cards) ----------
+    (function () {
+      var track = document.getElementById("creatorCarousel");
+      if (!track) return;
+      var wrap = track.closest(".creator-carousel-wrap");
+      var cards = Array.prototype.slice.call(track.querySelectorAll(".creator-card"));
+      var prev = wrap.querySelector(".carousel-nav.prev");
+      var next = wrap.querySelector(".carousel-nav.next");
+      if (!cards.length || !prev || !next) return;
+      var activeIdx = 0, raf;
+
+      var dots = document.createElement("div");
+      dots.className = "carousel-dots";
+      var dotEls = cards.map(function (c, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "carousel-dot";
+        b.setAttribute("aria-label", "Go to creator " + (i + 1));
+        b.addEventListener("click", function () { go(i); });
+        dots.appendChild(b);
+        return b;
+      });
+      wrap.parentNode.insertBefore(dots, wrap.nextSibling);
+
+      function update() {
+        var tr = track.getBoundingClientRect();
+        var center = tr.left + tr.width / 2;
+        var bestIdx = 0, bestDist = Infinity;
+        cards.forEach(function (c, i) {
+          var r = c.getBoundingClientRect();
+          var d = Math.abs((r.left + r.width / 2) - center);
+          if (d < bestDist) { bestDist = d; bestIdx = i; }
+        });
+        activeIdx = bestIdx;
+        cards.forEach(function (c, i) { c.classList.toggle("is-active", i === bestIdx); });
+        dotEls.forEach(function (d, i) { d.classList.toggle("is-active", i === bestIdx); });
+        prev.disabled = bestIdx === 0;
+        next.disabled = bestIdx === cards.length - 1;
+      }
+
+      function offsetToCenter(i) {
+        var cRect = cards[i].getBoundingClientRect(), tRect = track.getBoundingClientRect();
+        return track.scrollLeft + (cRect.left + cRect.width / 2) - (tRect.left + tRect.width / 2);
+      }
+      function go(i) {
+        i = Math.max(0, Math.min(cards.length - 1, i));
+        track.scrollLeft = offsetToCenter(i);
+        update();
+      }
+
+      prev.addEventListener("click", function () { go(activeIdx - 1); });
+      next.addEventListener("click", function () { go(activeIdx + 1); });
+      track.addEventListener("scroll", function () {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(update);
+      }, { passive: true });
+      window.addEventListener("resize", function () {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(update);
+      });
+
+      track.addEventListener("play", function (e) {
+        if (e.target && e.target.tagName === "VIDEO") {
+          cards.forEach(function (c) {
+            var vid = c.querySelector("video");
+            if (vid && vid !== e.target) vid.pause();
+          });
+        }
+      }, true);
+
+      track.setAttribute("tabindex", "0");
+      track.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { e.preventDefault(); go(activeIdx - 1); }
+        else if (e.key === "ArrowRight") { e.preventDefault(); go(activeIdx + 1); }
+      });
+
+      requestAnimationFrame(function () {
+        track.scrollLeft = offsetToCenter(Math.floor(cards.length / 2));
+        update();
+      });
+    })();
   </script>
 </body>
 </html>
