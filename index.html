@@ -1153,7 +1153,7 @@
         if (Math.abs(target - start) < 1) { update(); return; }
         if (anim) cancelAnimationFrame(anim);
         track.style.scrollSnapType = "none";
-        var t0 = null, dur = 420;
+        var t0 = null, dur = 280;
         function step(ts) {
           if (t0 === null) t0 = ts;
           var p = Math.min(1, (ts - t0) / dur);
