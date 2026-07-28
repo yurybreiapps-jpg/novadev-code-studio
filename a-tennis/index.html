@@ -526,6 +526,9 @@
       opacity: 0.5;
     }
     .creator-card.is-active { transform: scale(1); opacity: 1; }
+    /* side cards read as clickable → click to bring to center */
+    .creator-card:not(.is-active),
+    .creator-card:not(.is-active) * { cursor: pointer; }
 
     .carousel-nav {
       position: absolute;
@@ -1701,11 +1704,34 @@
         var cRect = cards[i].getBoundingClientRect(), tRect = track.getBoundingClientRect();
         return track.scrollLeft + (cRect.left + cRect.width / 2) - (tRect.left + tRect.width / 2);
       }
+      // Glide the strip so card i slides to center. Snap is turned off during
+      // the tween so it can't fight each frame; restored (at a card center) at the end.
       function go(i) {
         i = Math.max(0, Math.min(cards.length - 1, i));
-        track.scrollLeft = offsetToCenter(i);
-        update();
+        var start = track.scrollLeft, target = offsetToCenter(i);
+        if (Math.abs(target - start) < 1) { update(); return; }
+        if (anim) cancelAnimationFrame(anim);
+        track.style.scrollSnapType = "none";
+        var t0 = null, dur = 420;
+        function step(ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          track.scrollLeft = start + (target - start) * e;
+          update();
+          if (p < 1) { anim = requestAnimationFrame(step); }
+          else { track.scrollLeft = target; track.style.scrollSnapType = ""; update(); }
+        }
+        anim = requestAnimationFrame(step);
       }
+
+      // Click a side (non-centered) card to glide it to the middle. The centered
+      // card's clicks pass through so its video controls still work.
+      cards.forEach(function (c, i) {
+        c.addEventListener("click", function (e) {
+          if (i !== activeIdx) { e.preventDefault(); e.stopPropagation(); go(i); }
+        }, true);
+      });
 
       prev.addEventListener("click", function () { go(activeIdx - 1); });
       next.addEventListener("click", function () { go(activeIdx + 1); });
@@ -1736,10 +1762,13 @@
       });
 
       // Open centered on the middle card — peek on both sides signals you can scroll.
-      requestAnimationFrame(function () {
+      function recenterMiddle() {
         track.scrollLeft = offsetToCenter(Math.floor(cards.length / 2));
         update();
-      });
+      }
+      recenterMiddle();                        // synchronous (layout is ready at end of body)
+      requestAnimationFrame(recenterMiddle);   // and next frame, in case widths just settled
+      window.addEventListener("load", recenterMiddle); // and after posters finish loading
     })();
   </script>
 </body>
