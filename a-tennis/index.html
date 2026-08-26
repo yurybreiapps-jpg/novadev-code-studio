@@ -192,7 +192,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      width: min(100%, 1150px);
+      width: min(100%, 1300px);
       margin: 14px auto 0;
       padding: 13px 14px 13px 16px;
       border: 1px solid rgba(255, 255, 255, 0.8);
@@ -265,14 +265,14 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
-      gap: 2px;
+      gap: 1px;
     }
 
     .nav a {
-      padding: 9px 10px;
+      padding: 9px 9px;
       border-radius: 999px;
       color: #33415e;
-      font-size: 0.9rem;
+      font-size: 0.87rem;
       font-weight: 600;
       white-space: nowrap;
     }
@@ -1131,10 +1131,13 @@
 
     /* Phones + narrow tablets: stack the pill nav — brand row, then links row,
        both centered — so the app name never collides with wrapped links. */
-    @media (max-width: 900px) {
-      .nav-wrap { position: static; }
-      .eyebrow { align-items: flex-start; }
-      .eyebrow::before { flex: none; margin-top: 6px; }
+    @media (max-width: 1339px) {
+      /* reclaim the wordmark's width first — the logo still links home */
+      .brand-text { display: none; }
+    }
+
+    @media (max-width: 1224px) {
+      /* eight links + brand + store button no longer fit on one line: stack them, centred */
       .brand-sep { display: none; }
       .topbar {
         flex-wrap: wrap;
@@ -1144,9 +1147,15 @@
         padding: 14px 14px 12px;
       }
       .brand-group { flex-wrap: wrap; justify-content: center; row-gap: 6px; }
-      .brand-app { white-space: normal; justify-content: center; text-align: center; }
       .nav { width: 100%; justify-content: center; }
       .nav .store-pill { margin-left: 4px; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap { position: static; }
+      .eyebrow { align-items: flex-start; }
+      .eyebrow::before { flex: none; margin-top: 6px; }
+      .brand-app { white-space: normal; justify-content: center; text-align: center; }
     }
 
     @media (max-width: 640px) {
