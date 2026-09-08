@@ -1,0 +1,58 @@
+[
+ [
+  "What is an on-device AI image generator?",
+  "An app that holds the image model on your phone and runs it there, rather than sending your words to a server. Nothing is uploaded, and it works without a connection."
+ ],
+ [
+  "Can I generate AI images without an internet connection?",
+  "Yes, once the model has been downloaded. You can check it yourself: turn on airplane mode and generate. If a picture appears, the app is genuinely running locally."
+ ],
+ [
+  "Do my prompts or images leave my phone?",
+  "No. Generation happens on the device, and images are saved to your own library. Sharing only happens when you choose to share."
+ ],
+ [
+  "Which iPhones and iPads can run it?",
+  "Roughly 6 GB of memory or more: an iPhone 14 or later, an iPhone 12 Pro or 13 Pro, or an iPad with an M-series chip. The higher-detail model needs 12 GB. The app checks before it downloads anything."
+ ],
+ [
+  "Why does it need so much storage?",
+  "The model itself is about 3 GB. That is what you are downloading — the thing that draws the pictures — and it only downloads once."
+ ],
+ [
+  "Why is the first launch slow?",
+  "iOS compiles the model for the Neural Engine the first time, which takes about two minutes. It happens once per install and there is no way to skip it."
+ ],
+ [
+  "Are there daily limits or credits?",
+  "No. Once purchased there is no counter and no queue. Generation costs nothing to run because it runs on your own hardware."
+ ],
+ [
+  "Do I need an account?",
+  "No. There is no sign-in, because there is no server to sign in to."
+ ],
+ [
+  "Is it a subscription?",
+  "No. Fifty images are free, then one purchase unlocks the app for good. Nothing renews."
+ ],
+ [
+  "Can it edit photos I already have?",
+  "Yes. You can restyle a photo from your library or camera, and enlarge an existing picture. Everything stays on the device."
+ ],
+ [
+  "Can it make an image larger?",
+  "Yes, up to 4096 pixels on the longest side, using a model bundled in the app. It reconstructs texture rather than just stretching pixels."
+ ],
+ [
+  "Can it put readable text inside an image?",
+  "Not reliably. This is a genuine limitation of models this size — if you need accurate lettering inside a picture, cloud tools currently do it better."
+ ],
+ [
+  "Is there any content filtering?",
+  "Yes. Prompts are screened before drawing, and every finished image is checked on the device before it is shown. Both run locally, like everything else."
+ ],
+ [
+  "How is this different from Apple's Image Playground?",
+  "Image Playground is free, built in, and deliberately narrow in what it will draw. This is a general-purpose image model with many styles, photo editing and enlarging, at the cost of storage and a one-time payment."
+ ]
+]
