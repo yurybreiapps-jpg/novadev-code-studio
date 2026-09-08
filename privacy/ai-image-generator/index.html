@@ -106,7 +106,7 @@
       <p>The short version: we collect nothing.</p>
     </header>
 
-    <p class="stamp">Last updated 6 September 2026</p>
+    <p class="stamp">Last updated 7 September 2026</p>
 
     <section class="card">
       <h2>What we collect</h2>
@@ -133,10 +133,11 @@
     </section>
 
     <section class="card">
-      <h2>The one time the app uses the internet</h2>
+      <h2>When the app uses the internet</h2>
       <p>The image model is too large to ship inside the app, so it is downloaded once, from our file host at <code>models.novadevcodestudio.com</code>, and then kept on your device. Generating images afterwards needs no connection at all.</p>
       <p>We would rather be precise than reassuring here: that download is an ordinary web request, so the host — Cloudflare, acting for us — sees the IP address that asked and which files were sent, the same as any download from any website. We do not link that to a person, we do not build a profile from it, and nothing about you, your prompts or your images is included in the request.</p>
-      <p>Apart from that download, and any link you deliberately tap, the app does not contact the internet.</p>
+      <p>There is one other request, and it was missing from this page until now. Opening Settings asks that same host whether a newer version of a model you have installed exists. It sends nothing about you — it asks for a public file description and reads a version number out of it — but it is a request, and the sentence that used to sit here said the app made none apart from the download. That was wrong, so it has been corrected rather than quietly reworded.</p>
+      <p>Apart from those two, and any link you deliberately tap, the app does not contact the internet. Generating images, editing photos and everything else you do in it happen with no connection at all.</p>
     </section>
 
     <section class="card">
