@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Playground and third-party generators: what each is for | NovaDev Code Studio</title>
+  <meta name="description" content="Apple&#x27;s Image Playground and third-party on-device generators answer different questions. What each one is for, what each will and will not draw, and which fits what you want to make.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/ai-images/guides/vs-apple-image-playground/">
+  <meta property="og:title" content="Image Playground and third-party generators: what each is for | NovaDev Code Studio">
+  <meta property="og:description" content="Apple&#x27;s Image Playground and third-party on-device generators answer different questions. What each one is for, what each will and will not draw, and which fits what you want to make.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/ai-images/guides/vs-apple-image-playground/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/ai-image-generator-banner.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../../../assets/favicon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.novadevcodestudio.com/ai-images/guides/vs-apple-image-playground/#article",
+      "headline": "Image Playground and third-party generators: what each is for",
+      "description": "Apple's Image Playground and third-party on-device generators answer different questions. What each one is for, what each will and will not draw, and which fits what you want to make.",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.novadevcodestudio.com/ai-images/guides/vs-apple-image-playground/",
+      "url": "https://www.novadevcodestudio.com/ai-images/guides/vs-apple-image-playground/",
+      "author": {
+        "@type": "Organization",
+        "name": "NovaDev Code Studio",
+        "url": "https://www.novadevcodestudio.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NovaDev Code Studio",
+        "url": "https://www.novadevcodestudio.com/"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "AI Image Generator Anywhere",
+        "applicationCategory": "PhotoApplication",
+        "operatingSystem": "iOS"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "NovaDev Code Studio",
+          "item": "https://www.novadevcodestudio.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Image Generator Anywhere",
+          "item": "https://www.novadevcodestudio.com/ai-images/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guides",
+          "item": "https://www.novadevcodestudio.com/ai-images/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Image Playground and third-party generators: what each is for",
+          "item": "https://www.novadevcodestudio.com/ai-images/guides/vs-apple-image-playground/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16); --max: 880px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: #f7f9ff; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .liquid { position: relative; isolation: isolate; }
+    .liquid::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+    }
+    .nav-wrap { position: sticky; top: 14px; z-index: 60; padding: 0 18px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: min(100%, 880px); margin: 14px auto 0; padding: 12px 14px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78); box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; color: var(--heading); }
+    .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px; }
+    .nav a { padding: 9px 10px; border-radius: 999px; color: #33415e; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .nav a:hover, .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
+    .nav .store-pill { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 9px 15px; border-radius: 999px; background: #0c1020; color: #fff; font-size: 0.9rem; font-weight: 700; }
+    .nav .store-pill:hover, .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #56618a; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; margin-top: 6px; align-self: flex-start; }
+    .display { margin: 16px 0 18px; font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.08; color: var(--heading); }
+    .display em { font-style: italic; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1.display { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+    h2.display { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 0; }
+
+    h3.deck {
+      max-width: 62ch;
+      margin: -4px 0 20px;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0;
+      color: var(--muted);
+    }
+    .lead { margin: 0; color: var(--muted); font-size: 1.12rem; line-height: 1.65; }
+    .page-head { padding: 64px 0 34px; text-align: center; }
+    .head-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 26px; }
+    .button-dark { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 20px; border-radius: 999px; background: #0c1020; color: #fff; font-weight: 700; transition: background 160ms ease, transform 160ms ease; }
+    .button-dark:hover, .button-dark:focus-visible { background: #1c2440; transform: translateY(-2px); outline: none; }
+    .button-soft { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.8); color: var(--heading); font-weight: 700; }
+    .button-soft:hover, .button-soft:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
+    section { padding: 34px 0; }
+    .step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+    .step-num { font-family: var(--serif); font-size: 2.6rem; line-height: 1; background: linear-gradient(180deg, rgba(117, 81, 255, 0.55), rgba(117, 81, 255, 0.15)); -webkit-background-clip: text; background-clip: text; color: transparent; flex: none; }
+    .card { padding: 26px 28px; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 26px; background: var(--surface); box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08); }
+    .card p, .card li { color: var(--muted); line-height: 1.68; }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul, .card ol { margin: 0 0 12px; padding-left: 22px; }
+    .card strong { color: var(--heading); }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .tip { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(19, 138, 90, 0.2); border-radius: 16px; background: rgba(223, 255, 234, 0.5); color: #1d5c40; font-size: 0.95rem; line-height: 1.6; }
+    .tip strong { color: #124a32; }
+    .shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 6px; }
+    .shot-pair figure { margin: 0; }
+    .shot-pair img { display: block; width: 100%; height: auto; border-radius: 16px; }
+    .shot-pair figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.9rem; }
+    .shot-pair figcaption strong { color: var(--heading); }
+    .shot-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 6px; }
+    .shot-trio figure { margin: 0; }
+    .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-trio figcaption strong { color: var(--heading); }
+    .shot-solo { max-width: 280px; margin: 18px auto 6px; }
+    .shot-solo img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-solo figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
+    .shot-solo figcaption strong { color: var(--heading); }
+    .shot-pair img { border: 1px solid var(--line); }
+    .phone-row { display: flex; justify-content: center; gap: 6%; margin: 18px 0 6px; }
+    .phone-row img { width: 30%; height: auto; filter: drop-shadow(0 18px 30px rgba(24, 46, 110, 0.22)); }
+    .credits-table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 0.97rem; }
+    .credits-table th, .credits-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .credits-table th { color: var(--heading); font-weight: 700; }
+    .cta { padding: 60px 0 76px; text-align: center; }
+    .store-badge-link img { width: 176px; height: auto; border-radius: 10px; }
+    .footer { padding: 30px 0 42px; border-top: 1px solid rgba(31, 59, 133, 0.10); color: #66719a; font-size: 0.92rem; text-align: center; }
+    .footer a { font-weight: 600; color: #4a5578; }
+    .footer a:hover, .footer a:focus-visible { color: var(--heading); outline: none; }
+    @media (max-width: 700px) {
+      .nav-wrap { position: static; }
+      .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
+      .nav { width: 100%; justify-content: center; }
+      .shot-pair { grid-template-columns: 1fr; }
+      .shot-trio { grid-template-columns: 1fr; justify-items: center; }
+      .shot-trio figure { max-width: 280px; width: 100%; }
+      .shot-trio figcaption { text-align: center; }
+      .phone-row img { width: 31%; }
+    }
+    @media print {
+      .nav-wrap, .head-actions, .cta, .footer { display: none !important; }
+      .display em { background: none; -webkit-background-clip: initial; background-clip: initial; color: #6b4fd8; }
+      body { background: #fff; }
+      .liquid::before { display: none; }
+      section { padding: 14px 0; }
+      .card { box-shadow: none; border: 1px solid #d8ddee; }
+      figure, .tip, .credits-table, .step-head { break-inside: avoid; page-break-inside: avoid; }
+      .shot-pair, .shot-trio { break-inside: auto; page-break-inside: auto; }
+      .page-head { padding: 20px 0 10px; }
+    }
+  
+    .spec { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .84rem;
+      line-height: 1.7; white-space: pre; overflow-x: auto; -webkit-overflow-scrolling: touch;
+      max-width: 100%; margin: 0 0 14px; padding: 14px 16px; border: 1px solid var(--line);
+      border-radius: 10px; background: rgba(22, 116, 255, .04); color: var(--muted); }
+    .spec strong { color: var(--ink); font-weight: 600; }
+    .guide-list { list-style: none; margin: 0; padding: 0; }
+    .guide-list li { border-top: 1px solid var(--line); padding: 18px 0; }
+    .guide-list li:last-child { border-bottom: 1px solid var(--line); }
+    .guide-list .lbl { display: inline-block; font-size: .72rem; letter-spacing: .08em;
+      text-transform: uppercase; font-weight: 800; color: var(--accent-1); margin-bottom: 6px; }
+    .guide-list h3 { margin: 0 0 4px; font-size: 1.06rem; line-height: 1.35; font-family: var(--sans); }
+    .guide-list h3 a { color: var(--heading); text-decoration: none; }
+    .guide-list h3 a:hover, .guide-list h3 a:focus-visible { text-decoration: underline; }
+    .guide-list p { margin: 0; }
+    .faq h3 { margin: 22px 0 4px; font-size: 1.02rem; font-family: var(--sans); color: var(--heading); }
+    .faq h3:first-child { margin-top: 0; }
+    .faq p { margin: 0 0 4px; }
+</style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <header class="topbar">
+      <a class="brand" href="../../../" aria-label="NovaDev Code Studio">
+        <img src="../../../assets/novadev-logo.png" alt="">
+        AI Image Generator Anywhere
+      </a>
+      <nav class="nav" aria-label="Page links">
+        <a href="../../">Overview</a>
+        <a href="../">All guides</a>
+        <a href="../../../support/ai-image-generator/">Support</a>
+      </nav>
+    </header>
+  </div>
+  <main>
+    <section class="page-head liquid">
+      <div class="container">
+        <span class="eyebrow">Before you buy</span>
+        <h1 class="display">Image Playground and third-party generators: what each is for</h1>
+        <p class="lead">Apple's Image Playground is free, built into iOS, and since iOS 27 it makes photorealistic pictures as well as illustrated ones. For a lot of people that is the end of the question, and it should be — start there before paying anyone for anything.</p>
+        <div class="head-actions">
+          <a class="button-soft" href="../">&larr; All guides</a>
+          <a class="button-soft" href="../../">The app</a>
+        </div>
+      </div>
+    </section>
+    <section id="what-image-playground-is-very-good">
+      <div class="container">
+        <h2 class="display">What Image Playground is very good at</h2>
+        <div class="card">
+<p>It is already installed. It is free. It is woven into Messages and Notes, so making a picture and sending it is one gesture. Genmoji is genuinely delightful and nothing else does it. The illustrated styles are polished and consistent, and the whole thing is designed so you cannot really get a bad result.</p>
+        </div>
+      </div>
+    </section>
+    <section id="what-it-does-not-do">
+      <div class="container">
+        <h2 class="display">What it does not do</h2>
+        <div class="card">
+<ul>
+      <li><strong>It needs a recent device.</strong> An A17 Pro chip or newer on iPhone, or M-series on iPad. An iPhone 14 cannot run it at all.</li>
+      <li><strong>Its photorealistic model runs on Apple's servers.</strong> That means a connection is required and there are usage limits, with more capacity attached to iCloud+ plans.</li>
+      <li><strong>It is deliberately narrow.</strong> Apple has drawn firm lines about what it will draw, which is a reasonable choice for something shipped to everybody, and a limitation if you are outside those lines.</li>
+      <li><strong>It does not edit your existing photos</strong> in the way a general image model can — restyling a picture you took, or enlarging one.</li>
+    </ul>
+        </div>
+      </div>
+    </section>
+    <section id="when-a-third-party-on-device">
+      <div class="container">
+        <h2 class="display">When a third-party on-device app makes sense</h2>
+        <div class="card">
+<p>When you want to generate a lot without a counter. When you are frequently offline. When your phone is a couple of years old and Apple's tool is not offered to you. When you want many styles rather than a few. When you want to work on photographs you already have.</p>
+        </div>
+      </div>
+    </section>
+    <section id="when-it-does-not">
+      <div class="container">
+        <h2 class="display">When it does not</h2>
+        <div class="card">
+<p>If you have a current iPhone, a normal connection, and you make a handful of pictures a month, Image Playground is free and will do it. Paying for a third-party app in that situation buys you very little.</p>
+        </div>
+      </div>
+    </section>
+    <section id="they-also-coexist-quite-happily">
+      <div class="container">
+        <h2 class="display">They also coexist quite happily</h2>
+        <div class="card">
+<p>Genmoji in Messages, something else when you want a lot of images or no connection. Nobody has to pick a side — the trades are different enough that plenty of people reasonably use both.</p>
+        </div>
+      </div>
+    </section>
+    <section class="cta liquid">
+      <div class="container">
+        <h2 class="display">Made on the device, not on a server.</h2>
+        <p class="lead">AI Image Generator Anywhere runs the model on your iPhone or iPad. No account, no credits, no connection required.</p>
+        <p><a class="button-soft" href="../../">About the app</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      Copyright <span id="currentYear"></span> NovaDev Code Studio &middot;
+      <a href="../../../">novadevcodestudio.com</a> &middot;
+      <a href="mailto:support@novadevcodestudio.com">Support</a>
+    </div>
+  </footer>
+  <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+</body>
+</html>

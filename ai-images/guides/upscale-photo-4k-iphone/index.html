@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to upscale a photo to 4K on your iPhone | NovaDev Code Studio</title>
+  <meta name="description" content="How to upscale a photo to 4K on an iPhone without uploading it. The difference between resizing and upscaling, what an upscaling model can rebuild, what it cannot, and how to choose an output size.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/ai-images/guides/upscale-photo-4k-iphone/">
+  <meta property="og:title" content="How to upscale a photo to 4K on your iPhone | NovaDev Code Studio">
+  <meta property="og:description" content="How to upscale a photo to 4K on an iPhone without uploading it. The difference between resizing and upscaling, what an upscaling model can rebuild, what it cannot, and how to choose an output size.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/ai-images/guides/upscale-photo-4k-iphone/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/ai-image-generator-banner.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../../../assets/favicon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.novadevcodestudio.com/ai-images/guides/upscale-photo-4k-iphone/#article",
+      "headline": "How to upscale a photo to 4K on your iPhone",
+      "description": "How to upscale a photo to 4K on an iPhone without uploading it. The difference between resizing and upscaling, what an upscaling model can rebuild, what it cannot, and how to choose an output size.",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.novadevcodestudio.com/ai-images/guides/upscale-photo-4k-iphone/",
+      "url": "https://www.novadevcodestudio.com/ai-images/guides/upscale-photo-4k-iphone/",
+      "author": {
+        "@type": "Organization",
+        "name": "NovaDev Code Studio",
+        "url": "https://www.novadevcodestudio.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NovaDev Code Studio",
+        "url": "https://www.novadevcodestudio.com/"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "AI Image Generator Anywhere",
+        "applicationCategory": "PhotoApplication",
+        "operatingSystem": "iOS"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "NovaDev Code Studio",
+          "item": "https://www.novadevcodestudio.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Image Generator Anywhere",
+          "item": "https://www.novadevcodestudio.com/ai-images/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guides",
+          "item": "https://www.novadevcodestudio.com/ai-images/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "How to upscale a photo to 4K on your iPhone",
+          "item": "https://www.novadevcodestudio.com/ai-images/guides/upscale-photo-4k-iphone/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16); --max: 880px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: #f7f9ff; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .liquid { position: relative; isolation: isolate; }
+    .liquid::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+    }
+    .nav-wrap { position: sticky; top: 14px; z-index: 60; padding: 0 18px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: min(100%, 880px); margin: 14px auto 0; padding: 12px 14px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78); box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; color: var(--heading); }
+    .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px; }
+    .nav a { padding: 9px 10px; border-radius: 999px; color: #33415e; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .nav a:hover, .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
+    .nav .store-pill { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 9px 15px; border-radius: 999px; background: #0c1020; color: #fff; font-size: 0.9rem; font-weight: 700; }
+    .nav .store-pill:hover, .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #56618a; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; margin-top: 6px; align-self: flex-start; }
+    .display { margin: 16px 0 18px; font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.08; color: var(--heading); }
+    .display em { font-style: italic; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1.display { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+    h2.display { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 0; }
+
+    h3.deck {
+      max-width: 62ch;
+      margin: -4px 0 20px;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0;
+      color: var(--muted);
+    }
+    .lead { margin: 0; color: var(--muted); font-size: 1.12rem; line-height: 1.65; }
+    .page-head { padding: 64px 0 34px; text-align: center; }
+    .head-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 26px; }
+    .button-dark { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 20px; border-radius: 999px; background: #0c1020; color: #fff; font-weight: 700; transition: background 160ms ease, transform 160ms ease; }
+    .button-dark:hover, .button-dark:focus-visible { background: #1c2440; transform: translateY(-2px); outline: none; }
+    .button-soft { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.8); color: var(--heading); font-weight: 700; }
+    .button-soft:hover, .button-soft:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
+    section { padding: 34px 0; }
+    .step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+    .step-num { font-family: var(--serif); font-size: 2.6rem; line-height: 1; background: linear-gradient(180deg, rgba(117, 81, 255, 0.55), rgba(117, 81, 255, 0.15)); -webkit-background-clip: text; background-clip: text; color: transparent; flex: none; }
+    .card { padding: 26px 28px; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 26px; background: var(--surface); box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08); }
+    .card p, .card li { color: var(--muted); line-height: 1.68; }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul, .card ol { margin: 0 0 12px; padding-left: 22px; }
+    .card strong { color: var(--heading); }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .tip { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(19, 138, 90, 0.2); border-radius: 16px; background: rgba(223, 255, 234, 0.5); color: #1d5c40; font-size: 0.95rem; line-height: 1.6; }
+    .tip strong { color: #124a32; }
+    .shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 6px; }
+    .shot-pair figure { margin: 0; }
+    .shot-pair img { display: block; width: 100%; height: auto; border-radius: 16px; }
+    .shot-pair figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.9rem; }
+    .shot-pair figcaption strong { color: var(--heading); }
+    .shot-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 6px; }
+    .shot-trio figure { margin: 0; }
+    .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-trio figcaption strong { color: var(--heading); }
+    .shot-solo { max-width: 280px; margin: 18px auto 6px; }
+    .shot-solo img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-solo figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
+    .shot-solo figcaption strong { color: var(--heading); }
+    .shot-pair img { border: 1px solid var(--line); }
+    .phone-row { display: flex; justify-content: center; gap: 6%; margin: 18px 0 6px; }
+    .phone-row img { width: 30%; height: auto; filter: drop-shadow(0 18px 30px rgba(24, 46, 110, 0.22)); }
+    .credits-table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 0.97rem; }
+    .credits-table th, .credits-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .credits-table th { color: var(--heading); font-weight: 700; }
+    .cta { padding: 60px 0 76px; text-align: center; }
+    .store-badge-link img { width: 176px; height: auto; border-radius: 10px; }
+    .footer { padding: 30px 0 42px; border-top: 1px solid rgba(31, 59, 133, 0.10); color: #66719a; font-size: 0.92rem; text-align: center; }
+    .footer a { font-weight: 600; color: #4a5578; }
+    .footer a:hover, .footer a:focus-visible { color: var(--heading); outline: none; }
+    @media (max-width: 700px) {
+      .nav-wrap { position: static; }
+      .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
+      .nav { width: 100%; justify-content: center; }
+      .shot-pair { grid-template-columns: 1fr; }
+      .shot-trio { grid-template-columns: 1fr; justify-items: center; }
+      .shot-trio figure { max-width: 280px; width: 100%; }
+      .shot-trio figcaption { text-align: center; }
+      .phone-row img { width: 31%; }
+    }
+    @media print {
+      .nav-wrap, .head-actions, .cta, .footer { display: none !important; }
+      .display em { background: none; -webkit-background-clip: initial; background-clip: initial; color: #6b4fd8; }
+      body { background: #fff; }
+      .liquid::before { display: none; }
+      section { padding: 14px 0; }
+      .card { box-shadow: none; border: 1px solid #d8ddee; }
+      figure, .tip, .credits-table, .step-head { break-inside: avoid; page-break-inside: avoid; }
+      .shot-pair, .shot-trio { break-inside: auto; page-break-inside: auto; }
+      .page-head { padding: 20px 0 10px; }
+    }
+  
+    .spec { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .84rem;
+      line-height: 1.7; white-space: pre; overflow-x: auto; -webkit-overflow-scrolling: touch;
+      max-width: 100%; margin: 0 0 14px; padding: 14px 16px; border: 1px solid var(--line);
+      border-radius: 10px; background: rgba(22, 116, 255, .04); color: var(--muted); }
+    .spec strong { color: var(--ink); font-weight: 600; }
+    .guide-list { list-style: none; margin: 0; padding: 0; }
+    .guide-list li { border-top: 1px solid var(--line); padding: 18px 0; }
+    .guide-list li:last-child { border-bottom: 1px solid var(--line); }
+    .guide-list .lbl { display: inline-block; font-size: .72rem; letter-spacing: .08em;
+      text-transform: uppercase; font-weight: 800; color: var(--accent-1); margin-bottom: 6px; }
+    .guide-list h3 { margin: 0 0 4px; font-size: 1.06rem; line-height: 1.35; font-family: var(--sans); }
+    .guide-list h3 a { color: var(--heading); text-decoration: none; }
+    .guide-list h3 a:hover, .guide-list h3 a:focus-visible { text-decoration: underline; }
+    .guide-list p { margin: 0; }
+    .faq h3 { margin: 22px 0 4px; font-size: 1.02rem; font-family: var(--sans); color: var(--heading); }
+    .faq h3:first-child { margin-top: 0; }
+    .faq p { margin: 0 0 4px; }
+</style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <header class="topbar">
+      <a class="brand" href="../../../" aria-label="NovaDev Code Studio">
+        <img src="../../../assets/novadev-logo.png" alt="">
+        AI Image Generator Anywhere
+      </a>
+      <nav class="nav" aria-label="Page links">
+        <a href="../../">Overview</a>
+        <a href="../">All guides</a>
+        <a href="../../../support/ai-image-generator/">Support</a>
+      </nav>
+    </header>
+  </div>
+  <main>
+    <section class="page-head liquid">
+      <div class="container">
+        <span class="eyebrow">How to</span>
+        <h1 class="display">How to upscale a photo to 4K on your iPhone</h1>
+        <p class="lead">Enlarging a photo and upscaling a photo are different operations, and the difference is why one looks soft and the other does not.</p>
+        <div class="head-actions">
+          <a class="button-soft" href="../">&larr; All guides</a>
+          <a class="button-soft" href="../../">The app</a>
+        </div>
+      </div>
+    </section>
+    <section id="resizing-versus-upscaling">
+      <div class="container">
+        <h2 class="display">Resizing versus upscaling</h2>
+        <div class="card">
+<p>When you resize an image, the software spreads the pixels it already has over a larger area and guesses the gaps by averaging neighbours. Nothing is added. A blurry photo becomes a larger blurry photo.</p>
+    <p>An upscaling model has been trained on millions of pairs of small and large versions of the same picture. It has learned what fabric weave, hair, brickwork and foliage look like close up, so it reconstructs plausible detail rather than averaging. That is why the result looks sharp rather than smooth.</p>
+        </div>
+      </div>
+    </section>
+    <section id="what-this-can-and-cannot-do">
+      <div class="container">
+        <h2 class="display">What this can and cannot do</h2>
+        <div class="card">
+<p>It is very good at texture: skin, fur, fabric, stone, leaves. It is good at edges that were soft because the image was small rather than because the shot was out of focus.</p>
+    <p>It cannot recover information that was never captured. A photo taken out of focus stays out of focus — sharper, but still wrong. A face too small to be more than a few pixels will not become a recognisable person; the model will invent a plausible one. And upscaling a heavily compressed image will faithfully sharpen the compression artefacts along with everything else.</p>
+        </div>
+      </div>
+    </section>
+    <section id="doing-it-on-the-phone-offline">
+      <div class="container">
+        <h2 class="display">Doing it on the phone, offline</h2>
+        <div class="card">
+<p>Upscaling runs comfortably on modern Apple hardware, and unlike generation it does not need a huge model — the one we use is about 33 MB and ships inside the app, so it works from the moment you install and never touches the network.</p>
+    <p>Practically: pick the picture, choose how much larger you want it, and let it run. Output is capped at <strong>4096 pixels on the longest side</strong>, which is more than enough for a large print or a desktop wallpaper. On an M-series iPad, a full 4096-pixel result takes roughly ten to twelve seconds.</p>
+        </div>
+      </div>
+    </section>
+    <section id="why-size-is-a-choice-not">
+      <div class="container">
+        <h2 class="display">Why size is a choice, not a maximum</h2>
+        <div class="card">
+<p>Bigger is not always better. If you want a cleaner version of a picture at the size it already is, ask for 1&times; — you get the detail reconstruction without the file becoming enormous. Doubling is usually the sweet spot for something you will look at on a screen. Reach for the maximum when you are printing.</p>
+        </div>
+      </div>
+    </section>
+    <section id="adjusting-afterwards">
+      <div class="container">
+        <h2 class="display">Adjusting afterwards</h2>
+        <div class="card">
+<p>A sharper picture often wants small corrections — a little more warmth, the shadows lifted, the highlights pulled back. Doing that after upscaling rather than before means the adjustments apply to the detail that was reconstructed, not to the softer original.</p>
+        </div>
+      </div>
+    </section>
+    <section class="cta liquid">
+      <div class="container">
+        <h2 class="display">Made on the device, not on a server.</h2>
+        <p class="lead">AI Image Generator Anywhere runs the model on your iPhone or iPad. No account, no credits, no connection required.</p>
+        <p><a class="button-soft" href="../../">About the app</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      Copyright <span id="currentYear"></span> NovaDev Code Studio &middot;
+      <a href="../../../">novadevcodestudio.com</a> &middot;
+      <a href="mailto:support@novadevcodestudio.com">Support</a>
+    </div>
+  </footer>
+  <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+</body>
+</html>
