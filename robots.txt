@@ -1,4 +1,42 @@
+# Search engines and AI answer engines are welcome. Training crawlers are not.
+#
+# Content signals (https://contentsignals.org): index us and cite us in AI
+# answers; do not train models on this content. ANY RESTRICTION HERE IS AN
+# EXPRESS RESERVATION OF RIGHTS UNDER ARTICLE 4 OF EU DIRECTIVE 2019/790.
+
 User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=no,use=reference
 Allow: /
+
+# Deliberately NOT blocked: Google-Extended. It governs Google AI Overviews
+# and Gemini grounding, which is where people now ask "what is a good AI
+# tennis coach app" — the answer surface we want to appear in. Also allowed:
+# OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot and other
+# search/answer agents, which fall under the wildcard above.
+
+# Model-training crawlers.
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CloudflareBrowserRenderingCrawler
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
 
 Sitemap: https://www.novadevcodestudio.com/sitemap.xml
