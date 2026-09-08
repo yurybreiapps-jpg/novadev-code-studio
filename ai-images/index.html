@@ -149,7 +149,12 @@
       .shot-pair, .shot-trio { break-inside: auto; page-break-inside: auto; }
       .page-head { padding: 20px 0 10px; }
     }
-  </style>
+  
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
+</style>
 </head>
 <body>
   <div class="nav-wrap">
@@ -220,6 +225,16 @@
             </figure>
           </div>
         </div>
+        <div class="card">
+          <h3>Ideas, when the box is blank</h3>
+          <p>An empty prompt box is the hardest part of any image generator. The app
+          carries a bank of written prompts grouped by subject &mdash; people, wallpapers
+          and more &mdash; and tapping one fills the box for you.</p>
+          <figure class="shot-wide">
+            <img src="../assets/apps/ai-images/ideas.webp" alt="The Ideas sheet open over the Create tab, listing suggested prompts under a People heading, with the style grid visible beneath it" width="1100" height="1109" loading="lazy">
+            <figcaption><strong>Ideas</strong> &middot; Suggested prompts, grouped by subject. Tapping one fills the box, and you can change any of it before you generate.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
     <section id="device">
@@ -267,6 +282,10 @@
         <div class="card">
           <h3>Higher-detail model &mdash; 12 GB of memory</h3>
           <p>Draws at 1024 across, with cleaner detail and far less grain.</p>
+          <figure class="shot-wide">
+            <img src="../assets/apps/ai-images/model-hd.webp" alt="The Create tab with a generated photograph of a bowl of lemons, and the model picker below showing Photoreal HD selected" width="1100" height="1393" loading="lazy">
+            <figcaption><strong>Photoreal HD</strong> &middot; Draws at 1024, with cleaner detail and far less grain. The app says it needs a newer device at the moment you pick it &mdash; not after a three-gigabyte download.</figcaption>
+          </figure>
         </div>
         <div class="card">
           <h3>Storage and first launch</h3>
