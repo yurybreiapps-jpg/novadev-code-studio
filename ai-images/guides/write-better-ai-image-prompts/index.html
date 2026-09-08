@@ -216,6 +216,16 @@
     .faq h3 { margin: 22px 0 4px; font-size: 1.02rem; font-family: var(--sans); color: var(--heading); }
     .faq h3:first-child { margin-top: 0; }
     .faq p { margin: 0 0 4px; }
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
+    .shot-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 6px; }
+    .shot-quad figure { margin: 0; }
+    .shot-quad img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
+    .shot-quad figcaption { padding: 6px 2px 0; color: var(--muted); font-size: 0.82rem; line-height: 1.45; }
+    .shot-quad figcaption strong { color: var(--heading); display: block; }
+    @media (max-width: 700px) { .shot-quad { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -260,6 +270,20 @@
         <div class="card">
 <p>Words near the front carry more weight than words near the back. So the fix for a prompt that is not working is usually not to add a clarifier at the end — it is to move the thing you care about to the front.</p>
     <p>If the style is what matters, lead with the style. If the subject is what matters, lead with the subject. What you write first is what you get.</p>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/ex-subject.webp" alt="A bowl of ramen photographed in warm light with steam rising" width="600" height="600" loading="lazy">
+              <figcaption><strong>Subject, setting, light</strong> &middot; Three things, doing three different jobs.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/ex-style.webp" alt="A neon-lit motorcycle on a wet street at night in a vivid synthetic style" width="600" height="600" loading="lazy">
+              <figcaption><strong>A style, doing the work</strong> &middot; The look came from one style word, not from a pile of adjectives.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/ex-geometric.webp" alt="A tiger's head rendered as flat geometric polygons" width="600" height="600" loading="lazy">
+              <figcaption><strong>The same, geometric</strong> &middot; Ask for a style by name and the model commits to it.</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -290,6 +314,10 @@
 
 subject ──────── setting ──────────── light ────────── time</pre>
     <p>That is fourteen words and it specifies everything that matters. Adding "highly detailed, 8k, masterpiece, award winning" to the end changes almost nothing except pushing something useful past the limit.</p>
+          <figure class="shot-wide">
+            <img src="../../../assets/apps/ai-images/ideas.webp" alt="The Ideas sheet in the app, listing written prompt suggestions grouped under a People heading" width="1100" height="1109" loading="lazy">
+            <figcaption><strong>Or start from one that works</strong> &middot; The app carries written prompts built on this structure. Tapping one fills the box, and you can change any of it before generating.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -306,6 +334,24 @@ a red fox sitting on a park bench under a streetlight, <strong>in heavy snow</st
     <p>"At night" gives a tight portrait with the fox facing the camera. "At dawn" pulls the camera right back to a receding street with autumn colour in the trees. "In fog" goes wider still and drops the fox small into the frame. "In heavy snow" adds a second fox that nobody asked for.</p>
     <p>Nothing else changed. Not the subject, not the bench, not the random seed. Two words moved the framing, the distance, the palette and the number of animals in the picture.</p>
     <p>That is why you change one thing and look. Rewrite five words at once and you cannot tell which one did what — and the next prompt you write will be a guess. Change one, and after a dozen images you are writing prompts that work first time, which no article can teach you directly.</p>
+          <div class="shot-quad">
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/word-night.webp" alt="A fox on a park bench under a streetlight at night, drawn close and tight" width="460" height="460" loading="lazy">
+              <figcaption><strong>at night</strong> &middot; A tight portrait.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/word-dawn.webp" alt="The same scene at dawn, the camera further back along a street of autumn trees" width="460" height="460" loading="lazy">
+              <figcaption><strong>at dawn</strong> &middot; Pulls back; autumn colour arrives.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/word-fog.webp" alt="The same scene in fog, the fox small in a wide grey frame" width="460" height="460" loading="lazy">
+              <figcaption><strong>in fog</strong> &middot; Goes wide, fox small.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/word-snow.webp" alt="The same scene in heavy snow, now with two foxes by the bench" width="460" height="460" loading="lazy">
+              <figcaption><strong>in heavy snow</strong> &middot; And a second fox nobody asked for.</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>

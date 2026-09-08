@@ -216,6 +216,16 @@
     .faq h3 { margin: 22px 0 4px; font-size: 1.02rem; font-family: var(--sans); color: var(--heading); }
     .faq h3:first-child { margin-top: 0; }
     .faq p { margin: 0 0 4px; }
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
+    .shot-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 6px; }
+    .shot-quad figure { margin: 0; }
+    .shot-quad img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
+    .shot-quad figcaption { padding: 6px 2px 0; color: var(--muted); font-size: 0.82rem; line-height: 1.45; }
+    .shot-quad figcaption strong { color: var(--heading); display: block; }
+    @media (max-width: 700px) { .shot-quad { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -264,6 +274,20 @@
       <li><strong>Single objects on plain grounds.</strong> One flower, one leaf, one geometric shape.</li>
     </ul>
     <p>What to avoid: crowds, text, anything with hands, and dense patterns that make icons hard to read.</p>
+          <div class="shot-trio">
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/wall-island.webp" alt="A library building floating on a rock island above waterfalls and clouds" width="600" height="600" loading="lazy">
+              <figcaption><strong>Calm top and bottom</strong> &middot; Room for the clock above, room for the dock below.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/wall-forest.webp" alt="A white stag standing in a misty, softly lit forest" width="600" height="600" loading="lazy">
+              <figcaption><strong>One subject, quiet edges</strong> &middot; Nothing important near the corners.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/wall-terrarium.webp" alt="A glass terrarium holding small plants, on a plain floor by a window" width="600" height="600" loading="lazy">
+              <figcaption><strong>A single object</strong> &middot; Clean separation from its background, which is what Depth effect needs.</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>

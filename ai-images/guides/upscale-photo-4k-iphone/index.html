@@ -216,6 +216,16 @@
     .faq h3 { margin: 22px 0 4px; font-size: 1.02rem; font-family: var(--sans); color: var(--heading); }
     .faq h3:first-child { margin-top: 0; }
     .faq p { margin: 0 0 4px; }
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
+    .shot-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 6px; }
+    .shot-quad figure { margin: 0; }
+    .shot-quad img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
+    .shot-quad figcaption { padding: 6px 2px 0; color: var(--muted); font-size: 0.82rem; line-height: 1.45; }
+    .shot-quad figcaption strong { color: var(--heading); display: block; }
+    @media (max-width: 700px) { .shot-quad { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -250,6 +260,10 @@
         <div class="card">
 <p>When you resize an image, the software spreads the pixels it already has over a larger area and guesses the gaps by averaging neighbours. Nothing is added. A blurry photo becomes a larger blurry photo.</p>
     <p>An upscaling model has been trained on millions of pairs of small and large versions of the same picture. It has learned what fabric weave, hair, brickwork and foliage look like close up, so it reconstructs plausible detail rather than averaging. That is why the result looks sharp rather than smooth.</p>
+          <figure class="shot-wide">
+            <img src="../../../assets/apps/ai-images/guides/texture.webp" alt="A close portrait of a snow leopard, fur and whiskers sharply detailed" width="1000" height="1000" loading="lazy">
+            <figcaption><strong>Texture is the thing it rebuilds</strong> &middot; Fur, whiskers, the grain of snow: this is the kind of detail an upscaling model has learned, which is why its results look sharp rather than smoothed.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -268,6 +282,10 @@
         <div class="card">
 <p>Upscaling runs comfortably on modern Apple hardware, and unlike generation it does not need a huge model — the one we use is about 33 MB and ships inside the app, so it works from the moment you install and never touches the network.</p>
     <p>Practically: pick the picture, choose how much larger you want it, and let it run. Output is capped at <strong>4096 pixels on the longest side</strong>, which is more than enough for a large print or a desktop wallpaper. On an M-series iPad, a full 4096-pixel result takes roughly ten to twelve seconds.</p>
+          <figure class="shot-wide">
+            <img src="../../../assets/apps/ai-images/enhance.webp" alt="The Enhance tab in the app, showing an image being taken from 1,536 pixels square to 4,096" width="760" height="964" loading="lazy">
+            <figcaption><strong>Enhance, in the app</strong> &middot; 1,536 pixels square taken to 4,096. The multiplier is a choice, and 1&times; cleans up without enlarging at all.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
