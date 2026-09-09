@@ -260,10 +260,16 @@
         <div class="card">
 <p>When you resize an image, the software spreads the pixels it already has over a larger area and guesses the gaps by averaging neighbours. Nothing is added. A blurry photo becomes a larger blurry photo.</p>
     <p>An upscaling model has been trained on millions of pairs of small and large versions of the same picture. It has learned what fabric weave, hair, brickwork and foliage look like close up, so it reconstructs plausible detail rather than averaging. That is why the result looks sharp rather than smooth.</p>
-          <figure class="shot-wide">
-            <img src="../../../assets/apps/ai-images/guides/texture.webp?v=2fe350c6" alt="A close portrait of a snow leopard, fur and whiskers sharply detailed" width="1000" height="1000" loading="lazy">
-            <figcaption><strong>Texture is the thing it rebuilds</strong> &middot; Fur, whiskers, the grain of snow: this is the kind of detail an upscaling model has learned, which is why its results look sharp rather than smoothed.</figcaption>
-          </figure>
+          <div class="shot-pair">
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/enhance-before.webp?v=b43341bb" alt="A crop of a fox's face from the original image, enlarged by resizing, the fur soft and smeared" width="760" height="760" loading="lazy">
+              <figcaption><strong>Enlarged</strong> &middot; The original stretched to this size. No detail was added, so the fur is a soft gradient.</figcaption>
+            </figure>
+            <figure>
+              <img src="../../../assets/apps/ai-images/guides/enhance-after.webp?v=a0e31239" alt="The same crop from the 4x enhanced version, individual hairs and ear tufts clearly resolved" width="760" height="760" loading="lazy">
+              <figcaption><strong>Upscaled</strong> &middot; The same region of the same picture, rebuilt. Individual hairs, ear tufts, whiskers.</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -273,6 +279,10 @@
         <div class="card">
 <p>It is very good at texture: skin, fur, fabric, stone, leaves. It is good at edges that were soft because the image was small rather than because the shot was out of focus.</p>
     <p>It cannot recover information that was never captured. A photo taken out of focus stays out of focus — sharper, but still wrong. A face too small to be more than a few pixels will not become a recognisable person; the model will invent a plausible one. And upscaling a heavily compressed image will faithfully sharpen the compression artefacts along with everything else.</p>
+          <figure class="shot-wide">
+            <img src="../../../assets/apps/ai-images/guides/texture.webp?v=2fe350c6" alt="A close portrait of a snow leopard, fur and whiskers sharply detailed" width="1000" height="1000" loading="lazy">
+            <figcaption><strong>Texture is the thing it rebuilds</strong> &middot; Fur, whiskers, the grain of snow: this is the kind of detail an upscaling model has learned, which is why its results look sharp rather than smoothed.</figcaption>
+          </figure>
         </div>
       </div>
     </section>

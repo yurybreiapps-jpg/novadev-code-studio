@@ -41,7 +41,16 @@ FIGURES = {
      "The larger model announces what it needs at the moment you pick it, rather than failing after a three-gigabyte download."),
  },
  "upscale-photo-4k-iphone": {
-   "resizing-versus-upscaling": wide(
+   # The section argues that resizing and upscaling are different operations.
+   # An illustration cannot make that case; a real pair can. Same picture, same
+   # crop, same size on screen — the left simply enlarged, the right rebuilt.
+   "resizing-versus-upscaling": _fig("shot-pair", [
+     (f"{G}/enhance-before.webp", "A crop of a fox's face from the original image, enlarged by resizing, the fur soft and smeared", 760, 760,
+      "Enlarged", "The original stretched to this size. No detail was added, so the fur is a soft gradient."),
+     (f"{G}/enhance-after.webp", "The same crop from the 4x enhanced version, individual hairs and ear tufts clearly resolved", 760, 760,
+      "Upscaled", "The same region of the same picture, rebuilt. Individual hairs, ear tufts, whiskers."),
+   ]),
+   "what-this-can-and-cannot-do": wide(
      f"{G}/texture.webp", "A close portrait of a snow leopard, fur and whiskers sharply detailed",
      1000, 1000, "Texture is the thing it rebuilds",
      "Fur, whiskers, the grain of snow: this is the kind of detail an upscaling model has learned, which is why its results look sharp rather than smoothed."),
