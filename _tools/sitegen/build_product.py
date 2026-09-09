@@ -34,6 +34,35 @@ s_what = section("what", '''        <h2 class="display">What it does</h2>
           </div>
         </div>
         <div class="card">
+          <h3>Seventeen styles, one picture</h3>
+          <p>Every style is included. Nothing is a separate purchase, and nothing is
+          locked behind anything &mdash; tap one and generate again.</p>
+          <figure class="shot-wide">
+          <div class="style-grid">
+            <img src="../assets/apps/ai-images/styles/s00.webp" alt="A generated portrait of a woman, before any style was applied" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s01.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s02.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s03.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s04.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s05.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s06.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s07.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s08.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s09.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s10.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s11.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s12.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s13.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s14.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s15.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s16.webp" alt="" width="260" height="260" loading="lazy">
+            <img src="../assets/apps/ai-images/styles/s17.webp" alt="" width="260" height="260" loading="lazy">
+          </div>
+            <figcaption><strong>One picture, restyled seventeen times</strong> &middot; The first is the
+            source; the rest are that same picture with a different style tapped. All of it on the device.</figcaption>
+          </figure>
+        </div>
+        <div class="card">
           <h3>Work from a photo you already have</h3>
           <p>Restyle a picture from your library or camera, and keep the original untouched.</p>
         </div>
@@ -143,6 +172,9 @@ n = page(path="ai-images/index.html",
      desc="An AI image generator that runs entirely on your iPhone or iPad. No account, no credits, no subscription, and it works with no signal. One purchase, unlimited images.",
      canonical=f"{BASE}/ai-images/", depth=1, head=head, nav=NAV,
      extra_css="""
+    .style-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 18px 0 0; }
+    .style-grid img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    @media (max-width: 700px) { .style-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; } }
     .shot-wide { margin: 18px 0 6px; }
     .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
