@@ -254,6 +254,19 @@
         </div>
       </div>
     </section>
+    <section id="describe-the-picture-do-not-give">
+      <div class="container">
+        <h2 class="display">Describe the picture, do not give an order</h2>
+        <div class="card">
+<p>You have probably spent a while now telling an assistant what to do. Say "make it brighter" and it makes it brighter. An image model does not work that way, and it fails quietly: you still get a picture, it just isn't the one you asked for.</p>
+    <p>There is no "before" for it to act on. Your words do not instruct the picture — they <em>become</em> it. So "change to a man" paints the words <em>change</em>, <em>to</em> and <em>man</em>, and two of those three mean nothing at all. Nothing is broken. The model drew what you typed.</p>
+    <p>Write the finished picture instead. Not what you want done to it, but what you want to see.</p>
+    <pre class="spec">change to a man                      an order   — almost nothing happens
+a man with short dark hair           a picture  — this one works</pre>
+    <p>The same rule holds anywhere the app takes words. "Fix the hand" describes a problem; "a hand gripping a knife" describes a picture. Only one of those is a thing that can be drawn.</p>
+        </div>
+      </div>
+    </section>
     <section id="there-is-a-hard-limit-and">
       <div class="container">
         <h2 class="display">There is a hard limit, and you will hit it sooner than you think</h2>
@@ -289,10 +302,13 @@
     </section>
     <section id="short-prompts-often-beat-long-ones">
       <div class="container">
-        <h2 class="display">Short prompts often beat long ones, especially for people</h2>
+        <h2 class="display">Short prompts often beat long ones — when you start from nothing</h2>
         <div class="card">
 <p>This surprises people. Faces are where models are most fragile, and a long prompt makes them worse — it crowds out the model's own knowledge of what a face looks like with your adjectives. Ask for a portrait in eight words and you will usually get a better face than in forty.</p>
     <p>Use the length you have for things the model cannot guess: the setting, the light, the framing. Do not spend it describing what a person's eyes normally look like.</p>
+    <p>All of that holds while the picture starts from nothing. Restyling a photograph is the opposite case, and the reason is worth having: your words are no longer the only thing in the room. Every pixel of the photograph is also saying what the picture is.</p>
+    <p>Ask a blank canvas for "a man" and one word is enough, because nothing disagrees with it. Ask a photograph of a woman for "a man" and that one word is outvoted — by long hair, by a jaw, by shoulders, by a dress. It is not that the model ignored you. It is that you were outnumbered.</p>
+    <p>So when you restyle, name the things that have to change rather than the category they add up to. "A man" is a label. "Short dark hair" contradicts something the picture is currently showing, and that is the only kind of instruction a photograph can hear.</p>
         </div>
       </div>
     </section>
