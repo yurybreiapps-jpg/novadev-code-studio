@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — Lustless | NovaDev Code Studio</title>
+  <meta name="description" content="Help with Lustless: what the Shield blocks, Screen Time permission, resetting a count by mistake, subscriptions and restoring.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/support/lustless/">
+  <meta property="og:title" content="Support — Lustless">
+  <meta property="og:description" content="Straight answers about the Shield, your count and your subscription.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/support/lustless/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(60% 34% at 10% 0%, rgba(122, 170, 255, 0.32), transparent 60%),
+        radial-gradient(52% 30% at 95% 4%, rgba(186, 158, 255, 0.28), transparent 58%),
+        radial-gradient(44% 26% at 80% 90%, rgba(150, 226, 255, 0.24), transparent 56%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      padding: 36px 18px 52px;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 640px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 28px; }
+    .brand-home { display: inline-flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.12s ease; }
+    .brand-home:active { transform: scale(0.97); }
+    .logo {
+      width: 76px; height: 76px; border-radius: 22px; object-fit: contain;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 30px rgba(24, 46, 110, 0.16);
+      padding: 8px;
+    }
+    .brand-title { color: #091d75; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .brand-title span {
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .brand-subtitle { margin-top: 5px; color: #6c7ba0; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; }
+    h1 {
+      margin-top: 20px;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.9rem, 7vw, 2.5rem);
+      letter-spacing: -0.015em;
+      color: var(--heading);
+    }
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    header p { margin-top: 8px; color: var(--muted); font-weight: 600; }
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      padding: 24px 24px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 14px 36px rgba(24, 46, 110, 0.09);
+    }
+    .card h2 { color: var(--heading); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul { color: var(--muted); font-size: 0.95rem; line-height: 1.6; padding-left: 20px; margin-bottom: 10px; }
+    .card li { margin-bottom: 6px; }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .lede { font-size: 1.02rem; color: var(--ink); font-weight: 600; }
+    .stamp { text-align: center; color: #66719a; font-size: 0.82rem; margin-bottom: 18px; }
+    footer { text-align: center; margin-top: 28px; color: #66719a; font-size: 0.82rem; line-height: 2; }
+    footer a { color: #4a5578; font-weight: 700; }
+    footer a:hover, footer a:focus-visible { color: var(--heading); outline: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand-home" href="../../" aria-label="NovaDev Code Studio home">
+        <img class="logo" src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span>
+          <span class="brand-title">Nova<span>Dev</span></span><br>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <h1>Help with <em>Lustless.</em></h1>
+      <p>Straight answers. If yours is not here, write to us at the bottom.</p>
+    </header>
+
+    <section class="card">
+      <h2>What does the Shield actually block?</h2>
+      <p>Three things, all done by iOS itself once you grant Screen Time permission: Apple's own adult-content filter — the same one behind Screen Time's "Limit Adult Websites" — any websites you add to your own list, and any apps or categories you pick in Apple's picker. Blocking is by whole website or app: if you add a site, all of it is blocked, not just part of it.</p>
+      <p>Apple's filter already covers adult sites. Your own list is for mainstream places it leaves alone — the quick-add row has the usual suspects.</p>
+    </section>
+
+    <section class="card">
+      <h2>Why does it ask for Screen Time permission?</h2>
+      <p>Because iOS does the blocking, not the app. The permission lets Lustless switch Apple's filter on and shield the apps you chose. iOS gives the app sealed references it can block but cannot read, which is why the Shield screen shows counts rather than app names — Lustless genuinely does not know what you picked. You can revoke the permission at any time in Settings under Screen Time.</p>
+    </section>
+
+    <section class="card">
+      <h2>The Shield says it is not available</h2>
+      <p>Usually this means Screen Time access was declined. Open Settings, go to Screen Time, and allow it for Lustless, then return to the Shield tab. If your device is managed by a school or employer, Screen Time may be controlled by them.</p>
+    </section>
+
+    <section class="card">
+      <h2>Can I turn the Shield off?</h2>
+      <p>Yes, always, from the Shield tab — whether or not you have a subscription. Nobody should be locked out of a block they set on themselves.</p>
+    </section>
+
+    <section class="card">
+      <h2>I reset my count by mistake</h2>
+      <p>Open Progress and tap "Undo last reset". Your day count goes back to what it was.</p>
+    </section>
+
+    <section class="card">
+      <h2>Does anything leave my phone?</h2>
+      <p>No. There is no account, no server and no analytics. Your reasons, your log and your Shield settings live only on your device. Deleting the app deletes them. The details are on the <a href="../../privacy/lustless/">privacy page</a>.</p>
+    </section>
+
+    <section class="card">
+      <h2>I got a new phone. Does my count come with me?</h2>
+      <p>Not at the moment — everything is stored only on the device you used, and there is no sync. Keep the old phone until you no longer need the record, or start fresh: the day you start again is a real day too.</p>
+    </section>
+
+    <section class="card">
+      <h2>What is free, and what is Pro?</h2>
+      <p>Free, with no time limit: the day counter and calendar, the panic button and breathing, your reasons, urge and relapse logging, and the daily check-in. Pro adds the Shield, the full 90-day guide, and your own urge patterns and triggers. Prices are shown inside the app and on the App Store.</p>
+    </section>
+
+    <section class="card">
+      <h2>Subscriptions, restoring and cancelling</h2>
+      <p>The subscription is sold and billed by Apple. To restore it on a new device, open the paywall and tap Restore. To change or cancel it, use Settings → your name → Subscriptions on your iPhone or iPad, or the Manage button in the app once a plan is active. Cancelling stops renewal; Pro stays on until the end of the period you paid for.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p>Anything else — a bug, a question, a suggestion: <a href="mailto:support@novadevcodestudio.com">support@novadevcodestudio.com</a></p>
+      <p>NovaDev Code Studio — an independent software studio.</p>
+    </section>
+
+    <footer>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a> ·
+      <a href="../../apps/">Our apps</a> ·
+      <a href="../../">novadevcodestudio.com</a> · © <span id="y"></span> NovaDev Code Studio
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
