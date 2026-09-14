@@ -358,6 +358,7 @@
       background: var(--surface);
       box-shadow: var(--shadow);
       text-align: left;
+      overflow: hidden; /* the tilted side phones otherwise run out of the card and over the row below */
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
@@ -450,7 +451,7 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      min-height: 340px;
+      min-height: 440px;
     }
 
     .phone-cluster img {
