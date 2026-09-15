@@ -158,6 +158,10 @@
     .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
     .shot-wide figcaption strong { color: var(--heading); }
+    .footer-badges { display: flex; justify-content: center; margin-top: 22px; }
+    .at-badge { display: inline-flex; border-radius: 12px; transition: transform 160ms ease; }
+    .at-badge:hover, .at-badge:focus-visible { transform: translateY(-2px); outline: none; }
+    .at-badge img { display: block; width: 200px; height: auto; }
 </style>
 </head>
 <body>
@@ -298,6 +302,11 @@
       Copyright <span id="currentYear"></span> NovaDev Code Studio &middot;
       <a href="../">novadevcodestudio.com</a> &middot;
       <a href="mailto:support@novadevcodestudio.com">Support</a>
+    </div>
+    <div class="container footer-badges">
+      <a class="at-badge" href="https://alternativeto.net/software/lustless-quit-lust-blocker/about/?utm_source=badge&amp;utm_medium=referral" target="_blank" rel="noreferrer" aria-label="Lustless on AlternativeTo">
+        <img src="../assets/badges/alternativeto-badge.svg" alt="Lustless on AlternativeTo" width="244" height="83" loading="lazy">
+      </a>
     </div>
   </footer>
   <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
