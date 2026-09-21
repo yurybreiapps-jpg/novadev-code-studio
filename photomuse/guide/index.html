@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to use PhotoMuse — the complete guide to cleaning your photo library</title>
+  <meta name="description" content="Step by step: clear similar shots and duplicates, review a month by swiping, search your photos, enhance them, compress videos, and actually free the space on your iPhone or iPad.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/photomuse/guide/">
+  <meta property="og:title" content="How to use PhotoMuse — the complete guide to cleaning your photo library">
+  <meta property="og:description" content="Step by step: clear similar shots and duplicates, review a month by swiping, search your photos, enhance them, compress videos, and actually free the space on your iPhone or iPad.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/photomuse/guide/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/apps/photomuse/app-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16); --max: 880px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: #f7f9ff; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .liquid { position: relative; isolation: isolate; }
+    .liquid::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+    }
+    .nav-wrap { position: sticky; top: 14px; z-index: 60; padding: 0 18px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: min(100%, 880px); margin: 14px auto 0; padding: 12px 14px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78); box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; color: var(--heading); }
+    .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px; }
+    .nav a { padding: 9px 10px; border-radius: 999px; color: #33415e; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .nav a:hover, .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
+    .nav .store-pill { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 9px 15px; border-radius: 999px; background: #0c1020; color: #fff; font-size: 0.9rem; font-weight: 700; }
+    .nav .store-pill:hover, .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #56618a; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; margin-top: 6px; align-self: flex-start; }
+    .display { margin: 16px 0 18px; font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.08; color: var(--heading); }
+    .display em { font-style: italic; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1.display { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+    h2.display { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 0; }
+
+    h3.deck {
+      max-width: 62ch;
+      margin: -4px 0 20px;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0;
+      color: var(--muted);
+    }
+    .lead { margin: 0; color: var(--muted); font-size: 1.12rem; line-height: 1.65; }
+    .page-head { padding: 64px 0 34px; text-align: center; }
+    .head-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 26px; }
+    .button-dark { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 20px; border-radius: 999px; background: #0c1020; color: #fff; font-weight: 700; transition: background 160ms ease, transform 160ms ease; }
+    .button-dark:hover, .button-dark:focus-visible { background: #1c2440; transform: translateY(-2px); outline: none; }
+    .button-soft { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.8); color: var(--heading); font-weight: 700; }
+    .button-soft:hover, .button-soft:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
+    section { padding: 34px 0; }
+    .step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+    .step-num { font-family: var(--serif); font-size: 2.6rem; line-height: 1; background: linear-gradient(180deg, rgba(117, 81, 255, 0.55), rgba(117, 81, 255, 0.15)); -webkit-background-clip: text; background-clip: text; color: transparent; flex: none; }
+    .card { padding: 26px 28px; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 26px; background: var(--surface); box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08); }
+    .card p, .card li { color: var(--muted); line-height: 1.68; }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul, .card ol { margin: 0 0 12px; padding-left: 22px; }
+    .card strong { color: var(--heading); }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .tip { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(19, 138, 90, 0.2); border-radius: 16px; background: rgba(223, 255, 234, 0.5); color: #1d5c40; font-size: 0.95rem; line-height: 1.6; }
+    .tip strong { color: #124a32; }
+    .shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 6px; }
+    .shot-pair figure { margin: 0; }
+    .shot-pair img { display: block; width: 100%; height: auto; border-radius: 16px; }
+    .shot-pair figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.9rem; }
+    .shot-pair figcaption strong { color: var(--heading); }
+    .shot-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 6px; }
+    .shot-trio figure { margin: 0; }
+    .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-trio figcaption strong { color: var(--heading); }
+    .shot-solo { max-width: 280px; margin: 18px auto 6px; }
+    .shot-solo img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-solo figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
+    .shot-solo figcaption strong { color: var(--heading); }
+    .shot-pair img { border: 1px solid var(--line); }
+    .phone-row { display: flex; justify-content: center; gap: 6%; margin: 18px 0 6px; }
+    .phone-row img { width: 30%; height: auto; filter: drop-shadow(0 18px 30px rgba(24, 46, 110, 0.22)); }
+    .credits-table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 0.97rem; }
+    .credits-table th, .credits-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .credits-table th { color: var(--heading); font-weight: 700; }
+    .cta { padding: 60px 0 76px; text-align: center; }
+    .store-badge-link img { width: 176px; height: auto; border-radius: 10px; }
+    .footer { padding: 30px 0 42px; border-top: 1px solid rgba(31, 59, 133, 0.10); color: #66719a; font-size: 0.92rem; text-align: center; }
+    .footer a { font-weight: 600; color: #4a5578; }
+    .footer a:hover, .footer a:focus-visible { color: var(--heading); outline: none; }
+    @media (max-width: 700px) {
+      .nav-wrap { position: static; }
+      .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
+      .nav { width: 100%; justify-content: center; }
+      .shot-pair { grid-template-columns: 1fr; }
+      .shot-trio { grid-template-columns: 1fr; justify-items: center; }
+      .shot-trio figure { max-width: 280px; width: 100%; }
+      .shot-trio figcaption { text-align: center; }
+      .phone-row img { width: 31%; }
+    }
+    @media print {
+      .nav-wrap, .head-actions, .cta, .footer { display: none !important; }
+      .display em { background: none; -webkit-background-clip: initial; background-clip: initial; color: #6b4fd8; }
+      body { background: #fff; }
+      .liquid::before { display: none; }
+      section { padding: 14px 0; }
+      .card { box-shadow: none; border: 1px solid #d8ddee; }
+      figure, .tip, .credits-table, .step-head { break-inside: avoid; page-break-inside: avoid; }
+      .shot-pair, .shot-trio { break-inside: auto; page-break-inside: auto; }
+      .page-head { padding: 20px 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="PhotoMuse">
+        <img src="../../assets/apps/photomuse/app-icon.webp" alt="">
+        PhotoMuse
+      </a>
+      <nav class="nav" aria-label="Page links">
+        <a href="#piles">Piles</a>
+        <a href="#review">Swipe review</a>
+        <a href="#enhance">Enhance</a>
+        <a href="#compress">Videos</a>
+        <a href="#finish">Free space</a>
+        <a href="#troubleshooting">Help</a>
+        <!-- FLIP-ON-LAUNCH --><span class="store-pill" style="opacity:.78">Coming soon</span>
+      </nav>
+    </header>
+  </div>
+  <main>
+    <section class="page-head liquid">
+      <div class="container">
+        <span class="eyebrow">The complete guide</span>
+        <h1 class="display">From a full phone to a <em>tidy library.</em></h1>
+        <p class="lead">Everything in one place: the piles, similar shots and duplicates, the swipe review,
+        search, Enhance, video compression &mdash; and the last step most people miss, which is the one that
+        actually frees the space.</p>
+        <div class="head-actions">
+          <a class="button-soft" href="../">← App overview</a>
+          <a class="button-soft" href="../../support/photomuse/">Common questions</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="start">
+      <div class="container">
+        <div class="step-head"><span class="step-num">01</span><h2 class="display">Let it <em>look.</em></h2></div>
+        <h3 class="deck">Photo access, the first scan, and what the numbers mean.</h3>
+        <div class="card">
+          <p><strong>Allow photo access.</strong> Choose <em>Full Access</em> to have the whole library sorted, or pick only some photos &mdash; PhotoMuse works with whatever you allow, and says which it is counting. You can change this later in Settings → Privacy &amp; Security → Photos.</p>
+          <p><strong>The first scan</strong> runs on your device and nothing is uploaded. A large library takes a few minutes; you can start using the piles that are ready while the rest are still being counted.</p>
+          <p><strong>The numbers are real.</strong> Sizes are read from your library byte for byte. Where a figure is an estimate, the app says so.</p>
+          <div class="tip"><strong>Nothing is ever deleted on its own.</strong> Every delete is confirmed by you in Apple's own sheet, and can be undone in Photos for 30 days.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="piles">
+      <div class="container">
+        <div class="step-head"><span class="step-num">02</span><h2 class="display">Clear the <em>piles.</em></h2></div>
+        <h3 class="deck">Screenshots, screen recordings, bad shots, large videos and Live Photos.</h3>
+        <div class="card">
+          <ol>
+            <li>Open a pile from the first screen.</li>
+            <li>Tap the items you do not want. Tap a preview to see it full size first &mdash; videos and Live Photos play there.</li>
+            <li>Use <strong>Sort</strong> to order by date, size or name. <strong>Large videos</strong> are grouped by size &mdash; over 1&nbsp;GB, over 500&nbsp;MB and so on &mdash; because a handful of files is usually most of the space.</li>
+            <li>Delete, and confirm in Apple's sheet.</li>
+          </ol>
+          <p><strong>Bad shots</strong> are photos that are blurred, too dark, or have a finger over the lens. Glance through before deleting &mdash; a dark photo can still be one you love.</p>
+          <div class="tip">Picking photos by hand and deleting them is free and unlimited. <strong>Select all</strong> &mdash; for a whole pile, month or size group at once &mdash; is part of Plus.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="similar">
+      <div class="container">
+        <div class="step-head"><span class="step-num">03</span><h2 class="display">Similar shots &amp; <em>duplicates.</em></h2></div>
+        <h3 class="deck">Groups of near-identical photos, with a suggested keeper.</h3>
+        <div class="card">
+          <p><strong>Duplicates</strong> are the same picture more than once. <strong>Similar shots</strong> are the six tries at one group photo. Each group shows how much room the extras take.</p>
+          <ul>
+            <li><strong>Keep only our pick</strong> keeps the photo PhotoMuse judges best and marks the rest.</li>
+            <li><strong>Keep all</strong> leaves the group alone.</li>
+            <li>To decide yourself, tap the badge on any photo to switch it between keep and delete. Tap the photo to see it large.</li>
+          </ul>
+          <p>An enhanced copy you saved earlier will show up next to its original here &mdash; that is correct, they are the same picture. Keep whichever you prefer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="review">
+      <div class="container">
+        <div class="step-head"><span class="step-num">04</span><h2 class="display">Review a month by <em>swiping.</em></h2></div>
+        <h3 class="deck">The fastest way through everything that is not in a pile.</h3>
+        <div class="card">
+          <ol>
+            <li>Open <strong>Everything else</strong> and choose a month.</li>
+            <li><strong>Swipe left to delete, right to keep.</strong> The two buttons underneath do the same.</li>
+            <li>Made a mistake? <strong>Undo</strong> goes back one step at a time, as far as you like &mdash; even after closing the app.</li>
+            <li>Tap <strong>Done</strong> whenever you like. Your place is saved; the month shows how many are sorted.</li>
+            <li>At the end, review what you marked and confirm. Only then is anything deleted.</li>
+          </ol>
+          <p><strong>Start this month over</strong>, under More, clears the month's marks if you want a fresh run.</p>
+          <div class="tip">The swipe review is free, all of it.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="search">
+      <div class="container">
+        <div class="step-head"><span class="step-num">05</span><h2 class="display">Search by what is <em>in the photo.</em></h2></div>
+        <h3 class="deck">Find the cat, the beach or the tennis match without scrolling.</h3>
+        <div class="card">
+          <p>In <strong>Everything else</strong>, type a plain word: <em>cat</em>, <em>dog</em>, <em>beach</em>, <em>food</em>, <em>tennis</em>, <em>car</em>. Photos and videos that contain it are shown.</p>
+          <p>This works by reading your photos <strong>on your device</strong>. The first read of a large library takes a while; after that, search is instant. If a word finds nothing, <strong>Search Photos instead</strong> hands the same word to Apple's Photos app.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="enhance">
+      <div class="container">
+        <div class="step-head"><span class="step-num">06</span><h2 class="display">Enhance a <em>photo.</em></h2></div>
+        <h3 class="deck">Auto, the dials, Rebuild detail, and the two ways to save.</h3>
+        <div class="card">
+          <ol>
+            <li>Open any photo and tap <strong>Enhance</strong> &mdash; or use <strong>Enhance a photo</strong> on the first screen.</li>
+            <li><strong>Auto</strong> sets light and colour for that particular photo. Every dial can then be moved by hand, and <strong>Reset</strong> puts them back.</li>
+            <li><strong>Rebuild detail</strong> sharpens fine detail and clears compression noise. It runs on your device and takes a little while on a large photo.</li>
+            <li>Save as a <strong>new photo</strong>, or <strong>Replace original</strong>.</li>
+          </ol>
+          <p><strong>Replacing is not destructive.</strong> Photos keeps the untouched original alongside the edit, exactly as it does for its own edits. To put it back: open the photo in Photos → Edit → Revert.</p>
+          <p><strong>Live Photos</strong> can only be saved as a copy, because replacing one would drop the movement.</p>
+          <div class="tip"><strong>File format:</strong> Settings → <em>Save enhanced photos as</em>. <em>Match the Original</em> keeps each photo in the format it already has. <em>High Efficiency</em> always saves HEIC (about half the size of a JPEG); <em>Most Compatible</em> always saves JPEG.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="compress">
+      <div class="container">
+        <div class="step-head"><span class="step-num">07</span><h2 class="display">Compress <em>videos.</em></h2></div>
+        <h3 class="deck">Smaller files for the videos you want to keep.</h3>
+        <div class="card">
+          <p>Re-encoding a video that is already efficient makes it <strong>bigger</strong>, so <strong>Compress videos</strong> first asks Apple's encoder about each one and lists only those that will really shrink. Each shows its own estimate; slow-motion clips and videos that are not on the device are left alone, and the app says why.</p>
+          <ol>
+            <li>Pick a video and a size: the same resolution, or 1080p for anything larger.</li>
+            <li>Wait for it to finish. You can stop at any time and nothing changes.</li>
+            <li>See the <strong>real</strong> saving, then choose <strong>Keep both</strong> or <strong>Delete the original</strong>.</li>
+          </ol>
+          <p>HDR video stays HDR. If the finished file is not meaningfully smaller, PhotoMuse throws it away and keeps your original.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="finish">
+      <div class="container">
+        <div class="step-head"><span class="step-num">08</span><h2 class="display">Actually free <em>the space.</em></h2></div>
+        <h3 class="deck">The step every cleaner app skips telling you about.</h3>
+        <div class="card">
+          <p>Deleting a photo &mdash; in any app, including Photos &mdash; moves it to <strong>Recently Deleted</strong>, where it stays for 30 days and <strong>still takes up room</strong>. Your storage does not change until that album is emptied.</p>
+          <ol>
+            <li>In PhotoMuse, open <strong>Settings → Finish freeing space in Photos</strong>. Apple gives apps no way to open that album directly, so this opens Photos with it searched for.</li>
+            <li>In Photos, open <strong>Recently Deleted</strong> (it asks for Face&nbsp;ID or your passcode).</li>
+            <li>Tap <strong>Select → Delete All</strong>.</li>
+          </ol>
+          <div class="tip"><strong>Changed your mind?</strong> Until you empty it, anything you deleted can be recovered from that same album.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting">
+      <div class="container">
+        <div class="step-head"><span class="step-num">09</span><h2 class="display">If something's <em>not working.</em></h2></div>
+        <h3 class="deck">The usual causes, and what to do.</h3>
+        <div class="card">
+          <ul>
+            <li><strong>&ldquo;I deleted thousands of photos and my storage did not change&rdquo;</strong> &mdash; they are in Recently Deleted. See step 08.</li>
+            <li><strong>The piles look too small</strong> &mdash; PhotoMuse may only have access to some photos. The first screen says so; tap <strong>Change</strong>, or allow Full Access in Settings → Privacy &amp; Security → Photos.</li>
+            <li><strong>&ldquo;Your library has changed&rdquo;</strong> &mdash; you took or deleted photos since the last scan. Tap <strong>Check again</strong>, or turn on <em>Check again automatically</em> in Settings.</li>
+            <li><strong>Enhance or Compress is slow to start</strong> &mdash; with iCloud Photos and <em>Optimise iPhone Storage</em> on, the full-size original is fetched from your iCloud first. Wi-Fi helps.</li>
+            <li><strong>A video is not offered for compression</strong> &mdash; it is already efficient, it is slow-motion, or the original is only in iCloud. The screen lists how many were left alone for each reason.</li>
+            <li><strong>Plans will not load on the Plus screen</strong> &mdash; that needs a connection to the App Store. Try again on Wi-Fi.</li>
+            <li>Still stuck? Email <a href='mailto:support@novadevcodestudio.com'>support@novadevcodestudio.com</a> &mdash; it reaches a person.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta liquid">
+      <div class="container">
+        <span class="eyebrow">That is all of it</span>
+        <h2 class="display">Go and <em>clear some space.</em></h2>
+        <div class="head-actions">
+          <!-- FLIP-ON-LAUNCH --><span class="button-dark" style="cursor:default">Coming soon to the App Store</span>
+          <a class="button-soft" href="../">About the app →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      Copyright <span id="currentYear"></span> NovaDev Code Studio ·
+      <a href="../../">novadevcodestudio.com</a> ·
+      <a href="../../support/photomuse/">Help</a> ·
+      <a href="../../privacy/photomuse/">Privacy</a> ·
+      <a href="mailto:support@novadevcodestudio.com">Support</a>
+    </div>
+  </footer>
+  <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+</body>
+</html>

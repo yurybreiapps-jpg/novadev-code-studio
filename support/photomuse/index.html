@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help — PhotoMuse | NovaDev Code Studio</title>
+  <meta name="description" content="Answers about PhotoMuse: storage that did not change, getting a photo back, iCloud photos, Enhance, video compression, and PhotoMuse Plus.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/support/photomuse/">
+  <meta property="og:title" content="Help — PhotoMuse | NovaDev Code Studio">
+  <meta property="og:description" content="Answers about PhotoMuse: storage that did not change, getting a photo back, iCloud photos, Enhance, video compression, and PhotoMuse Plus.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/support/photomuse/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/apps/photomuse/app-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(60% 34% at 10% 0%, rgba(122, 170, 255, 0.32), transparent 60%),
+        radial-gradient(52% 30% at 95% 4%, rgba(186, 158, 255, 0.28), transparent 58%),
+        radial-gradient(44% 26% at 80% 90%, rgba(150, 226, 255, 0.24), transparent 56%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      padding: 36px 18px 52px;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 640px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 28px; }
+    .brand-home { display: inline-flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.12s ease; }
+    .brand-home:active { transform: scale(0.97); }
+    .logo {
+      width: 76px; height: 76px; border-radius: 22px; object-fit: contain;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 30px rgba(24, 46, 110, 0.16);
+      padding: 8px;
+    }
+    .brand-title { color: #091d75; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .brand-title span {
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .brand-subtitle { margin-top: 5px; color: #6c7ba0; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; }
+    h1 {
+      margin-top: 20px;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.9rem, 7vw, 2.5rem);
+      letter-spacing: -0.015em;
+      color: var(--heading);
+    }
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    header p { margin-top: 8px; color: var(--muted); font-weight: 600; }
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      padding: 24px 24px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 14px 36px rgba(24, 46, 110, 0.09);
+    }
+    .card h2 { color: var(--heading); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul { color: var(--muted); font-size: 0.95rem; line-height: 1.6; padding-left: 20px; margin-bottom: 10px; }
+    .card li { margin-bottom: 6px; }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .lede { font-size: 1.02rem; color: var(--ink); font-weight: 600; }
+    .stamp { text-align: center; color: #66719a; font-size: 0.82rem; margin-bottom: 18px; }
+    footer { text-align: center; margin-top: 28px; color: #66719a; font-size: 0.82rem; line-height: 2; }
+    footer a { color: #4a5578; font-weight: 700; }
+    footer a:hover, footer a:focus-visible { color: var(--heading); outline: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand-home" href="../../" aria-label="NovaDev Code Studio home">
+        <img class="logo" src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span>
+          <span class="brand-title">Nova<span>Dev</span></span><br>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <h1>Help with <em>PhotoMuse.</em></h1>
+      <p><!-- FLIP-ON-LAUNCH --><a href="../../photomuse/">About the app</a> &middot; <a href="../../photomuse/guide/">The complete guide</a></p>
+      <p>Straight answers. If yours is not here, write to us at the bottom.</p>
+    </header>
+
+    <section class="card">
+      <h2>I deleted a lot of photos and my storage did not change</h2>
+      <p>That is how iOS works, in every app: deleted photos move to <strong>Recently Deleted</strong> in the Photos app, where they stay for 30 days and still take up room. To free the space now, open PhotoMuse → Settings → <strong>Finish freeing space in Photos</strong>, then in Photos open Recently Deleted and choose Select → Delete All.</p>
+      <p>Apple gives apps no way to open that album directly, so the button opens Photos with it searched for.</p>
+    </section>
+
+    <section class="card">
+      <h2>I deleted something by mistake. Can I get it back?</h2>
+      <p>Yes, for 30 days. Open the Photos app → Albums → Recently Deleted, select the photo, and tap Recover. In the swipe review you can also <strong>Undo</strong> any mark before you confirm &mdash; swiping never deletes anything by itself.</p>
+    </section>
+
+    <section class="card">
+      <h2>Does anything leave my phone?</h2>
+      <p>No. Scanning, the piles, search, Enhance and compression all run on your device. There is no account, no server and no analytics. The details are on the <a href="../../privacy/photomuse/">privacy page</a>.</p>
+    </section>
+
+    <section class="card">
+      <h2>The piles look too small, or it says it is counting only the photos I picked</h2>
+      <p>PhotoMuse has been given access to some photos rather than all of them. Tap <strong>Change</strong> on the first screen, or open Settings → Privacy &amp; Security → Photos → PhotoMuse and choose Full Access.</p>
+    </section>
+
+    <section class="card">
+      <h2>It says my library has changed</h2>
+      <p>You have taken or deleted photos since the last scan, so the numbers on screen are from before. Tap <strong>Check again</strong>. If you would rather it did this by itself, turn on <em>Check again automatically</em> in Settings &mdash; it is off by default because looking at every photo is real work on a large library.</p>
+    </section>
+
+    <section class="card">
+      <h2>Why did an enhanced photo appear under Duplicates or Similar shots?</h2>
+      <p>Because it is the same picture as its original, and PhotoMuse is right to notice. Keep whichever you prefer. If you would rather not have two, use <strong>Replace original</strong> when saving from Enhance.</p>
+    </section>
+
+    <section class="card">
+      <h2>Is Replace original safe?</h2>
+      <p>Yes. Photos keeps the untouched original alongside the edit, as it does for its own edits. To go back, open the photo in Photos → Edit → Revert. Live Photos can only be saved as a copy, because replacing one would drop the movement.</p>
+    </section>
+
+    <section class="card">
+      <h2>Enhance or Compress takes a while to start</h2>
+      <p>With iCloud Photos and Optimise Storage on, the full-size original may be in your iCloud, and Apple's Photos system has to fetch it first. Wi-Fi helps. Rebuild detail is also real work on a large photo, and says so while it runs.</p>
+    </section>
+
+    <section class="card">
+      <h2>Why are some videos not offered for compression?</h2>
+      <p>Re-encoding an efficient video makes it bigger, so PhotoMuse lists only videos that Apple's encoder says will shrink. Slow-motion clips and videos whose original is only in iCloud are left alone too. The screen shows how many were skipped for each reason.</p>
+    </section>
+
+    <section class="card">
+      <h2>Search did not find my photo</h2>
+      <p>Search reads what is visibly in a picture &mdash; <em>cat</em>, <em>beach</em>, <em>car</em> &mdash; on your device, and it does not know names, places or text. The first read of a big library takes a while. When a word finds nothing, <strong>Search Photos instead</strong> passes it to Apple's Photos app.</p>
+    </section>
+
+    <section class="card">
+      <h2>What is free, and what is Plus?</h2>
+      <p>Free, with no time limit: scanning, every pile, search, the whole swipe review, and deleting photos you pick by hand. Also free to try: cleaning 5 similar or duplicate groups, enhancing 5 photos, and compressing 2 videos.</p>
+      <p>Plus is for doing it in bulk: selecting a whole pile, month or size group at once, cleaning every group, and enhancing and compressing without a limit. Prices are shown in the app and on the App Store.</p>
+    </section>
+
+    <section class="card">
+      <h2>Subscriptions, the free trial, lifetime, restoring and cancelling</h2>
+      <p>Plus is sold and billed by Apple: weekly, yearly with a 7-day free trial, or a one-time lifetime purchase. If you cancel during the trial you are not charged. To restore a purchase on a new device, open Settings in PhotoMuse → <strong>Restore a purchase</strong>. To change or cancel a subscription, use Settings → your name → Subscriptions on your device, or <strong>Manage or cancel</strong> in PhotoMuse once a plan is active. Cancelling stops renewal; Plus stays on until the end of the period you paid for. Lifetime has nothing to renew or cancel.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p>Anything else &mdash; a bug, a question, a suggestion: <a href="mailto:support@novadevcodestudio.com">support@novadevcodestudio.com</a>. It reaches a person, not a form.</p>
+    </section>
+
+    <footer>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a> ·
+      <a href="../../apps/">Our apps</a> ·
+      <a href="../../">novadevcodestudio.com</a> · © <span id="y"></span> NovaDev Code Studio
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
