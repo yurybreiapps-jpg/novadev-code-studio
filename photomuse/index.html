@@ -113,6 +113,10 @@
     .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
     .shot-trio figcaption strong { color: var(--heading); }
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
     .shot-solo { max-width: 280px; margin: 18px auto 6px; }
     .shot-solo img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-solo figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
@@ -191,32 +195,74 @@
           <h3>Sorts the clutter into piles</h3>
           <p>Similar shots, duplicates, bad shots (blurred, too dark, a thumb in the way), screenshots, screen recordings, large videos, Live Photos &mdash; and everything else, month by month.</p>
           <p>Every pile shows how many items it holds and how much room they take. The sizes are read from your library, byte for byte, not estimated.</p>
+          <div class="shot-pair">
+            <figure>
+              <img src="../assets/apps/photomuse/piles.webp" alt="The home screen: nine piles, each with how many items it holds and how much room they take" width="880" height="1173" loading="lazy">
+              <figcaption><strong>Nine piles</strong> &middot; Counted and measured, never estimated.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/photomuse/badshots.webp" alt="The bad shots pile, each photo labelled blurry or too dark with its size" width="880" height="1173" loading="lazy">
+              <figcaption><strong>Bad shots</strong> &middot; Each one says what is wrong with it.</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="card">
           <h3>Picks a keeper, and lets you overrule it</h3>
           <p>Nearly identical photos are grouped and PhotoMuse suggests the one worth keeping. Take its pick, keep them all, or switch any photo yourself.</p>
+          <div class="shot-pair">
+            <figure>
+              <img src="../assets/apps/photomuse/similar.webp" alt="Similar shots grouped, with the suggested keeper marked in each group" width="880" height="1173" loading="lazy">
+              <figcaption><strong>Similar shots</strong> &middot; The suggested keeper is marked; tap any photo to change its mind.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/photomuse/duplicates.webp" alt="Exact duplicates grouped, showing how much each group frees" width="880" height="1173" loading="lazy">
+              <figcaption><strong>Duplicates</strong> &middot; The same picture saved twice, with what each group frees.</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="card">
           <h3>Review a month by swiping</h3>
           <p>Left to delete, right to keep. Swiping only marks &mdash; nothing is deleted until you finish and confirm. Undo goes back as far as you like, and your place is saved, so a long month can be done over several days.</p>
+          <figure class="shot-wide">
+            <img src="../assets/apps/photomuse/review.webp" alt="The swipe review: a photo mid-swipe marked for deletion, with the month's progress above" width="1040" height="1387" loading="lazy">
+            <figcaption><strong>Review a month</strong> &middot; Nothing goes until you finish and confirm.</figcaption>
+          </figure>
         </div>
 
         <div class="card">
           <h3>Search by what is in the photo</h3>
           <p>Type <em>cat</em>, <em>beach</em> or <em>tennis</em> and see the photos and videos that contain it. The reading is done on your device.</p>
+          <figure class="shot-wide">
+            <img src="../assets/apps/photomuse/search.webp" alt="Everything else, month by month, with a search field reading what is in each picture" width="1040" height="1387" loading="lazy">
+            <figcaption><strong>Everything else</strong> &middot; Month by month, searchable by what is in the picture.</figcaption>
+          </figure>
         </div>
 
         <div class="card">
           <h3>Enhance, not just delete</h3>
           <p>Auto sets light and colour for the photo in front of you; every dial can be moved by hand. Rebuild detail sharpens fine detail and clears compression noise. Save a copy, or replace the original &mdash; Photos keeps the untouched one, so Revert always works.</p>
           <p>Enhanced photos stay in the format they came in. An HEIC is not quietly turned into a JPEG twice the size.</p>
+          <figure class="shot-wide">
+            <img src="../assets/apps/photomuse/enhance.webp" alt="Enhance with a before and after slider across a photo, Auto applied, and the dials below" width="1040" height="1387" loading="lazy">
+            <figcaption><strong>Enhance</strong> &middot; Auto sets light and colour; every dial still moves by hand.</figcaption>
+          </figure>
         </div>
 
         <div class="card">
           <h3>Compress videos &mdash; only when it helps</h3>
           <p>Re-encoding an already efficient video makes it <strong>bigger</strong>. PhotoMuse asks Apple's encoder first and lists only the videos that will really shrink, each with its own estimate, then shows the real saving afterwards. HDR video stays HDR.</p>
+          <div class="shot-pair">
+            <figure>
+              <img src="../assets/apps/photomuse/compress.webp" alt="The compress list: each video with its own estimated saving" width="880" height="1173" loading="lazy">
+              <figcaption><strong>Compress</strong> &middot; Only the videos that really shrink, each with its own estimate.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/photomuse/bigvideos.webp" alt="Large videos grouped by size, biggest first" width="880" height="1173" loading="lazy">
+              <figcaption><strong>Large videos</strong> &middot; Grouped by size, the biggest first.</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="card">
@@ -232,6 +278,10 @@
         <h2 class="display">A real <em>iPad app.</em></h2>
         <p class="lead">Laid out for the big screen in every orientation, not a stretched phone app.
         One purchase covers iPhone and iPad on the same Apple&nbsp;ID.</p>
+        <figure class="shot-solo">
+          <img src="../assets/apps/photomuse/iphone-home.webp" alt="The same piles on iPhone" width="520" height="1125" loading="lazy">
+          <figcaption><strong>On iPhone too</strong> &middot; Every screen above is the iPad; this is the same app on a phone.</figcaption>
+        </figure>
       </div>
     </section>
 
