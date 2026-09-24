@@ -362,6 +362,9 @@
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
+    .flagship-card + .flagship-card { margin-top: 24px; }
+    .flagship-card--photomuse .flagship-copy .eyebrow { color: #1b8f76; }
+
     .flagship-card:hover,
     .flagship-card:focus-within {
       transform: translateY(-4px);
@@ -904,31 +907,37 @@
           </div>
         </article>
 
+        <article class="flagship-card flagship-card--photomuse">
+          <a class="card-stretch" href="photomuse/" aria-label="Explore PhotoMuse: Photo Cleaner"></a>
+          <div class="flagship-copy">
+            <span class="eyebrow">New on the App Store</span>
+            <div class="flagship-icon-row">
+              <img src="assets/apps/photomuse/app-icon.webp" alt="PhotoMuse app icon">
+              <h3 class="display">PhotoMuse: Photo&nbsp;Cleaner</h3>
+            </div>
+            <p>A photo library you can find things in. PhotoMuse finds the similar shots, duplicates, bad photos and oversized videos, lets you sort a whole month by swiping, makes the keepers look better, and shrinks the videos you want to keep &mdash; all on your device, with no account and no tracking.</p>
+            <div class="tag-row">
+              <span class="tag">iPhone</span>
+              <span class="tag">iPad</span>
+              <span class="tag">On-device</span>
+              <span class="tag">Swipe to sort</span>
+              <span class="tag">No tracking</span>
+            </div>
+            <div class="flagship-actions">
+              <a class="store-badge-link" href="https://apps.apple.com/app/id6814026340" target="_blank" rel="noreferrer" aria-label="Download PhotoMuse on the App Store">
+                <img src="assets/store/app-store-badge.png" alt="Download on the App Store">
+              </a>
+              <a class="text-link" href="photomuse/">Explore the app →</a>
+            </div>
+          </div>
+          <div class="phone-cluster" aria-label="PhotoMuse app screens">
+            <img class="pc-side pc-left" src="assets/apps/photomuse/hero/phone-home-left.webp" alt="PhotoMuse home screen with its piles" loading="lazy">
+            <img class="pc-center" src="assets/apps/photomuse/hero/phone-review-center.webp" alt="PhotoMuse swipe review, a photo marked Delete" loading="lazy">
+            <img class="pc-side pc-right" src="assets/apps/photomuse/hero/phone-enhance-right.webp" alt="PhotoMuse Enhance, before and after" loading="lazy">
+          </div>
+        </article>
+
         <div class="product-grid">
-          <article class="product-card">
-            <div class="product-media">
-              <img src="assets/apps/photomuse/banner.webp?v=3940dd6d" alt="PhotoMuse banner: the app icon and name beside three app screens — the home screen's piles, swiping a photo to delete, and Enhance before and after" loading="lazy">
-            </div>
-            <div class="product-body">
-              <h3>PhotoMuse: Photo Cleaner</h3>
-              <p>Find the similar shots, duplicates, bad photos and oversized videos, sort a whole month by swiping, and make the keepers look their best. Everything happens on your device, with no account and no tracking.</p>
-              <div class="tag-row">
-                <span class="tag">iPhone</span>
-                <span class="tag">iPad</span>
-                <span class="tag">On-device</span>
-                <span class="tag">No tracking</span>
-              </div>
-              <div class="product-badges">
-                <a href="https://apps.apple.com/app/id6814026340" target="_blank" rel="noreferrer" aria-label="PhotoMuse on the App Store">
-                  <img src="assets/store/app-store-badge.png" alt="Download on the App Store"></a>
-              </div>
-              <p style="margin:14px 0 0;">
-                <a class="text-link" href="photomuse/">Explore the app &rarr;</a>
-                &nbsp;&nbsp;
-                <a class="text-link" href="photomuse/guide/">Guide &rarr;</a>
-              </p>
-            </div>
-          </article>
           <article class="product-card">
             <div class="product-media">
               <img src="assets/apps/lustless/banner.webp?v=6237b853" alt="Lustless banner: the app icon and name beside four app screens — Shield, Today, panic button, Progress" loading="lazy">
