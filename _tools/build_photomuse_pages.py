@@ -13,8 +13,13 @@ approved, set LIVE = True and run this again.
 """
 import pathlib, re
 
+# WARNING: this writes straight into the live site repo. /photomuse/index.html
+# also carries ten screenshots and an installUrl that were added by hand after
+# this script was written (commits b54c8d7 and the launch flip) and that this
+# script does not know about - running it as it stands deletes them. Port them
+# in before regenerating, or regenerate into a copy and diff.
 SITE = pathlib.Path("/Volumes/ExternalDrive/Source/novadev-code-studio")
-LIVE = False
+LIVE = True  # launched 2026-09-24
 STORE = "https://apps.apple.com/app/id6814026340"
 UPDATED = "21 September 2026"
 

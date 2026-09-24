@@ -145,4 +145,20 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.novadevcodestudio.com/photomuse/</loc>
+    <lastmod>2026-09-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.novadevcodestudio.com/photomuse/guide/</loc>
+    <lastmod>2026-09-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.novadevcodestudio.com/support/photomuse/</loc>
+    <lastmod>2026-09-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.novadevcodestudio.com/privacy/photomuse/</loc>
+    <lastmod>2026-09-24</lastmod>
+  </url>
 </urlset>
