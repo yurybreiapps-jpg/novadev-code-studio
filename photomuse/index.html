@@ -114,17 +114,6 @@
     .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
     .shot-trio figcaption strong { color: var(--heading); }
-    /* The tour clip under the hero. Portrait, so it is capped to about a
-       phone's width rather than stretched across a desktop page. Added by
-       hand, like the figure styles above. */
-    .tour { display: flex; justify-content: center; margin: 2px 0 34px; }
-    .tour video { width: 100%; max-width: 300px; height: auto; display: block;
-                  border-radius: 26px; border: 1px solid var(--line);
-                  box-shadow: 0 20px 52px rgba(0,0,0,.16); background: #14110F; }
-    .shot-wide { margin: 18px 0 6px; }
-    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
-    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
-    .shot-wide figcaption strong { color: var(--heading); }
     .shot-solo { max-width: 280px; margin: 18px auto 6px; }
     .shot-solo img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-solo figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
@@ -245,6 +234,16 @@
     .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
 
     .social-row svg { width: 20px; height: 20px; fill: currentColor; }
+    /* The tour clip under the hero. Portrait, so it is capped to about a
+       phone's width rather than stretched across a desktop page. */
+    .tour { display: flex; justify-content: center; margin: 2px 0 34px; }
+    .tour video { width: 100%; max-width: 300px; height: auto; display: block;
+                  border-radius: 26px; border: 1px solid var(--line);
+                  box-shadow: 0 20px 52px rgba(0,0,0,.16); background: #14110F; }
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
   </style>
 </head>
 <body>
@@ -467,7 +466,8 @@
         <a href="https://apps.apple.com/us/developer/yury-nickolaevich-brei/id1895503289" target="_blank" rel="noreferrer" aria-label="Apple developer page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 12.9c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.2.9-4.1 2.4-1.8 3-.4 7.5 1.3 9.9.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-3.9ZM14.2 5.2c.7-.8 1.1-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.5 2.9-1.3Z"/></svg></a>
         <a href="https://github.com/novadevcodestudio" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.2.8-.5v-2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-3 0 0 .9-.3 3.1 1.2a10.7 10.7 0 0 1 5.6 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.6.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.3.8 1 .8 2v3c0 .3.2.6.8.5A11.2 11.2 0 0 0 12 .8Z"/></svg></a>
         <a href="mailto:support@novadevcodestudio.com" aria-label="Email support"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.3L4.2 7h15.6L12 12.3Zm-8-3v7.7h16V9.3l-7.5 5a1 1 0 0 1-1 0L4 9.3Z"/></svg></a>
-      </div>    </div>
+      </div>
+    </div>
   </footer>
   <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
 </body>

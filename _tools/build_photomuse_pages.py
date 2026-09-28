@@ -11,19 +11,16 @@ from FreeAllowance in Core/Store.swift — change it there, change it here.
 FLIP-ON-LAUNCH marks the places that say "coming soon". When the app is
 approved, set LIVE = True and run this again.
 """
-import pathlib, re
+import difflib, pathlib, re, sys
 
-# WARNING: this writes straight into the live site repo. /photomuse/index.html
-# and /photomuse/guide/ (13 screenshots, 2026-09-24) carry pictures, an installUrl,
-# extra figure styles, the tour clip under the hero (.tour styles plus the
-# <section class="tour-clip">, 2026-09-28), and the two-part header and footer
-# that match the tennis pages (.brand-group / .footer-grid / .social-row and
-# their styles, 2026-09-28: topbar() and footer() below still emit the old
-# one-part versions, which is how PhotoMuse ended up with no way back to the
-# home page) - all added by hand after this script
-# was written (commits b54c8d7, the launch flip, and the clip) and none of which
-# this script knows about. Running it as it stands deletes them. Port them in
-# before regenerating, or regenerate into a copy and diff.
+# Safe to run: the default is a dry run that diffs what this script would
+# produce against what is live and writes nothing. --diff shows how, --write
+# writes. It earned that guard - the pictures, the install link, the tour clip
+# and the two-part header and footer were all added to the live pages by hand
+# after this script was written, and running it would have deleted every one.
+# They are all in here now (FIGURES, TOUR, topbar, footer), and a plain run
+# reports "reproduces every live page exactly". If it ever stops saying that,
+# something was hand-edited again: port it in here before writing.
 SITE = pathlib.Path("/Volumes/ExternalDrive/Source/novadev-code-studio")
 LIVE = True  # launched 2026-09-24
 STORE = "https://apps.apple.com/app/id6814026340"
@@ -72,13 +69,30 @@ def store_badge(up):
     return '<!-- FLIP-ON-LAUNCH --><span class="button-dark" style="cursor:default">Coming soon to the App Store</span>'
 
 def topbar(up, home, links):
+    """The two-part header the tennis pages have: the studio mark, which is
+    the way back to the home page, then the app. `home` is the app's own page,
+    so on the sub-pages the app half links back to it; on the app's own page
+    it is not a link at all."""
     nav = "\n".join(f'        <a href="{h}">{t}</a>' for t, h in links)
+    on_app_page = home in ("./", "")
+    app_open = '<span class="brand-app">' if on_app_page else f'<a class="brand-app" href="{home}">'
+    app_close = "</span>" if on_app_page else "</a>"
     return f'''  <div class="nav-wrap">
     <header class="topbar">
-      <a class="brand" href="{home}" aria-label="PhotoMuse">
-        <img src="{up}assets/apps/photomuse/app-icon.webp" alt="">
-        PhotoMuse
-      </a>
+      <span class="brand-group">
+        <a class="brand" href="{up}" aria-label="NovaDev Code Studio home">
+          <img src="{up}assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+          <span class="brand-text">
+            <span class="brand-title">Nova<span>Dev</span></span>
+            <span class="brand-subtitle">Code Studio</span>
+          </span>
+        </a>
+        <span class="brand-sep" aria-hidden="true">·</span>
+        {app_open}
+          <img class="nav-app-icon" src="{up}assets/apps/photomuse/app-icon.webp" alt="">
+          PhotoMuse
+        {app_close}
+      </span>
       <nav class="nav" aria-label="Page links">
 {nav}
         {store_pill()}
@@ -87,23 +101,118 @@ def topbar(up, home, links):
   </div>
 '''
 
+SOCIAL_ROW = re.search(r'      <div class="social-row".*?</div>\n',
+                       (SITE / "a-tennis/index.html").read_text(), re.S).group(0)
+
 def footer(up):
+    """The tennis footer: the studio mark (a second way home), the legal line
+    with this app's own links, and the social row — which is read from the
+    tennis home page rather than copied here, so one edit changes them all."""
     return f'''  <footer class="footer">
-    <div class="container">
-      Copyright <span id="currentYear"></span> NovaDev Code Studio ·
-      <a href="{up}">novadevcodestudio.com</a> ·
-      <a href="{up}support/photomuse/">Help</a> ·
-      <a href="{up}privacy/photomuse/">Privacy</a> ·
-      <a href="mailto:support@novadevcodestudio.com">Support</a>
-    </div>
+    <div class="container footer-grid">
+      <a class="footer-brand" href="{up}" aria-label="NovaDev Code Studio home">
+        <img src="{up}assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span class="brand-text">
+          <span class="brand-title">Nova<span>Dev</span></span>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <div class="footer-legal">
+        <p>Copyright <span id="currentYear"></span> NovaDev Code Studio &middot; novadevcodestudio.com. All rights reserved.</p>
+        <nav class="footer-textlinks" aria-label="Footer links"><a href="{up}support/photomuse/">Help</a> <a href="{up}privacy/photomuse/">Privacy</a> <a href="mailto:support@novadevcodestudio.com">Support</a></nav>
+      </div>
+{SOCIAL_ROW}    </div>
   </footer>
   <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
 </body>
 </html>
 '''
 
+# The figure and clip styles the tennis guide's stylesheet does not carry.
+# APP_STYLE brings the header, footer and .shot-pair/.shot-trio/.shot-solo
+# rules with it; these are the ones added for these pages alone.
+OVERVIEW_STYLE = """    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
+"""
+
+GUIDE_STYLE = """    .shot-half { max-width: 460px; margin: 18px auto 6px; }
+    .shot-half img, .shot-strip img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-half figcaption, .shot-strip figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.9rem; text-align: center; }
+    .shot-half figcaption strong, .shot-strip figcaption strong { color: var(--heading); }
+    .shot-strip { max-width: 560px; margin: 18px auto 6px; }
+"""
+
+TOUR_STYLE = """    /* The tour clip under the hero. Portrait, so it is capped to about a
+       phone's width rather than stretched across a desktop page. */
+    .tour { display: flex; justify-content: center; margin: 2px 0 34px; }
+    .tour video { width: 100%; max-width: 300px; height: auto; display: block;
+                  border-radius: 26px; border: 1px solid var(--line);
+                  box-shadow: 0 20px 52px rgba(0,0,0,.16); background: #14110F; }
+"""
+
+def with_style(html, *blocks):
+    """Puts extra rules at the end of the page's <style>, so they win over the
+    inherited sheet rather than being overridden by it."""
+    i = html.rindex("</style>")
+    return html[:i].rstrip(" ") + "".join(blocks) + "  " + html[i:]
+
+TOUR = """
+    <section class="tour-clip">
+      <div class="container">
+        <div class="tour">
+          <video controls playsinline muted autoplay loop preload="metadata"
+            poster="../assets/apps/photomuse/tour-poster.jpg"
+            src="../assets/apps/photomuse/tour.mp4"
+            aria-label="PhotoMuse counting a photo library into piles, grouping the same moment twice, and a month sorted by swiping left to delete and right to keep"></video>
+        </div>
+      </div>
+    </section>
+"""
+
+# The pictures on the app pages, keyed by the card or step they follow.
+# Extracted from the live pages on 2026-09-28, when this script was brought
+# back into line with them; before that it would have deleted every one.
+FIGURES = {
+    'Sorts the clutter into piles':
+        '          <div class="shot-pair">\n            <figure>\n              <img src="../assets/apps/photomuse/piles.webp" alt="The home screen: nine piles, each with how many items it holds and how much room they take" width="880" height="1173" loading="lazy">\n              <figcaption><strong>Nine piles</strong> &middot; Counted and measured, never estimated.</figcaption>\n            </figure>\n            <figure>\n              <img src="../assets/apps/photomuse/badshots.webp" alt="The bad shots pile, each photo labelled blurry or too dark with its size" width="880" height="1173" loading="lazy">\n              <figcaption><strong>Bad shots</strong> &middot; Each one says what is wrong with it.</figcaption>\n            </figure>\n          </div>',
+    'Picks a keeper, and lets you overrule it':
+        '          <div class="shot-pair">\n            <figure>\n              <img src="../assets/apps/photomuse/similar.webp" alt="Similar shots grouped, with the suggested keeper marked in each group" width="880" height="1173" loading="lazy">\n              <figcaption><strong>Similar shots</strong> &middot; The suggested keeper is marked; tap any photo to change its mind.</figcaption>\n            </figure>\n            <figure>\n              <img src="../assets/apps/photomuse/duplicates.webp" alt="Exact duplicates grouped, showing how much each group frees" width="880" height="1173" loading="lazy">\n              <figcaption><strong>Duplicates</strong> &middot; The same picture saved twice, with what each group frees.</figcaption>\n            </figure>\n          </div>',
+    'Review a month by swiping':
+        '          <figure class="shot-wide">\n            <img src="../assets/apps/photomuse/review.webp" alt="The swipe review: a photo mid-swipe marked for deletion, with the month\'s progress above" width="1040" height="1387" loading="lazy">\n            <figcaption><strong>Review a month</strong> &middot; Nothing goes until you finish and confirm.</figcaption>\n          </figure>',
+    'Search by what is in the photo':
+        '          <figure class="shot-wide">\n            <img src="../assets/apps/photomuse/search.webp" alt="Everything else, month by month, with a search field reading what is in each picture" width="1040" height="1387" loading="lazy">\n            <figcaption><strong>Everything else</strong> &middot; Month by month, searchable by what is in the picture.</figcaption>\n          </figure>',
+    'Enhance, not just delete':
+        '          <figure class="shot-wide">\n            <img src="../assets/apps/photomuse/enhance.webp" alt="Enhance with a before and after slider across a photo, Auto applied, and the dials below" width="1040" height="1387" loading="lazy">\n            <figcaption><strong>Enhance</strong> &middot; Auto sets light and colour; every dial still moves by hand.</figcaption>\n          </figure>',
+    'Compress videos &mdash; only when it helps':
+        '          <div class="shot-pair">\n            <figure>\n              <img src="../assets/apps/photomuse/compress.webp" alt="The compress list: each video with its own estimated saving" width="880" height="1173" loading="lazy">\n              <figcaption><strong>Compress</strong> &middot; Only the videos that really shrink, each with its own estimate.</figcaption>\n            </figure>\n            <figure>\n              <img src="../assets/apps/photomuse/bigvideos.webp" alt="Large videos grouped by size, biggest first" width="880" height="1173" loading="lazy">\n              <figcaption><strong>Large videos</strong> &middot; Grouped by size, the biggest first.</figcaption>\n            </figure>\n          </div>',
+    'A real iPad app.':
+        '        <figure class="shot-solo">\n          <img src="../assets/apps/photomuse/iphone-home.webp" alt="The same piles on iPhone" width="520" height="1125" loading="lazy">\n          <figcaption><strong>On iPhone too</strong> &middot; Every screen above is the iPad; this is the same app on a phone.</figcaption>\n        </figure>',
+    'Photo access, the first scan, and what the numbers mean.':
+        '          <figure class="shot-half"><img src="../../assets/apps/photomuse/piles.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>The first screen.</strong> Every pile, with its real size.</figcaption></figure>',
+    'Screenshots, screen recordings, bad shots, large videos and Live Photos.':
+        '          <div class="shot-trio"><figure><img src="../../assets/apps/photomuse/screenshots.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Screenshots.</strong> Nothing is picked for you.</figcaption></figure><figure><img src="../../assets/apps/photomuse/badshots.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Bad shots.</strong> Each one says what was measured.</figcaption></figure><figure><img src="../../assets/apps/photomuse/bigvideos.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Large videos.</strong> Grouped by size, biggest first.</figcaption></figure></div>',
+    'Groups of near-identical photos, with a suggested keeper.':
+        '          <div class="shot-pair"><figure><img src="../../assets/apps/photomuse/similar.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Similar shots.</strong> A suggested keeper in every group.</figcaption></figure><figure><img src="../../assets/apps/photomuse/duplicates.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Duplicates.</strong> The same picture more than once.</figcaption></figure></div>',
+    'The fastest way through everything that is not in a pile.':
+        '          <div class="shot-pair"><figure><img src="../../assets/apps/photomuse/review.webp" alt="" width="1040" height="1387" loading="lazy"><figcaption><strong>Swipe left</strong> to delete.</figcaption></figure><figure><img src="../../assets/apps/photomuse/review-keep.webp" alt="" width="1040" height="1387" loading="lazy"><figcaption><strong>Swipe right</strong> to keep.</figcaption></figure></div>',
+    'Find the cat, the beach or the tennis match without scrolling.':
+        '          <figure class="shot-half"><img src="../../assets/apps/photomuse/search.webp" alt="" width="1040" height="1387" loading="lazy"><figcaption><strong>Type a plain word.</strong> The matches come up, read on your device.</figcaption></figure>',
+    'Auto, the dials, Rebuild detail, and the two ways to save.':
+        '          <div class="shot-pair"><figure><img src="../../assets/apps/photomuse/enhance.webp" alt="" width="1040" height="1387" loading="lazy"><figcaption><strong>Before and after</strong>, with the slider in between.</figcaption></figure><figure><img src="../../assets/apps/photomuse/enhance-portrait.webp" alt="" width="1040" height="1387" loading="lazy"><figcaption><strong>Auto</strong> first, then any dial by hand.</figcaption></figure></div>',
+    'Smaller files for the videos you want to keep.':
+        '          <figure class="shot-half"><img src="../../assets/apps/photomuse/compress.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>An estimate first</strong>, the real saving at the end.</figcaption></figure>',
+    'The step every cleaner app skips telling you about.':
+        '          <figure class="shot-strip"><img src="../../assets/apps/photomuse/freeing-space.webp" alt="" width="900" height="342" loading="lazy"><figcaption>The app says it before you delete: the space comes back <strong>once Recently Deleted is emptied</strong>.</figcaption></figure>',
+}
+
+
 def card(title, *paras):
     body = "\n".join(f"          <p>{p}</p>" for p in paras)
+    shot = FIGURES.get(title, "")
+    if shot:
+        body += "\n" + shot
     return f'        <div class="card">\n          <h3>{title}</h3>\n{body}\n        </div>\n'
 
 # ------------------------------------------------------------------ overview
@@ -116,6 +225,7 @@ LD = '''
     "applicationCategory": "UtilitiesApplication",
     "description": "Finds similar shots, duplicates, bad photos and oversized videos, lets you review a month by swiping, enhances photos and compresses videos. Everything happens on the device; nothing is collected.",
     "url": "https://www.novadevcodestudio.com/photomuse/",
+    "installUrl": "https://apps.apple.com/app/id6814026340",
     "author": { "@type": "Organization", "name": "NovaDev Code Studio" }
   }
   '''
@@ -123,7 +233,7 @@ overview = head(
     "PhotoMuse: Photo Cleaner — clear duplicates, swipe to sort, enhance, free up space",
     "PhotoMuse finds similar shots, duplicates, bad photos and oversized videos, lets you sort a month by swiping, enhances photos and compresses videos. All on your device. No account, no tracking.",
     "photomuse/", "../", og_desc="Clear duplicates and bad shots, sort by swiping, enhance photos, shrink videos. Nothing leaves your device.", ld=LD)
-overview += "<body>\n" + topbar("../", "./", [("What it does", "#what"), ("iPad", "#ipad"), ("Private", "#private"), ("Free and Plus", "#price"), ("Guide", "guide/")])
+overview += "<body>\n" + topbar("../", "./", [("What it does", "#what"), ("iPad", "#ipad"), ("Private", "#private"), ("Free and Plus", "#price"), ("Guide", "guide/"), ("Compare", "compare/")])
 overview += f'''  <main>
     <section class="page-head liquid">
       <div class="container">
@@ -138,7 +248,7 @@ overview += f'''  <main>
         </div>
       </div>
     </section>
-
+{TOUR}
     <section id="what">
       <div class="container">
         <h2 class="display">What it <em>does.</em></h2>
@@ -167,6 +277,7 @@ overview += f'''  <main>
         <h2 class="display">A real <em>iPad app.</em></h2>
         <p class="lead">Laid out for the big screen in every orientation, not a stretched phone app.
         One purchase covers iPhone and iPad on the same Apple&nbsp;ID.</p>
+{FIGURES["A real iPad app."]}
       </div>
     </section>
 
@@ -191,6 +302,7 @@ overview += f'''  <main>
         <p class="lead" style="margin-top:14px"><strong>Plus</strong> is for doing it in bulk: select a whole pile
         or month at once, clean every group, and enhance and compress without a limit. Weekly, yearly with a
         7-day free trial, or a one-time lifetime purchase. Prices are shown in the app and on the App Store.</p>
+        <p class="lead" style="margin-top:16px"><a href="compare/" style="font-weight:700; color: var(--accent-1);">See how that compares with the other photo cleaners &rarr;</a> &mdash; what they charge, and what their privacy labels say.</p>
         <div class="tip">Subscriptions are billed by Apple and can be cancelled at any time in your Apple&nbsp;ID settings. Lifetime is paid once; there is nothing to renew.</div>
       </div>
     </section>
@@ -208,6 +320,7 @@ overview += f'''  <main>
     </section>
   </main>
 ''' + footer("../")
+overview = with_style(overview, TOUR_STYLE, OVERVIEW_STYLE)
 
 # --------------------------------------------------------------------- guide
 def step(num, sid, title, deck, body):
@@ -216,7 +329,7 @@ def step(num, sid, title, deck, body):
         <div class="step-head"><span class="step-num">{num}</span><h2 class="display">{title}</h2></div>
         <h3 class="deck">{deck}</h3>
         <div class="card">
-{body}
+{body}{FIGURES.get(deck, "") and chr(10) + FIGURES[deck]}
         </div>
       </div>
     </section>
@@ -316,6 +429,7 @@ guide += f'''  <main>
     </section>
   </main>
 ''' + footer("../../")
+guide = with_style(guide, GUIDE_STYLE)
 
 # ------------------------------------------------------- privacy and support
 def doc_page(kind, h1, intro_html, sections, stamp=None):
@@ -409,7 +523,39 @@ support = doc_page("support", "Help with <em>PhotoMuse.</em>",
         "Plus is sold and billed by Apple: weekly, yearly with a 7-day free trial, or a one-time lifetime purchase. If you cancel during the trial you are not charged. To restore a purchase on a new device, open Settings in PhotoMuse → <strong>Restore a purchase</strong>. To change or cancel a subscription, use Settings → your name → Subscriptions on your device, or <strong>Manage or cancel</strong> in PhotoMuse once a plan is active. Cancelling stops renewal; Plus stays on until the end of the period you paid for. Lifetime has nothing to renew or cancel."]),
      ("Contact", ['Anything else &mdash; a bug, a question, a suggestion: <a href="mailto:support@novadevcodestudio.com">support@novadevcodestudio.com</a>. It reaches a person, not a form.'])]) + DOC_TAIL
 
-for rel, html in [("photomuse/index.html", overview), ("photomuse/guide/index.html", guide),
-                  ("privacy/photomuse/index.html", privacy), ("support/photomuse/index.html", support)]:
-    out = SITE / rel; out.parent.mkdir(parents=True, exist_ok=True); out.write_text(html)
-    print(f"{rel:36} {len(html):6} bytes")
+PAGES = [("photomuse/index.html", overview), ("photomuse/guide/index.html", guide),
+         ("privacy/photomuse/index.html", privacy), ("support/photomuse/index.html", support)]
+
+# Writing is something you ask for. The default is a dry run that diffs what
+# this script would produce against what is live, because it has quietly
+# deleted hand-made work before and a warning in a comment did not stop it.
+write = "--write" in sys.argv[1:]
+show = "--diff" in sys.argv[1:]
+drift = 0
+for rel, html in PAGES:
+    out = SITE / rel
+    current = out.read_text() if out.exists() else ""
+    same = current == html
+    if not same:
+        drift += 1
+    if write:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(html)
+        print(f"{'wrote':8} {rel:36} {len(html):6} bytes{'' if same else '   (CHANGED)'}")
+    else:
+        mark = "same" if same else "WOULD CHANGE"
+        print(f"{mark:12} {rel:36} live {len(current):6} -> {len(html):6} bytes")
+        if show and not same:
+            for line in difflib.unified_diff(current.splitlines(), html.splitlines(),
+                                             fromfile=f"live/{rel}", tofile=f"generated/{rel}",
+                                             lineterm="", n=1):
+                print("   " + line)
+
+if not write:
+    print()
+    if drift:
+        print(f"{drift} of {len(PAGES)} pages would change. Nothing was written.")
+        print("Run with --diff to see how, and --write once the difference is only what you intend.")
+    else:
+        print("The generator reproduces every live page exactly. --write is safe.")
+    sys.exit(1 if drift else 0)
