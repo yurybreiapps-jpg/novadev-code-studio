@@ -14,11 +14,12 @@ approved, set LIVE = True and run this again.
 import pathlib, re
 
 # WARNING: this writes straight into the live site repo. /photomuse/index.html
-# and /photomuse/guide/ (13 screenshots, 2026-09-24) carry pictures, an installUrl
-# and extra figure styles that were added by hand after
-# this script was written (commits b54c8d7 and the launch flip) and that this
-# script does not know about - running it as it stands deletes them. Port them
-# in before regenerating, or regenerate into a copy and diff.
+# and /photomuse/guide/ (13 screenshots, 2026-09-24) carry pictures, an installUrl,
+# extra figure styles, and the tour clip under the hero (.tour styles plus the
+# <section class="tour-clip">, 2026-09-28) - all added by hand after this script
+# was written (commits b54c8d7, the launch flip, and the clip) and none of which
+# this script knows about. Running it as it stands deletes them. Port them in
+# before regenerating, or regenerate into a copy and diff.
 SITE = pathlib.Path("/Volumes/ExternalDrive/Source/novadev-code-studio")
 LIVE = True  # launched 2026-09-24
 STORE = "https://apps.apple.com/app/id6814026340"

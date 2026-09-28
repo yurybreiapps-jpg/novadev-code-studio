@@ -114,6 +114,13 @@
     .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
     .shot-trio figcaption strong { color: var(--heading); }
+    /* The tour clip under the hero. Portrait, so it is capped to about a
+       phone's width rather than stretched across a desktop page. Added by
+       hand, like the figure styles above. */
+    .tour { display: flex; justify-content: center; margin: 2px 0 34px; }
+    .tour video { width: 100%; max-width: 300px; height: auto; display: block;
+                  border-radius: 26px; border: 1px solid var(--line);
+                  box-shadow: 0 20px 52px rgba(0,0,0,.16); background: #14110F; }
     .shot-wide { margin: 18px 0 6px; }
     .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
@@ -185,6 +192,17 @@
         <div class="head-actions">
           <a class="store-badge-link" href="https://apps.apple.com/app/id6814026340" target="_blank" rel="noreferrer" aria-label="Download PhotoMuse on the App Store"><img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
           <a class="button-soft" href="guide/">Read the guide →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tour-clip">
+      <div class="container">
+        <div class="tour">
+          <video controls playsinline muted autoplay loop preload="metadata"
+            poster="../assets/apps/photomuse/tour-poster.jpg"
+            src="../assets/apps/photomuse/tour.mp4"
+            aria-label="PhotoMuse counting a photo library into piles, grouping the same moment twice, and a month sorted by swiping left to delete and right to keep"></video>
         </div>
       </div>
     </section>
