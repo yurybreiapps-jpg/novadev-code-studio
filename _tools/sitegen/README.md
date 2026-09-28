@@ -56,3 +56,21 @@ Four places say "coming soon" and change on approval day: the notice on
 `/ai-images/`, the notice on `/ai-images/guides/`, the `Coming soon` tag on the
 home card, and the App Store links (none exist yet). Re-check the store with
 `itunes.apple.com/lookup?id=6805583172` before flipping them.
+
+## Checking before you write
+
+`build_product.py` and `build_guides.py` take the site root as their argument,
+so they can build into a copy and be diffed rather than written straight into
+the live pages:
+
+    TMP=/tmp/sitegen-dry
+    mkdir -p $TMP/a-tennis
+    cp a-tennis/index.html $TMP/a-tennis/          # gen.py reads the social row from it
+    ln -s "$PWD/assets" $TMP/assets                # or stamp.py skips every image
+    python3 _tools/sitegen/build_product.py $TMP
+    python3 _tools/sitegen/build_guides.py $TMP
+    python3 _tools/sitegen/stamp.py $TMP
+    diff -r $TMP/ai-images ai-images
+
+Worth doing whenever the shell in `gen.py` changes, since that shell is on all
+twelve pages at once.

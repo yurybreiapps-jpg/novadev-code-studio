@@ -25,7 +25,6 @@
     "applicationCategory": "GraphicsApplication",
     "description": "An AI image generator that runs entirely on the device. No account, no credits, no subscription, and it works offline.",
     "url": "https://www.novadevcodestudio.com/ai-images/",
-    "installUrl": "https://apps.apple.com/app/id6805583172",
     "author": { "@type": "Organization", "name": "NovaDev Code Studio" }
   }
   </script>
@@ -150,20 +149,11 @@
       .shot-pair, .shot-trio { break-inside: auto; page-break-inside: auto; }
       .page-head { padding: 20px 0 10px; }
     }
-  
-    .style-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 18px 0 0; }
-    .style-grid img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
-    @media (max-width: 700px) { .style-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; } }
-    .shot-wide { margin: 18px 0 6px; }
-    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
-    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
-    .shot-wide figcaption strong { color: var(--heading); }
-
-    /* The studio mark, then the app — the header the tennis home page has.
-       The studio half is the way back to the home page from every app page;
-       before this, PhotoMuse's brand link pointed at PhotoMuse. Appended at
-       the end of the sheet so it wins over the one-part .brand rules above.
-       Added by hand, 2026-09-28. */
+      /* The studio mark, then the app — the header the tennis pages have, so
+       every page says whose it is and offers the way back to the home page.
+       After the .brand rules above on purpose: here .brand is the studio logo
+       and .nav-app-icon is the app's, which is the other way round from the
+       one-part header these rules replace. */
     .brand-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
     .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 0; box-shadow: none; }
@@ -184,72 +174,46 @@
     }
     .nav-app-icon { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
     /* Narrow: drop the wordmark first (the logo still links home), then the
-       separator, then let the two halves stack rather than collide. */
+       separator, then let the two halves stack rather than collide. Scoped to
+       the header so the footer keeps its wordmark on a phone. */
     @media (max-width: 1100px) { .topbar .brand-text { display: none; } }
     @media (max-width: 860px) {
       .brand-sep { display: none; }
       .brand-group { flex-wrap: wrap; justify-content: center; row-gap: 6px; }
       .brand-app { white-space: normal; justify-content: center; text-align: center; }
     }
-  
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
+    .footer-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
     .footer-brand { display: flex; align-items: center; gap: 10px; }
     .footer-brand img { width: 46px; height: 46px; object-fit: contain; }
-
     .footer-legal { flex: 1; min-width: 260px; text-align: center; }
     .footer-legal p { margin: 0 0 6px; }
-    .fineprint { font-size: 0.78rem; color: #8b96b8; }
-
-    .footer-textlinks {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 10px;
-      font-weight: 600;
-    }
+    .footer-textlinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
     .footer-textlinks a { color: #4a5578; }
     .footer-textlinks a:hover, .footer-textlinks a:focus-visible { color: var(--heading); outline: none; }
-
-    .footer-badges { display: flex; justify-content: center; margin-top: 22px; }
-    .at-badge { display: inline-flex; border-radius: 12px; transition: transform 160ms ease; }
-    .at-badge:hover, .at-badge:focus-visible { transform: translateY(-2px); outline: none; }
-    .at-badge img { display: block; width: 200px; height: auto; }
-
     .social-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-
     .social-row a {
-      display: grid;
-      place-items: center;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 50%;
-      background: #fff;
-      color: #33415e;
-      box-shadow: 0 8px 20px rgba(28, 52, 120, 0.10);
-      transition: transform 150ms ease, color 150ms ease;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 999px; color: #4a5578;
+      background: rgba(31, 59, 133, 0.06); transition: transform .15s ease, color .15s ease;
     }
-
-    .social-row a:hover,
-    .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
-
+    .social-row a:hover, .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
     .social-row svg { width: 20px; height: 20px; fill: currentColor; }
-  </style>
+
+    .style-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 18px 0 0; }
+    .style-grid img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    @media (max-width: 700px) { .style-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; } }
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
+</style>
 </head>
 <body>
   <div class="nav-wrap">
     <header class="topbar">
       <span class="brand-group">
         <a class="brand" href="../" aria-label="NovaDev Code Studio home">
-          <img src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+          <img src="../assets/novadev-logo.png?v=be60643a" alt="NovaDev Code Studio logo">
           <span class="brand-text">
             <span class="brand-title">Nova<span>Dev</span></span>
             <span class="brand-subtitle">Code Studio</span>
@@ -257,7 +221,7 @@
         </a>
         <span class="brand-sep" aria-hidden="true">·</span>
         <span class="brand-app">
-          <img class="nav-app-icon" src="../assets/apps/ai-image-generator/app-icon.png" alt="">
+          <img class="nav-app-icon" src="../assets/apps/ai-image-generator/app-icon.png?v=5408e948" alt="">
           AI Image Generator Anywhere
         </span>
       </span>
@@ -279,10 +243,11 @@
         <p class="lead">An image generator that runs on your phone instead of somebody's server.
         No account, no credits, no queue &mdash; and it works with no signal at all.</p>
         <p class="deck">One purchase. No subscription. Fifty images free first.</p>
-        <p style="margin:22px 0 0;">
-          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="AI Image Generator Anywhere on the App Store">
-            <img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
-        </p>
+        <div class="tip" style="max-width:620px;margin:20px auto 0;text-align:left;">
+          <strong>Coming to the App Store soon.</strong> These pages are up ahead of the
+          listing on purpose &mdash; so you can check whether your device qualifies, and
+          what it actually does, before deciding to download three gigabytes.
+        </div>
       </div>
     </section>
     <section id="what">
@@ -458,7 +423,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <a class="footer-brand" href="../" aria-label="NovaDev Code Studio home">
-        <img src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <img src="../assets/novadev-logo.png?v=be60643a" alt="NovaDev Code Studio logo">
         <span class="brand-text">
           <span class="brand-title">Nova<span>Dev</span></span>
           <span class="brand-subtitle">Code Studio</span>
@@ -476,7 +441,8 @@
         <a href="https://apps.apple.com/us/developer/yury-nickolaevich-brei/id1895503289" target="_blank" rel="noreferrer" aria-label="Apple developer page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 12.9c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.2.9-4.1 2.4-1.8 3-.4 7.5 1.3 9.9.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-3.9ZM14.2 5.2c.7-.8 1.1-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.5 2.9-1.3Z"/></svg></a>
         <a href="https://github.com/novadevcodestudio" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.2.8-.5v-2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-3 0 0 .9-.3 3.1 1.2a10.7 10.7 0 0 1 5.6 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.6.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.3.8 1 .8 2v3c0 .3.2.6.8.5A11.2 11.2 0 0 0 12 .8Z"/></svg></a>
         <a href="mailto:support@novadevcodestudio.com" aria-label="Email support"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.3L4.2 7h15.6L12 12.3Zm-8-3v7.7h16V9.3l-7.5 5a1 1 0 0 1-1 0L4 9.3Z"/></svg></a>
-      </div>    </div>
+      </div>
+    </div>
   </footer>
   <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
 </body>
