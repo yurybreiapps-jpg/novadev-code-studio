@@ -95,6 +95,11 @@
       padding: 18px 26px; border-radius: 12px;
     }
     .fine { color: var(--muted); font-size: 14px; }
+    /* Nikita's design shown larger on bigger screens, the way his screenshot
+       looks: every size scales together, and phones keep it exactly as drawn. */
+    @media (min-width: 900px) { html { zoom: 1.25; } }
+    @media (min-width: 1200px) { html { zoom: 1.5; } }
+    @media (min-width: 1500px) { html { zoom: 1.7; } }
     @media (prefers-reduced-motion: no-preference) {
       .tracker button { transition: background .15s, color .15s; }
     }
