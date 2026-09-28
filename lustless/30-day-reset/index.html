@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The 30-Day Reset</title>
+  <meta name="description" content="A free 30-day plan to quit porn: three rules, a week-by-week plan, what to do the second a craving hits, and a tracker for your 30 days. From the makers of Lustless.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0b22">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/lustless/30-day-reset/">
+  <meta property="og:title" content="The 30-Day Reset">
+  <meta property="og:description" content="Thirty days, three rules, one plan for the exact second a craving hits. A free guide from Lustless.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/lustless/30-day-reset/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/apps/lustless/2-today.webp">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The 30-Day Reset",
+    "description": "A free 30-day plan to quit porn: three rules, a week-by-week plan, what to do when a craving hits, and a 30-day tracker.",
+    "url": "https://www.novadevcodestudio.com/lustless/30-day-reset/",
+    "publisher": { "@type": "Organization", "name": "NovaDev Code Studio", "url": "https://www.novadevcodestudio.com/" },
+    "about": { "@type": "SoftwareApplication", "name": "Lustless: Quit Lust Blocker", "url": "https://www.novadevcodestudio.com/lustless/" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Figtree:wght@400;500;700&display=swap">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #0d0b22;
+      --panel: #17133a;
+      --line: #2c2560;
+      --text: #ece9fb;
+      --muted: #a59fcf;
+      --magenta: #e0368e;
+      --violet: #8b5cf6;
+      --good: #3ddc97;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(900px 500px at 0% 100%, #b0206a55, transparent 70%),
+                  radial-gradient(900px 600px at 100% 0%, #5a1e8c66, transparent 70%),
+                  var(--ink);
+      background-color: var(--ink);
+      background-attachment: fixed;
+      color: var(--text);
+      font: 400 17px/1.6 Figtree, system-ui, -apple-system, "Segoe UI", sans-serif;
+      padding-inline: 16px;
+      padding-block: 40px 64px;
+    }
+    main { max-width: 680px; margin: 0 auto; display: grid; gap: 48px; }
+    h1, h2, h3 { font-family: Archivo, Impact, "Arial Black", sans-serif; text-wrap: balance; margin: 0; }
+    h1 { font-weight: 900; font-size: clamp(44px, 11vw, 76px); line-height: .95; text-transform: uppercase; letter-spacing: -.01em; }
+    h1 span { color: var(--magenta); }
+    h2 { font-weight: 800; font-size: 26px; text-transform: uppercase; letter-spacing: .01em; }
+    h3 { font-weight: 800; font-size: 18px; }
+    p { margin: 0; }
+    .eyebrow { font: 700 12px/1 Figtree, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .hero { display: grid; gap: 18px; }
+    .lede { font-size: 19px; color: var(--muted); max-width: 58ch; }
+    .lede strong { color: var(--text); }
+    section { display: grid; gap: 18px; }
+    .rules { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .rules li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; }
+    .rules b { font: 900 28px/1 Archivo, sans-serif; color: var(--magenta); }
+    .weeks { display: grid; gap: 14px; }
+    .week { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 10px; }
+    .week .days { font: 700 12px/1 Figtree, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--violet); }
+    .week ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .week .expect { color: var(--muted); font-size: 15px; }
+    .protocol { border-left: 4px solid var(--magenta); padding: 4px 0 4px 18px; display: grid; gap: 12px; }
+    .protocol ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+    .tracker { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 8px; }
+    .tracker button {
+      aspect-ratio: 1; max-width: 100%; border-radius: 10px; border: 1px solid var(--line);
+      background: var(--panel); color: var(--muted); font: 800 15px/1 Archivo, sans-serif;
+      font-variant-numeric: tabular-nums; cursor: pointer;
+    }
+    .tracker button[aria-pressed="true"] { background: var(--good); border-color: var(--good); color: var(--ink); }
+    .tracker button:focus-visible, .cta:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+    .count { color: var(--muted); font-size: 15px; }
+    .count b { color: var(--good); font-variant-numeric: tabular-nums; }
+    .slip { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 10px; }
+    .end { display: grid; gap: 16px; text-align: left; }
+    .cta {
+      display: inline-block; justify-self: start; background: var(--magenta); color: #fff; text-decoration: none;
+      font: 800 17px/1 Archivo, sans-serif; text-transform: uppercase; letter-spacing: .04em;
+      padding: 18px 26px; border-radius: 12px;
+    }
+    .fine { color: var(--muted); font-size: 14px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .tracker button { transition: background .15s, color .15s; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <header class="hero">
+      <p class="eyebrow">@lustless.peter · free guide</p>
+      <h1>The 30-Day <span>Reset</span></h1>
+      <p class="lede">You're not broken. You're miscalibrated. <strong>Thirty days, three rules, one plan for the exact second a craving hits.</strong> Read it once tonight, then take it one day at a time.</p>
+    </header>
+
+    <section>
+      <h2>The three rules</h2>
+      <ol class="rules">
+        <li><b>1</b><p><strong>No porn.</strong> That's the reset. Everything else in this guide exists to make this one rule easier to keep.</p></li>
+        <li><b>2</b><p><strong>Phone sleeps outside your bedroom.</strong> Most slips happen late at night, in bed, alone with a screen. Remove the setting and you remove most of the fights.</p></li>
+        <li><b>3</b><p><strong>Replace, don't just remove.</strong> Every time you'd normally reach for it, do something physical instead: pushups, a walk, a cold shower.</p></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Week by week</h2>
+      <div class="weeks">
+        <article class="week">
+          <p class="days">Days 1–7</p>
+          <h3>Clear the ground</h3>
+          <ul>
+            <li>Install a blocker on every device you own. Yes, the tablet too.</li>
+            <li>Write down three reasons you're doing this. Keep them on your lock screen.</li>
+            <li>Unfollow accounts that feed the habit. You know which ones.</li>
+            <li>Get outside in daylight within an hour of waking up.</li>
+          </ul>
+          <p class="expect">What to expect: cravings are loudest this week, usually at night and when you're bored or stressed. That's normal, and it passes.</p>
+        </article>
+        <article class="week">
+          <p class="days">Days 8–14</p>
+          <h3>Fix your sleep</h3>
+          <ul>
+            <li>Same bedtime every night, 7–9 hours. One week of 5-hour nights has been shown to drop testosterone by 10–15%.</li>
+            <li>Screens off 30 minutes before bed. Read, stretch, or just lie there.</li>
+            <li>Train at least 3 times this week. Any workout counts.</li>
+          </ul>
+          <p class="expect">What to expect: some guys feel flat or unmotivated around now. Keep going. It's a phase, not your new normal.</p>
+        </article>
+        <article class="week">
+          <p class="days">Days 15–21</p>
+          <h3>Take back your time</h3>
+          <ul>
+            <li>Check your screen time. Cut your worst app by half.</li>
+            <li>Pick one hard thing to learn or build and give it 30 minutes a day.</li>
+            <li>See a friend in person. Isolation is fuel for the habit.</li>
+          </ul>
+          <p class="expect">What to expect: more energy and focus start showing up. This is also when overconfidence causes slips. Keep the blockers on.</p>
+        </article>
+        <article class="week">
+          <p class="days">Days 22–30</p>
+          <h3>Lock it in</h3>
+          <ul>
+            <li>Write down what's changed since day 1. Read it on bad days.</li>
+            <li>Plan your next 30. The reset is the start, not the finish line.</li>
+            <li>Tell one person you trust what you're doing.</li>
+          </ul>
+          <p class="expect">What to expect: it stops feeling like a fight most days. You're not in the audience seat anymore.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>When a craving hits</h2>
+      <div class="protocol">
+        <p>Cravings peak and fade, usually within 10–20 minutes. You don't have to beat it forever. You have to outlast the next 10 minutes.</p>
+        <ol>
+          <li><strong>Name it.</strong> Say "this is a craving, it will pass."</li>
+          <li><strong>Move.</strong> Stand up and leave the room you're in.</li>
+          <li><strong>Shock the system.</strong> 20 pushups or cold water on your face.</li>
+          <li><strong>Read your three reasons.</strong></li>
+          <li><strong>Set a 10-minute timer.</strong> If you still want to after, do it again.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2>Track your 30</h2>
+      <p class="count">Tap a day when you finish it clean. <b id="done">0</b> / 30 done. Saved on this device only.</p>
+      <div class="tracker" id="tracker" aria-label="30-day tracker"></div>
+    </section>
+
+    <section class="slip">
+      <h2>If you slip</h2>
+      <p>Don't spiral, and don't wait until Monday to restart. One slip doesn't erase the days before it. Write down what triggered it (time, place, mood), fix that one thing, and start day 1 again tonight.</p>
+    </section>
+
+    <section class="end">
+      <h2>Want it done for you?</h2>
+      <p>Willpower runs out by Thursday. The Lustless app runs this system for you: it counts your clean days, gives you a panic button for the exact second a craving hits, and with Pro it blocks the sites. The counter and panic button are free, Pro comes with a 7-day free trial, and there's no account to make.</p>
+      <a class="cta" href="https://apps.apple.com/app/id6811104656" target="_blank" rel="noopener" id="app-link">Get Lustless</a>
+      <p class="fine">This is a guide, not medical advice. If this habit is hurting your life and you can't stop on your own, talking to a doctor or therapist is a strong move, not a weak one.</p>
+    </section>
+  </main>
+
+
+  <script>
+    const KEY = "reset30";
+    let done = [];
+    try { done = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
+    const grid = document.getElementById("tracker");
+    const count = document.getElementById("done");
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
+    function render() { count.textContent = done.length; }
+    for (let d = 1; d <= 30; d++) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.id = "day-" + d;
+      b.textContent = d;
+      b.setAttribute("aria-label", "Day " + d);
+      b.setAttribute("aria-pressed", done.includes(d));
+      b.addEventListener("click", () => {
+        done = done.includes(d) ? done.filter(x => x !== d) : [...done, d];
+        b.setAttribute("aria-pressed", done.includes(d));
+        save(); render();
+      });
+      grid.appendChild(b);
+    }
+    render();
+  </script>
+</body>
+</html>
