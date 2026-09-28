@@ -15,8 +15,12 @@ import pathlib, re
 
 # WARNING: this writes straight into the live site repo. /photomuse/index.html
 # and /photomuse/guide/ (13 screenshots, 2026-09-24) carry pictures, an installUrl,
-# extra figure styles, and the tour clip under the hero (.tour styles plus the
-# <section class="tour-clip">, 2026-09-28) - all added by hand after this script
+# extra figure styles, the tour clip under the hero (.tour styles plus the
+# <section class="tour-clip">, 2026-09-28), and the two-part header and footer
+# that match the tennis pages (.brand-group / .footer-grid / .social-row and
+# their styles, 2026-09-28: topbar() and footer() below still emit the old
+# one-part versions, which is how PhotoMuse ended up with no way back to the
+# home page) - all added by hand after this script
 # was written (commits b54c8d7, the launch flip, and the clip) and none of which
 # this script knows about. Running it as it stands deletes them. Port them in
 # before regenerating, or regenerate into a copy and diff.
