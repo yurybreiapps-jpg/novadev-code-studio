@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draw Things or LocalGen alternative? An honest comparison of AI image apps for iPhone | AI Image Generator Anywhere</title>
+  <meta name="description" content="Comparing AI image generators for iPhone and iPad: which run on the device and which on a server, what Draw Things, LocalGen, DaVinci and Leonardo charge, what their privacy labels say, and where AI Image Generator Anywhere fits.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/ai-images/compare/">
+  <meta property="og:title" content="An honest comparison of AI image apps for iPhone">
+  <meta property="og:description" content="Cloud or on-device, what each one charges, what their privacy labels say, and where ours fits.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/ai-images/compare/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/ai-image-generator-banner.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is AI Image Generator Anywhere a Draw Things alternative?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Draw Things is free and offers far more models and settings, so it is the better choice for people who like tuning. AI Image Generator Anywhere suits someone who wants to type a sentence and get a picture with a model already installed, pays once with no subscription, and wants a privacy label that says no data is collected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI image generators for iPhone work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On-device apps do: Draw Things, LocalGen and AI Image Generator Anywhere run the model on the phone and need no connection. Cloud apps such as DaVinci and Leonardo.Ai send your prompt to a server and need one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will AI Image Generator Anywhere run on my iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It needs 6 GB of memory for the standard model: an iPhone 14 or later, an iPhone 12 Pro or 13 Pro, or an iPad with an M-series chip. The higher-detail model needs 12 GB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AI Image Generator Anywhere have a subscription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Fifty pictures are free, then one purchase unlocks the app for good. Nothing renews."
+      }
+    }
+  ]
+}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16); --max: 880px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: #f7f9ff; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .liquid { position: relative; isolation: isolate; }
+    .liquid::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+    }
+    .nav-wrap { position: sticky; top: 14px; z-index: 60; padding: 0 18px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: min(100%, 880px); margin: 14px auto 0; padding: 12px 14px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78); box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; color: var(--heading); }
+    .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px; }
+    .nav a { padding: 9px 10px; border-radius: 999px; color: #33415e; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .nav a:hover, .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
+    .nav .store-pill { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 9px 15px; border-radius: 999px; background: #0c1020; color: #fff; font-size: 0.9rem; font-weight: 700; }
+    .nav .store-pill:hover, .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #56618a; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; margin-top: 6px; align-self: flex-start; }
+    .display { margin: 16px 0 18px; font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.08; color: var(--heading); }
+    .display em { font-style: italic; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1.display { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+    h2.display { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 0; }
+    .lead { margin: 0; color: var(--muted); font-size: 1.12rem; line-height: 1.65; }
+    .page-head { padding: 64px 0 34px; text-align: center; }
+    .head-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 26px; }
+    .button-dark { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 20px; border-radius: 999px; background: #0c1020; color: #fff; font-weight: 700; transition: background 160ms ease, transform 160ms ease; }
+    .button-dark:hover, .button-dark:focus-visible { background: #1c2440; transform: translateY(-2px); outline: none; }
+    .button-soft { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.8); color: var(--heading); font-weight: 700; }
+    .button-soft:hover, .button-soft:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
+    section { padding: 34px 0; }
+    .card { padding: 26px 28px; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 26px; background: var(--surface); box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08); }
+    .card p, .card li { color: var(--muted); line-height: 1.68; }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul { margin: 0 0 12px; padding-left: 22px; }
+    .card strong { color: var(--heading); }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .card h3 { margin: 0 0 10px; color: var(--heading); font-size: 1.15rem; }
+    .jobs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .job-tag { display: inline-block; margin-bottom: 12px; padding: 5px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .job-tag.rival { background: rgba(22, 116, 255, 0.1); color: #1258c4; }
+    .job-tag.ours { background: rgba(117, 81, 255, 0.12); color: #5a3fd0; }
+    .cmp-table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 0.97rem; }
+    .cmp-table th, .cmp-table td { padding: 11px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; }
+    .cmp-table th { color: var(--heading); font-weight: 700; }
+    .cmp-table td.yes { color: #12784a; font-weight: 700; }
+    .cmp-table td.no { color: #9aa3ba; }
+    .shot-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 6px; }
+    .shot-trio figure { margin: 0; }
+    .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-trio figcaption strong { color: var(--heading); }
+    .cta { padding: 60px 0 76px; text-align: center; }
+    .store-badge-link img { width: 176px; height: auto; border-radius: 10px; }
+    .fineprint { margin-top: 26px; color: #8b93ad; font-size: 0.82rem; line-height: 1.6; }
+    .footer { padding: 30px 0 42px; border-top: 1px solid rgba(31, 59, 133, 0.10); color: #66719a; font-size: 0.92rem; text-align: center; }
+    .footer a { font-weight: 600; color: #4a5578; }
+    .footer a:hover, .footer a:focus-visible { color: var(--heading); outline: none; }
+    @media (max-width: 700px) {
+      .nav-wrap { position: static; }
+      .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
+      .nav { width: 100%; justify-content: center; }
+      .jobs { grid-template-columns: 1fr; }
+      .shot-trio { grid-template-columns: 1fr; justify-items: center; }
+      .shot-trio figure { max-width: 280px; width: 100%; }
+      .shot-trio figcaption { text-align: center; }
+      .cmp-wrap { overflow-x: auto; }
+    }
+  
+    h3.deck {
+      max-width: 62ch;
+      margin: -4px 0 20px;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0;
+      color: var(--muted);
+    }
+    .tip { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(19, 138, 90, 0.2); border-radius: 16px; background: rgba(223, 255, 234, 0.5); color: #1d5c40; font-size: 0.95rem; line-height: 1.6; }
+    .tip strong { color: #124a32; }
+    /* The comparison tables are wide; on a phone they scroll rather than squash. */
+    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .cmp-wrap .cmp-table { min-width: 560px; }
+  
+    /* The studio mark, then the app — the header the tennis home page has.
+       The studio half is the way back to the home page from every app page;
+       before this, PhotoMuse's brand link pointed at PhotoMuse. Appended at
+       the end of the sheet so it wins over the one-part .brand rules above.
+       Added by hand, 2026-09-28. */
+    .brand-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 0; box-shadow: none; }
+    .brand-text { display: grid; line-height: 1; }
+    .brand-title { color: #091d75; font-size: 1.12rem; letter-spacing: -0.04em; font-weight: 900; }
+    .brand-title span {
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .brand-subtitle {
+      margin-top: 4px; color: #6c7ba0; font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.30em; text-transform: uppercase;
+    }
+    .brand-sep { color: #9aa6c6; font-weight: 800; }
+    .brand-app {
+      display: flex; align-items: center; gap: 8px; color: var(--heading);
+      font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap;
+    }
+    .nav-app-icon { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    /* Narrow: drop the wordmark first (the logo still links home), then the
+       separator, then let the two halves stack rather than collide. */
+    @media (max-width: 1100px) { .topbar .brand-text { display: none; } }
+    @media (max-width: 860px) {
+      .brand-sep { display: none; }
+      .brand-group { flex-wrap: wrap; justify-content: center; row-gap: 6px; }
+      .brand-app { white-space: normal; justify-content: center; text-align: center; }
+    }
+  
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand img { width: 46px; height: 46px; object-fit: contain; }
+
+    .footer-legal { flex: 1; min-width: 260px; text-align: center; }
+    .footer-legal p { margin: 0 0 6px; }
+    .fineprint { font-size: 0.78rem; color: #8b96b8; }
+
+    .footer-textlinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .footer-textlinks a { color: #4a5578; }
+    .footer-textlinks a:hover, .footer-textlinks a:focus-visible { color: var(--heading); outline: none; }
+
+    .footer-badges { display: flex; justify-content: center; margin-top: 22px; }
+    .at-badge { display: inline-flex; border-radius: 12px; transition: transform 160ms ease; }
+    .at-badge:hover, .at-badge:focus-visible { transform: translateY(-2px); outline: none; }
+    .at-badge img { display: block; width: 200px; height: auto; }
+
+    .social-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+    .social-row a {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      background: #fff;
+      color: #33415e;
+      box-shadow: 0 8px 20px rgba(28, 52, 120, 0.10);
+      transition: transform 150ms ease, color 150ms ease;
+    }
+
+    .social-row a:hover,
+    .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
+
+    .social-row svg { width: 20px; height: 20px; fill: currentColor; }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <header class="topbar">
+      <span class="brand-group">
+        <a class="brand" href="../../" aria-label="NovaDev Code Studio home">
+          <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+          <span class="brand-text">
+            <span class="brand-title">Nova<span>Dev</span></span>
+            <span class="brand-subtitle">Code Studio</span>
+          </span>
+        </a>
+        <span class="brand-sep" aria-hidden="true">·</span>
+        <a class="brand-app" href="../">
+          <img class="nav-app-icon" src="../../assets/apps/ai-image-generator/app-icon.png" alt="">
+          AI Images
+        </a>
+      </span>
+      <nav class="nav" aria-label="Page links">
+        <a href="#where">Cloud or device</a>
+        <a href="#cost">What they cost</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#table">Side by side</a>
+        <a href="#faq">FAQ</a>
+        <a class="store-pill" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer">App Store</a>
+      </nav>
+    </header>
+  </div>
+  <main>
+    <section class="page-head liquid">
+      <div class="container">
+        <span class="eyebrow">An honest comparison</span>
+        <h1 class="display">Which AI image app <em>should you use?</em></h1>
+        <p class="lead">The honest answer first: if you want the best picture a machine can make today, use one of the big cloud services &mdash; their models are far larger than anything a phone can run. And if you want every model and every dial, on your own device, for free, use Draw Things. This page is about where the differences really are &mdash; <strong>where the picture is made</strong>, <strong>what it costs</strong> and <strong>what happens to what you type</strong> &mdash; and the narrower case where AI Image Generator Anywhere is the right pick.</p>
+        <div class="head-actions">
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="Download AI Image Generator Anywhere on the App Store"><img src="../../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="button-soft" href="../guides/">Read the guides &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="where">
+      <div class="container">
+        <h2 class="display">Where the picture <em>is made.</em></h2>
+        <div class="card">
+          <p>This is the difference that decides the rest. A <strong>cloud</strong> app sends your words to a server, the server makes the picture, and it comes back. An <strong>on-device</strong> app runs the model on your own phone.</p>
+          <div class="cmp-wrap">
+            <table class="cmp-table">
+              <thead><tr><th>Kind</th><th>Examples</th><th>What follows from it</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Cloud</strong></td><td>DaVinci, Leonardo.Ai, and the image tools inside ChatGPT, Gemini and Grok</td><td>The largest models and the best results. Needs a connection. What you type goes to their servers. Every picture costs them money, which is why they charge by the week, the month or the token.</td></tr>
+                <tr><td><strong>On your device</strong></td><td>Draw Things, LocalGen, AI Image Generator Anywhere</td><td>Works with no connection. What you type stays on the phone. Limited by the phone's memory, so the models are smaller and older phones are left out.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><span style="display:block;margin-top:14px">Neither is the honest one and the other the trick. They are different trades, and the right one depends on what you are making.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cost">
+      <div class="container">
+        <h2 class="display">What they <em>actually cost.</em></h2>
+        <h3 class="deck">Read from each App Store page, the one place every plan is written down.</h3>
+        <div class="card">
+          <p>Every price below was read from the In-App Purchases list on the app's US App Store page on 1 October 2026. Several apps list more than one price for the same plan &mdash; they show different prices to different people &mdash; so where that happens the range is given. What you are offered inside an app can differ; check before you subscribe.</p>
+          <div class="cmp-wrap">
+            <table class="cmp-table">
+              <thead><tr><th>App</th><th>Ratings</th><th>Plans listed on the App Store</th></tr></thead>
+              <tbody>
+                <tr><td><strong>DaVinci</strong> (cloud)</td><td>76K</td><td>$4.99&ndash;$14.99 a week, $19.99&ndash;$39.99 a year, or $29.99 once.</td></tr>
+                <tr><td><strong>Leonardo.Ai</strong> (cloud)</td><td>11K</td><td>Plans at $15.99, $39.99 and $79.99, or $159.99 to $749.99 a year. Extra tokens from $13.</td></tr>
+                <tr><td><strong>Draw Things</strong> (on-device)</td><td>733</td><td><strong>Free to use.</strong> Optional Draw Things+ at $8.99, and Boost bundles from $0.99 to $19.99.</td></tr>
+                <tr><td><strong>LocalGen</strong> (on-device)</td><td>164</td><td>$4.99 a week, $9.99 a month, or $29.99 once.</td></tr>
+                <tr><td><strong>PhoneDiffusion</strong> (on-device)</td><td>31</td><td>$7.99&ndash;$11.99 a month, $16.99&ndash;$23.99 a year, or $24.99 once.</td></tr>
+                <tr><td><strong>AI Image Generator Anywhere</strong> (on-device)</td><td>New</td><td>Fifty pictures free, then <strong>one purchase</strong> unlocks it for good. No subscription. The price is on its App Store page.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><span style="display:block;margin-top:14px"><strong>A weekly plan is the thing to look at twice.</strong> $4.99 a week is about $260 a year. A cloud app has a real reason to charge that way: it pays for a server every time you press the button. An on-device app does not, because the work is done by hardware you already own &mdash; which is the only reason a one-time price is possible.</span></p>
+          <div class="tip"><strong>Where Draw Things wins, plainly:</strong> it is free, it has been on the App Store since 2022, it offers far more models and settings than we do, and it runs on a Mac as well. If you enjoy choosing models and tuning them, it is the better choice and we would rather say so than pretend otherwise.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="container">
+        <h2 class="display">What their labels <em>say.</em></h2>
+        <div class="card">
+          <p>Apple makes every developer declare this, and you can check it yourself: open any App Store page and scroll to <em>App Privacy</em>. We read these on 1 October 2026.</p>
+          <p><strong>DaVinci declares &ldquo;Data Used to Track You&rdquo;.</strong> Leonardo.Ai declares &ldquo;Data Linked to You&rdquo;, which is what you would expect of a service you sign in to.</p>
+          <p><strong>The on-device apps do better, and that is no accident.</strong> Draw Things and LocalGen declare &ldquo;Data Not Linked to You&rdquo; &mdash; some data is collected, but not tied to who you are. Conjure declares &ldquo;Data Not Collected&rdquo;.</p>
+          <p><strong>AI Image Generator Anywhere declares &ldquo;Data Not Collected&rdquo;.</strong> There is no account, no analytics and no advertising. Your words and your pictures stay on the device.</p>
+          <p>You can test the part that matters yourself: turn on airplane mode and make a picture.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="table">
+      <div class="container">
+        <h2 class="display">Side by <em>side.</em></h2>
+        <div class="card">
+          <div class="cmp-wrap">
+            <table class="cmp-table">
+              <thead><tr><th>What you want</th><th>The others</th><th>AI Image Generator Anywhere</th></tr></thead>
+              <tbody>
+                <tr><td>The best picture quality there is</td><td class="yes">The cloud apps &mdash; much larger models</td><td class="no">No. A phone cannot run models that size</td></tr>
+                <tr><td>Many models and every setting</td><td class="yes">Draw Things</td><td class="no">No &mdash; a few chosen models and simple controls</td></tr>
+                <tr><td>Free with no limit</td><td class="yes">Draw Things</td><td class="no">No &mdash; fifty pictures free, then one purchase</td></tr>
+                <tr><td>Runs on an older or smaller iPhone</td><td class="yes">The cloud apps run on anything</td><td class="no">No &mdash; it needs 6 GB of memory: an iPhone 14 or later, a 12 Pro or 13 Pro, or an iPad with an M-series chip</td></tr>
+                <tr><td>Thousands of ratings behind it</td><td class="yes">DaVinci 76K, Leonardo.Ai 11K</td><td class="no">No. It is new</td></tr>
+                <tr><td>A Mac app</td><td class="yes">Draw Things</td><td class="no">No</td></tr>
+                <tr><td>Works with no connection</td><td class="no">The cloud apps: no. The on-device ones: yes</td><td class="yes">Yes &mdash; try it in airplane mode</td></tr>
+                <tr><td>A picture with no second download</td><td class="no">Draw Things is a 0.3 GB app that fetches its models afterwards</td><td class="yes">Yes &mdash; the model is inside the app, which is why it is a 3.1 GB download</td></tr>
+                <tr><td>No subscription anywhere</td><td class="no">Most offer weekly or monthly plans</td><td class="yes">Yes &mdash; one purchase, nothing renews</td></tr>
+                <tr><td>Privacy label says no data collected</td><td class="no">One of the six we checked: Conjure</td><td class="yes">Yes</td></tr>
+                <tr><td>Restyle or enlarge a photo you already have</td><td class="yes">Most of them</td><td class="yes">Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fineprint" style="margin-top:14px">The middle column describes the best-known apps in this category as we found them on 1 October 2026. Apps change; check the current App Store pages before deciding.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="display">Fair <em>questions.</em></h2>
+        <div class="card">
+          <h3>Is AI Image Generator Anywhere a Draw Things alternative?</h3>
+          <p>Only for some people. Draw Things is free and gives you far more models and control, and if that is what you want, use it. This app is for someone who wants to type a sentence and get a picture, with a model that is already installed and nothing to set up &mdash; and who would rather pay once than learn a toolkit.</p>
+
+          <h3>Does it really work offline?</h3>
+          <p>Yes. The model runs on your iPhone or iPad's own chip. Turn on airplane mode and make a picture &mdash; that is the whole test.</p>
+
+          <h3>Will it run on my iPhone?</h3>
+          <p>It depends on memory, not on how new the phone is. The standard model needs 6 GB: an iPhone 14 or later, an iPhone 12 Pro or 13 Pro, or an iPad with an M-series chip. The higher-detail model needs 12 GB. The app checks first, and tells you if your device cannot run a model.</p>
+
+          <h3>Why is the app more than 3 GB?</h3>
+          <p>Because the model that makes the pictures is inside it. A cloud app is small because its model lives on a server; an on-device app has to bring it along. It is downloaded once, with the app.</p>
+
+          <h3>Is there a subscription?</h3>
+          <p>No. Fifty pictures are free. After that, one purchase unlocks the app for good and nothing renews. That is possible only because making a picture costs us nothing &mdash; your device does the work.</p>
+
+          <h3>Is anything uploaded?</h3>
+          <p>No. What you type and what you make stay on the device, and there is no account. The only time the app goes online is to download an optional larger model, if you ask for one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta liquid">
+      <div class="container">
+        <span class="eyebrow">Decide for yourself</span>
+        <h2 class="display">Fifty pictures free, <em>nothing collected.</em></h2>
+        <div class="head-actions">
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="Download AI Image Generator Anywhere on the App Store"><img src="../../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="button-soft" href="../">About AI Images &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <a class="footer-brand" href="../../" aria-label="NovaDev Code Studio home">
+        <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span class="brand-text">
+          <span class="brand-title">Nova<span>Dev</span></span>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <div class="footer-legal">
+        <p>Copyright <span id="currentYear"></span> NovaDev Code Studio &middot; novadevcodestudio.com. All rights reserved.</p>
+        <nav class="footer-textlinks" aria-label="Footer links"><a href="../../support/ai-image-generator/">Help</a> <a href="../../privacy/ai-image-generator/">Privacy</a></nav>
+      </div>
+      <div class="social-row" aria-label="NovaDev Code Studio on social platforms">
+        <a href="https://www.tiktok.com/@novadevcode" target="_blank" rel="noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.9 2h2.7c.2 1.2.8 2.3 1.7 3.1.9.8 2 1.3 3.2 1.4v2.8c-1.8-.1-3.5-.7-4.9-1.7v7.1c0 3.6-2.9 6.5-6.5 6.5S2.6 18.3 2.6 14.7c0-3.5 2.8-6.4 6.3-6.5V11c-1.9.1-3.5 1.7-3.5 3.7 0 2.1 1.7 3.7 3.7 3.7s3.7-1.7 3.7-3.7L12.9 2Z"/></svg></a>
+        <a href="https://www.youtube.com/@NovaDevCodeStudio" target="_blank" rel="noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2c-.3-1-1-1.8-2-2C19.1 4.7 12 4.7 12 4.7s-7.1 0-9 .5c-1 .3-1.7 1-2 2C.5 9.1.5 12 .5 12s0 2.9.5 4.8c.3 1 1 1.8 2 2 1.9.5 9 .5 9 .5s7.1 0 9-.5c1-.3 1.7-1 2-2 .5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8ZM9.8 15.3V8.7l6 3.3-6 3.3Z"/></svg></a>
+        <a href="https://www.instagram.com/novadevcode/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.4.2-1.7.3-.4.2-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.6-.3 1.7-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.4.3 1.7.2.4.3.7.6 1 .3.3.6.5 1 .6.3.1.6.3 1.7.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.4-.2 1.7-.3.4-.2.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.6.3-1.7.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.4-.3-1.7-.2-.4-.3-.7-.6-1-.3-.3-.6-.5-1-.6-.3-.1-.6-.3-1.7-.3-1.3-.1-1.7-.1-4.8-.1Zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm4.6-3.5a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61591775212862" target="_blank" rel="noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://apps.apple.com/us/developer/yury-nickolaevich-brei/id1895503289" target="_blank" rel="noreferrer" aria-label="Apple developer page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 12.9c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.2.9-4.1 2.4-1.8 3-.4 7.5 1.3 9.9.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-3.9ZM14.2 5.2c.7-.8 1.1-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.5 2.9-1.3Z"/></svg></a>
+        <a href="https://github.com/novadevcodestudio" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.2.8-.5v-2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-3 0 0 .9-.3 3.1 1.2a10.7 10.7 0 0 1 5.6 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.6.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.3.8 1 .8 2v3c0 .3.2.6.8.5A11.2 11.2 0 0 0 12 .8Z"/></svg></a>
+        <a href="mailto:support@novadevcodestudio.com" aria-label="Email support"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.3L4.2 7h15.6L12 12.3Zm-8-3v7.7h16V9.3l-7.5 5a1 1 0 0 1-1 0L4 9.3Z"/></svg></a>
+      </div>    </div>
+  </footer>
+  <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+</body>
+</html>

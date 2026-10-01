@@ -4,7 +4,8 @@ from gen import page, section, BASE
 
 ROOT = sys.argv[1]
 NAV = [("What it does","#what"),("On your device","#device"),
-       ("Will it run?","#requires"),("Price","#price"),("Guides","guides/")]
+       ("Will it run?","#requires"),("Price","#price"),("Guides","guides/"),
+       ("Compare","compare/")]
 
 head = '''        <p class="eyebrow">iPhone &amp; iPad</p>
         <h1 class="display">AI Image Generator Anywhere</h1>
