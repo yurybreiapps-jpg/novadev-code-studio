@@ -161,6 +161,7 @@ s_price = section("price", '''        <h2 class="display">One purchase</h2>
         <p class="lead">Fifty images free, then one purchase unlocks the app for good.
         There is no subscription and
         nothing renews.</p>
+        <p class="lead" style="margin-top:16px"><a href="compare/" style="font-weight:700; color: var(--accent-1);">See how that compares with the other AI image apps &rarr;</a> &mdash; what they charge, and what their privacy labels say.</p>
         <div class="tip">
           <p>Because generation happens on your own device, each image costs us nothing to
           produce. Apps that charge monthly are usually paying a server every time you press

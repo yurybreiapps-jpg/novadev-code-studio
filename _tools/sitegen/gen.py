@@ -35,7 +35,7 @@ def page(*, path, title, desc, canonical, depth, head, sections, cta=None,
       <div class="container">
         <h2 class="display">{cta['h']}</h2>
         <p class="lead">{cta['p']}</p>
-        <p><a class="button-soft" href="{cta['href']}">{cta['label']}</a></p>
+        <p><a class="button-soft" href="{cta['href']}">{cta['label']}</a>{''.join(f' <a class="button-soft" href="{h}">{l}</a>' for h, l in cta.get('more', []))}</p>
       </div>
     </section>''' if cta else ""
     schemahtml = f'''  <script type="application/ld+json">

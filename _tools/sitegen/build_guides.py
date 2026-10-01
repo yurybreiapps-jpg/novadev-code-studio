@@ -71,6 +71,10 @@ def lead_text(lead):
 
 NAV = [("Overview", "../../"), ("All guides", "../"), ("Support", "../../../support/ai-image-generator/")]
 
+# The guides whose subject is the comparison itself point at it from their
+# closing block. The rest end on the app alone.
+COMPARE_FROM = {"on-device-vs-cloud-ai-image-generators", "ai-image-generator-no-subscription"}
+
 def build_guide(slug):
     g, m = GUIDES[slug], META[slug]
     url = f"{BASE}/ai-images/guides/{slug}/"
@@ -115,7 +119,8 @@ def build_guide(slug):
                 nav=NAV, schema=schema, extra_css=SPEC_CSS,
                 cta={"h": "Made on the device, not on a server.",
                      "p": "AI Image Generator Anywhere runs the model on your iPhone or iPad. No account, no credits, no connection required.",
-                     "href": "../../", "label": "About the app"})
+                     "href": "../../", "label": "About the app",
+                     "more": [("../../compare/", "How it compares with other apps")] if slug in COMPARE_FROM else []})
 
 def build_index():
     url = f"{BASE}/ai-images/guides/"
