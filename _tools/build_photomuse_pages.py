@@ -152,6 +152,13 @@ TOUR_STYLE = """    /* The tour clip under the hero. Portrait, so it is capped t
                   box-shadow: 0 20px 52px rgba(0,0,0,.16); background: #14110F; }
 """
 
+# With the studio wordmark showing, this app's seven menu items need up to
+# 948px on one line and the inherited bar stops at 880, which left the last of
+# them on a second line. Measured in the browser 2026-10-01: overview 948,
+# guide 927. Below 1,100 the inherited sheet drops the wordmark, and it fits.
+HEADER_STYLE = """    .topbar { width: min(100%, 960px); }
+"""
+
 def with_style(html, *blocks):
     """Puts extra rules at the end of the page's <style>, so they win over the
     inherited sheet rather than being overridden by it."""
@@ -320,7 +327,7 @@ overview += f'''  <main>
     </section>
   </main>
 ''' + footer("../")
-overview = with_style(overview, TOUR_STYLE, OVERVIEW_STYLE)
+overview = with_style(overview, TOUR_STYLE, OVERVIEW_STYLE, HEADER_STYLE)
 
 # --------------------------------------------------------------------- guide
 def step(num, sid, title, deck, body):
@@ -429,7 +436,7 @@ guide += f'''  <main>
     </section>
   </main>
 ''' + footer("../../")
-guide = with_style(guide, GUIDE_STYLE)
+guide = with_style(guide, GUIDE_STYLE, HEADER_STYLE)
 
 # ------------------------------------------------------- privacy and support
 def doc_page(kind, h1, intro_html, sections, stamp=None):

@@ -29,6 +29,10 @@ import difflib, json, pathlib, re, sys
 SITE = pathlib.Path(__file__).resolve().parent.parent
 TEMPLATE = (SITE / "photomuse/compare/index.html").read_text()
 STYLE = re.search(r"<style>.*?</style>", TEMPLATE, re.S).group(0)
+# These two have one more menu item than the PhotoMuse page the sheet comes
+# from, and with the studio wordmark showing they need 914 and 928px on one
+# line; the inherited bar stops at 880. Measured in the browser 2026-10-01.
+STYLE = STYLE.replace("</style>", "  .topbar { width: min(100%, 960px); }\n  </style>")
 SOCIAL_ROW = re.search(r'      <div class="social-row".*?</div>', TEMPLATE, re.S).group(0)
 FONTS = re.search(r'<link href="https://fonts.googleapis.com[^>]*>', TEMPLATE).group(0)
 BASE = "https://www.novadevcodestudio.com/"

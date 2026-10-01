@@ -3,6 +3,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gen import page, section, BASE
 
 ROOT = sys.argv[1]
+# The app shipped on 2026-09-19 and the pages were changed that day BY HAND:
+# the "coming soon" notice in the hero became the App Store badge, the guides
+# index said "on the App Store", and the schema gained installUrl. This script
+# was not changed, so the rebuild of 2026-09-28 put all three back the way they
+# were before launch, and the live page said "coming soon" for three days next
+# to its own App Store button. They are here now. A hand edit to a generated
+# page lasts until the next rebuild; make the change in this file.
 NAV = [("What it does","#what"),("On your device","#device"),
        ("Will it run?","#requires"),("Price","#price"),("Guides","guides/"),
        ("Compare","compare/")]
@@ -12,11 +19,10 @@ head = '''        <p class="eyebrow">iPhone &amp; iPad</p>
         <p class="lead">An image generator that runs on your phone instead of somebody's server.
         No account, no credits, no queue &mdash; and it works with no signal at all.</p>
         <p class="deck">One purchase. No subscription. Fifty images free first.</p>
-        <div class="tip" style="max-width:620px;margin:20px auto 0;text-align:left;">
-          <strong>Coming to the App Store soon.</strong> These pages are up ahead of the
-          listing on purpose &mdash; so you can check whether your device qualifies, and
-          what it actually does, before deciding to download three gigabytes.
-        </div>'''
+        <p style="margin:22px 0 0;">
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="AI Image Generator Anywhere on the App Store">
+            <img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+        </p>'''
 
 s_what = section("what", '''        <h2 class="display">What it does</h2>
         <div class="card">
@@ -200,6 +206,7 @@ n = page(path="ai-images/index.html",
     "applicationCategory": "GraphicsApplication",
     "description": "An AI image generator that runs entirely on the device. No account, no credits, no subscription, and it works offline.",
     "url": "https://www.novadevcodestudio.com/ai-images/",
+    "installUrl": "https://apps.apple.com/app/id6805583172",
     "author": { "@type": "Organization", "name": "NovaDev Code Studio" }
   }''')
 print(f"  ai-images/index.html  {n:,} bytes")
