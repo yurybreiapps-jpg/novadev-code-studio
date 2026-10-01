@@ -181,6 +181,14 @@ n = page(path="ai-images/index.html",
     .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
     .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
     .shot-wide figcaption strong { color: var(--heading); }
+    /* This page has the longest app name and the most menu items of the
+       generated pages: on one line they need 1,140px, and the shared bar stops
+       at 880, which left "Compare" and the App Store button on a second line.
+       So this page's bar may grow, as the tennis home page's does. Between
+       1,070 and 1,180 the studio wordmark goes first (the logo still links
+       home), which is what the shared stylesheet already does below 1,100. */
+    .topbar { width: min(100%, 1140px); }
+    @media (max-width: 1180px) { .topbar .brand-text { display: none; } }
 """,
      sections=[s_what, s_device, s_req, s_price],
      cta={"h":"Guides","p":"How it works, which devices can run it, and how to get better pictures out of it.","href":"guides/","label":"Read the guides"},
