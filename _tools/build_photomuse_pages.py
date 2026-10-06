@@ -23,7 +23,10 @@ import difflib, pathlib, re, sys
 # something was hand-edited again: port it in here before writing.
 SITE = pathlib.Path("/Volumes/ExternalDrive/Source/novadev-code-studio")
 LIVE = True  # launched 2026-09-24
-STORE = "https://apps.apple.com/app/id6814026340"
+# Every button carries Apple's campaign tag, so App Store Connect →
+# Analytics → Campaigns can count what the site sends ("site"). The plain
+# address stays in the structured data (installUrl), which search engines read.
+STORE = "https://apps.apple.com/app/apple-store/id6814026340?pt=128829427&amp;ct=site&amp;mt=8"
 UPDATED = "21 September 2026"
 
 def style_of(path):
