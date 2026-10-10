@@ -230,7 +230,8 @@ LD = '''
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "PhotoMuse: Photo Cleaner",
+    "name": "PhotoMuse: Similar Photos",
+    "alternateName": "PhotoMuse: Photo Cleaner",
     "operatingSystem": "iOS, iPadOS",
     "applicationCategory": "UtilitiesApplication",
     "description": "Finds similar shots, duplicates, bad photos and oversized videos, lets you review a month by swiping, enhances photos and compresses videos. Everything happens on the device; nothing is collected.",
@@ -240,7 +241,9 @@ LD = '''
   }
   '''
 overview = head(
-    "PhotoMuse: Photo Cleaner — clear duplicates, swipe to sort, enhance, free up space",
+    # The App Store name since 1.0.6 (2026-10-10). "Photo cleaner" stays in the
+    # title as a description: on the web that is still what people search.
+    "PhotoMuse: Similar Photos — a photo cleaner for duplicates, similar shots and full storage",
     "PhotoMuse finds similar shots, duplicates, bad photos and oversized videos, lets you sort a month by swiping, enhances photos and compresses videos. All on your device. No account, no tracking.",
     "photomuse/", "../", og_desc="Clear duplicates and bad shots, sort by swiping, enhance photos, shrink videos. Nothing leaves your device.", ld=LD)
 overview += "<body>\n" + topbar("../", "./", [("What it does", "#what"), ("iPad", "#ipad"), ("Private", "#private"), ("Free and Plus", "#price"), ("Guide", "guide/"), ("Compare", "compare/")])
