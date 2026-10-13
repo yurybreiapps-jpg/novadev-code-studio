@@ -383,13 +383,16 @@ guide += f'''  <main>
        "Tap the items you do not want. Tap a preview to see it full size first &mdash; videos and Live Photos play there.",
        "Use <strong>Sort</strong> to order by date, size or name. <strong>Large videos</strong> are grouped by size &mdash; over 1&nbsp;GB, over 500&nbsp;MB and so on &mdash; because a handful of files is usually most of the space.",
        "Delete, and confirm in Apple's sheet."),
-    p("<strong>Bad shots</strong> are photos that are blurred, too dark, or have a finger over the lens. Glance through before deleting &mdash; a dark photo can still be one you love."),
+    p("<strong>Bad shots</strong> are photos that are blurred, too dark, or have a finger over the lens. Glance through before deleting &mdash; a dark photo can still be one you love. Open a photo full size and it is marked <strong>Reviewed</strong>. The main delete button then removes only the photos you reviewed; the second button deletes every photo still marked delete."),
     tip("Picking photos by hand and deleting them is free and unlimited. <strong>Select all</strong> &mdash; for a whole pile, month or size group at once &mdash; is part of Plus."),
 ])) + step("03", "similar", "Similar shots &amp; <em>duplicates.</em>", "Groups of near-identical photos, with a suggested keeper.", "\n".join([
     p("<strong>Duplicates</strong> are the same picture more than once. <strong>Similar shots</strong> are the six tries at one group photo. Each group shows how much room the extras take."),
     ul("<strong>Keep only our pick</strong> keeps the photo PhotoMuse judges best and marks the rest.",
        "<strong>Keep all</strong> leaves the group alone.",
-       "To decide yourself, tap the badge on any photo to switch it between keep and delete. Tap the photo to see it large."),
+       "To decide yourself, tap the badge on any photo to switch it between keep and delete. Tap the photo to see it large.",
+       "Open any photo full size and swipe through the group. When the group ends, the next swipe opens the next group, so there is no need to go back to the list.",
+       "Once you have seen every photo in a group full size, that group is marked <strong>Reviewed</strong>. You can also tap <strong>Reviewed</strong> on a group yourself, and tap it again to undo."),
+    p("<strong>Two ways to delete.</strong> The main button removes only the groups you have reviewed, so a pile of thousands can be cleared a little at a time. The second deletes from every group at once, for when you trust the app-suggested picks. A photo marked keep is never deleted by either, and once everything is reviewed there is just one button."),
     p("An enhanced copy you saved earlier will show up next to its original here &mdash; that is correct, they are the same picture. Keep whichever you prefer."),
 ])) + step("04", "review", "Review a month by <em>swiping.</em>", "The fastest way through everything that is not in a pile.", "\n".join([
     ol("Open <strong>Everything else</strong> and choose a month.",
@@ -519,6 +522,8 @@ support = doc_page("support", "Help with <em>PhotoMuse.</em>",
         "PhotoMuse has been given access to some photos rather than all of them. Tap <strong>Change</strong> on the first screen, or open Settings → Privacy &amp; Security → Photos → PhotoMuse and choose Full Access."]),
      ("It says my library has changed", [
         "You have taken or deleted photos since the last scan, so the numbers on screen are from before. Tap <strong>Check again</strong>. If you would rather it did this by itself, turn on <em>Check again automatically</em> in Settings &mdash; it is off by default because looking at every photo is real work on a large library."]),
+     ("There are thousands of similar shots. Do I have to delete them all at once?", [
+        "No. Open a photo full size and swipe through the groups; each group you have seen in full is marked <strong>Reviewed</strong>. The main delete button then removes only the reviewed groups, so you can clear a big pile a few groups at a time and come back to the rest later. The second button, <strong>Delete from all groups</strong>, is there if you would rather trust the app-suggested picks. Either way, photos marked keep are never deleted, Apple asks you to confirm, and everything stays in Recently Deleted for 30 days."]),
      ("Why did an enhanced photo appear under Duplicates or Similar shots?", [
         "Because it is the same picture as its original, and PhotoMuse is right to notice. Keep whichever you prefer. If you would rather not have two, use <strong>Replace original</strong> when saving from Enhance."]),
      ("Is Replace original safe?", [
