@@ -265,7 +265,7 @@ overview += f'''  <main>
     <section id="what">
       <div class="container">
         <h2 class="display">What it <em>does.</em></h2>
-        <h3 class="deck">Nine piles, a swipe review, search, Enhance and video compression.</h3>
+        <h3 class="deck">Nine piles, a swipe review, search, Enhance, the Info tools and video compression.</h3>
 {card("Sorts the clutter into piles",
       "Similar shots, duplicates, bad shots (blurred, too dark, a thumb in the way), screenshots, screen recordings, large videos, Live Photos &mdash; and everything else, month by month.",
       "Every pile shows how many items it holds and how much room they take. The sizes are read from your library, byte for byte, not estimated.")}
@@ -278,6 +278,8 @@ overview += f'''  <main>
 {card("Enhance, not just delete",
       "Auto sets light and colour for the photo in front of you; every dial can be moved by hand. Rebuild detail sharpens fine detail and clears compression noise. Save a copy, or replace the original &mdash; Photos keeps the untouched one, so Revert always works.",
       "Enhanced photos stay in the format they came in. An HEIC is not quietly turned into a JPEG twice the size.")}
+{card("Fixes a wrong date, removes a location, shares a clean copy",
+      "Tap &#9432; on any photo or video to change its date and time or remove its location, the way Photos does &mdash; and set them back from the file later. Edit Details &amp; Save Copy and Save a Clean Copy make a new copy beside the original with the name, date, caption or camera details changed or left out, for sharing privately. Videos too.")}
 {card("Compress videos &mdash; only when it helps",
       "Re-encoding an already efficient video makes it <strong>bigger</strong>. PhotoMuse asks Apple's encoder first and lists only the videos that will really shrink, each with its own estimate, then shows the real saving afterwards. HDR video stays HDR.")}
 {card("Honest about what frees space",
@@ -355,17 +357,17 @@ def tip(text): return f'          <div class="tip">{text}</div>'
 
 guide = head(
     "How to use PhotoMuse — the complete guide to cleaning your photo library",
-    "Step by step: clear similar shots and duplicates, review a month by swiping, search your photos, enhance them, compress videos, and actually free the space on your iPhone or iPad.",
+    "Step by step: clear similar shots and duplicates, review a month by swiping, search your photos, enhance them, fix a wrong date or share a clean copy, compress videos, and actually free the space on your iPhone or iPad.",
     "photomuse/guide/", "../../")
-guide += "<body>\n" + topbar("../../", "../", [("Piles", "#piles"), ("Swipe review", "#review"), ("Enhance", "#enhance"), ("Videos", "#compress"), ("Free space", "#finish"), ("Help", "#troubleshooting")])
+guide += "<body>\n" + topbar("../../", "../", [("Piles", "#piles"), ("Swipe review", "#review"), ("Enhance", "#enhance"), ("Fix details", "#details"), ("Videos", "#compress"), ("Free space", "#finish"), ("Help", "#troubleshooting")])
 guide += f'''  <main>
     <section class="page-head liquid">
       <div class="container">
         <span class="eyebrow">The complete guide</span>
         <h1 class="display">From a full phone to a <em>tidy library.</em></h1>
         <p class="lead">Everything in one place: the piles, similar shots and duplicates, the swipe review,
-        search, Enhance, video compression &mdash; and the last step most people miss, which is the one that
-        actually frees the space.</p>
+        search, Enhance, fixing a wrong date or sharing a clean copy, video compression &mdash; and the last
+        step most people miss, which is the one that actually frees the space.</p>
         <div class="head-actions">
           <a class="button-soft" href="../">← App overview</a>
           <a class="button-soft" href="../../support/photomuse/">Common questions</a>
@@ -413,19 +415,27 @@ guide += f'''  <main>
     p("<strong>Replacing is not destructive.</strong> Photos keeps the untouched original alongside the edit, exactly as it does for its own edits. To put it back: open the photo in Photos → Edit → Revert."),
     p("<strong>Live Photos</strong> can only be saved as a copy, because replacing one would drop the movement."),
     tip("<strong>File format:</strong> Settings → <em>Save enhanced photos as</em>. <em>Match the Original</em> keeps each photo in the format it already has. <em>High Efficiency</em> always saves HEIC (about half the size of a JPEG); <em>Most Compatible</em> always saves JPEG."),
-])) + step("07", "compress", "Compress <em>videos.</em>", "Smaller files for the videos you want to keep.", "\n".join([
+])) + step("07", "details", "Fix a date, a place, or <em>the details.</em>", "The Info panel: wrong dates, removed locations, and copies for sharing.", "\n".join([
+    p("Every photo and video has an <strong>&#9432;</strong> button when shown full size. The Info panel shows what Photos knows about it &mdash; name, size, when and where it was taken, the camera &mdash; and lets you change the two things Photos itself allows, plus save copies with more changed."),
+    ol("<strong>Adjust Date &amp; Time</strong> moves the photo to the date you pick &mdash; on the photo itself, the same way Photos does. Camera clock an hour out on a trip? Select the photos in a pile, tap <strong>&hellip;</strong> beside Delete, and move them all at once; they keep their order.",
+       "<strong>Remove Location</strong> takes the place off the photo. The file inside keeps it, so Info can <strong>Restore Location from the File</strong> later; the same goes for a changed date, with <strong>Set Back to the Date in the File</strong>.",
+       "<strong>Edit Details &amp; Save Copy</strong>: a new name, date, caption, author or copyright, with the location and camera details kept or left out.",
+       "<strong>Save a Clean Copy</strong>: the same picture with no location and no camera or phone details, for sharing privately. Works for videos too."),
+    p("<strong>Why a copy?</strong> Apple does not let any app rename a photo or rewrite its file &mdash; not even Photos can. So those changes go into a new copy saved beside the original, in the same albums, and you choose afterwards: keep the original, or move it to Recently Deleted. The picture itself is copied as it is, not re-encoded, so nothing is lost on the way."),
+    tip("<strong>Sharing without the details:</strong> a clean copy of a photo or video carries no place, no phone model and no lens. What you send to a stranger or post publicly is the picture and nothing else."),
+])) + step("08", "compress", "Compress <em>videos.</em>", "Smaller files for the videos you want to keep.", "\n".join([
     p("Re-encoding a video that is already efficient makes it <strong>bigger</strong>, so <strong>Compress videos</strong> first asks Apple's encoder about each one and lists only those that will really shrink. Each shows its own estimate; slow-motion clips and videos that are not on the device are left alone, and the app says why."),
     ol("Pick a video and a size: the same resolution, or 1080p for anything larger.",
        "Wait for it to finish. You can stop at any time and nothing changes.",
        "See the <strong>real</strong> saving, then choose <strong>Keep both</strong> or <strong>Delete the original</strong>."),
     p("HDR video stays HDR. If the finished file is not meaningfully smaller, PhotoMuse throws it away and keeps your original."),
-])) + step("08", "finish", "Actually free <em>the space.</em>", "The step every cleaner app skips telling you about.", "\n".join([
+])) + step("09", "finish", "Actually free <em>the space.</em>", "The step every cleaner app skips telling you about.", "\n".join([
     p("Deleting a photo &mdash; in any app, including Photos &mdash; moves it to <strong>Recently Deleted</strong>, where it stays for 30 days and <strong>still takes up room</strong>. Your storage does not change until that album is emptied."),
     ol("In PhotoMuse, open <strong>Settings → Finish freeing space in Photos</strong>. Apple gives apps no way to open that album directly, so this opens Photos with it searched for.",
        "In Photos, open <strong>Recently Deleted</strong> (it asks for Face&nbsp;ID or your passcode).",
        "Tap <strong>Select → Delete All</strong>."),
     tip("<strong>Changed your mind?</strong> Until you empty it, anything you deleted can be recovered from that same album."),
-])) + step("09", "troubleshooting", "If something's <em>not working.</em>", "The usual causes, and what to do.", "\n".join([
+])) + step("10", "troubleshooting", "If something's <em>not working.</em>", "The usual causes, and what to do.", "\n".join([
     ul("<strong>&ldquo;I deleted thousands of photos and my storage did not change&rdquo;</strong> &mdash; they are in Recently Deleted. See step 08.",
        "<strong>The piles look too small</strong> &mdash; PhotoMuse may only have access to some photos. The first screen says so; tap <strong>Change</strong>, or allow Full Access in Settings → Privacy &amp; Security → Photos.",
        "<strong>&ldquo;Your library has changed&rdquo;</strong> &mdash; you took or deleted photos since the last scan. Tap <strong>Check again</strong>, or turn on <em>Check again automatically</em> in Settings.",
@@ -525,9 +535,13 @@ support = doc_page("support", "Help with <em>PhotoMuse.</em>",
      ("There are thousands of similar shots. Do I have to delete them all at once?", [
         "No. Open a photo full size and swipe through the groups; each group you have seen in full is marked <strong>Reviewed</strong>. The main delete button then removes only the reviewed groups, so you can clear a big pile a few groups at a time and come back to the rest later. The second button, <strong>Delete from all groups</strong>, is there if you would rather trust the app-suggested picks. Either way, photos marked keep are never deleted, Apple asks you to confirm, and everything stays in Recently Deleted for 30 days."]),
      ("Why did an enhanced photo appear under Duplicates or Similar shots?", [
-        "Because it is the same picture as its original, and PhotoMuse is right to notice. Keep whichever you prefer. If you would rather not have two, use <strong>Replace original</strong> when saving from Enhance."]),
+        "Because it is the same picture as its original, and PhotoMuse is right to notice. Keep whichever you prefer. If you would rather not have two, use <strong>Replace original</strong> when saving from Enhance. The same goes for a copy saved from Info: it appears under Duplicates only, never under Similar shots as well."]),
      ("Is Replace original safe?", [
         "Yes. Photos keeps the untouched original alongside the edit, as it does for its own edits. To go back, open the photo in Photos → Edit → Revert. Live Photos can only be saved as a copy, because replacing one would drop the movement."]),
+     ("Can PhotoMuse change a photo's date or remove its location?", [
+        "Yes. Open the photo full size and tap &#9432;. <strong>Adjust Date &amp; Time</strong> and <strong>Remove Location</strong> change the photo itself &mdash; the same two things Photos lets you change &mdash; and no permission prompt is needed. The file inside keeps its original date and place, so Info can set them back later. Several at once: select them in a pile and use the <strong>&hellip;</strong> menu beside Delete."]),
+     ("Why is the edited photo a copy instead of the original?", [
+        "Because Apple lets no app rename a photo or rewrite its file. <strong>Edit Details &amp; Save Copy</strong> and <strong>Save a Clean Copy</strong> therefore make a new copy beside the original &mdash; same albums, same date unless you chose a new one, the picture copied as it is &mdash; and then ask what to do with the original: keep it, or move it to Recently Deleted. A clean copy carries no location, phone or lens details; what you share is the picture and nothing else."]),
      ("Enhance or Compress takes a while to start", [
         "With iCloud Photos and Optimise Storage on, the full-size original may be in your iCloud, and Apple's Photos system has to fetch it first. Wi-Fi helps. Rebuild detail is also real work on a large photo, and says so while it runs."]),
      ("Why are some videos not offered for compression?", [
