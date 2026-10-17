@@ -388,7 +388,7 @@ guide += f'''  <main>
     p("<strong>Bad shots</strong> are photos that are blurred, too dark, or have a finger over the lens. Glance through before deleting &mdash; a dark photo can still be one you love. Open a photo full size and it is marked <strong>Reviewed</strong>. The main delete button then removes only the photos you reviewed; the second button deletes every photo still marked delete."),
     tip("Picking photos by hand and deleting them is free and unlimited. <strong>Select all</strong> &mdash; for a whole pile, month or size group at once &mdash; is part of Plus."),
 ])) + step("03", "similar", "Similar shots &amp; <em>duplicates.</em>", "Groups of near-identical photos, with a suggested keeper.", "\n".join([
-    p("<strong>Duplicates</strong> are the same picture more than once. <strong>Similar shots</strong> are the six tries at one group photo. Each group shows how much room the extras take."),
+    p("<strong>Duplicates</strong> are the same picture more than once. <strong>Similar shots</strong> are the six tries at one group photo. Duplicates is strict &mdash; the same picture, pixel for pixel; an edited version of a photo counts as a similar shot, not a duplicate. Each group shows how much room the extras take."),
     ul("<strong>Keep only our pick</strong> keeps the photo PhotoMuse judges best and marks the rest.",
        "<strong>Keep all</strong> leaves the group alone.",
        "To decide yourself, tap the badge on any photo to switch it between keep and delete. Tap the photo to see it large.",
@@ -536,6 +536,12 @@ support = doc_page("support", "Help with <em>PhotoMuse.</em>",
         "No. Open a photo full size and swipe through the groups; each group you have seen in full is marked <strong>Reviewed</strong>. The main delete button then removes only the reviewed groups, so you can clear a big pile a few groups at a time and come back to the rest later. The second button, <strong>Delete from all groups</strong>, is there if you would rather trust the app-suggested picks. Either way, photos marked keep are never deleted, Apple asks you to confirm, and everything stays in Recently Deleted for 30 days."]),
      ("Why did an enhanced photo appear under Duplicates or Similar shots?", [
         "Because it is the same picture as its original, and PhotoMuse is right to notice. Keep whichever you prefer. If you would rather not have two, use <strong>Replace original</strong> when saving from Enhance. The same goes for a copy saved from Info: it appears under Duplicates only, never under Similar shots as well."]),
+     ("Two photos look identical, but one pile calls them Similar shots and not Duplicates. Why?", [
+        "<strong>Duplicates</strong> means the <em>same picture</em> more than once: identical files, or the same picture saved again at another size or compression &mdash; a copy that came back through Messages or WhatsApp, a smaller export, a screenshot of a photo. The proof is strict on purpose: the two have to match pixel for pixel on a small grid, because the next step is deleting one.",
+        "<strong>Similar shots</strong> means <em>nearly</em> the same picture: the next frame of a burst, the same scene a moment later &mdash; or a version of the same photo that has been edited. Enhancing, cropping, a filter, even a light touch of brightness changes the pixels, so an edited copy belongs to Similar shots, where you decide which version to keep. Only when the change is too small for the grid to see does an edited copy still count as a duplicate.",
+        "A pair never appears in both piles: a copy that Duplicates has matched is left out of Similar shots."]),
+     ("Duplicates keeps the bigger file. I wanted the smaller one.", [
+        "The bigger file is the one that has not been through another round of compression, so it is the safest default. It is only a suggestion: tap the badge on the photo you want to keep and the other one is marked instead."]),
      ("Is Replace original safe?", [
         "Yes. Photos keeps the untouched original alongside the edit, as it does for its own edits. To go back, open the photo in Photos → Edit → Revert. Live Photos can only be saved as a copy, because replacing one would drop the movement."]),
      ("Can PhotoMuse change a photo's date or remove its location?", [
