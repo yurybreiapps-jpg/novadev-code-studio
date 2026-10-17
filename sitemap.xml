@@ -181,4 +181,22 @@
     <loc>https://www.novadevcodestudio.com/lustless/30-day-reset/</loc>
     <lastmod>2026-09-28</lastmod>
   </url>
+  <url>
+    <loc>https://www.novadevcodestudio.com/tennis-score-tracker/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.novadevcodestudio.com/zen-tile-flow/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.novadevcodestudio.com/eternal-light/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

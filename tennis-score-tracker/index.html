@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tennis Score Tracker — scorekeeper for tennis, pickleball and ping-pong, on phone and watch</title>
+  <meta name="description" content="A fast scorekeeper for tennis, pickleball and ping-pong on iPhone, iPad, Android, Apple Watch and Wear OS: tap to score, undo any point, see who is serving. No account.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.novadevcodestudio.com/tennis-score-tracker/">
+  <meta property="og:title" content="Tennis Score Tracker — scorekeeper for tennis, pickleball and ping-pong, on phone and watch">
+  <meta property="og:description" content="A fast scorekeeper for tennis, pickleball and ping-pong on your phone, tablet or watch. No account, no cloud.">
+  <meta property="og:url" content="https://www.novadevcodestudio.com/tennis-score-tracker/">
+  <meta property="og:image" content="https://www.novadevcodestudio.com/assets/apps/tennis-score-tracker/phone-1.webp">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NovaDev Code Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tennis Score Tracker",
+    "operatingSystem": "iOS, iPadOS, watchOS, Android, Wear OS",
+    "applicationCategory": "SportsApplication",
+    "description": "A fast scorekeeper for tennis, pickleball and ping-pong on your phone, tablet or watch. No account, no cloud.",
+    "url": "https://www.novadevcodestudio.com/tennis-score-tracker/",
+    "installUrl": "https://apps.apple.com/app/id6763812774",
+    "author": { "@type": "Organization", "name": "NovaDev Code Studio" }
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10182b; --muted: #5b6880; --heading: #0b1440;
+      --accent-1: #1674ff; --accent-2: #7551ff; --accent-3: #ff46da;
+      --line: rgba(31, 59, 133, 0.14); --surface: rgba(255, 255, 255, 0.88);
+      --shadow: 0 30px 80px rgba(24, 46, 110, 0.16); --max: 880px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--sans); color: var(--ink); background: #f7f9ff; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    .liquid { position: relative; isolation: isolate; }
+    .liquid::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(52% 44% at 6% 12%, rgba(122, 170, 255, 0.34), transparent 62%),
+        radial-gradient(46% 40% at 96% 6%, rgba(186, 158, 255, 0.30), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f3f6ff 55%, #eef3ff 100%);
+    }
+    .nav-wrap { position: sticky; top: 14px; z-index: 60; padding: 0 18px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: min(100%, 880px); margin: 14px auto 0; padding: 12px 14px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78); box-shadow: 0 16px 50px rgba(28, 52, 120, 0.14);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; color: var(--heading); }
+    .brand img { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px; }
+    .nav a { padding: 9px 10px; border-radius: 999px; color: #33415e; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .nav a:hover, .nav a:focus-visible { background: rgba(22, 116, 255, 0.09); color: var(--heading); outline: none; }
+    .nav .store-pill { display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 9px 15px; border-radius: 999px; background: #0c1020; color: #fff; font-size: 0.9rem; font-weight: 700; }
+    .nav .store-pill:hover, .nav .store-pill:focus-visible { background: #1c2440; color: #fff; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #56618a; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex: none; margin-top: 6px; align-self: flex-start; }
+    .display { margin: 16px 0 18px; font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.08; color: var(--heading); }
+    .display em { font-style: italic; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1.display { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+    h2.display { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 0; }
+
+    h3.deck {
+      max-width: 62ch;
+      margin: -4px 0 20px;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0;
+      color: var(--muted);
+    }
+    .lead { margin: 0; color: var(--muted); font-size: 1.12rem; line-height: 1.65; }
+    .page-head { padding: 64px 0 34px; text-align: center; }
+    .head-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 26px; }
+    .button-dark { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 20px; border-radius: 999px; background: #0c1020; color: #fff; font-weight: 700; transition: background 160ms ease, transform 160ms ease; }
+    .button-dark:hover, .button-dark:focus-visible { background: #1c2440; transform: translateY(-2px); outline: none; }
+    .button-soft { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255, 255, 255, 0.8); color: var(--heading); font-weight: 700; }
+    .button-soft:hover, .button-soft:focus-visible { border-color: rgba(31, 59, 133, 0.3); outline: none; }
+    section { padding: 34px 0; }
+    .step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+    .step-num { font-family: var(--serif); font-size: 2.6rem; line-height: 1; background: linear-gradient(180deg, rgba(117, 81, 255, 0.55), rgba(117, 81, 255, 0.15)); -webkit-background-clip: text; background-clip: text; color: transparent; flex: none; }
+    .card { padding: 26px 28px; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 26px; background: var(--surface); box-shadow: 0 16px 44px rgba(24, 46, 110, 0.08); }
+    .card p, .card li { color: var(--muted); line-height: 1.68; }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul, .card ol { margin: 0 0 12px; padding-left: 22px; }
+    .card strong { color: var(--heading); }
+    .card a { color: var(--accent-1); font-weight: 700; }
+    .card a:hover, .card a:focus-visible { text-decoration: underline; outline: none; }
+    .tip { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(19, 138, 90, 0.2); border-radius: 16px; background: rgba(223, 255, 234, 0.5); color: #1d5c40; font-size: 0.95rem; line-height: 1.6; }
+    .tip strong { color: #124a32; }
+    .shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 6px; }
+    .shot-pair figure { margin: 0; }
+    .shot-pair img { display: block; width: 100%; height: auto; border-radius: 16px; }
+    .shot-pair figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.9rem; }
+    .shot-pair figcaption strong { color: var(--heading); }
+    .shot-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 6px; }
+    .shot-trio figure { margin: 0; }
+    .shot-trio img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-trio figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-trio figcaption strong { color: var(--heading); }
+    .shot-solo { max-width: 280px; margin: 18px auto 6px; }
+    .shot-solo img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-solo figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
+    .shot-solo figcaption strong { color: var(--heading); }
+    .shot-pair img { border: 1px solid var(--line); }
+    .phone-row { display: flex; justify-content: center; gap: 6%; margin: 18px 0 6px; }
+    .phone-row img { width: 30%; height: auto; filter: drop-shadow(0 18px 30px rgba(24, 46, 110, 0.22)); }
+    .credits-table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 0.97rem; }
+    .credits-table th, .credits-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .credits-table th { color: var(--heading); font-weight: 700; }
+    .cta { padding: 60px 0 76px; text-align: center; }
+    .store-badge-link img { width: 176px; height: auto; border-radius: 10px; }
+    .footer { padding: 30px 0 42px; border-top: 1px solid rgba(31, 59, 133, 0.10); color: #66719a; font-size: 0.92rem; text-align: center; }
+    .footer a { font-weight: 600; color: #4a5578; }
+    .footer a:hover, .footer a:focus-visible { color: var(--heading); outline: none; }
+    @media (max-width: 700px) {
+      .nav-wrap { position: static; }
+      .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
+      .nav { width: 100%; justify-content: center; }
+      .shot-pair { grid-template-columns: 1fr; }
+      .shot-trio { grid-template-columns: 1fr; justify-items: center; }
+      .shot-trio figure { max-width: 280px; width: 100%; }
+      .shot-trio figcaption { text-align: center; }
+      .phone-row img { width: 31%; }
+    }
+    @media print {
+      .nav-wrap, .head-actions, .cta, .footer { display: none !important; }
+      .display em { background: none; -webkit-background-clip: initial; background-clip: initial; color: #6b4fd8; }
+      body { background: #fff; }
+      .liquid::before { display: none; }
+      section { padding: 14px 0; }
+      .card { box-shadow: none; border: 1px solid #d8ddee; }
+      figure, .tip, .credits-table, .step-head { break-inside: avoid; page-break-inside: avoid; }
+      .shot-pair, .shot-trio { break-inside: auto; page-break-inside: auto; }
+      .page-head { padding: 20px 0 10px; }
+    }
+  
+    .style-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 18px 0 0; }
+    .style-grid img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    @media (max-width: 700px) { .style-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; } }
+    .shot-wide { margin: 18px 0 6px; }
+    .shot-wide img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-wide figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .shot-wide figcaption strong { color: var(--heading); }
+    .footer-badges { display: flex; justify-content: center; margin-top: 22px; }
+    .at-badge { display: inline-flex; border-radius: 12px; transition: transform 160ms ease; }
+    .at-badge:hover, .at-badge:focus-visible { transform: translateY(-2px); outline: none; }
+    .at-badge img { display: block; width: 200px; height: auto; }
+
+    /* The studio mark, then the app — the header the tennis home page has.
+       The studio half is the way back to the home page from every app page;
+       before this, PhotoMuse's brand link pointed at PhotoMuse. Appended at
+       the end of the sheet so it wins over the one-part .brand rules above.
+       Added by hand, 2026-09-28. */
+    .brand-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 0; box-shadow: none; }
+    .brand-text { display: grid; line-height: 1; }
+    .brand-title { color: #091d75; font-size: 1.12rem; letter-spacing: -0.04em; font-weight: 900; }
+    .brand-title span {
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .brand-subtitle {
+      margin-top: 4px; color: #6c7ba0; font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.30em; text-transform: uppercase;
+    }
+    .brand-sep { color: #9aa6c6; font-weight: 800; }
+    .brand-app {
+      display: flex; align-items: center; gap: 8px; color: var(--heading);
+      font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap;
+    }
+    .nav-app-icon { width: 30px; height: 30px; border-radius: 22%; box-shadow: 0 6px 14px rgba(10, 22, 70, 0.25); }
+    /* Narrow: drop the wordmark first (the logo still links home), then the
+       separator, then let the two halves stack rather than collide. */
+    @media (max-width: 1100px) { .topbar .brand-text { display: none; } }
+    @media (max-width: 860px) {
+      .brand-sep { display: none; }
+      .brand-group { flex-wrap: wrap; justify-content: center; row-gap: 6px; }
+      .brand-app { white-space: normal; justify-content: center; text-align: center; }
+    }
+  
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand img { width: 46px; height: 46px; object-fit: contain; }
+
+    .footer-legal { flex: 1; min-width: 260px; text-align: center; }
+    .footer-legal p { margin: 0 0 6px; }
+    .fineprint { font-size: 0.78rem; color: #8b96b8; }
+
+    .footer-textlinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .footer-textlinks a { color: #4a5578; }
+    .footer-textlinks a:hover, .footer-textlinks a:focus-visible { color: var(--heading); outline: none; }
+
+    .footer-badges { display: flex; justify-content: center; margin-top: 22px; }
+    .at-badge { display: inline-flex; border-radius: 12px; transition: transform 160ms ease; }
+    .at-badge:hover, .at-badge:focus-visible { transform: translateY(-2px); outline: none; }
+    .at-badge img { display: block; width: 200px; height: auto; }
+
+    .social-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+    .social-row a {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      background: #fff;
+      color: #33415e;
+      box-shadow: 0 8px 20px rgba(28, 52, 120, 0.10);
+      transition: transform 150ms ease, color 150ms ease;
+    }
+
+    .social-row a:hover,
+    .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
+
+    .social-row svg { width: 20px; height: 20px; fill: currentColor; }
+  
+    .shot-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 6px; }
+    .shot-row.four { grid-template-columns: repeat(4, 1fr); }
+    .shot-row figure { margin: 0; }
+    .shot-row img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .shot-row figcaption { padding: 8px 4px 0; color: var(--muted); font-size: 0.86rem; line-height: 1.45; }
+    .shot-row figcaption strong { color: var(--heading); }
+    @media (max-width: 640px) { .shot-row, .shot-row.four { grid-template-columns: 1fr 1fr; } }
+    .badge-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 22px 0 0; }
+    .badge-row .label { width: 100%; margin: 0; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+    .badge-row img { width: 176px; height: auto; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <header class="topbar">
+      <span class="brand-group">
+        <a class="brand" href="../" aria-label="NovaDev Code Studio home">
+          <img src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+          <span class="brand-text">
+            <span class="brand-title">Nova<span>Dev</span></span>
+            <span class="brand-subtitle">Code Studio</span>
+          </span>
+        </a>
+        <span class="brand-sep" aria-hidden="true">·</span>
+        <span class="brand-app">
+          <img class="nav-app-icon" src="../assets/apps/tennis-score-tracker/app-icon.webp" alt="">
+          Tennis Score Tracker
+        </span>
+      </span>
+      <nav class="nav" aria-label="Page links">
+        <a href="#what">What it does</a>
+        <a href="#phone">Phone</a>
+        <a href="#watch">Watch</a>
+        <a href="#price">Free and Pro</a>
+        <a class="store-pill" href="https://apps.apple.com/app/id6763812774" target="_blank" rel="noreferrer">App Store</a>
+      </nav>
+    </header>
+  </div>
+  <main>
+    <section class="page-head liquid">
+      <div class="container">
+        <p class="eyebrow">iPhone, iPad &amp; Android &middot; Apple Watch &amp; Wear OS</p>
+        <h1 class="display">Tennis Score Tracker</h1>
+        <p class="lead"><strong>Never argue about the score again.</strong> 30-15 or 15-30? Who's serving?
+        Did we switch sides? A fast scorekeeper for tennis, pickleball and ping-pong, on your phone,
+        tablet or watch.</p>
+        <div class="badge-row">
+          <p class="label">Phone and tablet</p>
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6763812774" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Match on the App Store"><img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=space.manus.matchscore.t20260326123000" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Match on Google Play"><img src="../assets/store/google-play-badge.png" alt="Get it on Google Play"></a>
+        </div>
+        <div class="badge-row">
+          <p class="label">Watch</p>
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6772611262" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Watch on the App Store"><img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.novadevcodestudio.matchscoreprowatch" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Watch on Google Play"><img src="../assets/store/google-play-badge.png" alt="Get it on Google Play"></a>
+        </div>
+      </div>
+    </section>
+    <section id="what">
+      <div class="container">
+        <h2 class="display">What it does</h2>
+        <div class="card">
+          <p>Tap to score; undo and redo any point. The current server is always shown, with a match
+          timer. Tennis singles and doubles, standard sets, no-ad, pro sets and Fast4-style presets.
+          Pickleball and ping-pong with win-by-two and serving indicators. Large display with a
+          high-visibility mode for outdoor courts. Optional voice announcements and haptics.</p>
+          <div class="shot-row">
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/phone-2.webp" alt="Tennis scoring on iPhone: 15-40, team names, sets and games, server shown" width="760" height="1645" loading="lazy">
+              <figcaption><strong>Tennis</strong> &middot; Points, games and sets, and who serves next.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/phone-3.webp" alt="Pickleball scoring on iPhone with the serving team marked" width="760" height="1645" loading="lazy">
+              <figcaption><strong>Pickleball</strong> &middot; Win-by-two and the server, on a court view.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/phone-4.webp" alt="Ping-pong scoring on iPhone, 7-5" width="760" height="1645" loading="lazy">
+              <figcaption><strong>Ping-pong</strong> &middot; The same tap-to-score, on a table view.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="phone">
+      <div class="container">
+        <h2 class="display">On your phone</h2>
+        <p class="lead">iPhone, iPad and Android. Saved players with photos, match history and statistics,
+        Spectator Mode, rematch in one tap.</p>
+        <div class="card">
+          <div class="shot-row">
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/phone-5.webp" alt="Players list with saved player profiles" width="760" height="1645" loading="lazy">
+              <figcaption><strong>Players</strong> &middot; Saved profiles, so a rematch takes seconds.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/phone-7.webp" alt="Match history across tennis, pickleball and ping-pong" width="760" height="1645" loading="lazy">
+              <figcaption><strong>History</strong> &middot; Every match, filterable by sport.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/phone-8.webp" alt="Statistics overview with a breakdown by sport" width="760" height="1645" loading="lazy">
+              <figcaption><strong>Stats</strong> &middot; How you play, over time.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="card">
+          <h3>On Android: score without touching the phone</h3>
+          <p>Volume up scores for the top player, volume down for the bottom one. Any Bluetooth media
+          remote works too: &#9664;&#9664; undoes, &#9654;&#9654; redoes, and play/pause still controls your music.</p>
+          <div class="tip"><p>iPhone doesn't allow apps to use the volume buttons this way.</p></div>
+        </div>
+      </div>
+    </section>
+    <section id="watch">
+      <div class="container">
+        <h2 class="display">On your wrist</h2>
+        <p class="lead">Apple Watch and Wear OS. The score on the watch itself, no phone needed. Tap or
+        slide to score, with color themes and the time of day.</p>
+        <div class="card">
+          <div class="shot-row four">
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/watch-1.webp" alt="Apple Watch showing the score and the serving player" width="410" height="887" loading="lazy">
+              <figcaption><strong>Always know who's serving</strong></figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/watch-2.webp" alt="Apple Watch with large score numbers" width="410" height="887" loading="lazy">
+              <figcaption><strong>Read it at a glance</strong></figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/watch-5.webp" alt="Apple Watch with a light color theme" width="410" height="887" loading="lazy">
+              <figcaption><strong>Any light</strong> &middot; Light and dark themes.</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/apps/tennis-score-tracker/watch-10.webp" alt="Apple Watch settings for voice announcements and haptics" width="410" height="887" loading="lazy">
+              <figcaption><strong>Hear every point</strong> &middot; Spoken scores and haptics.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="price">
+      <div class="container">
+        <h2 class="display">Free and Pro</h2>
+        <p class="lead">Standard singles scoring is free on every sport. A one-time Pro unlock adds doubles,
+        every preset, custom settings, unlimited player profiles, advanced statistics, history filters,
+        Spectator Mode and result sharing. No subscription.</p>
+      </div>
+    </section>
+    <section id="private">
+      <div class="container">
+        <h2 class="display">Private</h2>
+        <div class="card">
+          <h3>No account, no cloud</h3>
+          <p>Matches, players and settings stay on your device.</p>
+        </div>
+      </div>
+    </section>
+    <section class="cta liquid">
+      <div class="container">
+        <h2 class="display">Get Tennis Score Tracker</h2>
+        <p class="lead">Free to download. Questions: <a href="mailto:support@novadevcodestudio.com">support@novadevcodestudio.com</a></p>
+        <div class="badge-row">
+          <p class="label">Phone and tablet</p>
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6763812774" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Match on the App Store"><img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=space.manus.matchscore.t20260326123000" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Match on Google Play"><img src="../assets/store/google-play-badge.png" alt="Get it on Google Play"></a>
+        </div>
+        <div class="badge-row">
+          <p class="label">Watch</p>
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6772611262" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Watch on the App Store"><img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.novadevcodestudio.matchscoreprowatch" target="_blank" rel="noreferrer" aria-label="Tennis Score Tracker Watch on Google Play"><img src="../assets/store/google-play-badge.png" alt="Get it on Google Play"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <a class="footer-brand" href="../" aria-label="NovaDev Code Studio home">
+        <img src="../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <span class="brand-text">
+          <span class="brand-title">Nova<span>Dev</span></span>
+          <span class="brand-subtitle">Code Studio</span>
+        </span>
+      </a>
+      <div class="footer-legal">
+        <p>Copyright <span id="currentYear"></span> NovaDev Code Studio &middot; novadevcodestudio.com. All rights reserved.</p>
+        <nav class="footer-textlinks" aria-label="Footer links"><a href="mailto:support@novadevcodestudio.com">Support</a></nav>
+      </div>
+      <div class="social-row" aria-label="NovaDev Code Studio on social platforms">
+        <a href="https://www.tiktok.com/@novadevcode" target="_blank" rel="noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.9 2h2.7c.2 1.2.8 2.3 1.7 3.1.9.8 2 1.3 3.2 1.4v2.8c-1.8-.1-3.5-.7-4.9-1.7v7.1c0 3.6-2.9 6.5-6.5 6.5S2.6 18.3 2.6 14.7c0-3.5 2.8-6.4 6.3-6.5V11c-1.9.1-3.5 1.7-3.5 3.7 0 2.1 1.7 3.7 3.7 3.7s3.7-1.7 3.7-3.7L12.9 2Z"/></svg></a>
+        <a href="https://www.youtube.com/@NovaDevCodeStudio" target="_blank" rel="noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2c-.3-1-1-1.8-2-2C19.1 4.7 12 4.7 12 4.7s-7.1 0-9 .5c-1 .3-1.7 1-2 2C.5 9.1.5 12 .5 12s0 2.9.5 4.8c.3 1 1 1.8 2 2 1.9.5 9 .5 9 .5s7.1 0 9-.5c1-.3 1.7-1 2-2 .5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8ZM9.8 15.3V8.7l6 3.3-6 3.3Z"/></svg></a>
+        <a href="https://www.instagram.com/novadevcode/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.4.2-1.7.3-.4.2-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.6-.3 1.7-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.4.3 1.7.2.4.3.7.6 1 .3.3.6.5 1 .6.3.1.6.3 1.7.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.4-.2 1.7-.3.4-.2.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.6.3-1.7.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.4-.3-1.7-.2-.4-.3-.7-.6-1-.3-.3-.6-.5-1-.6-.3-.1-.6-.3-1.7-.3-1.3-.1-1.7-.1-4.8-.1Zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm4.6-3.5a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61591775212862" target="_blank" rel="noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>
+        <a href="https://apps.apple.com/us/developer/yury-nickolaevich-brei/id1895503289" target="_blank" rel="noreferrer" aria-label="Apple developer page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 12.9c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.2.9-4.1 2.4-1.8 3-.4 7.5 1.3 9.9.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-3.9ZM14.2 5.2c.7-.8 1.1-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.5 2.9-1.3Z"/></svg></a>
+        <a href="https://github.com/novadevcodestudio" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.2.8-.5v-2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-3 0 0 .9-.3 3.1 1.2a10.7 10.7 0 0 1 5.6 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.6.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.3.8 1 .8 2v3c0 .3.2.6.8.5A11.2 11.2 0 0 0 12 .8Z"/></svg></a>
+        <a href="mailto:support@novadevcodestudio.com" aria-label="Email support"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.3L4.2 7h15.6L12 12.3Zm-8-3v7.7h16V9.3l-7.5 5a1 1 0 0 1-1 0L4 9.3Z"/></svg></a>
+      </div>    </div>
+  </footer>
+  <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+</body>
+</html>
