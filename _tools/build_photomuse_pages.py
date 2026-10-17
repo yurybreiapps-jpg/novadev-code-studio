@@ -201,7 +201,7 @@ FIGURES = {
         '        <figure class="shot-solo">\n          <img src="../assets/apps/photomuse/iphone-home.webp" alt="The same piles on iPhone" width="520" height="1125" loading="lazy">\n          <figcaption><strong>On iPhone too</strong> &middot; Every screen above is the iPad; this is the same app on a phone.</figcaption>\n        </figure>',
     'Photo access, the first scan, and what the numbers mean.':
         '          <figure class="shot-half"><img src="../../assets/apps/photomuse/piles.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>The first screen.</strong> Every pile, with its real size.</figcaption></figure>',
-    'Screenshots, screen recordings, bad shots, large videos and Live Photos.':
+    'Screenshots, screen recordings, bad shots, large videos, large photos and Live Photos.':
         '          <div class="shot-trio"><figure><img src="../../assets/apps/photomuse/screenshots.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Screenshots.</strong> Nothing is picked for you.</figcaption></figure><figure><img src="../../assets/apps/photomuse/badshots.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Bad shots.</strong> Each one says what was measured.</figcaption></figure><figure><img src="../../assets/apps/photomuse/bigvideos.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Large videos.</strong> Grouped by size, biggest first.</figcaption></figure></div>',
     'Groups of near-identical photos, with a suggested keeper.':
         '          <div class="shot-pair"><figure><img src="../../assets/apps/photomuse/similar.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Similar shots.</strong> A suggested keeper in every group.</figcaption></figure><figure><img src="../../assets/apps/photomuse/duplicates.webp" alt="" width="880" height="1173" loading="lazy"><figcaption><strong>Duplicates.</strong> The same picture more than once.</figcaption></figure></div>',
@@ -265,9 +265,9 @@ overview += f'''  <main>
     <section id="what">
       <div class="container">
         <h2 class="display">What it <em>does.</em></h2>
-        <h3 class="deck">Nine piles, a swipe review, search, Enhance, the Info tools and video compression.</h3>
+        <h3 class="deck">Ten piles, a swipe review, search, Enhance, the Info tools, Shrink and video compression.</h3>
 {card("Sorts the clutter into piles",
-      "Similar shots, duplicates, bad shots (blurred, too dark, a thumb in the way), screenshots, screen recordings, large videos, Live Photos &mdash; and everything else, month by month.",
+      "Similar shots, duplicates, bad shots (blurred, too dark, a thumb in the way), screenshots, screen recordings, large videos, large photos, Live Photos &mdash; and everything else, month by month.",
       "Every pile shows how many items it holds and how much room they take. The sizes are read from your library, byte for byte, not estimated.")}
 {card("Picks a keeper, and lets you overrule it",
       "Nearly identical photos are grouped and PhotoMuse suggests the one worth keeping. Take its pick, keep them all, or switch any photo yourself.",
@@ -281,6 +281,8 @@ overview += f'''  <main>
       "Enhanced photos stay in the format they came in. An HEIC is not quietly turned into a JPEG twice the size.")}
 {card("Fixes a wrong date, removes a location, shares a clean copy",
       "Tap &#9432; on any photo or video to change its date and time or remove its location, the way Photos does &mdash; and set them back from the file later. Edit Details &amp; Save Copy and Save a Clean Copy make a new copy beside the original with the name, date, caption or camera details changed or left out, for sharing privately. Videos too.")}
+{card("Shrinks the biggest photos",
+      "The Large photos pile finds RAW files, panoramas and very high-resolution shots. Shrink writes a smaller HEIC or JPEG beside each original &mdash; date, place, camera details and albums kept &mdash; shows the real saving, and leaves the original for you to decide. All on the device.")}
 {card("Compress videos &mdash; only when it helps",
       "Re-encoding an already efficient video makes it <strong>bigger</strong>. PhotoMuse asks Apple's encoder first and lists only the videos that will really shrink, each with its own estimate, then shows the real saving afterwards. HDR video stays HDR.")}
 {card("Honest about what frees space",
@@ -360,7 +362,7 @@ guide = head(
     "How to use PhotoMuse — the complete guide to cleaning your photo library",
     "Step by step: clear similar shots and duplicates, review a month by swiping, search your photos, enhance them, fix a wrong date or share a clean copy, compress videos, and actually free the space on your iPhone or iPad.",
     "photomuse/guide/", "../../")
-guide += "<body>\n" + topbar("../../", "../", [("Piles", "#piles"), ("Swipe review", "#review"), ("Enhance", "#enhance"), ("Fix details", "#details"), ("Videos", "#compress"), ("Free space", "#finish"), ("Help", "#troubleshooting")])
+guide += "<body>\n" + topbar("../../", "../", [("Piles", "#piles"), ("Swipe review", "#review"), ("Enhance", "#enhance"), ("Fix details", "#details"), ("Shrink", "#shrink"), ("Videos", "#compress"), ("Free space", "#finish"), ("Help", "#troubleshooting")])
 guide += f'''  <main>
     <section class="page-head liquid">
       <div class="container">
@@ -381,10 +383,10 @@ guide += f'''  <main>
     p("<strong>The first scan</strong> runs on your device and nothing is uploaded. A large library takes a few minutes; you can start using the piles that are ready while the rest are still being counted."),
     p("<strong>The numbers are real.</strong> Sizes are read from your library byte for byte. Where a figure is an estimate, the app says so."),
     tip("<strong>Nothing is ever deleted on its own.</strong> Every delete is confirmed by you in Apple's own sheet, and can be undone in Photos for 30 days."),
-])) + step("02", "piles", "Clear the <em>piles.</em>", "Screenshots, screen recordings, bad shots, large videos and Live Photos.", "\n".join([
+])) + step("02", "piles", "Clear the <em>piles.</em>", "Screenshots, screen recordings, bad shots, large videos, large photos and Live Photos.", "\n".join([
     ol("Open a pile from the first screen.",
        "Tap the items you do not want. Tap a preview to see it full size first &mdash; videos and Live Photos play there.",
-       "Use <strong>Sort</strong> to order by date, size or name. <strong>Large videos</strong> are grouped by size &mdash; over 1&nbsp;GB, over 500&nbsp;MB and so on &mdash; because a handful of files is usually most of the space.",
+       "Use <strong>Sort</strong> to order by date, size or name. <strong>Large videos</strong> are grouped by size &mdash; over 1&nbsp;GB, over 500&nbsp;MB and so on &mdash; because a handful of files is usually most of the space. <strong>Large photos</strong> works the same way &mdash; RAW files, panoramas and very high-resolution shots in size bands, with a RAW badge; where &ldquo;large&rdquo; starts is a slider in Settings.",
        "Delete, and confirm in Apple's sheet."),
     p("<strong>Bad shots</strong> are photos that are blurred, too dark, or have a finger over the lens. Glance through before deleting &mdash; a dark photo can still be one you love. Open a photo full size and it is marked <strong>Reviewed</strong>. The main delete button then removes only the photos you reviewed; the second button deletes every photo still marked delete."),
     tip("Picking photos by hand and deleting them is free and unlimited. <strong>Select all</strong> &mdash; for a whole pile, month or size group at once &mdash; is part of Plus."),
@@ -424,19 +426,26 @@ guide += f'''  <main>
        "<strong>Save a Clean Copy</strong>: the same picture with no location and no camera or phone details, for sharing privately. Works for videos too."),
     p("<strong>Why a copy?</strong> Apple does not let any app rename a photo or rewrite its file &mdash; not even Photos can. So those changes go into a new copy saved beside the original, in the same albums, and you choose afterwards: keep the original, or move it to Recently Deleted. The picture itself is copied as it is, not re-encoded, so nothing is lost on the way."),
     tip("<strong>Sharing without the details:</strong> a clean copy of a photo or video carries no place, no phone model and no lens. What you send to a stranger or post publicly is the picture and nothing else."),
-])) + step("08", "compress", "Compress <em>videos.</em>", "Smaller files for the videos you want to keep.", "\n".join([
+])) + step("08", "shrink", "Shrink <em>large photos.</em>", "Smaller copies of the biggest files, with nothing about them lost.", "\n".join([
+    ol("In <strong>Large photos</strong>, select the photos to shrink and tap <strong>Shrink</strong>.",
+       "Choose <strong>HEIC</strong> (about half the size of a JPEG; every iPhone, iPad and Mac opens it) or <strong>JPEG</strong> for old computers and websites; the <strong>same resolution</strong> or <strong>up to 12&nbsp;MP</strong>; and a quality level &mdash; Best is the default.",
+       "Each photo gets a smaller copy beside it, with the date, place, camera details and albums kept. The finish screen shows the real before-and-after size.",
+       "<strong>Keep the originals</strong>, or move them to Recently Deleted."),
+    p("A copy that would not be meaningfully smaller is not saved &mdash; a photo that is already a HEIC usually isn't. You can stop a long run at any time; what is done stays done, and the app pauses by itself if the phone gets hot."),
+    tip("<strong>RAW files:</strong> a RAW is the camera's unprocessed data, kept for editing later. The copy is what the photo looks like now; once the RAW is gone, that editing room goes with it. Three shrinks are free to try; Plus does as many as you like."),
+])) + step("09", "compress", "Compress <em>videos.</em>", "Smaller files for the videos you want to keep.", "\n".join([
     p("Re-encoding a video that is already efficient makes it <strong>bigger</strong>, so <strong>Compress videos</strong> first asks Apple's encoder about each one and lists only those that will really shrink. Each shows its own estimate; slow-motion clips and videos that are not on the device are left alone, and the app says why."),
     ol("Pick a video and a size: the same resolution, or 1080p for anything larger.",
        "Wait for it to finish. You can stop at any time and nothing changes.",
        "See the <strong>real</strong> saving, then choose <strong>Keep both</strong> or <strong>Delete the original</strong>."),
     p("HDR video stays HDR. If the finished file is not meaningfully smaller, PhotoMuse throws it away and keeps your original."),
-])) + step("09", "finish", "Actually free <em>the space.</em>", "The step every cleaner app skips telling you about.", "\n".join([
+])) + step("10", "finish", "Actually free <em>the space.</em>", "The step every cleaner app skips telling you about.", "\n".join([
     p("Deleting a photo &mdash; in any app, including Photos &mdash; moves it to <strong>Recently Deleted</strong>, where it stays for 30 days and <strong>still takes up room</strong>. Your storage does not change until that album is emptied."),
     ol("In PhotoMuse, open <strong>Settings → Finish freeing space in Photos</strong>. Apple gives apps no way to open that album directly, so this opens Photos with it searched for.",
        "In Photos, open <strong>Recently Deleted</strong> (it asks for Face&nbsp;ID or your passcode).",
        "Tap <strong>Select → Delete All</strong>."),
     tip("<strong>Changed your mind?</strong> Until you empty it, anything you deleted can be recovered from that same album."),
-])) + step("10", "troubleshooting", "If something's <em>not working.</em>", "The usual causes, and what to do.", "\n".join([
+])) + step("11", "troubleshooting", "If something's <em>not working.</em>", "The usual causes, and what to do.", "\n".join([
     ul("<strong>&ldquo;I deleted thousands of photos and my storage did not change&rdquo;</strong> &mdash; they are in Recently Deleted. See step 08.",
        "<strong>The piles look too small</strong> &mdash; PhotoMuse may only have access to some photos. The first screen says so; tap <strong>Change</strong>, or allow Full Access in Settings → Privacy &amp; Security → Photos.",
        "<strong>&ldquo;Your library has changed&rdquo;</strong> &mdash; you took or deleted photos since the last scan. Tap <strong>Check again</strong>, or turn on <em>Check again automatically</em> in Settings.",
@@ -556,8 +565,8 @@ support = doc_page("support", "Help with <em>PhotoMuse.</em>",
      ("Search did not find my photo", [
         "Search reads what is visibly in a picture &mdash; <em>cat</em>, <em>beach</em>, <em>car</em> &mdash; on your device, and it does not know names, places or text. The first read of a big library takes a while. When a word finds nothing, <strong>Search Photos instead</strong> passes it to Apple's Photos app."]),
      ("What is free, and what is Plus?", [
-        "Free, with no time limit: scanning, every pile, search, the whole swipe review, and deleting photos you pick by hand. Also free to try: cleaning 5 similar or duplicate groups, enhancing 5 photos, and compressing 2 videos.",
-        "Plus is for doing it in bulk: selecting a whole pile, month or size group at once, cleaning every group, and enhancing and compressing without a limit. Prices are shown in the app and on the App Store."]),
+        "Free, with no time limit: scanning, every pile, search, the whole swipe review, and deleting photos you pick by hand. Also free to try: cleaning 5 similar or duplicate groups, enhancing 5 photos, compressing 2 videos, and shrinking 3 large photos.",
+        "Plus is for doing it in bulk: selecting a whole pile, month or size group at once, cleaning every group, and enhancing, compressing and shrinking without a limit. Prices are shown in the app and on the App Store."]),
      ("Subscriptions, the free trial, lifetime, restoring and cancelling", [
         "Plus is sold and billed by Apple: weekly, yearly with a 7-day free trial, or a one-time lifetime purchase. If you cancel during the trial you are not charged. To restore a purchase on a new device, open Settings in PhotoMuse → <strong>Restore a purchase</strong>. To change or cancel a subscription, use Settings → your name → Subscriptions on your device, or <strong>Manage or cancel</strong> in PhotoMuse once a plan is active. Cancelling stops renewal; Plus stays on until the end of the period you paid for. Lifetime has nothing to renew or cancel."]),
      ("Contact", ['Anything else &mdash; a bug, a question, a suggestion: <a href="mailto:support@novadevcodestudio.com">support@novadevcodestudio.com</a>. It reaches a person, not a form.'])]) + DOC_TAIL
