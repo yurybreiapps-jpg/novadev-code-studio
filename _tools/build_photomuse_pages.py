@@ -270,7 +270,8 @@ overview += f'''  <main>
       "Similar shots, duplicates, bad shots (blurred, too dark, a thumb in the way), screenshots, screen recordings, large videos, Live Photos &mdash; and everything else, month by month.",
       "Every pile shows how many items it holds and how much room they take. The sizes are read from your library, byte for byte, not estimated.")}
 {card("Picks a keeper, and lets you overrule it",
-      "Nearly identical photos are grouped and PhotoMuse suggests the one worth keeping. Take its pick, keep them all, or switch any photo yourself.")}
+      "Nearly identical photos are grouped and PhotoMuse suggests the one worth keeping. Take its pick, keep them all, or switch any photo yourself.",
+      "<strong>Duplicates</strong> is strict &mdash; the same picture, pixel for pixel. An edited version of a photo counts as a <strong>similar shot</strong>, not a duplicate, so you decide which version stays.")}
 {card("Review a month by swiping",
       "Left to delete, right to keep. Swiping only marks &mdash; nothing is deleted until you finish and confirm. Undo goes back as far as you like, and your place is saved, so a long month can be done over several days.")}
 {card("Search by what is in the photo",
