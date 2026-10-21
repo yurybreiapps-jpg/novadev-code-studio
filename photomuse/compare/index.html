@@ -223,6 +223,21 @@
     .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
 
     .social-row svg { width: 20px; height: 20px; fill: currentColor; }
+
+    /* PhotoMuse stands out in comparison tables (Yury, 2026-10-20). */
+    .cmp-table tr.ours-row td, .cmp-table.vs td:nth-child(3), .cmp-table.vs th:nth-child(3) {
+      background: linear-gradient(180deg, rgba(117, 81, 255, 0.10), rgba(255, 70, 218, 0.07));
+      color: var(--heading); font-weight: 700;
+    }
+    .cmp-table tr.ours-row td:first-child { box-shadow: inset 4px 0 0 var(--accent-2); }
+    .cmp-table.vs th:nth-child(3) { box-shadow: inset 0 4px 0 var(--accent-2); border-radius: 12px 12px 0 0; }
+    .cmp-table.vs td:nth-child(3).yes { color: #4b2fd0; }
+    .cmp-table tr.ours-row td strong, .cmp-table.vs td:nth-child(3) strong {
+      background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .card.ours-card { border: 2px solid transparent; background: linear-gradient(180deg, #f0eaff 0%, #f6edff 50%, #fdeefa 100%) padding-box, linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3)) border-box; box-shadow: 0 18px 50px rgba(117, 81, 255, 0.22); }
+    .pm-brand { font-weight: 800; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   </style>
 </head>
 <body>
@@ -263,6 +278,7 @@
         <div class="head-actions">
           <a class="store-badge-link" href="https://apps.apple.com/app/apple-store/id6814026340?pt=128829427&amp;ct=site&amp;mt=8" target="_blank" rel="noreferrer" aria-label="Download PhotoMuse on the App Store"><img src="../../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
           <a class="button-soft" href="../guide/">Read the full guide &rarr;</a>
+          <a class="button-soft" href="../best-duplicate-photo-apps/">Best duplicate photo apps &rarr;</a>
         </div>
       </div>
     </section>
@@ -285,7 +301,7 @@
                 <tr><td><strong>Cleaner Kit</strong></td><td>350K</td><td>Weekly</td></tr>
                 <tr><td><strong>Swipewipe</strong></td><td>92K</td><td>$79.99 per year. Contains ads.</td></tr>
                 <tr><td><strong>Clever Cleaner</strong></td><td>82K</td><td>Free up to 5 GB a day. $6.99 weekly or <strong>$39.99 once</strong>. No ads.</td></tr>
-                <tr><td><strong>PhotoMuse</strong></td><td>New</td><td>Free to scan, browse, swipe and delete by hand. $19.99 a year with a 7-day trial, or <strong>$39.99 once</strong>.</td></tr>
+                <tr class="ours-row"><td><strong><span class="pm-brand">PhotoMuse</span></strong></td><td>New</td><td>Free to scan, browse, swipe and delete by hand. $2.99 a week, $19.99 a year, or <strong>$39.99 once</strong>.</td></tr>
               </tbody>
             </table>
           </div>
@@ -324,14 +340,14 @@
         <h2 class="display">Side by <em>side.</em></h2>
         <div class="card">
           <div class="cmp-wrap">
-            <table class="cmp-table">
-              <thead><tr><th>What you want</th><th>The well-known cleaners</th><th>PhotoMuse</th></tr></thead>
+            <table class="cmp-table vs">
+              <thead><tr><th>What you want</th><th>The well-known cleaners</th><th><span class="pm-brand">PhotoMuse</span></th></tr></thead>
               <tbody>
                 <tr><td>Find duplicates and similar shots</td><td class="yes">Yes &mdash; all of them</td><td class="yes">Yes</td></tr>
                 <tr><td>Swipe through a month to sort it</td><td class="yes">Most of them</td><td class="yes">Yes, free and unlimited</td></tr>
-                <tr><td>Clean up contacts and email too</td><td class="yes">Yes &mdash; most of them</td><td class="no">No. Photos and videos only</td></tr>
-                <tr><td>A large free daily allowance</td><td class="yes">Clever Cleaner: 5 GB a day</td><td class="no">No &mdash; a fixed free allowance instead</td></tr>
-                <tr><td>Thousands of ratings behind it</td><td class="yes">82K&ndash;716K</td><td class="no">No. It is new</td></tr>
+                <tr><td>Clean up contacts and email too</td><td class="yes">Yes &mdash; most of them</td><td>Photos and videos, the things that fill your storage. New photo tools arrive with each update</td></tr>
+                <tr><td>What is free every day</td><td>Varies. Only one of the cleaners we checked has a daily allowance: Clever Cleaner, 5 GB a day</td><td class="yes">Swiping and deleting by hand, with no limit. Bulk cleaning is free to try, then Plus</td></tr>
+                <tr><td>Thousands of ratings behind it</td><td class="yes">82K&ndash;716K</td><td>New in 2026, rated 5 stars so far</td></tr>
                 <tr><td>A real iPad app</td><td class="no">Only one of them has one</td><td class="yes">Yes, laid out for iPad in every orientation</td></tr>
                 <tr><td>Improve the photos you keep, not only delete</td><td class="no">No</td><td class="yes">Yes &mdash; Enhance, on your device</td></tr>
                 <tr><td>Told the truth about Recently Deleted</td><td class="no">Rarely</td><td class="yes">Yes, and it takes you there to finish</td></tr>
