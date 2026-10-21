@@ -248,6 +248,20 @@
 
     .social-row svg { width: 20px; height: 20px; fill: currentColor; }
     .topbar { width: min(100%, 960px); }
+    /* Our app stands out in comparison tables (Yury, 2026-10-20). */
+    .cmp-table tr.ours-row td, .cmp-table.vs td:nth-child(3), .cmp-table.vs th:nth-child(3) {
+      background: linear-gradient(180deg, rgba(117, 81, 255, 0.10), rgba(255, 70, 218, 0.07));
+      color: var(--heading); font-weight: 700;
+    }
+    .cmp-table tr.ours-row td:first-child { box-shadow: inset 4px 0 0 var(--accent-2); }
+    .cmp-table.vs th:nth-child(3) { box-shadow: inset 0 4px 0 var(--accent-2); border-radius: 12px 12px 0 0; }
+    .cmp-table.vs td:nth-child(3).yes { color: #4b2fd0; }
+    .cmp-table tr.ours-row td strong, .cmp-table.vs td:nth-child(3) strong {
+      background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .card.ours-card { border: 2px solid transparent; background: linear-gradient(180deg, #f0eaff 0%, #f6edff 50%, #fdeefa 100%) padding-box, linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3)) border-box; box-shadow: 0 18px 50px rgba(117, 81, 255, 0.22); }
+    .pm-brand { font-weight: 800; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   </style>
 </head>
 <body>
@@ -255,7 +269,7 @@
     <header class="topbar">
       <span class="brand-group">
         <a class="brand" href="../../" aria-label="NovaDev Code Studio home">
-          <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+          <img src="../../assets/novadev-logo.png?v=be60643a" alt="NovaDev Code Studio logo">
           <span class="brand-text">
             <span class="brand-title">Nova<span>Dev</span></span>
             <span class="brand-subtitle">Code Studio</span>
@@ -263,7 +277,7 @@
         </a>
         <span class="brand-sep" aria-hidden="true">·</span>
         <a class="brand-app" href="../">
-          <img class="nav-app-icon" src="../../assets/apps/ai-image-generator/app-icon.png" alt="">
+          <img class="nav-app-icon" src="../../assets/apps/ai-image-generator/app-icon.png?v=5408e948" alt="">
           AI Images
         </a>
       </span>
@@ -284,8 +298,9 @@
         <h1 class="display">Which AI image app <em>should you use?</em></h1>
         <p class="lead">The honest answer first: if you want the best picture a machine can make today, use one of the big cloud services &mdash; their models are far larger than anything a phone can run. And if you want every model and every dial, on your own device, for free, use Draw Things. This page is about where the differences really are &mdash; <strong>where the picture is made</strong>, <strong>what it costs</strong> and <strong>what happens to what you type</strong> &mdash; and the narrower case where AI Image Generator Anywhere is the right pick.</p>
         <div class="head-actions">
-          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="Download AI Image Generator Anywhere on the App Store"><img src="../../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="Download AI Image Generator Anywhere on the App Store"><img src="../../assets/store/app-store-badge.png?v=5fe034a7" alt="Download on the App Store"></a>
           <a class="button-soft" href="../guides/">Read the guides &rarr;</a>
+          <a class="button-soft" href="../best-ai-image-generator-apps/">Best AI image apps &rarr;</a>
         </div>
       </div>
     </section>
@@ -324,7 +339,7 @@
                 <tr><td><strong>Draw Things</strong> (on-device)</td><td>733</td><td><strong>Free to use.</strong> Optional Draw Things+ at $8.99, and Boost bundles from $0.99 to $19.99.</td></tr>
                 <tr><td><strong>LocalGen</strong> (on-device)</td><td>164</td><td>$4.99 a week, $9.99 a month, or $29.99 once.</td></tr>
                 <tr><td><strong>PhoneDiffusion</strong> (on-device)</td><td>31</td><td>$7.99&ndash;$11.99 a month, $16.99&ndash;$23.99 a year, or $24.99 once.</td></tr>
-                <tr><td><strong>AI Image Generator Anywhere</strong> (on-device)</td><td>New</td><td>Fifty pictures free, then <strong>one purchase</strong> unlocks it for good. No subscription. The price is on its App Store page.</td></tr>
+                <tr class="ours-row"><td><strong><span class="pm-brand">AI Image Generator Anywhere</span></strong> (on-device)</td><td>New</td><td>Fifty pictures free, then <strong>one purchase</strong> unlocks it for good. No subscription. The price is on its App Store page.</td></tr>
               </tbody>
             </table>
           </div>
@@ -352,15 +367,15 @@
         <h2 class="display">Side by <em>side.</em></h2>
         <div class="card">
           <div class="cmp-wrap">
-            <table class="cmp-table">
-              <thead><tr><th>What you want</th><th>The others</th><th>AI Image Generator Anywhere</th></tr></thead>
+            <table class="cmp-table vs">
+              <thead><tr><th>What you want</th><th>The others</th><th><span class="pm-brand">AI Image Generator Anywhere</span></th></tr></thead>
               <tbody>
-                <tr><td>The best picture quality there is</td><td class="yes">The cloud apps &mdash; much larger models</td><td class="no">No. A phone cannot run models that size</td></tr>
-                <tr><td>Many models and every setting</td><td class="yes">Draw Things</td><td class="no">No &mdash; a few chosen models and simple controls</td></tr>
-                <tr><td>Free with no limit</td><td class="yes">Draw Things</td><td class="no">No &mdash; fifty pictures free, then one purchase</td></tr>
-                <tr><td>Runs on an older or smaller iPhone</td><td class="yes">The cloud apps run on anything</td><td class="no">No &mdash; it needs 6 GB of memory: an iPhone 14 or later, a 12 Pro or 13 Pro, or an iPad with an M-series chip</td></tr>
-                <tr><td>Thousands of ratings behind it</td><td class="yes">DaVinci 76K, Leonardo.Ai 11K</td><td class="no">No. It is new</td></tr>
-                <tr><td>A Mac app</td><td class="yes">Draw Things</td><td class="no">No</td></tr>
+                <tr><td>The best picture quality there is</td><td class="yes">The cloud apps &mdash; much larger models</td><td>Strong pictures from a model sized for your phone, made with no connection</td></tr>
+                <tr><td>Many models and every setting</td><td class="yes">Draw Things</td><td>A few chosen models with simple, clear controls</td></tr>
+                <tr><td>Free with no limit</td><td class="yes">Draw Things</td><td>Fifty pictures free, then one purchase for unlimited pictures, yours for life</td></tr>
+                <tr><td>Runs on an older or smaller iPhone</td><td class="yes">The cloud apps run on anything</td><td>Made for iPhone 14 or later, a 12 Pro or 13 Pro, or an iPad with an M-series chip</td></tr>
+                <tr><td>Thousands of ratings behind it</td><td class="yes">DaVinci 76K, Leonardo.Ai 11K</td><td>New in 2026</td></tr>
+                <tr><td>A Mac app</td><td class="yes">Draw Things</td><td>Built for iPhone and iPad</td></tr>
                 <tr><td>Works with no connection</td><td class="no">The cloud apps: no. The on-device ones: yes</td><td class="yes">Yes &mdash; try it in airplane mode</td></tr>
                 <tr><td>A picture with no second download</td><td class="no">Draw Things is a 0.3 GB app that fetches its models afterwards</td><td class="yes">Yes &mdash; the model is inside the app, which is why it is a 3.1 GB download</td></tr>
                 <tr><td>No subscription anywhere</td><td class="no">Most offer weekly or monthly plans</td><td class="yes">Yes &mdash; one purchase, nothing renews</td></tr>
@@ -404,7 +419,7 @@
         <span class="eyebrow">Decide for yourself</span>
         <h2 class="display">Fifty pictures free, <em>nothing collected.</em></h2>
         <div class="head-actions">
-          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="Download AI Image Generator Anywhere on the App Store"><img src="../../assets/store/app-store-badge.png" alt="Download on the App Store"></a>
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6805583172" target="_blank" rel="noreferrer" aria-label="Download AI Image Generator Anywhere on the App Store"><img src="../../assets/store/app-store-badge.png?v=5fe034a7" alt="Download on the App Store"></a>
           <a class="button-soft" href="../">About AI Images &rarr;</a>
         </div>
       </div>
@@ -413,7 +428,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <a class="footer-brand" href="../../" aria-label="NovaDev Code Studio home">
-        <img src="../../assets/novadev-logo.png" alt="NovaDev Code Studio logo">
+        <img src="../../assets/novadev-logo.png?v=be60643a" alt="NovaDev Code Studio logo">
         <span class="brand-text">
           <span class="brand-title">Nova<span>Dev</span></span>
           <span class="brand-subtitle">Code Studio</span>

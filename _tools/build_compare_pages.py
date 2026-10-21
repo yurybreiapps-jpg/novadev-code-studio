@@ -1,4 +1,9 @@
-"""Builds /lustless/compare/ and /ai-images/compare/.
+"""RETIRED 2026-10-21. Both pages are now edited by hand (highlighted "ours" column,
+reworded cells, round-up links); this script no longer reproduces them and
+--write would undo those edits. Edit lustless/compare/index.html and
+ai-images/compare/index.html directly.
+
+Builds /lustless/compare/ and /ai-images/compare/.
 
 Same shape as /photomuse/compare/ (concede first, then dated facts), and the
 same look: the stylesheet and the social row are read from that page rather
@@ -455,6 +460,8 @@ IMAGES["faq_ld"] = [
 PAGES = [("lustless/compare/index.html", page(LUSTLESS)), ("ai-images/compare/index.html", page(IMAGES))]
 
 write = "--write" in sys.argv[1:]
+if write:
+    sys.exit("build_compare_pages.py is retired (2026-10-21): the pages are hand-edited now. Refusing to overwrite them.")
 show = "--diff" in sys.argv[1:]
 drift = 0
 for rel, html in PAGES:
