@@ -248,6 +248,20 @@
 
     .social-row svg { width: 20px; height: 20px; fill: currentColor; }
     .topbar { width: min(100%, 960px); }
+    /* Our app stands out in comparison tables (Yury, 2026-10-20). */
+    .cmp-table tr.ours-row td, .cmp-table.vs td:nth-child(3), .cmp-table.vs th:nth-child(3) {
+      background: linear-gradient(180deg, rgba(117, 81, 255, 0.10), rgba(255, 70, 218, 0.07));
+      color: var(--heading); font-weight: 700;
+    }
+    .cmp-table tr.ours-row td:first-child { box-shadow: inset 4px 0 0 var(--accent-2); }
+    .cmp-table.vs th:nth-child(3) { box-shadow: inset 0 4px 0 var(--accent-2); border-radius: 12px 12px 0 0; }
+    .cmp-table.vs td:nth-child(3).yes { color: #4b2fd0; }
+    .cmp-table tr.ours-row td strong, .cmp-table.vs td:nth-child(3) strong {
+      background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .card.ours-card { border: 2px solid transparent; background: linear-gradient(180deg, #f0eaff 0%, #f6edff 50%, #fdeefa 100%) padding-box, linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3)) border-box; box-shadow: 0 18px 50px rgba(117, 81, 255, 0.22); }
+    .pm-brand { font-weight: 800; background: linear-gradient(92deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   </style>
 </head>
 <body>
@@ -306,7 +320,7 @@
                 <tr><td><strong>QUITTR</strong></td><td>34K</td><td>$9.99&ndash;$14.99 a month, $19.99&ndash;$29.99 a year, or <strong>$49.99 once</strong>.</td></tr>
                 <tr><td><strong>Overcomer</strong></td><td>11K</td><td>$19.99&ndash;$29.99 a year with a 3-day trial. Other plans from $4.99 to $34.99.</td></tr>
                 <tr><td><strong>Rewired</strong></td><td>3K</td><td>$3.99 a week, $4.99&ndash;$9.99 a month, $29.99&ndash;$59.99 a year, or <strong>$49.99 once</strong>.</td></tr>
-                <tr><td><strong>Lustless</strong></td><td>New</td><td>Free: the counter, the panic button, your reasons, the log and the daily check-in. Pro (the Shield, the 90-day guide, your patterns): $9.99 a month or $29.99 a year, with a 7-day free trial.</td></tr>
+                <tr class="ours-row"><td><strong><span class="pm-brand">Lustless</span></strong></td><td>New</td><td>Free: the counter, the panic button, your reasons, the log and the daily check-in. Pro (the Shield, the 90-day guide, your patterns): $9.99 a month or $29.99 a year, with a 7-day free trial.</td></tr>
               </tbody>
             </table>
           </div>
@@ -358,8 +372,8 @@
         <h2 class="display">Side by <em>side.</em></h2>
         <div class="card">
           <div class="cmp-wrap">
-            <table class="cmp-table">
-              <thead><tr><th>What you want</th><th>The well-known apps</th><th>Lustless</th></tr></thead>
+            <table class="cmp-table vs">
+              <thead><tr><th>What you want</th><th>The well-known apps</th><th><span class="pm-brand">Lustless</span></th></tr></thead>
               <tbody>
                 <tr><td>Count clean days and see the streak</td><td class="yes">Yes &mdash; all of them</td><td class="yes">Yes, free</td></tr>
                 <tr><td>A panic button for the hard moment</td><td class="yes">Most of them</td><td class="yes">Yes, free &mdash; your own reasons come first</td></tr>
