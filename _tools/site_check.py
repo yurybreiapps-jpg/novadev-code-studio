@@ -110,3 +110,12 @@ show("No direct link to the home page",sorted(homeless))
 show("Cannot get back home at all",sorted(stranded))
 show("In sitemap but file missing",sorted(t for t in smfiles if not os.path.exists(os.path.join(ROOT,t))))
 show("Reachable pages missing from sitemap",sorted(p for p in seen if p not in smfiles and p not in noindex))
+
+# Every app card on the home page should link to that app's own page, not only to the stores.
+home=open(os.path.join(ROOT,"index.html"),encoding="utf-8").read()
+cards=re.findall(r'<article class="product-card.*?</article>',home,re.S)
+nolink=[]
+for c in cards:
+    t=re.search(r"<h3>(.*?)</h3>",c,re.S)
+    if 'class="text-link"' not in c and 'card-stretch' not in c: nolink.append(t.group(1).strip() if t else "?")
+show("Home page app cards with no link to the app's page",nolink)
