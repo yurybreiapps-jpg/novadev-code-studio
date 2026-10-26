@@ -42,6 +42,19 @@
     "embedUrl": "https://www.youtube-nocookie.com/embed/uRDurw5sp2w"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "How to Quit Lust: Max's First 90 Days | Part 2",
+    "description": "What the first 90 days of quitting lust can look like, from the loud first nights to new defaults, explained by a stick figure named Max.",
+    "thumbnailUrl": "https://www.novadevcodestudio.com/assets/apps/lustless/max-video-2.webp",
+    "uploadDate": "2026-10-26",
+    "duration": "PT5M18S",
+    "contentUrl": "https://youtu.be/BUqp2BHE6to",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/BUqp2BHE6to"
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -148,6 +161,10 @@
     .video-card .play::after { content: ""; position: absolute; left: 30px; top: 22px; border-style: solid; border-width: 16px 0 16px 26px; border-color: transparent transparent transparent #fff; }
     .video-card iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .video-note { margin: 10px 4px 0; color: var(--muted); font-size: 0.88rem; }
+    .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } }
+    .video-more { margin: 18px 4px 0; font-weight: 600; }
+    .video-more a { color: var(--accent-1); }
     @media (max-width: 700px) {
       .nav-wrap { position: static; }
       .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
@@ -310,13 +327,26 @@
     <section id="watch">
       <div class="container">
         <h2 class="display">Watch Max explain it</h2>
-        <p class="lead">A five-minute stick-figure story about why the late-night loop keeps coming back &mdash; and eight simple steps that break it.</p>
+        <p class="lead">Two short stick-figure stories. Part 1: why the late-night loop keeps coming back, and eight simple steps that break it. Part 2: what Max's first 90 days really look like.</p>
         <div class="card">
-          <a class="video-card" href="https://youtu.be/uRDurw5sp2w" data-yt="uRDurw5sp2w" target="_blank" rel="noreferrer" aria-label="Play: How to Quit Lust, Why You Keep Going Back">
-            <img src="../assets/apps/lustless/max-video-1.webp" alt="Max in bed at 11:30 PM with his phone glowing: Why you keep going back" width="1280" height="720" loading="lazy">
-            <span class="play" aria-hidden="true"></span>
-          </a>
-          <p class="video-note"><strong>How to Quit Lust: Why You Keep Going Back</strong> &middot; 5:43 &middot; Nothing loads from YouTube until you press play.</p>
+          <div class="video-grid">
+            <div>
+              <a class="video-card" href="https://youtu.be/uRDurw5sp2w" data-yt="uRDurw5sp2w" target="_blank" rel="noreferrer" aria-label="Play: How to Quit Lust, Why You Keep Going Back">
+                <img src="../assets/apps/lustless/max-video-1.webp" alt="Max in bed at 11:30 PM with his phone glowing: Why you keep going back" width="1280" height="720" loading="lazy">
+                <span class="play" aria-hidden="true"></span>
+              </a>
+              <p class="video-note"><strong>Part 1: Why You Keep Going Back</strong> &middot; 5:43</p>
+            </div>
+            <div>
+              <a class="video-card" href="https://youtu.be/BUqp2BHE6to" data-yt="BUqp2BHE6to" target="_blank" rel="noreferrer" aria-label="Play: How to Quit Lust, Max's First 90 Days, Part 2">
+                <img src="../assets/apps/lustless/max-video-2.webp" alt="Max in a boxing ring against a tiny urge creature: Max's first 90 days" width="1280" height="720" loading="lazy">
+                <span class="play" aria-hidden="true"></span>
+              </a>
+              <p class="video-note"><strong>Part 2: Max's First 90 Days</strong> &middot; 5:18</p>
+            </div>
+          </div>
+          <p class="video-note">Nothing loads from YouTube until you press play.</p>
+          <p class="video-more">More on YouTube: <a href="https://www.youtube.com/@LustlessApp" target="_blank" rel="noreferrer">@LustlessApp</a></p>
         </div>
       </div>
     </section>
@@ -466,8 +496,9 @@
         f.title = a.getAttribute('aria-label');
         f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
         f.allowFullscreen = true;
-        a.replaceWith(Object.assign(document.createElement('div'), { className: 'video-card' }));
-        document.querySelector('#watch .card .video-card').appendChild(f);
+        var box = Object.assign(document.createElement('div'), { className: 'video-card' });
+        box.appendChild(f);
+        a.replaceWith(box);
       });
     });
   </script>
