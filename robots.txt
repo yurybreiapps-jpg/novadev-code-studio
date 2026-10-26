@@ -8,6 +8,14 @@ User-agent: *
 Content-Signal: search=yes,ai-input=yes,ai-train=no,use=reference
 Allow: /
 
+# Tracked store links. /go/<app>/<name> is a click counter plus a 302 to the
+# App Store — there is no page there to index, and the only thing crawling one
+# achieves is a "Page with redirect" line in Search Console. Google found
+# /go/lustless/tiktok from the TikTok bio on 2026-10-24 and reported it as a
+# reason pages are not indexed, which is true and entirely beside the point.
+# This only governs crawlers: the links and the counter work exactly as before.
+Disallow: /go/
+
 # Deliberately NOT blocked: Google-Extended. It governs Google AI Overviews
 # and Gemini grounding, which is where people now ask "what is a good AI
 # tennis coach app" — the answer surface we want to appear in. Also allowed:
