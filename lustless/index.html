@@ -165,6 +165,33 @@
     @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } }
     .video-more { margin: 18px 4px 0; font-weight: 600; }
     .video-more a { color: var(--accent-1); }
+    /* Max clips carousel: our own files, played right on the page (nothing loads from Instagram or TikTok). */
+    .reels { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .reels-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .reels-head p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .reels-nav { display: flex; gap: 8px; flex: none; }
+    .clip-arrow { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--heading); font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: 0 6px 16px rgba(28, 52, 120, 0.10); }
+    .clip-arrow:hover, .clip-arrow:focus-visible { color: var(--accent-1); outline: none; }
+    .clip-arrow:disabled { opacity: 0.35; cursor: default; }
+    .clip-row { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 6px; scrollbar-width: none; outline: none; }
+    .clip-row::-webkit-scrollbar { display: none; }
+    .clip { flex: 0 0 calc((100% - 36px) / 4); margin: 0; scroll-snap-align: start; }
+    .clip-box { position: relative; overflow: hidden; border-radius: 14px; border: 1px solid var(--line); aspect-ratio: 9 / 16; background: #f3efe6; }
+    .clip-box video { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .clip-play { position: absolute; inset: 0; width: 100%; border: 0; background: transparent; cursor: pointer; }
+    .clip-play::after { content: ""; position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%;
+      background: rgba(8, 12, 30, 0.62) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") 55% 50% / 26px no-repeat; }
+    .clip.playing .clip-play { display: none; }
+    .clip figcaption { padding: 8px 2px 0; color: var(--heading); font-size: 0.86rem; font-weight: 600; line-height: 1.35; }
+    .follow-max { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 16px; color: var(--muted); font-size: 0.92rem; }
+    .follow-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 999px; color: #fff !important; font-size: 0.86rem; font-weight: 700; text-decoration: none !important; }
+    .follow-btn .ico { width: 16px; height: 16px; fill: currentColor; }
+    .follow-btn.ig { background: linear-gradient(92deg, #f58529, #dd2a7b 50%, #8134af); }
+    .follow-btn.tt { background: #0c1020; }
+    @media (max-width: 760px) {
+      .reels-nav { display: none; }
+      .clip { flex-basis: 46%; }
+    }
     @media (max-width: 700px) {
       .nav-wrap { position: static; }
       .topbar { flex-wrap: wrap; justify-content: center; row-gap: 6px; border-radius: 24px; }
@@ -282,6 +309,8 @@
     .social-row a:focus-visible { transform: translateY(-2px); color: var(--accent-1); outline: none; }
 
     .social-row svg { width: 20px; height: 20px; fill: currentColor; }
+    .follow-app { margin-top: 26px; }
+    .follow-app p { margin: 0 0 10px; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -347,6 +376,211 @@
           </div>
           <p class="video-note">Nothing loads from YouTube until you press play.</p>
           <p class="video-more">More on YouTube: <a href="https://www.youtube.com/@LustlessApp" target="_blank" rel="noreferrer">@LustlessApp</a></p>
+          <div class="reels">
+            <div class="reels-head">
+              <p><strong>More Max, right here.</strong> 27 short stick-figure clips. Tap one to play it with sound.</p>
+              <div class="reels-nav">
+                <button type="button" class="clip-arrow" data-dir="-1" aria-label="Previous clips">&#8249;</button>
+                <button type="button" class="clip-arrow" data-dir="1" aria-label="Next clips">&#8250;</button>
+              </div>
+            </div>
+            <div class="clip-row" tabindex="0" aria-label="Max clips, scroll sideways">
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/battery-1.webp" src="../assets/apps/lustless/clips/battery-1.mp4" aria-label="Who stole Max&#x27;s battery? (Part 1)"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Who stole Max&#x27;s battery? (Part 1)"></button>
+                </div>
+                <figcaption>Who stole Max&#x27;s battery? (Part 1)</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/battery-2.webp" src="../assets/apps/lustless/clips/battery-2.mp4" aria-label="The cable was there the whole time (Part 2)"></video>
+                  <button class="clip-play" type="button" aria-label="Play: The cable was there the whole time (Part 2)"></button>
+                </div>
+                <figcaption>The cable was there the whole time (Part 2)</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/battery-3.webp" src="../assets/apps/lustless/clips/battery-3.mp4" aria-label="How Max got his charge back (Part 3)"></video>
+                  <button class="clip-play" type="button" aria-label="Play: How Max got his charge back (Part 3)"></button>
+                </div>
+                <figcaption>How Max got his charge back (Part 3)</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/ten-minutes.webp" src="../assets/apps/lustless/clips/ten-minutes.mp4" aria-label="How to beat the urge in 10 minutes"></video>
+                  <button class="clip-play" type="button" aria-label="Play: How to beat the urge in 10 minutes"></button>
+                </div>
+                <figcaption>How to beat the urge in 10 minutes</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/one-of-two.webp" src="../assets/apps/lustless/clips/one-of-two.mp4" aria-label="1 of 2 things happens at 11 PM"></video>
+                  <button class="clip-play" type="button" aria-label="Play: 1 of 2 things happens at 11 PM"></button>
+                </div>
+                <figcaption>1 of 2 things happens at 11 PM</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/stages.webp" src="../assets/apps/lustless/clips/stages.mp4" aria-label="The stages of quitting"></video>
+                  <button class="clip-play" type="button" aria-label="Play: The stages of quitting"></button>
+                </div>
+                <figcaption>The stages of quitting</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/staying-quit.webp" src="../assets/apps/lustless/clips/staying-quit.mp4" aria-label="Quitting isn&#x27;t the hard part. Staying quit is."></video>
+                  <button class="clip-play" type="button" aria-label="Play: Quitting isn&#x27;t the hard part. Staying quit is."></button>
+                </div>
+                <figcaption>Quitting isn&#x27;t the hard part. Staying quit is.</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/do-this-first.webp" src="../assets/apps/lustless/clips/do-this-first.mp4" aria-label="Slipped? Do this first"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Slipped? Do this first"></button>
+                </div>
+                <figcaption>Slipped? Do this first</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/never-noticed-her.webp" src="../assets/apps/lustless/clips/never-noticed-her.mp4" aria-label="He never noticed her"></video>
+                  <button class="clip-play" type="button" aria-label="Play: He never noticed her"></button>
+                </div>
+                <figcaption>He never noticed her</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/two-guys.webp" src="../assets/apps/lustless/clips/two-guys.mp4" aria-label="Two guys, one night"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Two guys, one night"></button>
+                </div>
+                <figcaption>Two guys, one night</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/willpower.webp" src="../assets/apps/lustless/clips/willpower.mp4" aria-label="Willpower is a trap. Do this instead."></video>
+                  <button class="clip-play" type="button" aria-label="Play: Willpower is a trap. Do this instead."></button>
+                </div>
+                <figcaption>Willpower is a trap. Do this instead.</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/day-six.webp" src="../assets/apps/lustless/clips/day-six.mp4" aria-label="Nobody tells you about day six"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Nobody tells you about day six"></button>
+                </div>
+                <figcaption>Nobody tells you about day six</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/step-1.webp" src="../assets/apps/lustless/clips/step-1.mp4" aria-label="It&#x27;s not random: catch the pattern"></video>
+                  <button class="clip-play" type="button" aria-label="Play: It&#x27;s not random: catch the pattern"></button>
+                </div>
+                <figcaption>It&#x27;s not random: catch the pattern</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/step-3.webp" src="../assets/apps/lustless/clips/step-3.mp4" aria-label="&quot;Just once&quot; is a deal you always lose"></video>
+                  <button class="clip-play" type="button" aria-label="Play: &quot;Just once&quot; is a deal you always lose"></button>
+                </div>
+                <figcaption>&quot;Just once&quot; is a deal you always lose</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/step-4.webp" src="../assets/apps/lustless/clips/step-4.mp4" aria-label="The boring step that works"></video>
+                  <button class="clip-play" type="button" aria-label="Play: The boring step that works"></button>
+                </div>
+                <figcaption>The boring step that works</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/step-5.webp" src="../assets/apps/lustless/clips/step-5.mp4" aria-label="Write this before tonight"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Write this before tonight"></button>
+                </div>
+                <figcaption>Write this before tonight</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/step-7.webp" src="../assets/apps/lustless/clips/step-7.mp4" aria-label="Reset the counter, not your identity"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Reset the counter, not your identity"></button>
+                </div>
+                <figcaption>Reset the counter, not your identity</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/day-1-4-30.webp" src="../assets/apps/lustless/clips/day-1-4-30.mp4" aria-label="Day 1, day 4, day 30"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Day 1, day 4, day 30"></button>
+                </div>
+                <figcaption>Day 1, day 4, day 30</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/urge-wave.webp" src="../assets/apps/lustless/clips/urge-wave.mp4" aria-label="The urge is a wave"></video>
+                  <button class="clip-play" type="button" aria-label="Play: The urge is a wave"></button>
+                </div>
+                <figcaption>The urge is a wave</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/block-the-road.webp" src="../assets/apps/lustless/clips/block-the-road.mp4" aria-label="Block the road"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Block the road"></button>
+                </div>
+                <figcaption>Block the road</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/excitement.webp" src="../assets/apps/lustless/clips/excitement.mp4" aria-label="When the excitement wears off"></video>
+                  <button class="clip-play" type="button" aria-label="Play: When the excitement wears off"></button>
+                </div>
+                <figcaption>When the excitement wears off</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/im-fine-now.webp" src="../assets/apps/lustless/clips/im-fine-now.mp4" aria-label="The &quot;I&#x27;m fine now&quot; trap"></video>
+                  <button class="clip-play" type="button" aria-label="Play: The &quot;I&#x27;m fine now&quot; trap"></button>
+                </div>
+                <figcaption>The &quot;I&#x27;m fine now&quot; trap</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/hard-week.webp" src="../assets/apps/lustless/clips/hard-week.mp4" aria-label="The hard week"></video>
+                  <button class="clip-play" type="button" aria-label="Play: The hard week"></button>
+                </div>
+                <figcaption>The hard week</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/started-at-940.webp" src="../assets/apps/lustless/clips/started-at-940.mp4" aria-label="It started at 9:40"></video>
+                  <button class="clip-play" type="button" aria-label="Play: It started at 9:40"></button>
+                </div>
+                <figcaption>It started at 9:40</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/all-that-gone.webp" src="../assets/apps/lustless/clips/all-that-gone.mp4" aria-label="&quot;All that, gone&quot;"></video>
+                  <button class="clip-play" type="button" aria-label="Play: &quot;All that, gone&quot;"></button>
+                </div>
+                <figcaption>&quot;All that, gone&quot;</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/i-deserve-something.webp" src="../assets/apps/lustless/clips/i-deserve-something.mp4" aria-label="&quot;I deserve something&quot;"></video>
+                  <button class="clip-play" type="button" aria-label="Play: &quot;I deserve something&quot;"></button>
+                </div>
+                <figcaption>&quot;I deserve something&quot;</figcaption>
+              </figure>
+              <figure class="clip">
+                <div class="clip-box">
+                  <video playsinline preload="none" poster="../assets/apps/lustless/clips/same-thought.webp" src="../assets/apps/lustless/clips/same-thought.mp4" aria-label="Same thought, different ending"></video>
+                  <button class="clip-play" type="button" aria-label="Play: Same thought, different ending"></button>
+                </div>
+                <figcaption>Same thought, different ending</figcaption>
+              </figure>
+            </div>
+            <div class="follow-max">
+              <span>Not ready yet? Follow Max's story:</span>
+              <a class="follow-btn ig" href="https://www.novadevcodestudio.com/go/lustless/site-ig-follow?to=instagram" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.4.2-1.7.3-.4.2-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.6-.3 1.7-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.4.3 1.7.2.4.3.7.6 1 .3.3.6.5 1 .6.3.1.6.3 1.7.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.4-.2 1.7-.3.4-.2.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.6.3-1.7.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.4-.3-1.7-.2-.4-.3-.7-.6-1-.3-.3-.6-.5-1-.6-.3-.1-.6-.3-1.7-.3-1.3-.1-1.7-.1-4.8-.1Zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm4.6-3.5a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z"/></svg> Follow Max on Instagram</a>
+              <a class="follow-btn tt" href="https://www.novadevcodestudio.com/go/lustless/site-tt-follow?to=tiktok" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path d="M12.9 2h2.7c.2 1.2.8 2.3 1.7 3.1.9.8 2 1.3 3.2 1.4v2.8c-1.8-.1-3.5-.7-4.9-1.7v7.1c0 3.6-2.9 6.5-6.5 6.5S2.6 18.3 2.6 14.7c0-3.5 2.8-6.4 6.3-6.5V11c-1.9.1-3.5 1.7-3.5 3.7 0 2.1 1.7 3.7 3.7 3.7s3.7-1.7 3.7-3.7L12.9 2Z"/></svg> Follow Max on TikTok</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -455,6 +689,14 @@
         <p class="lead">Free to download. Questions: <a href="mailto:support@novadevcodestudio.com">support@novadevcodestudio.com</a></p>
         <p><a class="store-badge-link" href="https://www.novadevcodestudio.com/go/lustless/site" target="_blank" rel="noreferrer" aria-label="Download Lustless on the App Store"><img src="../assets/store/app-store-badge.png" alt="Download on the App Store"></a></p>
         <p><a class="button-soft" href="../support/lustless/">Support page</a> &nbsp; <a class="button-soft" href="../privacy/lustless/">Privacy policy</a></p>
+        <div class="follow-app">
+          <p>Follow Max's story</p>
+          <div class="social-row" aria-label="Lustless on social platforms">
+            <a href="https://www.novadevcodestudio.com/go/lustless/site-ig?to=instagram" target="_blank" rel="noreferrer" aria-label="Lustless on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.4.2-1.7.3-.4.2-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.6-.3 1.7-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.4.3 1.7.2.4.3.7.6 1 .3.3.6.5 1 .6.3.1.6.3 1.7.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.4-.2 1.7-.3.4-.2.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.6.3-1.7.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.4-.3-1.7-.2-.4-.3-.7-.6-1-.3-.3-.6-.5-1-.6-.3-.1-.6-.3-1.7-.3-1.3-.1-1.7-.1-4.8-.1Zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm4.6-3.5a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z"/></svg></a>
+            <a href="https://www.novadevcodestudio.com/go/lustless/site-tt?to=tiktok" target="_blank" rel="noreferrer" aria-label="Lustless on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.9 2h2.7c.2 1.2.8 2.3 1.7 3.1.9.8 2 1.3 3.2 1.4v2.8c-1.8-.1-3.5-.7-4.9-1.7v7.1c0 3.6-2.9 6.5-6.5 6.5S2.6 18.3 2.6 14.7c0-3.5 2.8-6.4 6.3-6.5V11c-1.9.1-3.5 1.7-3.5 3.7 0 2.1 1.7 3.7 3.7 3.7s3.7-1.7 3.7-3.7L12.9 2Z"/></svg></a>
+            <a href="https://www.youtube.com/@LustlessApp" target="_blank" rel="noreferrer" aria-label="Lustless on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2c-.3-1-1-1.8-2-2C19.1 4.7 12 4.7 12 4.7s-7.1 0-9 .5c-1 .3-1.7 1-2 2C.5 9.1.5 12 .5 12s0 2.9.5 4.8c.3 1 1 1.8 2 2 1.9.5 9 .5 9 .5s7.1 0 9-.5c1-.3 1.7-1 2-2 .5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8ZM9.8 15.3V8.7l6 3.3-6 3.3Z"/></svg></a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -487,6 +729,27 @@
     </div>
   </footer>
   <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+  <script>
+    // Max clips: tap to play with sound; only one plays at a time; pause when scrolled away.
+    (function () {
+      var row = document.querySelector('.clip-row'); if (!row) return;
+      var clips = [].slice.call(row.querySelectorAll('.clip'));
+      function stopOthers(keep) { clips.forEach(function (c) { var v = c.querySelector('video'); if (c !== keep && !v.paused) v.pause(); }); }
+      clips.forEach(function (c) {
+        var v = c.querySelector('video');
+        c.querySelector('.clip-play').addEventListener('click', function () { stopOthers(c); v.controls = true; c.classList.add('playing'); v.play().catch(function () {}); });
+        v.addEventListener('play', function () { stopOthers(c); c.classList.add('playing'); });
+      });
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (!e.isIntersecting) e.target.pause(); }); }, { threshold: 0.2 });
+        clips.forEach(function (c) { io.observe(c.querySelector('video')); });
+      }
+      var arrows = document.querySelectorAll('.clip-arrow');
+      function update() { arrows[0].disabled = row.scrollLeft < 4; arrows[1].disabled = row.scrollLeft + row.clientWidth > row.scrollWidth - 4; }
+      arrows.forEach(function (b) { b.addEventListener('click', function () { row.scrollBy({ left: row.clientWidth * +b.dataset.dir, behavior: 'smooth' }); }); });
+      row.addEventListener('scroll', update, { passive: true }); update();
+    })();
+  </script>
   <script>
     document.querySelectorAll('a.video-card[data-yt]').forEach(function (a) {
       a.addEventListener('click', function (e) {
