@@ -25,9 +25,9 @@
 
   <text x="64" y="352" font-family="-apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="500" fill="#6b6358">Keyword research for Mac in 50+ countries</text>
 
-  <!-- Coming soon pill -->
+  <!-- Early Access pill -->
   <rect x="64" y="384" width="290" height="46" rx="23" fill="#ff6b2c"/>
-  <text x="209" y="414" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Coming December 2026</text>
+  <text x="209" y="414" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Early Access open</text>
 
   <!-- Mini keyword board -->
   <g transform="translate(560 96)" filter="url(#shadow)">
