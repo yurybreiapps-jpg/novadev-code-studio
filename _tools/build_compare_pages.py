@@ -356,7 +356,7 @@ IMAGES = dict(
           "costs</strong> and <strong>what happens to what you type</strong> &mdash; and the narrower case "
           "where AI Image Generator Anywhere is the right pick."),
     more_href="../guides/", more_text="Read the guides",
-    cta="Fifty pictures free, <em>nothing collected.</em>",
+    cta="15 pictures free, <em>nothing collected.</em>",
     nav=[("Cloud or device", "#where"), ("What they cost", "#cost"), ("Privacy", "#privacy"),
          ("Side by side", "#table"), ("FAQ", "#faq")],
 )
@@ -383,7 +383,7 @@ IMAGES["sections"] = [
                  ["<strong>Draw Things</strong> (on-device)", "733", "<strong>Free to use.</strong> Optional Draw Things+ at $8.99, and Boost bundles from $0.99 to $19.99."],
                  ["<strong>LocalGen</strong> (on-device)", "164", "$4.99 a week, $9.99 a month, or $29.99 once."],
                  ["<strong>PhoneDiffusion</strong> (on-device)", "31", "$7.99&ndash;$11.99 a month, $16.99&ndash;$23.99 a year, or $24.99 once."],
-                 ["<strong>AI Image Generator Anywhere</strong> (on-device)", "New", "Fifty pictures free, then <strong>one purchase</strong> unlocks it for good. No subscription. The price is on its App Store page."]])
+                 ["<strong>AI Image Generator Anywhere</strong> (on-device)", "New", "15 pictures free, then <strong>one purchase</strong> unlocks it for good. No subscription. The price is on its App Store page."]])
             + "\n" + paras(
                 '<span style="display:block;margin-top:14px"><strong>A weekly plan is the thing to look at twice.</strong> '
                 "$4.99 a week is about $260 a year. A cloud app has a real reason to charge that way: it pays "
@@ -408,7 +408,7 @@ IMAGES["sections"] = [
             table(["What you want", "The others", "AI Image Generator Anywhere"],
                   [("The best picture quality there is", ("yes", "The cloud apps &mdash; much larger models"), ("no", "No. A phone cannot run models that size")),
                    ("Many models and every setting", ("yes", "Draw Things"), ("no", "No &mdash; a few chosen models and simple controls")),
-                   ("Free with no limit", ("yes", "Draw Things"), ("no", "No &mdash; fifty pictures free, then one purchase")),
+                   ("Free with no limit", ("yes", "Draw Things"), ("no", "No &mdash; 15 pictures free, then one purchase")),
                    ("Runs on an older or smaller iPhone", ("yes", "The cloud apps run on anything"), ("no", "No &mdash; it needs 6 GB of memory: an iPhone 14 or later, a 12 Pro or 13 Pro, or an iPad with an M-series chip")),
                    ("Thousands of ratings behind it", ("yes", "DaVinci 76K, Leonardo.Ai 11K"), ("no", "No. It is new")),
                    ("A Mac app", ("yes", "Draw Things"), ("no", "No")),
@@ -435,7 +435,7 @@ IMAGES["faq"] = [
      "Because the model that makes the pictures is inside it. A cloud app is small because its model lives on "
      "a server; an on-device app has to bring it along. It is downloaded once, with the app."),
     ("Is there a subscription?",
-     "No. Fifty pictures are free. After that, one purchase unlocks the app for good and nothing renews. That "
+     "No. 15 pictures are free. After that, one purchase unlocks the app for good and nothing renews. That "
      "is possible only because making a picture costs us nothing &mdash; your device does the work."),
     ("Is anything uploaded?",
      "No. What you type and what you make stay on the device, and there is no account. The only time the app "
@@ -454,7 +454,7 @@ IMAGES["faq_ld"] = [
      "It needs 6 GB of memory for the standard model: an iPhone 14 or later, an iPhone 12 Pro or 13 Pro, or an "
      "iPad with an M-series chip. The higher-detail model needs 12 GB."),
     ("Does AI Image Generator Anywhere have a subscription?",
-     "No. Fifty pictures are free, then one purchase unlocks the app for good. Nothing renews."),
+     "No. 15 pictures are free, then one purchase unlocks the app for good. Nothing renews."),
 ]
 
 PAGES = [("lustless/compare/index.html", page(LUSTLESS)), ("ai-images/compare/index.html", page(IMAGES))]

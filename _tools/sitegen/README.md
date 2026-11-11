@@ -42,7 +42,7 @@ store. The older `shots/screenshots/` set is 1.0 — three tabs, old prompt box
 clears the status bar, 2680 drops the macOS window resize handle.
 
 **Check numbers against the app, not the drafts.** Two were already wrong once:
-the free allowance is fifty (`Store.freeAllowance`), not the ten the drafts
+the free allowance is 15 for new installs from 1.2.3 (`Store.freeAllowance`; fifty before that), not the ten the drafts
 said, and the bundled upscaler is a 33 MB package, not the 31 MB of its weight
 file alone. The price is not in the repo at all — it lives in App Store
 Connect — so no page states a figure.
